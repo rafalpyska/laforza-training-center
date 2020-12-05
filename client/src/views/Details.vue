@@ -1,9 +1,10 @@
 <template>
-  <div class="container">
-    <h1>Test 10!</h1>
-  </div>
+  <section class="section details">
+      <div class="container">
+      <h1>Test!</h1>
+    </div>
+  </section>
 </template>
-
 <script>
 
 

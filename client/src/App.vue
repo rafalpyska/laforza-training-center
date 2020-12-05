@@ -1,6 +1,6 @@
 <template>
-<Header />
-  <router-view />
+  <Header />
+  <router-view/>
   <GoTop />
   <Footer />
 </template>
@@ -9,13 +9,14 @@
   import Header from "@/components/Header.vue";
   import GoTop from "@/components/GoTop.vue";
   import Footer from "@/components/Footer.vue";
+
   export default {
-  components: {
-    Header,
-    GoTop,
-    Footer
-  }
-};
+    components: {
+      Header,
+      GoTop,
+      Footer
+    }
+  };
 </script>
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
@@ -26,6 +27,23 @@
 }
 .row {
   display: flex;
+}
+
+.vueperslide {
+  &__title {
+      text-transform: uppercase;
+      font-size: 3.5em;
+  }
+  &__content {
+    text-transform: uppercase;
+    font-size: 1.75em;
+  }
+}
+.section {
+  font-size: .90rem;
+  padding: 4rem 0;
+  color: var(--white);
+  background-color: var(--color-secondary);
 }
 
 #app {

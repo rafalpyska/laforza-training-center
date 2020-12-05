@@ -1,7 +1,9 @@
 <template>
-  <div class="container">
-    <h1>Test 3!</h1>
-  </div>
+  <section class="section classes">
+      <div class="container">
+      <h1>Test!</h1>
+    </div>
+  </section>
 </template>
 
 <script>

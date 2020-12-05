@@ -4,7 +4,12 @@
         <h1>{{ currentRouteName }}</h1>
         <div class="header__box"><span>Start</span> to engage in sports right now</div>
     </div> -->
-    <vueper-slides fade ref="myVueperSlides" :parallax="parallax" :parallax-fixed-content="parallaxFixedContent">
+    <vueper-slides
+        fade
+        autoplay
+        :pause-on-hover="pauseOnHover"
+        @autoplay-pause="internalAutoPlaying = false"
+        @autoplay-resume="internalAutoPlaying = true">
         <vueper-slide
             v-for="(slide, i) in slides"
             :key="i"
@@ -15,7 +20,12 @@
     <nav class="navigation">
         <ul class="navigation__list container">
             <li class="navigation__item">
-                <router-link to="/" class="navigation__link">Home</router-link>
+                <router-link to="/" id="home" class="navigation__link">
+                    <img src="../assets/images/logos/logo-1.png" class="navigation__logo" alt="LaFORZA Training Center Logo">
+                </router-link>
+            </li>
+            <li class="navigation__item">
+                <router-link to="/" id="home" class="navigation__link">Home</router-link>
             </li>
             <li class="navigation__item">
                 <router-link to="/about" class="navigation__link">About us</router-link>
@@ -54,7 +64,6 @@
 <script>
 
 import { VueperSlides, VueperSlide } from 'vueperslides'
-
 import 'vueperslides/dist/vueperslides.css'
 
 export default {
@@ -64,6 +73,9 @@ export default {
     VueperSlide
   },
 data: () => ({
+  pauseOnHover: true,
+  autoPlaying: true,
+  internalAutoPlaying: true,
   slides: [
     {
         title: 'Little effort',
@@ -112,12 +124,15 @@ data: () => ({
     .navigation {
         font-size: .75rem;
         background-color: var(--navigation-bgc);
+        &__logo {
+            display: block;
+        }
         &__list {
             display: flex;
+            align-items: center;
             justify-content: space-between;
         }
         &__item {
-            padding: 1rem 0;
             text-transform: uppercase;
         }
         &__link:link,

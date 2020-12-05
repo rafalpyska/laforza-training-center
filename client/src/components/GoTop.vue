@@ -2,8 +2,7 @@
   <div class="go-top">
       <div class="container">
           <div class="row">
-            <h2>LaFORZA</h2>
-            <div class="arrow"></div>
+            <img src="../assets/images/logos/footer-logo.png" alt="LaFORZA Training Center Logo">
           </div>
       </div>
   </div>
@@ -21,6 +20,11 @@ export default {
         justify-content: space-around;
         align-items: center;
         background-color: var(--color-primary);
+        &__link {
+            display: block;
+            wifth: 100%;
+            height: 100%;
+        }
     }
     .arrow {
         width: 25px;
