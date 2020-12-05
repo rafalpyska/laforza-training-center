@@ -1,14 +1,15 @@
 <template>
-  <section class="section about">
+  <section class="section details">
       <div class="container">
       <h1>Test!</h1>
     </div>
   </section>
 </template>
-
 <script>
+
+
 export default {
-  name: "About"
+  name: "Details"
 };
 </script>
 

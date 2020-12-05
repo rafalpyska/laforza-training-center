@@ -1,5 +1,5 @@
 <template>
-  <section class="section about">
+  <section class="section stories">
       <div class="container">
       <h1>Test!</h1>
     </div>
@@ -7,8 +7,9 @@
 </template>
 
 <script>
+
 export default {
-  name: "About"
+  name: "Stories"
 };
 </script>
 

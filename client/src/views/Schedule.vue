@@ -1,5 +1,5 @@
 <template>
-  <section class="section about">
+  <section class="section schedule">
       <div class="container">
       <h1>Test!</h1>
     </div>
@@ -7,9 +7,11 @@
 </template>
 
 <script>
+
 export default {
-  name: "About"
+  name: "Schedule"
 };
+
 </script>
 
 <style scoped lang="scss">
