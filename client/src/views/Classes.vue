@@ -1,13 +1,14 @@
 <template>
   <div class="container">
-    <h1>Test!</h1>
+    <h1>Test 3!</h1>
   </div>
 </template>
 
 <script>
 
+
 export default {
-  name: "Home"
+  name: "Classes"
 };
 </script>
 

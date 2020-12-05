@@ -3,7 +3,7 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
-import "./assets/reset.css";
+import "./assets/styles/main.scss";
 
 createApp(App)
   .use(store)

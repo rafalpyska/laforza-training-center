@@ -1,18 +1,37 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+<Header />
   <router-view />
+  <GoTop />
+  <Footer />
 </template>
 
+<script>
+  import Header from "@/components/Header.vue";
+  import GoTop from "@/components/GoTop.vue";
+  import Footer from "@/components/Footer.vue";
+  export default {
+  components: {
+    Header,
+    GoTop,
+    Footer
+  }
+};
+</script>
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.row {
+  display: flex;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Play', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -20,10 +39,10 @@
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--color-primary);
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: var(--color-primary);
     }
   }
 }
