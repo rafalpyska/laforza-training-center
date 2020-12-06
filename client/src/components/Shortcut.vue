@@ -5,7 +5,12 @@
                 
             </div>
             <div class="shortcut__partners">
-
+              <img src="" alt="">
+              <img src="" alt="">
+              <img src="" alt="">
+              <img src="" alt="">
+              <img src="" alt="">
+              <img src="" alt="">
             </div>
             <div class="shortcut__plans"></div>
       </div>

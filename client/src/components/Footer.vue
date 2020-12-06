@@ -54,7 +54,7 @@
             <li class="contacts__item">Telephone: +180 09 435 9876</li>
             <li class="contacts__item">Fax/phone: +180 09 435 9876</li>
             <li class="contacts__item">E-mail: info@laforza.com</li>
-            <li class="contacts__item">Adress: LaForza training center</li>
+            <li class="contacts__item">Address: LaForza training center</li>
           </ul>
         </div>
       </div>
@@ -64,11 +64,18 @@
         <div class="copyrights">
         <p>Copyright &copy; 2020 Rafał Pyska, based on LaForza theme</p>
         <ul class="social-links__list">
-          <li class="social-links__item"></li>
-          <li class="social-links__item"></li>
-          <li class="social-links__item"></li>
-          <li class="social-links__item"></li>
-          <li class="social-links__item"></li>
+          <li class="social-links__item">
+
+          </li>
+          <li class="social-links__item">
+
+          </li>
+          <li class="social-links__item">
+
+          </li>
+          <li class="social-links__item">
+
+          </li>
         </ul>
       </div>
       </div>

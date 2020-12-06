@@ -32,11 +32,11 @@
 .vueperslide {
   &__title {
       text-transform: uppercase;
-      font-size: 3.5em;
+      font-size: 3em;
   }
   &__content {
     text-transform: uppercase;
-    font-size: 1.75em;
+    font-size: 1.5em;
   }
 }
 .section {

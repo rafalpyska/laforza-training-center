@@ -103,6 +103,9 @@ data: () => ({
 </script>
 
 <style scoped lang="scss">
+    .router-link-active {
+    color: var(--color-primary);
+    }
     .wrapper {
         display: flex;
         justify-content: space-between;
