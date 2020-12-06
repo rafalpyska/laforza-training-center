@@ -1,8 +1,16 @@
 <template>
   <div class="go-top">
       <div class="container">
-          <div class="row">
-            <img src="../assets/images/logos/footer-logo.png" alt="LaFORZA Training Center Logo">
+          <div class="go-top-wrapper">
+              <div class="go-top__logo-container">
+                <img src="../assets/images/logos/footer-logo.png" alt="LaFORZA Training Center Logo">
+              </div>
+
+            <div class="arrow">
+                <a href="#home" class="go-top__link">
+
+                </a>
+            </div>
           </div>
       </div>
   </div>
@@ -16,19 +24,28 @@ export default {
 
 <style scoped lang="scss">
     .go-top {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
         background-color: var(--color-primary);
+        &-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+        }
+        &__logo-container {
+            grid-column: 1/3;
+        }
         &__link {
             display: block;
-            wifth: 100%;
-            height: 100%;
         }
     }
     .arrow {
+       justify-self: end;
         width: 25px;
         height: 25px;
         border: 1px solid var(--white);
+        &-icon {
+            fill: #fff;
+            width: 50px;
+            height: 50px;
+        }
     }
 </style>

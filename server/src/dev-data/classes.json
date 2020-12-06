@@ -1,0 +1,31 @@
+[
+    {
+        "id": 0,
+        "name": "Boxinng",
+        "summary": "is improving technique that allows to change the body shape and weight and permanently fix the result achieved. it includes physical training combined with properly chosen diet and exercise.",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur nesciunt ipsam libero, hic numquam odit odio unde, molestiae commodi nobis obcaecati quas architecto fuga? Explicabo labore sequi quam ad provident? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi voluptatum atque minus id eveniet deserunt, nam voluptas iure? Recusandae incidunt consectetur neque autem voluptatem nihil ab? Laboriosam, eveniet? Accusantium, aliquam!",
+        "startDates": ["Monday - Friday 08:00 - 16:00", "Saturday 09:30 - 15:30", "Sundaty 09:30 - 15:30"],
+        "complexity": 3,
+        "maxGroupSize": 6,
+        "duration": "60 min",
+        "price": "599",
+        "imageCover": "boxing.jpg"
+    },
+    {
+        "id": 1,
+        "name": "Gym",
+        "summary": "is improving technique that allows to change the body shape and weight and permanently fix the result achieved. it includes physical training combined with properly chosen diet and exercise.",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur nesciunt ipsam libero, hic numquam odit odio unde, molestiae commodi nobis obcaecati quas architecto fuga? Explicabo labore sequi quam ad provident? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi voluptatum atque minus id eveniet deserunt, nam voluptas iure? Recusandae incidunt consectetur neque autem voluptatem nihil ab? Laboriosam, eveniet? Accusantium, aliquam!",
+        "startDates": ["Monday - Friday 08:00 - 16:00", "Saturday 09:30 - 15:30", "Sundaty 09:30 - 15:30"],
+        "imageCover": "gym.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Mma",
+        "summary": "is improving technique that allows to change the body shape and weight and permanently fix the result achieved. it includes physical training combined with properly chosen diet and exercise.",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur nesciunt ipsam libero, hic numquam odit odio unde, molestiae commodi nobis obcaecati quas architecto fuga? Explicabo labore sequi quam ad provident? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi voluptatum atque minus id eveniet deserunt, nam voluptas iure? Recusandae incidunt consectetur neque autem voluptatem nihil ab? Laboriosam, eveniet? Accusantium, aliquam!",
+        "startDates": ["Monday - Friday 08:00 - 16:00", "Saturday 09:30 - 15:30", "Sundaty 09:30 - 15:30"],
+        "imageCover": "mma.jpg"
+    }
+  ]
+  
