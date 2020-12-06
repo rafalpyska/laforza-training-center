@@ -12,61 +12,27 @@
             </div>
           </div>
         </div>
-        <div class="section__content">
-          <div class="course course__info">
-            <h2 class="course__heading">Boxing</h2>
-            <p class="course__description">is improving technique that allows to change the body shape and weight and permanently fix the result achieved. it includes physical training combined with properly chosen diet and exercise.</p>
-            <a href="#" class="btn btn__more">More</a>
-          </div>
-          <div class="course__image-container">
-            <img src="../assets/images/home/boxing.jpg" class="course__img" alt="boxing">
-          </div>
-          <div class="course course__hours">
-            <h2 class="course__heading">Course days</h2>
-            <p class="course__description">in the cost of employment includes a free consultation train and a sauna with a swimming pool</p>
-            <p class="course__description">monday - friday 08:00 - 16:00</p>
-            <p class="course__description">saturday 09:30 - 15:30</p>
-            <p class="course__description">sunday 09:30 - 15:30</p>
-          </div>
-          <div class="course__image-container">
-            <img src="../assets/images/home/gym.jpg" class="course__img" alt="gym">
-          </div>
-          <div class="course course__hours">
-            <h2 class="course__heading">Course days</h2>
-            <p class="course__description">in the cost of employment includes a free consultation train and a sauna with a swimming pool</p>
-            <p class="course__description">monday - friday 08:00 - 16:00</p>
-            <p class="course__description">saturday 09:30 - 15:30</p>
-            <p class="course__description">sunday 09:30 - 15:30</p>
-          </div>
-          <div class="course course__info">
-            <h2 class="course__heading">Gym</h2>
-            <p class="course__description">is improving technique that allows to change the body shape and weight and permanently fix the result achieved. it includes physical training combined with properly chosen diet and exercise.</p>
-            <a href="#" class="btn btn__more">More</a>
-          </div>
-          <div class="course course__hours">
-            <h2 class="course__heading">Course days</h2>
-            <p class="course__description">in the cost of employment includes a free consultation train and a sauna with a swimming pool</p>
-            <p class="course__description">monday - friday 08:00 - 16:00</p>
-            <p class="course__description">saturday 09:30 - 15:30</p>
-            <p class="course__description">sunday 09:30 - 15:30</p>
-          </div>
-          <div class="course__image-container">
-            <img src="../assets/images/home/mma.jpg" class="course__img" alt="mma">
-          </div>
-          <div class="course course__info">
-            <h2 class="course__heading">Mma</h2>
-            <p class="course__description">is improving technique that allows to change the body shape and weight and permanently fix the result achieved. it includes physical training combined with properly chosen diet and exercise.</p>
-            <a href="#" class="btn btn__more">More</a>
-          </div>
-        </div>
+        <CoursesHome v-for="course in courses" :key="course.id" :course="course"/>
     </div>
   </section>
 </template>
 
 <script>
+import CoursesHome from "../components/CoursesHome";
 
 export default {
-  name: "Home"
+  name: "Home",
+  components: {
+    CoursesHome
+  },
+  computed: {
+    courses() {
+       return this.$store.state.courses;
+    }
+  },
+  mounted() {
+    this.$store.dispatch('fetchCourses');
+  }
 };
 </script>
 
