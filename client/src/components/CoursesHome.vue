@@ -1,6 +1,6 @@
 <template>
     <div class="section__course">
-        <div class="course course__info">
+        <div :class="`course course__info course__info-${this.course.name.toLowerCase()}`">
             <h2 class="course__heading">{{this.course.name}}</h2>
             <p class="course__description">{{this.course.summary}}</p>
             <a href="#" class="btn btn__more">More</a>
@@ -40,6 +40,12 @@
         &__info {
             color: black;
             background-color: var(--white);
+            &-boxing {
+                order: 3;
+            }
+            &-mma {
+                order: 2;
+            }
         }
         &__heading {
             font-size: 1.75em;
