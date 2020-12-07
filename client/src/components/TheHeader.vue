@@ -142,9 +142,9 @@ data: () => ({
         &__link:visited {
             color: var(--white);
         }
-        &__link:focus,
         &__link:hover,
-        &__link:active {
+        &__link:active,
+        & .router-link-active {
             color: var(--color-primary);
         }
     }

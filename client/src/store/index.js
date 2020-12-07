@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    courses: [],
+    courses: null,
     loading: true
   },
   mutations: {
