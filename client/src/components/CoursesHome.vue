@@ -1,9 +1,12 @@
 <template>
     <div class="section__course">
-        <div class="course course__info">
+        <div :class="`course course__info course__info-${this.course.name.toLowerCase()}`">
             <h2 class="course__heading">{{this.course.name}}</h2>
             <p class="course__description">{{this.course.summary}}</p>
-            <a href="#" class="btn btn__more">More</a>
+            <!-- <a href="#" class="btn btn__more">More</a> -->
+            <AppButton type="more">
+                More
+            </AppButton>
         </div>
         <div class="course__image-container">
             <img :src="require('../assets/images/home/' + this.course.image)" class="course__img" alt="boxing">
@@ -16,8 +19,12 @@
 </template>
 
 <script>
+import AppButton from './AppButton'
   export default {
     name: "CoursesHome",
+    components: {
+        AppButton
+    },
     props: {
         course: {
             type: Object,
@@ -40,6 +47,12 @@
         &__info {
             color: black;
             background-color: var(--white);
+            &-boxing {
+                order: 3;
+            }
+            &-mma {
+                order: 2;
+            }
         }
         &__heading {
             font-size: 1.75em;

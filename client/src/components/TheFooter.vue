@@ -51,6 +51,7 @@
         </nav>
         <div class="contacts">
           <ul class="contacts__list">
+            <!-- TODO: Fontawesome doesn't work on Vue 3 - do something with icons -->
             <li class="contacts__item">Telephone: +180 09 435 9876</li>
             <li class="contacts__item">Fax/phone: +180 09 435 9876</li>
             <li class="contacts__item">E-mail: info@laforza.com</li>
@@ -64,6 +65,7 @@
         <div class="copyrights">
         <p>Copyright &copy; 2020 Rafał Pyska, based on LaForza theme</p>
         <ul class="social-links__list">
+          <!-- TODO: Fontawesome doesn't work on Vue 3 - do something with icons -->
           <li class="social-links__item">
 
           </li>
@@ -86,7 +88,7 @@
 <script>
 
 export default {
-  name: "Footer"
+  name: "TheFooter"
 };
 </script>
 

@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "name": "Basic",
+        "courses": ["boxing", "swimming pool"],
+        "price": "50"
+    },
+    {
+        "id": 1,
+        "name": "Standard",
+        "courses": ["boxing", "swimming pool", "muai thay"],
+        "price": "95"
+    },
+    {
+        "id": 2,
+        "name": "Special",
+        "courses": ["boxing", "swimming pool", "muai thay", "yoga"],
+        "price": "120"
+    },
+    {
+        "id": 3,
+        "name": "Professional",
+        "courses": ["boxing", "swimming pool", "muai thay", "yoga", "fitness", "fitbox"],
+        "price": "200"
+    }
+  ]

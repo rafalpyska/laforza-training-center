@@ -26,8 +26,12 @@ export default {
     CoursesHome
   },
   computed: {
+    // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
+    loading() {
+      return this.$store.state.loading;
+    },
     courses() {
-       return this.$store.state.courses;
+      return this.$store.state.courses;
     }
   },
   mounted() {
@@ -37,58 +41,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .section {
-    &__description {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-bottom: 4rem;
-      &-info {
-        grid-column: 1/3;
-        margin-right: 4em;
-      }
-      &-encouragement {
-        flex: 1 1 40%;
-      }
-    }
-    &__content {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 25rem;
-    }
-  }
-  .encouragement-box {
-    padding: 2rem 1rem;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: var(--color-primary);
-  }
 
-  .course {
-    padding: 3.5rem 2.5rem;
-    &__info {
-      color: black;
-      background-color: var(--white);
-    }
-    &__heading {
-      font-size: 1.75em;
-      text-transform: uppercase;
-    }
-    &__description {
-      font-size: .9em;
-      margin: 1em 0;
-      text-transform: uppercase;
-    }
-    &__img {
-      object-fit: cover;
-      width: 100%;
-      max-height: 100%;
-    }
-
-    &__hours {
-      background-color: var(--color-primary);
-      &:first-of-type {
-        order: 31;
-      }
-    }
-  }
 </style>
