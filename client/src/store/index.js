@@ -14,8 +14,8 @@ export default createStore({
     }
   },
   actions: {
-    fetchCourses({ commit }) {
-      return fetch('http://localhost:8081/api/classes')
+    async fetchCourses({ commit }) {
+      return await fetch('http://localhost:8081/api/classes')
         .then(response => response.json())
         .then(data => {
           commit('loading');

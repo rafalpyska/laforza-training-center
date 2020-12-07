@@ -41,24 +41,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .section {
-    &__description {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-bottom: 4rem;
-      &-info {
-        grid-column: 1/3;
-        margin-right: 4em;
-      }
-      &-encouragement {
-        flex: 1 1 40%;
-      }
-    }
-  }
-  .encouragement-box {
-    padding: 2rem 1rem;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: var(--color-primary);
-  }
+
 </style>
