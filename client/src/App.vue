@@ -45,6 +45,11 @@
       font-size: 1.5em;
     }
   }
+  .image {
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+  }
   .section {
     font-size: .90rem;
     padding: 4rem 0;

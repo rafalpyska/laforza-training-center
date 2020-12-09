@@ -12,18 +12,18 @@
             </div>
           </div>
         </div>
-        <CoursesHome v-for="course in courses" :key="course.id" :course="course"/>
+        <ClassesHome v-for="course in courses" :key="course.id" :course="course"/>
     </div>
   </section>
 </template>
 
 <script>
-import CoursesHome from "../components/CoursesHome";
+import ClassesHome from "../components/ClassesHome";
 
 export default {
   name: "Home",
   components: {
-    CoursesHome
+    ClassesHome
   },
   computed: {
     // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading

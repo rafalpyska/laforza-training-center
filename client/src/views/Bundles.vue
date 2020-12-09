@@ -3,31 +3,25 @@
       <div class="container">
         <div class="section__description">
           <div class="section__description-info">
-            <h2 class="color-primary">Prices</h2>
+            <h2 class="color-primary">Bundles</h2>
             <p>Etiam rhoncus. Maecenas tempus</p>
           </div>
         </div>
         <div class="section__courses-bundles-container">
-          <CoursesBundle v-for="course in courses" :key="course.id" :course="course"/>
+          <ClassesBundle v-for="course in courses" :key="course.id" :course="course"/>
         </div>
     </div>
   </section>
 </template>
 
 <script>
-import CoursesBundle from '../components/CoursesBundle.vue';
+import ClassesBundle from '../components/ClassesBundle.vue';
 
 
 export default {
-  name: "Prices",
+  name: "Bundles",
   components: {
-    CoursesBundle
-  },
-  props: {
-    course: {
-      type: Object,
-      required: true
-    }
+    ClassesBundle
   },
   computed: {
     loading() {
@@ -40,7 +34,7 @@ export default {
   mounted() {
     this.$store.dispatch('fetchCourses');
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
