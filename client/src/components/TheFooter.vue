@@ -105,7 +105,7 @@ export default {
       grid-gap: 2rem;
     }
     &__copyrights {
-      margin-top: 2em;
+      margin-top: 2rem;
     }
   }
   .pages {
@@ -115,7 +115,7 @@ export default {
       flex-direction: column;
       list-style-type: square;
       &:first-of-type {
-        margin-right: 3em;
+        margin-right: 3rem;
       }
     }
     &__item {
@@ -139,7 +139,7 @@ export default {
       flex-direction: column;
     }
     &__item:not(:last-child) {
-      margin-bottom: 1em;
+      margin-bottom: 1rem;
     }
   }
 </style>
