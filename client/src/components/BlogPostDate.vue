@@ -1,8 +1,8 @@
 <template>
-    <div class="blog__post-date">
-        <p class="blog__post-date-day">16</p>
-        <p class="blog__post-date-month">Sep</p>
-    </div>
+	<div class="blog__post-date">
+		<p class="blog__post-date-day">16</p>
+		<p class="blog__post-date-month">Sep</p>
+	</div>
 </template>
 
 <script>

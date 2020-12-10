@@ -31,28 +31,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .blog__post {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: auto;
-        margin-bottom: 4rem;
-        font-size: .8rem;
-        &:hover .blog__post-date{
-            background-color: var(--color-primary);
-        }
-        &-image-container {
-            position: relative;
-            grid-column: 1/3;
-        }
-        &-shortened {
-            padding: 2rem;
-            background-color: var(--blog-post-shortened-bgc);
-        }
-        &-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1.75rem;
-        }
-    }
+	.blog__post {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: auto;
+		margin-bottom: 4rem;
+		font-size: .8rem;
+		&:hover .blog__post-date{
+				background-color: var(--color-primary);
+		}
+		&-image-container {
+				position: relative;
+				grid-column: 1/3;
+		}
+		&-shortened {
+				padding: 2rem;
+				background-color: var(--blog-post-shortened-bgc);
+		}
+		&-controls {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 1.75rem;
+		}
+	}
 </style>
