@@ -1,7 +1,10 @@
 <template>
 	<div class="section__course">
 		<div :class="`course course__info course__info-${this.course.name.toLowerCase()}`">
-			<h2 class="course__heading">{{this.course.name}}</h2>
+			<h2 class="course__heading">
+				<i :class="`course__icon ${this.course.icon}`" aria-hidden="true"></i>
+				{{this.course.name}}
+				</h2>
 			<p class="course__description">{{this.course.summary}}</p>
 			<!-- <a href="#" class="btn btn__more">More</a> -->
 			<AppButton type="more">
@@ -40,7 +43,7 @@ export default {
 					display: grid;
 					grid-template-columns: repeat(3, 1fr);
 					grid-auto-rows: auto;
-					font-size: .8rem;
+					font-size: .85rem;
 			}
 	}
 	.course {
@@ -58,6 +61,9 @@ export default {
 		&__heading {
 			font-size: 1.75em;
 			text-transform: uppercase;
+		}
+		&__icon {
+			color: var(--color-primary);
 		}
 		&__description {
 			font-size: .9em;

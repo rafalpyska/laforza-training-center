@@ -9,7 +9,8 @@
         "maxGroupSize": 6,
         "duration": "60 min",
         "price": "599",
-        "image": "boxing.jpg"
+        "image": "boxing.jpg",
+        "icon": "fas fa-heartbeat"
     },
     {
         "id": 1,
@@ -21,7 +22,8 @@
         "maxGroupSize": 6,
         "duration": "60 min",
         "price": "599",
-        "image": "gym.jpg"
+        "image": "gym.jpg",
+        "icon": "fas fa-dumbbell"
     },
     {
         "id": 2,
@@ -33,7 +35,8 @@
         "maxGroupSize": 6,
         "duration": "60 min",
         "price": "599",
-        "image": "mma.jpg"
+        "image": "mma.jpg",
+        "icon": "fas fa-heartbeat"
     },
     {
         "id": 3,
@@ -45,7 +48,8 @@
         "maxGroupSize": 6,
         "duration": "60 min",
         "price": "599",
-        "image": "boxing.jpg"
+        "image": "boxing.jpg",
+        "icon": "fas fa-fist-raised"
     }
   ]
   
