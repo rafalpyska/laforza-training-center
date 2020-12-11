@@ -39,7 +39,7 @@ import AppButton from './AppButton'
     grid-template-columns: repeat(2, 1fr) max-content;
     grid-auto-rows: minmax(10rem, 20rem);
 		gap: 2rem;
-		font-size: .8rem;
+		font-size: .85rem;
 		&__img {
 			object-fit: cover;
 			width: 100%;
