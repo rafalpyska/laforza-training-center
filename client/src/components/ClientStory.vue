@@ -1,5 +1,5 @@
 <template>
-  <section class="client-story">
+  <div class="client-story">
     <div class="client-story__content">
       <blockquote cite="client-id">
         <p class="client-story__paragraph">Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus. Ut id nisl quis enim dignissim sagittis.
@@ -17,7 +17,7 @@
         User 1<span class="story__user-name-description">Happy client</span>
       </figcaption>
     </figure>    
-  </section>
+  </div>
 </template>
 <script>
   export default {
@@ -26,7 +26,6 @@
 </script>
 <style scoped lang="scss">
   .client-story {
-      width: 50%;
       &__paragraph {
         color: var(--client-story-text-color);
       }
