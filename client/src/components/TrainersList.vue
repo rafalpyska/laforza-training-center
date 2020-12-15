@@ -7,31 +7,38 @@
 			<h3 class="trainer__heading">Bruce Luis <span class="trainer__class">Boxing</span></h3>
 			<p class="trainer__description">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante etiam sit amet</p>
 			<ul class="trainer__titles-list">
-				<li class="trainer__titles-item"><i class="fas fa-star-half-alt trainer__schedule-icon"></i>Gain confidence</li>
-				<li class="trainer__titles-item"><i class="fas fa-star-half-alt trainer__schedule-icon"></i>Strength development</li>
-				<li class="trainer__titles-item"><i class="fas fa-star-half-alt trainer__schedule-icon"></i>Development speed</li>
+				<li class="trainer__titles-item"><i class="fas fa-star-half-alt trainer__schedule-icon" aria-hidden="true"></i>Gain confidence</li>
+				<li class="trainer__titles-item"><i class="fas fa-star-half-alt trainer__schedule-icon" aria-hidden="true"></i>Strength development</li>
+				<li class="trainer__titles-item"><i class="fas fa-star-half-alt trainer__schedule-icon" aria-hidden="true"></i>Development speed</li>
 			</ul>
 			<div class="trainer__socials">
 				<a href="#" class="href trainer__socials-link">
-					<i class="fab fa-facebook-f trainer__socials-icon" aria-hidden="true"></i>
+					<i class="fab fa-facebook-f trainer__socials-icon" aria-hidden="true">
+						<span class="visuallyhidden">Facebook</span>
+					</i>
 				</a>
 				<a href="#" class="href trainer__socials-link">
-					<i class="fab fa-twitter trainer__socials-icon" aria-hidden="true"></i>
+					<i class="fab fa-twitter trainer__socials-icon" aria-hidden="true">
+						<span class="visuallyhidden">Twitter</span>
+					</i>
 				</a>
 				<a href="#" class="href trainer__socials-link">
-					<i class="fab fa-instagram trainer__socials-icon" aria-hidden="true"></i>
+					<i class="fab fa-instagram trainer__socials-icon" aria-hidden="true">
+						<span class="visuallyhidden">Instagram</span>
+					</i>
 				</a>
 			</div>
 		</div>
 		<div class="trainer__general-info">
 			<h3 class="trainer__heading">Schedule</h3>
+			<span class="visuallyhidden">Facebook</span>
 				<ul class="trainer__schedule-list">
-					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon"></i>Gain confidence</li>
-					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon"></i>Strength development</li>
-					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon"></i>Development speed</li>
-					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon"></i>Increase dexterity</li>
-					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon"></i>Increase stamina</li>
-					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon"></i>An athletic body</li>
+					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon" aria-hidden="true"></i>Gain confidence</li>
+					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon" aria-hidden="true"></i>Strength development</li>
+					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon" aria-hidden="true"></i>Development speed</li>
+					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon" aria-hidden="true"></i>Increase dexterity</li>
+					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon" aria-hidden="true"></i>Increase stamina</li>
+					<li class="trainer__schedule-item"><i class="far fa-star trainer__schedule-icon" aria-hidden="true"></i>An athletic body</li>
 				</ul>
 			<AppButton type="schedule">
 				Enroll
@@ -83,7 +90,7 @@ import AppButton from './AppButton'
 		}
 		&__socials {
 		margin-top: 1.25rem;
-		font-size: 1.42rem;
+		font-size: 1.25rem;
 			&-link {
 				color: var(--class-social-icon-color);
 				&:not(:last-child) {
