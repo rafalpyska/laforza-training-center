@@ -4,20 +4,20 @@
             <img src="http://dummyimage.com/750x750" class="image" alt="placeholder">
         </div>
         <div class="class__info">
-          <h3 class="class__heading">Boxing <span>BRUCE LUIS / EMILIAN SALVATORE</span></h3>
+          <h3 class="class__heading">Boxing <span class="class__trainer">BRUCE LUIS / EMILIAN SALVATORE</span></h3>
           <p class="class__description">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante etiam sit amet</p>
           <AppButton type="enroll">
               Enroll
           </AppButton>
           <div class="class__socials">
             <a href="#" class="href class__socials-link">
-              <i class="fab fa-facebook class__socials-icon" aria-hidden="true"></i>
+              <i class="fab fa-facebook-f class__socials-icon" aria-hidden="true"></i>
             </a>
             <a href="#" class="href class__socials-link">
               <i class="fab fa-twitter class__socials-icon" aria-hidden="true"></i>
             </a>
             <a href="#" class="href class__socials-link">
-              <i class="fab fa-google-plus class__socials-icon" aria-hidden="true"></i>
+              <i class="fab fa-instagram class__socials-icon" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -72,12 +72,20 @@ import AppButton from './AppButton'
 		&__info {
 			color: white;
 		}
+    &__heading {
+      text-transform: uppercase;
+    }
+    &__trainer {
+      margin-left: .35rem;
+      color: var(--color-primary);
+      font-size: .85rem;
+    }
 		&__description {
 			margin: 1rem 0;
 		}
     &__socials {
       margin-top: 1.25rem;
-      font-size: 1.52rem;
+      font-size: 1.42rem;
       &-link {
         color: var(--class-social-icon-color);
         &:not(:last-child) {
@@ -93,7 +101,7 @@ import AppButton from './AppButton'
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			font-size: .9em;
+			font-size: .7rem;
       margin: 2rem 0;
       padding: 0 2rem;
 			text-align: center;

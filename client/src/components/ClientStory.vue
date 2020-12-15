@@ -1,5 +1,5 @@
 <template>
-  <div class="client-story">
+  <section class="client-story">
     <div class="client-story__content">
       <blockquote cite="client-id">
         <p class="client-story__paragraph">Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus. Ut id nisl quis enim dignissim sagittis.
@@ -17,7 +17,7 @@
         User 1<span class="story__user-name-description">Happy client</span>
       </figcaption>
     </figure>    
-  </div>
+  </section>
 </template>
 <script>
   export default {

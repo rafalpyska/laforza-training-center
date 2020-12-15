@@ -38,7 +38,7 @@ export default {
 					color: var(--white);
 			}
 		}
-		&__sign-up, &__read-more, &__enroll {
+		&__sign-up, &__read-more, &__enroll, &__schedule {
 			color: var(--white);
 			background-color: var(--color-primary);
 			&:hover,
