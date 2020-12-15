@@ -48,9 +48,6 @@
 						<router-link to="/blog" class="navigation__link">Blog</router-link>
 				</li>
 				<li class="navigation__item">
-						<router-link to="/details" class="navigation__link">Details</router-link>
-				</li>
-				<li class="navigation__item">
 						<router-link to="/contact" class="navigation__link">Contact</router-link>
 				</li>
 			</ul>

@@ -1,7 +1,12 @@
 <template>
   <section class="section schedule">
       <div class="container">
-      <h1>Test!</h1>
+      <div class="section__description">
+        <div class="section__description-info">
+          <h2 class="color-primary">Schedule</h2>
+          <p>Etiam rhoncus. Maecenas tempus</p>
+        </div>
+      </div>
     </div>
   </section>
 </template>

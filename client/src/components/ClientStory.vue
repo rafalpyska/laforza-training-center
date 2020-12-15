@@ -26,7 +26,6 @@
 </script>
 <style scoped lang="scss">
   .client-story {
-      width: 50%;
       &__paragraph {
         color: var(--client-story-text-color);
       }
