@@ -116,6 +116,7 @@ data: () => ({
 			}
     }
     .navigation {
+			font-family: 'Play', sans-serif;
 			font-size: .75rem;
 			background-color: var(--navigation-bgc);
 			&__logo {

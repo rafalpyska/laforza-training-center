@@ -43,7 +43,7 @@ export default {
 					display: grid;
 					grid-template-columns: repeat(3, 1fr);
 					grid-auto-rows: auto;
-					font-size: .85rem;
+					font-size: .8rem;
 			}
 	}
 	.course {
@@ -59,6 +59,7 @@ export default {
 			}
 		}
 		&__heading {
+			font-family: 'Play', sans-serif;
 			font-size: 1.75em;
 			text-transform: uppercase;
 		}

@@ -43,6 +43,7 @@
         font-size: 1.5rem;
       }
       &__content {
+      font-family: 'Play', sans-serif;
       position: relative;
       // temporary width
       padding: 3rem 2rem;

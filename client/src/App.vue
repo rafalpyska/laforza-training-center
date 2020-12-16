@@ -7,7 +7,7 @@
     </template>
     <template v-slot:last-column>
       <a href="#home" class="go-top">
-        <i class="fas fa-angle-up go-top__icon"></i>
+        <i class="fas fa-chevron-up go-top__icon"></i>
       </a>
     </template>
   </ActionStrip>
@@ -29,12 +29,14 @@
 </script>
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap');
   @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
   #app {
-    font-family: 'Play', sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-secondary);
   }
 
   .container {
@@ -72,6 +74,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       margin-bottom: 4rem;
+      font-size: .85rem;
       &-info {
         grid-column: 1/3;
         margin-right: 4em;
@@ -95,8 +98,9 @@
     justify-self: end;
     width: 2rem;
     height: 2rem;
-    border: 2px solid var(--white);
+    border: 1px solid var(--white);
     &__icon {
+      font-size: .65rem;
       color: white;
     }
   }
