@@ -14,6 +14,16 @@
           Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.</p>
       </div>
     </div>
+    <ActionStrip>
+      <template v-slot:first-column>
+        <p class="action-strip__name">Client Stories</p>
+      </template>
+      <template v-slot:last-column>
+        <AppButton type="send-story">
+          Send story
+        </AppButton>
+      </template>
+    </ActionStrip>
     <div class="stories__list-wrapper">
       <div class="stories__list container">
         <ClientStory />
@@ -30,10 +40,14 @@
 <script>
 
 import ClientStory from '../components/ClientStory'
+import ActionStrip from "@/components/ActionStrip.vue";
+import AppButton from "@/components/AppButton.vue";
 export default {
   name: "Stories",
   components: {
-    ClientStory
+    ClientStory,
+    ActionStrip,
+    AppButton
   }
 };
 </script>
@@ -49,9 +63,9 @@ export default {
       margin-bottom: 4rem;
     }
     &__list {
-      padding: 8rem 0;
+      padding: 4rem 0;
       &-wrapper {
-        background-color: var(--stories-list-bgc);
+        // background-color: var(--stories-list-bgc);
       }
     }
   }

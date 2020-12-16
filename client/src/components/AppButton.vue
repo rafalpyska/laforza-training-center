@@ -48,5 +48,15 @@ export default {
 					color: var(--color-primary);
 			}
 		}
+		&__send-story {
+			color: white;
+			border: 1px solid white;
+			&:hover,
+			&:focus,
+			&:active {
+					background-color: var(--white);
+					color: black;
+			}
+		}
 	}
 </style>

@@ -1,18 +1,19 @@
 <template>
   <section class="section about">
-      <div class="container">
-        <ClientStory />
+    <div class="container">
+      <div class="section__description">
+        <div class="section__description-info">
+          <h2 class="color-primary">Client Stories</h2>
+          <p>Etiam rhoncus. Maecenas tempus</p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import ClientStory from '../components/ClientStory'
 export default {
-  name: "About",
-  components: {
-    ClientStory
-  }
+  name: "About"
 };
 </script>
 

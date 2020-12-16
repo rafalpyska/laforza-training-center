@@ -1,19 +1,28 @@
 <template>
   <TheHeader />
   <router-view/>
-  <GoTop />
+  <ActionStrip>
+    <template v-slot:first-column>
+      <img src="./assets/images/logos/footer-logo.png" alt="LaFORZA Training Center Logo">
+    </template>
+    <template v-slot:last-column>
+      <a href="#home" class="go-top">
+        <i class="fas fa-angle-up go-top__icon"></i>
+      </a>
+    </template>
+  </ActionStrip>
   <TheFooter />
 </template>
 
 <script>
   import TheHeader from "@/components/TheHeader.vue";
-  import GoTop from "@/components/GoTop.vue";
+  import ActionStrip from "@/components/ActionStrip.vue";
   import TheFooter from "@/components/TheFooter.vue";
 
   export default {
     components: {
       TheHeader,
-      GoTop,
+      ActionStrip,
       TheFooter
     }
   };
@@ -77,5 +86,21 @@
     text-align: center;
     text-transform: uppercase;
     background-color: var(--color-primary);
+  }
+
+  .go-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--white);
+    &__icon {
+      color: white;
+    }
+  }
+  .action-strip__name {
+    font-size: 1rem;
   }
 </style>
