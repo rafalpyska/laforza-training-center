@@ -1,17 +1,20 @@
 <template>
   <header class="header">
+		<!-- fixed-height="100vh" on slider-->
     <vueper-slides
 			fade
 			autoplay
 			:pause-on-hover="pauseOnHover"
 			@autoplay-pause="internalAutoPlaying = false"
-			@autoplay-resume="internalAutoPlaying = true">
+			@autoplay-resume="internalAutoPlaying = true"
+			:parallax="parallax"
+			:parallax-fixed-content="parallaxFixedContent">
 			<vueper-slide
 				v-for="(slide, i) in slides"
 				:key="i"
 				:image="slide.image"
-				:title="slide.title"
-				:content="slide.content" />
+				:title="parallaxFixedContent ? slide.title : ''"
+				:content="parallaxFixedContent ? slide.content : ''" />
     </vueper-slides>
     <nav class="navigation">
 			<ul class="navigation__list container">
@@ -68,7 +71,9 @@ export default {
 data: () => ({
   pauseOnHover: true,
   autoPlaying: true,
-  internalAutoPlaying: true,
+	internalAutoPlaying: true,
+	parallax: 1,
+	parallaxFixedContent: true,
   slides: [
     {
 			title: 'Little effort',

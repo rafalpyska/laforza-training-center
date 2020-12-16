@@ -99,6 +99,12 @@
     width: 2rem;
     height: 2rem;
     border: 1px solid var(--white);
+    &:hover {
+      background-color: white;
+    }
+    &:hover &__icon {
+      color: var(--color-primary);
+    }
     &__icon {
       font-size: .65rem;
       color: white;

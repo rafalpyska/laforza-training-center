@@ -9,7 +9,7 @@
   transition: .2s border-left;
   &:focus {
     outline: none;
-    border-left: 5px solid var(--color-primary);
+    border-left: 4px solid var(--color-primary);
     transition: .3s border-left;
   }
   &:not(:last-of-type) {
