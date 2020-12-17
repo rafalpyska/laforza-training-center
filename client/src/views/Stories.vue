@@ -60,6 +60,7 @@ export default {
       gap: 4rem;
     }
     &__info {
+      font-size: .8rem;
       margin-bottom: 4rem;
     }
     &__list {
