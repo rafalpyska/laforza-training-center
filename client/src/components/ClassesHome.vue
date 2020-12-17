@@ -12,7 +12,8 @@
 			</AppButton>
 		</div>
 		<div class="course__image-container">
-			<img :src="require('../assets/images/home/' + this.course.image)" class="image" alt="boxing">
+			
+			<img :src="`http://localhost:1337${this.course.image.url}`" class="image" alt="boxing">
 		</div>
 		<div class="course course__hours">
 			<h2 class="course__heading">Course days</h2>

@@ -15,11 +15,16 @@ export default createStore({
   },
   actions: {
     async fetchCourses({ commit }) {
-      return await fetch('http://localhost:8081/api/classes')
+      return await fetch('http://localhost:1337/classes', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
         .then(response => response.json())
         .then(data => {
           commit('loading');
-          commit('SET_COURSES', data.data.classes);
+          commit('SET_COURSES', data);
         }) // TODO: handle errors (catch)
     }
   },
