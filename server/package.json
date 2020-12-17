@@ -1,21 +1,37 @@
 {
   "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
   "scripts": {
-    "start": "nodemon src/app.js --exec"
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.6"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "morgan": "^1.10.0"
-  }
+    "strapi": "3.4.0",
+    "strapi-admin": "3.4.0",
+    "strapi-utils": "3.4.0",
+    "strapi-plugin-content-type-builder": "3.4.0",
+    "strapi-plugin-content-manager": "3.4.0",
+    "strapi-plugin-users-permissions": "3.4.0",
+    "strapi-plugin-email": "3.4.0",
+    "strapi-plugin-upload": "3.4.0",
+    "strapi-connector-bookshelf": "3.4.0",
+    "knex": "<0.20.0",
+    "sqlite3": "latest"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "dd44679b-523d-4f01-b013-7df75428155c"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
 }
