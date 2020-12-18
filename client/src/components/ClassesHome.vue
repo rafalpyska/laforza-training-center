@@ -2,22 +2,22 @@
 	<div class="section__course">
 		<div :class="`course course__info course__info-${this.course.name.toLowerCase()}`">
 			<h2 class="course__heading">
-				<i :class="`course__icon ${this.course.icon}`" aria-hidden="true"></i>
-				{{this.course.name}}
+				<i :class="`course__icon ${course.icon}`" aria-hidden="true"></i>
+				{{ course.name }}
 				</h2>
-			<p class="course__description">{{this.course.summary}}</p>
+			<p class="course__description">{{ course.summary }}</p>
 			<!-- <a href="#" class="btn btn__more">More</a> -->
 			<AppButton type="more">
 				More
 			</AppButton>
 		</div>
 		<div class="course__image-container">
-			<ImageItem :source="`http://localhost:1337${this.course.image.url}`" :alt="`${this.course.image.alternativeText}`"/>
+			<ImageItem :source="`http://localhost:1337${course.image.url}`" :alt="`${course.image.alternativeText}`"/>
 			<!-- <img :src="`http://localhost:1337${this.course.image.url}`" class="image" alt="boxing"> -->
 		</div>
 		<div class="course course__hours">
 			<h2 class="course__heading">Course days</h2>
-			<p class="course__description">{{this.course.description}}</p>
+			<p class="course__description">{{ course.description }}</p>
 		</div>
 	</div>
 </template>
@@ -33,8 +33,8 @@ export default {
 	},
 	props: {
 		course: {
-				type: Object,
-				required: true
+			type: Object,
+			required: true
 		}
 	}
 }

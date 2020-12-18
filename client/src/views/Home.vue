@@ -31,11 +31,11 @@ export default {
       return this.$store.state.loading;
     },
     courses() {
-      return this.$store.state.courses;
+      return this.$store.state.classes;
     }
   },
   mounted() {
-    this.$store.dispatch('fetchCourses');
+    this.$store.dispatch('fetchClasses');
   }
 };
 </script>

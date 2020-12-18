@@ -2,19 +2,19 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    courses: null,
+    classes: null,
     loading: true
   },
   mutations: {
     loading(state) {
       return state.loading = false;
     },
-    SET_COURSES(state, courses) {
-      state.courses = courses;
+    SET_COURSES(state, classes) {
+      state.classes = classes;
     }
   },
   actions: {
-    async fetchCourses({ commit }) {
+    async fetchClasses({ commit }) {
       return await fetch('http://localhost:1337/classes', {
         method: 'GET',
         headers: {
@@ -26,6 +26,7 @@ export default createStore({
           commit('loading');
           commit('SET_COURSES', data);
         }) // TODO: handle errors (catch)
+        .catch(reason => console.log(reason));
     }
   },
   modules: {}
