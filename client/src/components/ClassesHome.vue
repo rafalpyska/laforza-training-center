@@ -2,36 +2,39 @@
 	<div class="section__course">
 		<div :class="`course course__info course__info-${this.course.name.toLowerCase()}`">
 			<h2 class="course__heading">
-				<i :class="`course__icon ${this.course.icon}`" aria-hidden="true"></i>
-				{{this.course.name}}
+				<i :class="`course__icon ${course.icon}`" aria-hidden="true"></i>
+				{{ course.name }}
 				</h2>
-			<p class="course__description">{{this.course.summary}}</p>
+			<p class="course__description">{{ course.summary }}</p>
 			<!-- <a href="#" class="btn btn__more">More</a> -->
 			<AppButton type="more">
 				More
 			</AppButton>
 		</div>
 		<div class="course__image-container">
-			<img :src="require('../assets/images/home/' + this.course.image)" class="image" alt="boxing">
+			<ImageItem :source="`http://localhost:1337${course.image.url}`" :alt="`${course.image.alternativeText}`"/>
+			<!-- <img :src="`http://localhost:1337${this.course.image.url}`" class="image" alt="boxing"> -->
 		</div>
 		<div class="course course__hours">
 			<h2 class="course__heading">Course days</h2>
-			<p class="course__description">{{this.course.description}}</p>
+			<p class="course__description">{{ course.description }}</p>
 		</div>
 	</div>
 </template>
 
 <script>
 import AppButton from './AppButton'
+import ImageItem from './ImageItem'
 export default {
 	name: "ClassesHome",
 	components: {
-		AppButton
+		AppButton,
+		ImageItem
 	},
 	props: {
 		course: {
-				type: Object,
-				required: true
+			type: Object,
+			required: true
 		}
 	}
 }
@@ -39,12 +42,12 @@ export default {
 
 <style lang="scss">
 	.section {
-			&__course {
-					display: grid;
-					grid-template-columns: repeat(3, 1fr);
-					grid-auto-rows: auto;
-					font-size: .8rem;
-			}
+		&__course {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-auto-rows: auto;
+			font-size: .8rem;
+		}
 	}
 	.course {
 		padding: 3.5rem 2.5rem;

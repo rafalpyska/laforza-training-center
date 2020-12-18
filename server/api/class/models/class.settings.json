@@ -12,39 +12,56 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "summary": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "complexity": {
-      "type": "integer"
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 6
     },
     "maxGroupSize": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "duration": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
         "files",
+        "images",
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "icon": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "trainers": {
+      "via": "classes",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
     }
   }
 }

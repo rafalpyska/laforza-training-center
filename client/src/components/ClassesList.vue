@@ -1,11 +1,11 @@
 <template>
     <div class="class">
         <div class="class__image-container">
-            <img src="http://dummyimage.com/750x750" class="image" alt="placeholder">
+            <ImageItem :source="`http://localhost:1337${course.image.url}`" :alt="`${course.image.alternativeText}`"/>
         </div>
         <div class="class__info">
-          <h3 class="class__heading">Boxing <span class="class__trainer">BRUCE LUIS / EMILIAN SALVATORE</span></h3>
-          <p class="class__description">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante etiam sit amet</p>
+          <h3 class="class__heading">{{ course.name }}<span class="class__trainer"></span></h3>
+          <p class="class__description">{{ course.description }}</p>
           <AppButton type="enroll">
               Enroll
           </AppButton>
@@ -31,23 +31,21 @@
           <div class="class__complexity">
             <h3 class="class__general-info-heading">The complexity</h3>
             <ul class="class__complexity-list">
-              <li class="class__complexity-item"><i class="fas fa-star"></i></li>
-              <li class="class__complexity-item"><i class="fas fa-star"></i></li>
-              <li class="class__complexity-item"><i class="fas fa-star"></i></li>
-              <li class="class__complexity-item"><i class="far fa-star"></i></li>
-              <li class="class__complexity-item"><i class="far fa-star"></i></li>
+              <!-- TODO: Complexity indicator (stars) -->
+              <li class="class__complexity-item">{{ course.complexity }}/5</li>
+              <!-- <li class="class__complexity-item"><i class="fas fa-star"></i></li> -->
             </ul>
           </div>
           <div class="class__persons-allowed">
             <h3 class="class__general-info-heading">Number of persons</h3>
             <div class="class__persons-allowed-number">
-              <p>6</p>
+              <p>{{ course.maxGroupSize }}</p>
             </div>
           </div>
           <div class="class__occupation">
             <h3 class="class__general-info-heading">The Occupation</h3>
             <div class="class__occupation-time">
-              <p>90 min</p>
+              <p>{{ course.duration }} min</p>
             </div>
           </div>
         </div>
@@ -56,20 +54,31 @@
 
 <script>
 import AppButton from './AppButton'
+import ImageItem from './ImageItem'
   export default {
     name: "ClassesList",
     components: {
-        AppButton
+        AppButton,
+        ImageItem
+    },
+    props: {
+      course: {
+        type: Object,
+        required: true
+      }
     }
   };
 </script>
 <style scoped lang="scss">
   .class {
     display: grid;
-    grid-template-columns: repeat(2, 1fr) max-content;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-auto-rows: minmax(10rem, 20rem);
 		gap: 2rem;
     font-size: .85rem;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
     &__img {
 			object-fit: cover;
 			width: 100%;
