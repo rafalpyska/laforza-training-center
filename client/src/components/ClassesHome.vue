@@ -12,8 +12,8 @@
 			</AppButton>
 		</div>
 		<div class="course__image-container">
-			
-			<img :src="`http://localhost:1337${this.course.image.url}`" class="image" alt="boxing">
+			<ImageItem :source="`http://localhost:1337${this.course.image.url}`" :alt="`${this.course.image.alternativeText}`"/>
+			<!-- <img :src="`http://localhost:1337${this.course.image.url}`" class="image" alt="boxing"> -->
 		</div>
 		<div class="course course__hours">
 			<h2 class="course__heading">Course days</h2>
@@ -24,10 +24,12 @@
 
 <script>
 import AppButton from './AppButton'
+import ImageItem from './ImageItem'
 export default {
 	name: "ClassesHome",
 	components: {
-		AppButton
+		AppButton,
+		ImageItem
 	},
 	props: {
 		course: {
@@ -40,12 +42,12 @@ export default {
 
 <style lang="scss">
 	.section {
-			&__course {
-					display: grid;
-					grid-template-columns: repeat(3, 1fr);
-					grid-auto-rows: auto;
-					font-size: .8rem;
-			}
+		&__course {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-auto-rows: auto;
+			font-size: .8rem;
+		}
 	}
 	.course {
 		padding: 3.5rem 2.5rem;
