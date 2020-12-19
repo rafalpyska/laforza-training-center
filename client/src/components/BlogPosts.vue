@@ -22,7 +22,7 @@ import AppButton from './AppButton'
 import BlogPostDate from './BlogPostDate'
 
 export default {
-  name: 'BlogPost',
+  name: 'BlogPosts',
   components: {
     AppButton,
     BlogPostDate
