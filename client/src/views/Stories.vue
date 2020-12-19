@@ -8,10 +8,22 @@
         </div>
       </div>
       <div class="stories__info">
-        <p>Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. 
-          Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.</p>
-        <p>Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. 
-          Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.</p>
+        <p>
+          Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
+          quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam
+          nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec
+          odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis
+          faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus
+          tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
+        </p>
+        <p>
+          Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
+          quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam
+          nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec
+          odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis
+          faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus
+          tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
+        </p>
       </div>
     </div>
     <ActionStrip>
@@ -38,12 +50,11 @@
 </template>
 
 <script>
-
-import ClientStory from '../components/ClientStory'
-import ActionStrip from "@/components/ActionStrip.vue";
-import AppButton from "@/components/AppButton.vue";
+import ClientStory from '../components/ClientStory';
+import ActionStrip from '@/components/ActionStrip.vue';
+import AppButton from '@/components/AppButton.vue';
 export default {
-  name: "Stories",
+  name: 'Stories',
   components: {
     ClientStory,
     ActionStrip,
@@ -53,21 +64,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .stories {
-    &__info, &__list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-      gap: 4rem;
-    }
-    &__info {
-      font-size: .8rem;
-      margin-bottom: 4rem;
-    }
-    &__list {
-      padding: 4rem 0;
-      &-wrapper {
-        // background-color: var(--stories-list-bgc);
-      }
+.stories {
+  &__info,
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 4rem;
+  }
+  &__info {
+    font-size: 0.8rem;
+    margin-bottom: 4rem;
+  }
+  &__list {
+    padding: 4rem 0;
+    &-wrapper {
+      // background-color: var(--stories-list-bgc);
     }
   }
+}
 </style>

@@ -1,13 +1,9 @@
 <template>
-  <section class="trainers-mini-profile">
-    
-  </section>
+  <section class="trainers-mini-profile"></section>
 </template>
 <script>
-  export default {
-    name: "TrainersMiniProfile"
-  };
+export default {
+  name: 'TrainersMiniProfile'
+};
 </script>
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

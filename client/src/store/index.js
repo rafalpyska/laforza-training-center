@@ -1,4 +1,4 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
@@ -7,7 +7,7 @@ export default createStore({
   },
   mutations: {
     loading(state) {
-      return state.loading = false;
+      return (state.loading = false);
     },
     SET_COURSES(state, classes) {
       state.classes = classes;
@@ -18,8 +18,8 @@ export default createStore({
       return await fetch('http://localhost:1337/classes', {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json'
+        }
       })
         .then(response => response.json())
         .then(data => {

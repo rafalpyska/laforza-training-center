@@ -7,16 +7,14 @@
 </template>
 
 <script>
-import BlogPostsList from "../components/BlogPostsList";
+import BlogPostsList from '../components/BlogPostsList';
 
-  export default {
-    name: "Blog",
-    components: {
-      BlogPostsList
-    }
-  };
+export default {
+  name: 'Blog',
+  components: {
+    BlogPostsList
+  }
+};
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
