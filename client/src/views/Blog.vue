@@ -1,18 +1,18 @@
 <template>
   <section class="section blog">
     <div class="container">
-      <BlogPost />
+      <BlogPostsList />
     </div>
   </section>
 </template>
 
 <script>
-import BlogPost from "../components/BlogPost";
+import BlogPostsList from "../components/BlogPostsList";
 
   export default {
     name: "Blog",
     components: {
-      BlogPost
+      BlogPostsList
     }
   };
 </script>

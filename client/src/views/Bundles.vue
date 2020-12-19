@@ -23,16 +23,27 @@ export default {
   components: {
     ClassesBundle
   },
-  computed: {
-    loading() {
-      return this.$store.state.loading;
-    },
-    courses() {
-      return this.$store.state.courses;
+  data() {
+    return {
+      loading: false,
+      error: ''
     }
   },
-  mounted() {
-    this.$store.dispatch('fetchCourses');
+  computed: {
+  // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
+    courses() {
+      return this.$store.state.classes;
+    }
+  },
+  async mounted() {
+    this.error = '';
+    this.loading = true;
+    try {
+      await this.$store.dispatch('fetchClasses');
+    } catch (e) {
+      this.error = e;
+    }
+    this.loading = false;
   }
 }
 </script>
