@@ -7,11 +7,9 @@
           <h3 class="class__heading">{{ course.name }}
               <template v-for="(trainer, index) in course.trainers" :key="trainer.id">
                 <span class="class__trainer">{{ trainer.username }}
-                  <template class="color-primary" v-if="index !== course.trainers.length - 1">, </template>
-                </span>
-                
+                  <template class="color-primary" v-if="index !== course.trainers.length - 1">/ </template>
+                </span> 
               </template>
-            <!-- <span  v-for="trainer in course.trainers" :key="trainer.id">{{ trainer.username.split(',') }}</span> -->
           </h3>
           <p class="class__description">{{ course.description }}</p>
           <AppButton type="enroll">
@@ -39,9 +37,10 @@
           <div class="class__complexity">
             <h3 class="class__general-info-heading">The complexity</h3>
             <ul class="class__complexity-list">
-              <!-- TODO: Complexity indicator (stars) -->
-              <li class="class__complexity-item">{{ course.complexity }}/5</li>
-              <!-- <li class="class__complexity-item"><i class="fas fa-star"></i></li> -->
+              <ClassesComplexityIndicator 
+                :rating="`${parseInt(course.complexity, 10)}`" 
+                :max="5" 
+                />
             </ul>
           </div>
           <div class="class__persons-allowed">
@@ -57,17 +56,21 @@
             </div>
           </div>
         </div>
+        
     </div>
 </template>
 
 <script>
 import AppButton from './AppButton'
 import ImageItem from './ImageItem'
+import ClassesComplexityIndicator from './ClassesComplexityIndicator'
+
   export default {
     name: "ClassesList",
     components: {
         AppButton,
-        ImageItem
+        ImageItem,
+        ClassesComplexityIndicator
     },
     props: {
       course: {
@@ -99,9 +102,11 @@ import ImageItem from './ImageItem'
       text-transform: uppercase;
     }
     &__trainer {
-      margin-left: .35rem;
       color: var(--color-primary);
       font-size: .85rem;
+      &:first-child {
+        margin-left: .35rem;
+      }
     }
 		&__description {
 			margin: 1rem 0;
