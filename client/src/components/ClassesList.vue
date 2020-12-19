@@ -4,7 +4,15 @@
             <ImageItem :source="`http://localhost:1337${course.image.url}`" :alt="`${course.image.alternativeText}`"/>
         </div>
         <div class="class__info">
-          <h3 class="class__heading">{{ course.name }}<span class="class__trainer"></span></h3>
+          <h3 class="class__heading">{{ course.name }}
+              <template v-for="(trainer, index) in course.trainers" :key="trainer.id">
+                <span class="class__trainer">{{ trainer.username }}
+                  <template class="color-primary" v-if="index !== course.trainers.length - 1">, </template>
+                </span>
+                
+              </template>
+            <!-- <span  v-for="trainer in course.trainers" :key="trainer.id">{{ trainer.username.split(',') }}</span> -->
+          </h3>
           <p class="class__description">{{ course.description }}</p>
           <AppButton type="enroll">
               Enroll
