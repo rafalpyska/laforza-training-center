@@ -7,8 +7,9 @@
             <p>Etiam rhoncus. Maecenas tempus</p>
           </div>
         </div>
+         <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
         <div class="section__courses-bundles-container">
-          <ClassesBundle v-for="course in courses" :key="course.id" :course="course"/>
+          <ClassesBundle v-for="bundle in bundles" :key="bundle.id" :bundle="bundle"/>
         </div>
     </div>
   </section>
@@ -26,7 +27,8 @@ export default {
   data() {
     return {
       loading: false,
-      error: ''
+      error: '',
+      bundles: null
     }
   },
   computed: {
@@ -35,11 +37,21 @@ export default {
       return this.$store.state.classes;
     }
   },
-  async mounted() {
+  async created() {
     this.error = '';
     this.loading = true;
     try {
-      await this.$store.dispatch('fetchClasses');
+        return await fetch('http://localhost:1337/bundles', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(response => response.json())
+        .then(data => {
+          this.bundles = data;
+        }) // TODO: handle errors (catch)
+        .catch(reason => console.log(reason));
     } catch (e) {
       this.error = e;
     }

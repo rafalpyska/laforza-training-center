@@ -1,14 +1,13 @@
 <template>
   <div class="courses__bundle">
-		<h2 class="courses__bundle-name">Basic</h2>
+		<h2 class="courses__bundle-name">{{ bundle.name }}</h2>
 		<div class="courses__bundle-price-container">
-			<p class="courses__bundle-price">$50</p>
+			<p class="courses__bundle-price">{{ bundle.price }} $</p>
 			<p class="courses__bundle-reccuring-payment">per month</p>
 		</div>
 		<AppDivider />
 		<ul class="courses__bundle-list">
-			<li class="courses__bundle-item">Boxing</li>
-			<li class="courses__bundle-item">Swiming Pool</li>
+			<li class="courses__bundle-item" v-for="course in bundle.bundleList" :key="course.id">{{ course.name }}</li>
 		</ul>
 		<AppButton type="sign-up">
 			Sign Up
@@ -27,7 +26,7 @@ export default {
 		AppDivider
 	},
 	props: {
-    course: {
+    bundle: {
       type: Object,
       required: true
     }
