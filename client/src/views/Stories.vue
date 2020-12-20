@@ -54,6 +54,7 @@
 
 <script>
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
+import fetchData from '../mixins/fetchData';
 import ClientStory from '../components/ClientStory';
 import AppActionStrip from '@/components/Base/AppActionStrip.vue';
 import AppButton from '@/components/AppButton.vue';
@@ -65,7 +66,8 @@ export default {
     AppActionStrip,
     AppButton
   },
-    data() {
+ mixins: [fetchData],
+  data() {
     return {
       loading: false,
       error: '',
@@ -73,23 +75,11 @@ export default {
     };
   },
   async mounted() {
-    this.error = '';
-    this.loading = true;
-    try {
-      return await fetch('http://localhost:1337/stories', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
+    this.http('http://localhost:1337/stories')
+      .then(data => {
+        this.stories = data;
+        this.loading = false;
       })
-        .then(response => response.json())
-        .then(data => {
-          this.stories = data;
-          this.loading = false;
-        }) // TODO: handle errors (catch)
-    } catch (e) {
-      this.error = e;
-    }
   }
 };
 </script>

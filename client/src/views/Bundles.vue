@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import fetchData from '../mixins/fetchData';
 import ClassesBundle from '../components/Bundles/ClassesBundle';
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 
@@ -34,6 +35,7 @@ export default {
     ClassesBundle,
     AppLoadingSpinner
   },
+  mixins: [fetchData],
   data() {
     return {
       loading: false,
@@ -42,23 +44,11 @@ export default {
     };
   },
   async mounted() {
-    this.error = '';
-    this.loading = true;
-    try {
-      return await fetch('http://localhost:1337/bundles', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
+    this.http('http://localhost:1337/bundles')
+      .then(data => {
+        this.bundles = data;
+        this.loading = false;
       })
-        .then(response => response.json())
-        .then(data => {
-          this.bundles = data;
-          this.loading = false;
-        }) // TODO: handle errors (catch)
-    } catch (e) {
-      this.error = e;
-    }
   }
 };
 </script>
