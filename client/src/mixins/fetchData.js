@@ -10,7 +10,7 @@ export default {
         });
         return await response.json();
       } catch (error) {
-        this.error
+        this.error = error
       }
     }
   }
