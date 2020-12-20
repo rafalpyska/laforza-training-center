@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import AppButton from '../components/AppButton';
-import AppDivider from '../components/AppDivider';
+import AppButton from '../AppButton';
+import AppDivider from '../Base/AppDivider';
 
 export default {
   name: 'ClassesBundle',
@@ -51,6 +51,9 @@ export default {
     &:hover {
       background-color: var(--color-primary);
     }
+    &:hover .courses__bundle-price-container {
+      border-color: var(--price-cotnainer-border-hover);
+    }
     &:hover > .btn {
       background-color: var(--white);
       color: var(--color-primary);
@@ -69,7 +72,7 @@ export default {
         width: 7rem;
         height: 7rem;
         margin: 1rem 0;
-        border: 4px solid var(--color-primary);
+        border: 5px solid var(--color-primary);
         border-radius: 50%;
       }
     }

@@ -9,7 +9,12 @@
       </div>
       <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
       <div class="section__courses-bundles-container">
+        
+        <AppLoadingSpinner
+          v-if="loading"
+        />
         <ClassesBundle
+          v-else
           v-for="bundle in bundles"
           :key="bundle.id"
           :bundle="bundle"
@@ -20,12 +25,14 @@
 </template>
 
 <script>
-import ClassesBundle from '../components/ClassesBundle.vue';
+import ClassesBundle from '../components/Bundles/ClassesBundle';
+import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 
 export default {
   name: 'Bundles',
   components: {
-    ClassesBundle
+    ClassesBundle,
+    AppLoadingSpinner
   },
   data() {
     return {
@@ -34,13 +41,7 @@ export default {
       bundles: null
     };
   },
-  computed: {
-    // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
-    courses() {
-      return this.$store.state.classes;
-    }
-  },
-  async created() {
+  async mounted() {
     this.error = '';
     this.loading = true;
     try {
@@ -53,12 +54,11 @@ export default {
         .then(response => response.json())
         .then(data => {
           this.bundles = data;
+          this.loading = false;
         }) // TODO: handle errors (catch)
-        .catch(reason => console.log(reason));
     } catch (e) {
       this.error = e;
     }
-    this.loading = false;
   }
 };
 </script>

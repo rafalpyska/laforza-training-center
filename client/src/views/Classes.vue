@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ClassesList from '../components/ClassesList';
+import ClassesList from '../components/Classes/ClassesList';
 
 export default {
   name: 'Classes',

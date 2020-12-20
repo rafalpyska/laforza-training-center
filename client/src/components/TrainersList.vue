@@ -2,7 +2,7 @@
   <div class="trainer">
     <div class="trainer__image-container">
       <img
-        src="http://dummyimage.com/750x750"
+        src="../assets/images/placeholder.png"
         class="image"
         alt="placeholder"
       />
@@ -101,6 +101,18 @@ export default {
   name: 'TrainersList',
   components: {
     AppButton
+  },
+  computed: {
+  // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
+    loading() {
+      return this.$store.state.loading;
+    },
+    courses() {
+      return this.$store.state.classes;
+    }
+  },
+  mounted() {
+    this.$store.dispatch('fetchClasses');
   }
 };
 </script>

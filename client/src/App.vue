@@ -1,7 +1,7 @@
 <template>
   <TheHeader />
   <router-view />
-  <ActionStrip>
+  <AppActionStrip>
     <template v-slot:first-column>
       <img
         src="./assets/images/logos/footer-logo.png"
@@ -13,19 +13,19 @@
         <i class="fas fa-chevron-up go-top__icon"></i>
       </a>
     </template>
-  </ActionStrip>
+  </AppActionStrip>
   <TheFooter />
 </template>
 
 <script>
-import TheHeader from '@/components/TheHeader.vue';
-import ActionStrip from '@/components/ActionStrip.vue';
-import TheFooter from '@/components/TheFooter.vue';
+import TheHeader from '@/components/Single/TheHeader.vue';
+import AppActionStrip from '@/components/Base/AppActionStrip.vue';
+import TheFooter from '@/components/Single/TheFooter.vue';
 
 export default {
   components: {
     TheHeader,
-    ActionStrip,
+    AppActionStrip,
     TheFooter
   }
 };

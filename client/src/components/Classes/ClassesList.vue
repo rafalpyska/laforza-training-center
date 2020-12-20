@@ -69,8 +69,8 @@
 </template>
 
 <script>
-import AppButton from './AppButton';
-import ImageItem from './ImageItem';
+import AppButton from '../AppButton';
+import ImageItem from '../ImageItem';
 import ClassesComplexityIndicator from './ClassesComplexityIndicator';
 
 export default {

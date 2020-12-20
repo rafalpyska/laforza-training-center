@@ -3,11 +3,7 @@
     <div class="client-story__content">
       <blockquote cite="client-id">
         <p class="client-story__paragraph">
-          Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus. Ut id
-          nisl quis enim dignissim sagittis. Etiam sollicitudin, ipsum eu
-          pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio
-          sit amet eros. Proin magna. Duis vel nibh at velit scelerisque
-          suscipit. Curabitur turpis vestibulum suscipit.
+          {{ story.opinion }}
         </p>
       </blockquote>
       <div class="client-story__quote-symbol" aria-hidden="true">
@@ -21,14 +17,21 @@
         alt="user placeholder"
       />
       <figcaption class="story__user-name">
-        User 1<span class="story__user-name-description">Happy client</span>
+        {{ story.author.username }}
+        <span class="story__user-name-description">Happy client</span>
       </figcaption>
     </figure>
   </div>
 </template>
 <script>
 export default {
-  name: 'ClientStory'
+  name: 'ClientStory',
+  props: {
+    story: {
+      type: Object,
+      required: true
+    }
+  }
 };
 </script>
 <style scoped lang="scss">

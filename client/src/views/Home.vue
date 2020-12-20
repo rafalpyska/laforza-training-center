@@ -17,7 +17,11 @@
           </div>
         </div>
       </div>
+        <AppLoadingSpinner
+          v-if="loadingStatus"
+        />
       <ClassesHome
+        v-else
         v-for="course in courses"
         :key="course.id"
         :course="course"
@@ -28,19 +32,21 @@
 
 <script>
 import ClassesHome from '../components/ClassesHome';
+import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 
 export default {
   name: 'Home',
   components: {
-    ClassesHome
+    ClassesHome,
+    AppLoadingSpinner
   },
   computed: {
     // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
-    loading() {
-      return this.$store.state.loading;
+    loadingStatus() {
+      return this.$store.getters.loadingStatus;
     },
     courses() {
-      return this.$store.state.classes;
+      return this.$store.getters.classes;
     }
   },
   mounted() {

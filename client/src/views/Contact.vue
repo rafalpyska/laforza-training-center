@@ -165,7 +165,7 @@
 </template>
 
 <script>
-import AppDivider from '../components/AppDivider';
+import AppDivider from '../components/Base/AppDivider';
 
 export default {
   name: 'Contact',

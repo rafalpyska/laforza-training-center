@@ -23,7 +23,7 @@
         <li class="navigation__item">
           <router-link to="/" id="home" class="navigation__link">
             <img
-              src="../assets/images/logos/logo-1.png"
+              src="@/assets/images/logos/logo-1.png"
               class="navigation__logo"
               alt="LaFORZA Training Center Logo"
             />

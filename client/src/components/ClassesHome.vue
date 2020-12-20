@@ -12,7 +12,10 @@
       <p class="course__description">{{ course.summary }}</p>
       <!-- <a href="#" class="btn btn__more">More</a> -->
       <AppButton type="more">
-        More
+        <router-link
+        to="/classes">
+          More
+        </router-link>
       </AppButton>
     </div>
     <div class="course__image-container">
@@ -20,7 +23,6 @@
         :source="`http://localhost:1337${course.image.url}`"
         :alt="`${course.image.alternativeText}`"
       />
-      <!-- <img :src="`http://localhost:1337${this.course.image.url}`" class="image" alt="boxing"> -->
     </div>
     <div class="course course__hours">
       <h2 class="course__heading">Course days</h2>

@@ -65,7 +65,8 @@
     },
     "bundles": {
       "via": "bundleList",
-      "collection": "bundle"
+      "collection": "bundle",
+      "private": true
     }
   }
 }

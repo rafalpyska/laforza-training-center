@@ -26,7 +26,7 @@
         </p>
       </div>
     </div>
-    <ActionStrip>
+    <AppActionStrip>
       <template v-slot:first-column>
         <p class="action-strip__name">Client Stories</p>
       </template>
@@ -35,30 +35,61 @@
           Send story
         </AppButton>
       </template>
-    </ActionStrip>
+    </AppActionStrip>
     <div class="stories__list-wrapper">
       <div class="stories__list container">
-        <ClientStory />
-        <ClientStory />
-        <ClientStory />
-        <ClientStory />
-        <ClientStory />
-        <ClientStory />
+        <AppLoadingSpinner
+          v-if="loading"
+        />
+        <ClientStory 
+          v-else
+          v-for="story in stories"
+          :key="story.id"
+          :story="story"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import ClientStory from '../components/ClientStory';
-import ActionStrip from '@/components/ActionStrip.vue';
+import AppActionStrip from '@/components/Base/AppActionStrip.vue';
 import AppButton from '@/components/AppButton.vue';
 export default {
   name: 'Stories',
   components: {
+    AppLoadingSpinner,
     ClientStory,
-    ActionStrip,
+    AppActionStrip,
     AppButton
+  },
+    data() {
+    return {
+      loading: false,
+      error: '',
+      stories: null
+    };
+  },
+  async mounted() {
+    this.error = '';
+    this.loading = true;
+    try {
+      return await fetch('http://localhost:1337/stories', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          this.stories = data;
+          this.loading = false;
+        }) // TODO: handle errors (catch)
+    } catch (e) {
+      this.error = e;
+    }
   }
 };
 </script>

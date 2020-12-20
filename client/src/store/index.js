@@ -6,8 +6,8 @@ export default createStore({
     loading: true
   },
   mutations: {
-    loading(state) {
-      return (state.loading = false);
+    loading(state, loadingStatus) {
+      return (state.loading = loadingStatus);
     },
     SET_COURSES(state, classes) {
       state.classes = classes;
@@ -15,6 +15,7 @@ export default createStore({
   },
   actions: {
     async fetchClasses({ commit }) {
+      commit('loading', true)
       return await fetch('http://localhost:1337/classes', {
         method: 'GET',
         headers: {
@@ -23,10 +24,18 @@ export default createStore({
       })
         .then(response => response.json())
         .then(data => {
-          commit('loading');
           commit('SET_COURSES', data);
+          commit('loading', false)
         }) // TODO: handle errors (catch)
         .catch(reason => console.log(reason));
+    }
+  },
+  getters: {
+    classes (state) {
+      return state.classes
+    },
+    loadingStatus (state) {
+      return state.loading
     }
   },
   modules: {}
