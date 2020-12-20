@@ -7,7 +7,7 @@
   },
   "options": {
     "draftAndPublish": false,
-    "timestamps": true
+    "timestamps": false
   },
   "attributes": {
     "username": {
@@ -25,7 +25,8 @@
     },
     "provider": {
       "type": "string",
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "password": {
       "type": "password",
@@ -46,26 +47,33 @@
     "confirmed": {
       "type": "boolean",
       "default": false,
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "blocked": {
       "type": "boolean",
       "default": false,
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "role": {
       "model": "role",
       "via": "users",
       "plugin": "users-permissions",
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "classes": {
       "collection": "class",
       "via": "trainers"
     },
     "posts": {
-      "via": "authors",
-      "collection": "post"
+      "collection": "post",
+      "via": "authors"
+    },
+    "stories": {
+      "via": "author",
+      "collection": "story"
     }
   }
 }

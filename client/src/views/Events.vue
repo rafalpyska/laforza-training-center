@@ -12,12 +12,9 @@
 </template>
 
 <script>
-
 export default {
-  name: "Events"
+  name: 'Events'
 };
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

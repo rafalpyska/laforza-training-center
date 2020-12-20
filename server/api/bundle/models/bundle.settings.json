@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "bundles",
   "info": {
-    "name": "category",
-    "description": ""
+    "name": "Bundle"
   },
   "options": {
     "increments": true,
@@ -15,9 +14,14 @@
       "type": "string",
       "required": true
     },
-    "post": {
-      "via": "categories",
-      "model": "post"
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "bundleList": {
+      "collection": "class",
+      "via": "bundles",
+      "dominant": true
     }
   }
 }

@@ -1,62 +1,77 @@
 <template>
   <section class="section prices">
-      <div class="container">
-        <div class="section__description">
-          <div class="section__description-info">
-            <h2 class="color-primary">Bundles</h2>
-            <p>Etiam rhoncus. Maecenas tempus</p>
-          </div>
+    <div class="container">
+      <div class="section__description">
+        <div class="section__description-info">
+          <h2 class="color-primary">Bundles</h2>
+          <p>Etiam rhoncus. Maecenas tempus</p>
         </div>
-        <div class="section__courses-bundles-container">
-          <ClassesBundle v-for="course in courses" :key="course.id" :course="course"/>
-        </div>
+      </div>
+      <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
+      <div class="section__courses-bundles-container">
+        
+        <AppLoadingSpinner
+          v-if="loading"
+        />
+        <ClassesBundle
+          v-else
+          v-for="bundle in bundles"
+          :key="bundle.id"
+          :bundle="bundle"
+        />
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import ClassesBundle from '../components/ClassesBundle.vue';
-
+import ClassesBundle from '../components/Bundles/ClassesBundle';
+import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 
 export default {
-  name: "Bundles",
+  name: 'Bundles',
   components: {
-    ClassesBundle
+    ClassesBundle,
+    AppLoadingSpinner
   },
   data() {
     return {
       loading: false,
-      error: ''
-    }
-  },
-  computed: {
-  // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
-    courses() {
-      return this.$store.state.classes;
-    }
+      error: '',
+      bundles: null
+    };
   },
   async mounted() {
     this.error = '';
     this.loading = true;
     try {
-      await this.$store.dispatch('fetchClasses');
+      return await fetch('http://localhost:1337/bundles', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          this.bundles = data;
+          this.loading = false;
+        }) // TODO: handle errors (catch)
     } catch (e) {
       this.error = e;
     }
-    this.loading = false;
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
-  .section {
-    &__courses {
-      &-bundles-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-        gap: 2rem;
-        font-size: .9em;
-      }
+.section {
+  &__courses {
+    &-bundles-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+      gap: 2rem;
+      font-size: 0.9em;
     }
   }
+}
 </style>

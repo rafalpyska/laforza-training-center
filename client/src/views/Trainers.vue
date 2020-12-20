@@ -13,15 +13,13 @@
 </template>
 
 <script>
-import TrainersList from '../components/TrainersList'
+import TrainersList from '../components/TrainersList';
 export default {
-  name: "Trainers",
+  name: 'Trainers',
   components: {
     TrainersList
   }
 };
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

@@ -1,6 +1,6 @@
 <template>
   <section class="section schedule">
-      <div class="container">
+    <div class="container">
       <div class="section__description">
         <div class="section__description-info">
           <h2 class="color-primary">Schedule</h2>
@@ -12,13 +12,9 @@
 </template>
 
 <script>
-
 export default {
-  name: "Schedule"
+  name: 'Schedule'
 };
-
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

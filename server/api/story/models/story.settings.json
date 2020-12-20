@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stories",
+  "info": {
+    "name": "Story",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "opinion": {
+      "type": "richtext",
+      "required": true
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "stories"
+    }
+  }
+}

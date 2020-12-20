@@ -7,7 +7,7 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
+    "timestamps": false,
     "draftAndPublish": true
   },
   "attributes": {
@@ -62,6 +62,11 @@
       "plugin": "users-permissions",
       "collection": "user",
       "dominant": true
+    },
+    "bundles": {
+      "via": "bundleList",
+      "collection": "bundle",
+      "private": true
     }
   }
 }
