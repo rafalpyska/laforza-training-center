@@ -1,6 +1,6 @@
 <template>
-    <div class="blog__post">
-      <div class="blog__post-image-container">
+    <div class="blog__post-list">
+      <div class="blog__post-list-image-container">
         <ImageItem
         	:source="`http://localhost:1337${post.image.url}`"
         	:alt="`${post.image.alternativeText}`"
@@ -9,14 +9,14 @@
 					:post="post"
 				/>
       </div>
-      <div class="blog__post-shortened">
-        <h2 class="blog__post-heading">{{ post.title }}</h2>
-        <p class="blog__post-paragraph">{{ post.summary  }}</p>
-        <div class="blog__post-controls">
+      <div class="blog__post-list-shortened">
+        <h2 class="blog__post-list-heading">{{ post.title }}</h2>
+        <p class="blog__post-list-paragraph">{{ post.summary  }}</p>
+        <div class="blog__post-list-controls">
           <AppButton type="read-more">
             Read more
           </AppButton>
-          <p class="blog__post-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
+          <p class="blog__post-list-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-	.blog__post {
+	.blog__post-list {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-auto-rows: 25rem;
@@ -61,7 +61,7 @@ export default {
 			display: flex;
 			flex-direction: column;
 			padding: 2rem;
-			background-color: var(--blog-post-shortened-bgc);
+			background-color: var(--blog-post-list-shortened-bgc);
 		}
 		&-heading {
 			margin-bottom: .75rem;
