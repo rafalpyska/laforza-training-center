@@ -68,8 +68,8 @@
       "via": "trainers"
     },
     "posts": {
-      "collection": "post",
-      "via": "authors"
+      "via": "authors",
+      "collection": "post"
     },
     "stories": {
       "via": "author",

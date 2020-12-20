@@ -15,9 +15,9 @@
       "type": "string",
       "required": true
     },
-    "post": {
+    "posts": {
       "via": "categories",
-      "model": "post"
+      "collection": "post"
     }
   }
 }

@@ -53,11 +53,11 @@ export default {
 .vueperslide {
   &__title {
     text-transform: uppercase;
-    font-size: 2.75em;
+    font-size: 2rem;
   }
   &__content {
     text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
 }
 .image {

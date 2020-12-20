@@ -24,9 +24,9 @@
       "required": true
     },
     "authors": {
-      "via": "posts",
       "plugin": "users-permissions",
       "collection": "user",
+      "via": "posts",
       "dominant": true
     },
     "publishedAt": {
@@ -44,7 +44,8 @@
     },
     "categories": {
       "collection": "category",
-      "via": "post"
+      "via": "posts",
+      "dominant": true
     },
     "slug": {
       "type": "string",
