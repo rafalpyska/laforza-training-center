@@ -1,32 +1,45 @@
 <template>
     <div class="blog__post">
       <div class="blog__post-image-container">
-          <img src="http://dummyimage.com/780x390" class="image" alt="placeholder">
-          <BlogPostDate />
+        <ImageItem
+        	:source="`http://localhost:1337${post.image.url}`"
+        	:alt="`${post.image.alternativeText}`"
+      	/>
+        <BlogPostDate 
+					:post="post"
+				/>
       </div>
       <div class="blog__post-shortened">
-        <h2>ETIAM RHONCUS. MAECENAS TEMPUS, TELLUS EGET RHONCUS</h2>
-        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien vestibulum pur.</p>
+        <h2 class="blog__post-heading">{{ post.title }}</h2>
+        <p class="blog__post-paragraph">{{ post.summary  }}</p>
         <div class="blog__post-controls">
           <AppButton type="read-more">
             Read more
           </AppButton>
-          <p class="blog__post-posted-by">Admin</p>
+          <p class="blog__post-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
         </div>
       </div>
     </div>
 </template>
 
 <script>
+import ImageItem from '../ImageItem';
 import AppButton from '../AppButton'
 import BlogPostDate from './BlogPostDate'
 
 export default {
   name: 'BlogPostsList',
   components: {
+		ImageItem,
     AppButton,
     BlogPostDate
-  }
+	},
+	props: {
+		post: {
+			type: Object,
+			required: true
+		}
+	}
 }
 </script>
 
@@ -34,25 +47,33 @@ export default {
 	.blog__post {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		grid-auto-rows: auto;
+		grid-auto-rows: 25rem;
 		margin-bottom: 4rem;
 		font-size: .8rem;
 		&:hover .blog__post-date{
-				background-color: var(--color-primary);
+			background-color: var(--color-primary);
 		}
 		&-image-container {
-				position: relative;
-				grid-column: 1/3;
+			position: relative;
+			grid-column: 1/3;
 		}
 		&-shortened {
-				padding: 2rem;
-				background-color: var(--blog-post-shortened-bgc);
+			display: flex;
+			flex-direction: column;
+			padding: 2rem;
+			background-color: var(--blog-post-shortened-bgc);
+		}
+		&-heading {
+			margin-bottom: .75rem;
+		}
+		&-paragraph {
+			flex: 1;
 		}
 		&-controls {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				margin-top: 1.75rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 1.75rem;
 		}
 	}
 </style>
