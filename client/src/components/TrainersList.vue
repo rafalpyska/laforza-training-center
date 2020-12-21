@@ -9,50 +9,24 @@
     </div>
     <div class="trainer__info">
       <h3 class="trainer__heading">
-        Bruce Luis <span class="trainer__class">Boxing</span>
+        {{ trainer.username }} 
+        <span v-for="course in trainer.classes" :key="course.id" class="trainer__class">{{ course.name }}</span>
       </h3>
-      <p class="trainer__description">
-        Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
-        quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam
-        nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec
-        odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis
-        faucibus. Nullam quis ante etiam sit amet
+      <p v-for="info in trainer.shortInfo" :key="info.id" class="trainer__description">
+        {{ info.shortInfo }}
       </p>
-      <ul class="trainer__titles-list">
-        <li class="trainer__titles-item">
-          <i
-            class="fas fa-star-half-alt trainer__schedule-icon"
-            aria-hidden="true"
-          ></i
-          >Gain confidence
-        </li>
-        <li class="trainer__titles-item">
-          <i
-            class="fas fa-star-half-alt trainer__schedule-icon"
-            aria-hidden="true"
-          ></i
-          >Strength development
-        </li>
-        <li class="trainer__titles-item">
-          <i
-            class="fas fa-star-half-alt trainer__schedule-icon"
-            aria-hidden="true"
-          ></i
-          >Development speed
-        </li>
-      </ul>
       <div class="trainer__socials">
-        <a href="#" class="href trainer__socials-link">
+        <a v-for="social in trainer.socials" :key="social.id" :href="`${social.facebook}`" class="href trainer__socials-link">
           <i class="fab fa-facebook-f trainer__socials-icon" aria-hidden="true">
             <span class="visuallyhidden">Facebook</span>
           </i>
         </a>
-        <a href="#" class="href trainer__socials-link">
+        <a v-for="social in trainer.socials" :key="social.id" :href="`${social.twitter}`" class="href trainer__socials-link">
           <i class="fab fa-twitter trainer__socials-icon" aria-hidden="true">
             <span class="visuallyhidden">Twitter</span>
           </i>
         </a>
-        <a href="#" class="href trainer__socials-link">
+        <a v-for="social in trainer.socials" :key="social.id" :href="`${social.instagram}`" class="href trainer__socials-link">
           <i class="fab fa-instagram trainer__socials-icon" aria-hidden="true">
             <span class="visuallyhidden">Instagram</span>
           </i>
@@ -102,6 +76,12 @@ export default {
   components: {
     AppButton
   },
+  props: {
+    trainer: {
+      type: Object,
+      required: true
+    }
+  },
   computed: {
   // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
     loading() {
@@ -119,10 +99,13 @@ export default {
 <style scoped lang="scss">
 .trainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) max-content;
-  grid-auto-rows: minmax(10rem, 20rem);
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  // grid-auto-rows: minmax(10rem, 20rem);
   gap: 2rem;
   font-size: 0.85rem;
+  &:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
   &__img {
     object-fit: cover;
     width: 100%;
@@ -141,12 +124,6 @@ export default {
   }
   &__description {
     margin: 1rem 0;
-  }
-  &__titles {
-    &-list {
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
   }
   &__socials {
     margin-top: 1.25rem;
