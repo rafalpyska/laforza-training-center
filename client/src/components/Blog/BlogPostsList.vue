@@ -1,25 +1,25 @@
 <template>
-    <div class="blog__post-list">
-      <div class="blog__post-list-image-container">
-        <ImageItem
-        	:source="`http://localhost:1337${post.image.url}`"
-        	:alt="`${post.image.alternativeText}`"
-      	/>
-        <BlogPostDate 
-					:post="post"
-				/>
-      </div>
-      <div class="blog__post-list-shortened">
-        <h2 class="blog__post-list-heading">{{ post.title }}</h2>
-        <p class="blog__post-list-paragraph">{{ post.summary  }}</p>
-        <div class="blog__post-list-controls">
-					<router-link :to="{name: 'Post', params: { slug: post.slug }}" class="btn btn__load-more">Read More</router-link>
-          <p class="blog__post-list-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
-        </div>
-      </div>
-			<router-view>
-			</router-view>
-    </div>
+	<div class="blog__post-list">
+		<div class="blog__post-list-image-container">
+			<ImageItem
+				:source="`http://localhost:1337${post.image.url}`"
+				:alt="`${post.image.alternativeText}`"
+			/>
+			<BlogPostDate 
+				:post="post"
+			/>
+		</div>
+		<div class="blog__post-list-shortened">
+			<h2 class="blog__post-list-heading">{{ post.title }}</h2>
+			<p class="blog__post-list-paragraph">{{ post.summary  }}</p>
+			<div class="blog__post-list-controls">
+				<router-link :to="{name: 'Post', params: { slug: post.slug }}" class="btn btn__load-more">Read More</router-link>
+				<p class="blog__post-list-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
+			</div>
+		</div>
+		<router-view>
+		</router-view>
+	</div>
 </template>
 
 <script>

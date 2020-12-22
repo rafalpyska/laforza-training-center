@@ -1,18 +1,28 @@
 <template>
-  <section class="section blog">
+
+<div>
+<AppLoadingSpinner
+  v-if="loadingStatus"
+/>
+  <section class="section blog" v-else>
     <div class="container">
-      <div class="blog__post-wrapper " v-show="post" v-if="post">
+      <div class="blog__post-wrapper">
         <div class="blog__post">
           <div class="blog__post-image-container">
             <ImageItem
             :source="`http://localhost:1337${post[0].image.url}`"
             :alt="`${post[0].image.alternativeText}`"
-          />
+            />
+            <BlogPostDate 
+	            :post="post[0]"
+			      />
           </div>
           <div class="blog__post-shortened">
             <h2 class="blog__post-heading">{{ post[0].title }}</h2>
-            <p class="blog__post-posted-by" v-for="author in post[0].authors" :key="author.id">{{ author.username }}</p>
-            <p class="blog__post-paragraph">{{ post[0].content }}</p>
+            <p class="blog__post-posted-by" v-for="author in post[0].authors" :key="author.id">Published by: {{ author.username }}</p>
+            <p class="blog__post-paragraph">
+              {{ post[0].content }}
+              </p>
           </div>
         </div>
         <aside class="blog__post-sidebar">
@@ -26,14 +36,21 @@
       </div>
     </div>
   </section>
+</div>
+
 </template>
 
 <script>
+import AppLoadingSpinner from '../Base/AppLoadingSpinner'
 import ImageItem from '../ImageItem';
+import BlogPostDate from './BlogPostDate'
+
 export default {
   name: 'BlogPost',
   components: {
-    ImageItem
+    AppLoadingSpinner,
+    ImageItem,
+    BlogPostDate
   },
 	props: {
     slug: {
@@ -64,6 +81,10 @@ export default {
       grid-gap: 2rem;
       margin-bottom: 4rem;
       font-size: .8rem;
+      @media (max-width: 992px) {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        column-gap: 0;
+      }
     }
     background-color: var(--blog-post-bgc);
 		&:hover .blog__post-date{
@@ -72,6 +93,7 @@ export default {
 		&-image-container {
 			position: relative;
 			grid-column: 1/3;
+      height: 18rem;
 		}
 		&-shortened {
 			display: flex;
@@ -86,9 +108,17 @@ export default {
 		}
 		&-paragraph {
 			flex: 1;
+      white-space: pre-wrap
 		}
+    &-posted-by {
+      margin-bottom: 2rem;
+    }
     &-sidebar {
+      padding: 2rem;
       background-color: var(--blog-post-sidebar-bgc);
+      @media (max-width: 992px) {
+        grid-column: 1/-1;
+      }
     }
     &-category {
       &-list {

@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
+
+import AppLoadingSpinner from '../components/Base/AppLoadingSpinner'
 import fetchData from '../mixins/fetchData';
 import BlogPostsList from '../components/Blog/BlogPostsList';
 
