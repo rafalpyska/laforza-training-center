@@ -1,49 +1,90 @@
 <template>
-    <div class="blog__post-wrapper">
-      <div class="blog__post">
-        <div class="blog__post-image-container">
 
-        </div>
-        <div class="blog__post-shortened">
-          <h2 class="blog__post-heading">Sample</h2>
-          <p class="blog__post-paragraph">Sample</p>
-          <div class="blog__post-controls">
-            <AppButton type="read-more">
-              Read more
-            </AppButton>
-            <p class="blog__post-posted-by">sample</p>
+<div>
+<AppLoadingSpinner
+  v-if="loadingStatus"
+/>
+  <section class="section blog" v-else>
+    <div class="container">
+      <div class="blog__post-wrapper">
+        <div class="blog__post">
+          <div class="blog__post-image-container">
+            <ImageItem
+            :source="`http://localhost:1337${post[0].image.url}`"
+            :alt="`${post[0].image.alternativeText}`"
+            />
+            <BlogPostDate 
+	            :post="post[0]"
+			      />
+          </div>
+          <div class="blog__post-shortened">
+            <h2 class="blog__post-heading">{{ post[0].title }}</h2>
+            <p class="blog__post-posted-by" v-for="author in post[0].authors" :key="author.id">Published by: {{ author.username }}</p>
+            <p class="blog__post-paragraph">
+              {{ post[0].content }}
+              </p>
           </div>
         </div>
+        <aside class="blog__post-sidebar">
+          <div class="blog__post-category">
+            <h2 class="blog__post-category-heading">Categories</h2>
+            <ul class="blog__post-category-list">
+              <li class="blog__post-category-item" v-for="category in post[0].categories" :key="category.id">{{ category.name }}</li>
+            </ul>
+          </div>
+        </aside>
       </div>
-      <aside class="blog__post-sidebar">
-
-      </aside>
     </div>
+  </section>
+</div>
 
 </template>
 
 <script>
-import AppButton from '../AppButton'
+import AppLoadingSpinner from '../Base/AppLoadingSpinner'
+import ImageItem from '../ImageItem';
+import BlogPostDate from './BlogPostDate'
 
 export default {
-  name: 'BlogPosts',
+  name: 'BlogPost',
   components: {
-    AppButton
-	},
+    AppLoadingSpinner,
+    ImageItem,
+    BlogPostDate
+  },
 	props: {
-
-	}
+    slug: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    loadingStatus() {
+      return this.$store.getters.loadingStatus;
+    },
+    post() {
+      return this.$store.getters.post;
+    }
+  },
+  mounted() {
+    this.$store.dispatch('fetchOneBlogPost', this.slug);
+  } 
 }
 </script>
 
 <style scoped lang="scss">
 	.blog__post {
+    grid-column: 1/3;
     &-wrapper {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 25rem;
+      grid-gap: 2rem;
       margin-bottom: 4rem;
       font-size: .8rem;
+      @media (max-width: 992px) {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        column-gap: 0;
+      }
     }
     background-color: var(--blog-post-bgc);
 		&:hover .blog__post-date{
@@ -52,6 +93,7 @@ export default {
 		&-image-container {
 			position: relative;
 			grid-column: 1/3;
+      height: 18rem;
 		}
 		&-shortened {
 			display: flex;
@@ -60,19 +102,31 @@ export default {
 			background-color: var(--blog-post-shortened-bgc);
 		}
 		&-heading {
-			margin-bottom: .75rem;
+      font-family: 'Play', sans-serif;
+			margin-bottom: .5rem;
+      text-transform: uppercase;
 		}
 		&-paragraph {
 			flex: 1;
+      white-space: pre-wrap
 		}
-		&-controls {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin-top: 1.75rem;
+    &-posted-by {
+      margin-bottom: 2rem;
     }
     &-sidebar {
+      padding: 2rem;
       background-color: var(--blog-post-sidebar-bgc);
+      @media (max-width: 992px) {
+        grid-column: 1/-1;
+      }
+    }
+    &-category {
+      &-list {
+
+      }
+      &-item {
+
+      }
     }
   }
 </style>

@@ -56,19 +56,12 @@ const routes = [
     path: '/blog',
     name: 'Blog',
     component: () => import(/* webpackChunkName: "blog" */ '../views/Blog.vue'),
-    children: [
-      {
-        path: '/post/:slug',
-        component: () => import(/* webpackChunkName: "BlogPost" */ '@/components/Blog/BlogPost.vue'),
-        props: true,
-      }
-    ],
   },
   {
-    path: '/blogpost',
-    name: 'BlogPost',
-    component: () =>
-      import(/* webpackChunkName: "stories" */ '../components/Blog/BlogPost.vue')
+    path: '/post/:slug',
+    name: "Post",
+    component: () => import(/* webpackChunkName: "BlogPost" */ '@/components/Blog/BlogPost.vue'),
+    props: true,
   },
   {
     path: '/contact',

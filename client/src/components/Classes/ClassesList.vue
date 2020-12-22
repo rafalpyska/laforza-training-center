@@ -24,23 +24,6 @@
       <AppButton type="enroll">
         Enroll
       </AppButton>
-      <div class="class__socials">
-        <a href="#" class="href class__socials-link">
-          <i class="fab fa-facebook-f class__socials-icon" aria-hidden="true">
-            <span class="visuallyhidden">Facebook</span>
-          </i>
-        </a>
-        <a href="#" class="href class__socials-link">
-          <i class="fab fa-twitter class__socials-icon" aria-hidden="true">
-            <span class="visuallyhidden">Twitter</span>
-          </i>
-        </a>
-        <a href="#" class="href class__socials-link">
-          <i class="fab fa-instagram class__socials-icon" aria-hidden="true">
-            <span class="visuallyhidden">Instagram</span>
-          </i>
-        </a>
-      </div>
     </div>
     <div class="class__general-info">
       <div class="class__complexity">
@@ -91,12 +74,15 @@ export default {
 <style scoped lang="scss">
 .class {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(2, 1fr) max-content;
   grid-auto-rows: minmax(10rem, 20rem);
   gap: 2rem;
   font-size: 0.85rem;
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
   &:not(:last-child) {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
   &__img {
     object-fit: cover;
@@ -118,19 +104,6 @@ export default {
   }
   &__description {
     margin: 1rem 0;
-  }
-  &__socials {
-    margin-top: 1.25rem;
-    font-size: 1.25rem;
-    &-link {
-      color: var(--class-social-icon-color);
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-      &:hover {
-        color: var(--color-primary);
-      }
-    }
   }
   &__general-info {
     display: flex;

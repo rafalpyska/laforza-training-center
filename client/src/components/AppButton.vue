@@ -36,7 +36,8 @@ export default {
   &__sign-up,
   &__read-more,
   &__enroll,
-  &__schedule {
+  &__schedule,
+  &__load-more {
     color: var(--white);
     background-color: var(--color-primary);
     &:hover,
