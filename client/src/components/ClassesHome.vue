@@ -53,9 +53,12 @@ export default {
 .section {
   &__course {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     grid-auto-rows: auto;
     font-size: 0.8rem;
+    @media (max-width: 992px) {
+      margin-bottom: 3rem;
+    }
   }
 }
 .course {
@@ -63,11 +66,20 @@ export default {
   &__info {
     color: black;
     background-color: var(--white);
+    @media (max-width: 992px) {
+      grid-column: 1/-1;
+    }
     &-boxing {
       order: 3;
+      @media (max-width: 992px) {
+        order: 0;
+      }
     }
     &-mma {
       order: 2;
+      @media (max-width: 992px) {
+        order: 0;
+      }
     }
   }
   &__heading {

@@ -29,7 +29,9 @@
           <div class="blog__post-category">
             <h2 class="blog__post-category-heading">Categories</h2>
             <ul class="blog__post-category-list">
-              <li class="blog__post-category-item" v-for="category in post[0].categories" :key="category.id">{{ category.name }}</li>
+              <li class="blog__post-category-item" v-for="category in post[0].categories" :key="category.id">
+                #{{ category.name }}
+              </li>
             </ul>
           </div>
         </aside>

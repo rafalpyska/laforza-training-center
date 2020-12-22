@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_info_trainer_infos",
+  "info": {
+    "name": "trainerInfo",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "shortInfo": {
+      "type": "richtext",
+      "required": true,
+      "maxLength": 538
+    }
+  }
+}

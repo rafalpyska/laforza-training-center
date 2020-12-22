@@ -68,12 +68,24 @@
       "via": "trainers"
     },
     "posts": {
-      "via": "authors",
-      "collection": "post"
+      "collection": "post",
+      "via": "authors"
     },
     "stories": {
-      "via": "author",
-      "collection": "story"
+      "collection": "story",
+      "via": "author"
+    },
+    "socials": {
+      "type": "dynamiczone",
+      "components": [
+        "trainer-socials.socials"
+      ]
+    },
+    "shortInfo": {
+      "type": "dynamiczone",
+      "components": [
+        "info.trainer-info"
+      ]
     }
   }
 }

@@ -103,7 +103,7 @@ export default {
   gap: 2rem;
   font-size: 0.85rem;
   @media (max-width: 992px) {
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
   &:not(:last-child) {
     margin-bottom: 2.5rem;
@@ -145,11 +145,14 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 2rem;
+    padding: 2rem;
     text-align: center;
     text-transform: uppercase;
     border: 2px solid var(--class-general-info-border);
     font-size: 0.75rem;
+    @media (max-width: 992px) {
+      grid-column: 1/-1;
+    }
   }
   &__schedule {
     &-list {
