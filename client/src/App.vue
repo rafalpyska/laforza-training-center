@@ -70,6 +70,9 @@ export default {
   padding: 4rem 0;
   color: var(--white);
   background-color: var(--color-secondary);
+  @media (max-width: 1280px) {
+    padding: 4rem 5rem;
+  }
 }
 
 .section {
