@@ -74,10 +74,13 @@ export default {
 <style scoped lang="scss">
 .class {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(2, 1fr) max-content;
   grid-auto-rows: minmax(10rem, 20rem);
   gap: 2rem;
   font-size: 0.85rem;
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
   &:not(:last-child) {
     margin-bottom: 2.5rem;
   }

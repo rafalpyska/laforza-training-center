@@ -99,10 +99,12 @@ export default {
 <style scoped lang="scss">
 .trainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  // grid-auto-rows: minmax(10rem, 20rem);
+  grid-template-columns: repeat(2, 1fr) max-content;
   gap: 2rem;
   font-size: 0.85rem;
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
   &:not(:last-child) {
     margin-bottom: 2.5rem;
   }

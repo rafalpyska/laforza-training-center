@@ -2,7 +2,7 @@
   <section class="section blog">
     <div class="container">
       <AppLoadingSpinner
-          v-if="loading"
+          v-if="loadingStatus"
         />
       <BlogPostsList 
         v-else
@@ -26,19 +26,17 @@ export default {
 		BlogPostsList
   },
   mixins: [fetchData],
-  data() {
-    return {
-      loading: false,
-      error: '',
-      posts: null
-    };
+  computed: {
+    // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
+    loadingStatus() {
+      return this.$store.getters.loadingStatus;
+    },
+    posts() {
+      return this.$store.getters.posts;
+    }
   },
-  async mounted() {
-    this.http('http://localhost:1337/posts')
-      .then(data => {
-        this.posts = data;
-        this.loading = false;
-      })
+  mounted() {
+    this.$store.dispatch('fetchBlogPosts');
   }
 };
 </script>

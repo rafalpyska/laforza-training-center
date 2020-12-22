@@ -16,6 +16,7 @@
         :key="trainer.id"
         :trainer="trainer"
       />
+      <button @click="() => this.$router.push({ path: `/trainers?page=${this.$route.query + 1}`, query: { page: 1 }})" class="btn btn__load-more">Load more</button>
     </div>
   </section>
 </template>
@@ -28,18 +29,21 @@ export default {
   name: 'Trainers',
   components: {
     AppLoadingSpinner,
-    TrainersList
+    TrainersList,
+  },
+  props: {
+
   },
   mixins: [fetchData],
   data() {
     return {
       loading: false,
       error: '',
-      trainers: null
+      trainers: null,
     };
   },
   async mounted() {
-    this.http('http://localhost:1337/users?_limit=4')
+    this.http('http://localhost:1337/users')
       .then(data => {
         this.trainers = data;
         this.loading = false;
