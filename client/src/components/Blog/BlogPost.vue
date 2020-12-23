@@ -1,7 +1,7 @@
 <template>
 
 <div>
-<AppLoadingSpinner
+<app-loading-spinner
   v-if="loadingStatus"
 />
   <section class="section blog" v-else>
@@ -9,11 +9,11 @@
       <div class="blog__post-wrapper">
         <div class="blog__post">
           <div class="blog__post-image-container">
-            <ImageItem
-            :source="`http://localhost:1337${post[0].image.url}`"
+            <image-item
+            :source="`http://localhost:1337${post[0].image.formats.large.url}`"
             :alt="`${post[0].image.alternativeText}`"
             />
-            <BlogPostDate 
+            <blog-post-date
 	            :post="post[0]"
 			      />
           </div>
@@ -68,7 +68,7 @@ export default {
       'post'
     ]),
   },
-  async mounted() {
+  async created() {
     try {
       await this.$store.dispatch('fetchOneBlogPost', this.slug);
     } catch (e) {

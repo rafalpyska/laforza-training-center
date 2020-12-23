@@ -17,15 +17,14 @@
           </div>
         </div>
       </div>
-        <AppLoadingSpinner
+        <app-loading-spinner
           v-if="loadingStatus"
         />
-      <ClassesHome
-        v-else
-        v-for="course in classes"
-        :key="course.id"
-        :course="course"
-      />
+        <classes-home
+          v-for="course in classes"
+          :key="course.id"
+          :course="course"
+       />
     </div>
   </section>
 </template>
@@ -48,7 +47,7 @@ export default {
       'classes'
     ]),
   },
-  async mounted() {
+  async created() {
     if(this.classes && this.classes.length > 0) return;
     try {
       await this.$store.dispatch('fetchClasses');

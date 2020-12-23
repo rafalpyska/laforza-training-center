@@ -21,15 +21,21 @@
         </template>
       </h3>
       <p class="class__description">{{ course.description }}</p>
-      <AppButton type="enroll">
-        Enroll
-      </AppButton>
+      <div class="class__description-controls">
+        <app-button type="enroll">
+          Enroll
+        </app-button>
+        <span class="class__description-price">
+          ${{ course.price }} / month
+        </span>
+			</div>
+
     </div>
     <div class="class__general-info">
       <div class="class__complexity">
         <h3 class="class__general-info-heading">The complexity</h3>
         <ul class="class__complexity-list">
-          <ClassesComplexityIndicator
+          <classes-complexity-indicator
             :rating="`${parseInt(course.complexity, 10)}`"
             :max="5"
           />
@@ -103,6 +109,11 @@ export default {
   }
   &__description {
     margin: 1rem 0;
+    &-price {
+      font-family: 'Play', sans-serif;
+      font-size: 1rem;
+      margin-left: .75rem;
+    }
   }
   &__general-info {
     display: flex;

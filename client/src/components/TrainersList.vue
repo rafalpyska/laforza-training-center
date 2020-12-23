@@ -81,18 +81,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  computed: {
-  // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
-    loading() {
-      return this.$store.state.loading;
-    },
-    courses() {
-      return this.$store.state.classes;
-    }
-  },
-  mounted() {
-    this.$store.dispatch('fetchClasses');
   }
 };
 </script>

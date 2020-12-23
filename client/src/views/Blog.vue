@@ -1,10 +1,10 @@
 <template>
   <section class="section blog">
     <div class="container">
-      <AppLoadingSpinner
+      <app-loading-spinner
           v-if="loadingStatus"
         />
-      <BlogPostsList 
+      <blog-posts-list
         v-else
         v-for="post in posts"
         :key="post.id"
@@ -34,7 +34,7 @@ export default {
       'posts'
     ]),
   },
-  async mounted() {
+  async created() {
     try {
       await this.$store.dispatch('fetchBlogPosts');
     } catch (e) {

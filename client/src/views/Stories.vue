@@ -26,22 +26,22 @@
         </p>
       </div>
     </div>
-    <AppActionStrip>
+    <app-action-strip>
       <template v-slot:first-column>
         <p class="action-strip__name">Client Stories</p>
       </template>
       <template v-slot:last-column>
-        <AppButton type="send-story">
+        <app-button type="send-story">
           Send story
-        </AppButton>
+        </app-button>
       </template>
-    </AppActionStrip>
+    </app-action-strip>
     <div class="stories__list-wrapper">
       <div class="stories__list container">
-        <AppLoadingSpinner
+        <app-loading-spinner
           v-if="loading"
         />
-        <ClientStory 
+        <client-story 
           v-else
           v-for="story in stories"
           :key="story.id"

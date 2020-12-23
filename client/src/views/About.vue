@@ -7,13 +7,38 @@
           <p>Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
+      <trainers-mini-profile 
+          v-for="trainer in trainers"
+          :key="trainer.id"
+          :trainer="trainer"
+        />
     </div>
   </section>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import TrainersMiniProfile from '../components/TrainersMiniProfile'
 export default {
-  name: 'About'
+  name: 'About',
+  components: {
+    TrainersMiniProfile
+  },
+  computed: {
+    ...mapGetters([
+      'loadingStatus',
+      'errorStatus',
+      'trainers'
+    ]),
+  },
+  async mounted() {
+    if(this.trainers && this.trainers.length > 0) return;
+    try {
+      await this.$store.dispatch('fetchTrainers');
+    } catch (e) {
+      this.errorStatus = e;
+    }
+  }
 };
 </script>
 

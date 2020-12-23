@@ -5,6 +5,7 @@ export default createStore({
     classes: null,
     posts: null,
     post: null,
+    trainer: null,
     loading: true,
     error: null
   },
@@ -21,11 +22,12 @@ export default createStore({
     SET_BLOG_POSTS(state, posts) {
       state.posts = posts;
     },
-  
     SET_ONE_BLOG_POST(state, post) {
       state.post = post;
     },
-
+    SET_TRAINERS(state, trainers) {
+      state.trainers = trainers;
+    }
   },
   actions: {
     async fetchClasses({ commit }) {
@@ -40,7 +42,7 @@ export default createStore({
         .then(data => {
           commit('SET_COURSES', data);
           commit('setLoading', false);
-        }) // TODO: handle errors (catch)
+        })
         .catch(error => {
           commit('setError', error);
         });
@@ -57,7 +59,7 @@ export default createStore({
         .then(data => {
           commit('SET_BLOG_POSTS', data);
           commit('setLoading', false)
-        }) // TODO: handle errors (catch)
+        })
         .catch(error => {
           commit('setError', error);
         });
@@ -74,7 +76,24 @@ export default createStore({
         .then(data => {
           commit('SET_ONE_BLOG_POST', data);
           commit('setLoading', false)
-        }) // TODO: handle errors (catch)
+        })
+        .catch(error => {
+          commit('setError', error);
+        });
+    },
+    async fetchTrainers({ commit }) {
+      commit('setLoading', true)
+      return await fetch('http://localhost:1337/users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          commit('SET_TRAINERS', data);
+          commit('setLoading', false)
+        })
         .catch(error => {
           commit('setError', error);
         });
@@ -89,6 +108,9 @@ export default createStore({
     },
     post (state) {
       return state.post
+    },
+    trainers (state) {
+      return state.trainers
     },
     loadingStatus (state) {
       return state.loading

@@ -16,25 +16,28 @@ export default {
 
     function handleIntersect(entries, observer) {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
           loadImage();
           observer.unobserve(el);
-        }
+        }  
       });
     }
 
     function createObserver() {
       const options = {
         root: null,
+        rootMargin: "0px 0px 100px 0px",
         threshold: '0'
       };
       const observer = new IntersectionObserver(handleIntersect, options);
       observer.observe(el);
     }
-    if (window['IntersectionObserver']) {
-      createObserver();
-    } else {
+    if (!window['IntersectionObserver']) {
       loadImage();
+    } else {
+      createObserver();
     }
   }
 };

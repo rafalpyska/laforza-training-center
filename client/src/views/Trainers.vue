@@ -7,10 +7,10 @@
           <p>Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <AppLoadingSpinner
-          v-if="loading"
+      <app-loading-spinner
+          v-if="loadingStatus"
       />
-      <TrainersList 
+      <trainers-list
         v-else
         v-for="trainer in trainers"
         :key="trainer.id"
@@ -22,32 +22,30 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
-import fetchData from '../mixins/fetchData';
 import TrainersList from '../components/TrainersList';
+
 export default {
   name: 'Trainers',
   components: {
     AppLoadingSpinner,
-    TrainersList,
+    TrainersList
   },
-  props: {
-
+    computed: {
+    ...mapGetters([
+      'loadingStatus',
+      'errorStatus',
+      'trainers'
+    ]),
   },
-  mixins: [fetchData],
-  data() {
-    return {
-      loading: false,
-      error: '',
-      trainers: null,
-    };
-  },
-  async mounted() {
-    this.http('http://localhost:1337/users')
-      .then(data => {
-        this.trainers = data;
-        this.loading = false;
-      })
+  async created() {
+    if(this.trainers && this.trainers.length > 0) return;
+    try {
+      await this.$store.dispatch('fetchTrainers');
+    } catch (e) {
+      this.errorStatus = e;
+    }
   }
 };
 </script>

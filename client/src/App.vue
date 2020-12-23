@@ -49,7 +49,6 @@ export default {
 .row {
   display: flex;
 }
-
 .vueperslide {
   &__title {
     text-transform: uppercase;
