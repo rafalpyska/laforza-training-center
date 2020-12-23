@@ -22,7 +22,7 @@
         />
       <ClassesHome
         v-else
-        v-for="course in courses"
+        v-for="course in classes"
         :key="course.id"
         :course="course"
       />
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ClassesHome from '../components/ClassesHome';
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 
@@ -41,16 +42,19 @@ export default {
     AppLoadingSpinner
   },
   computed: {
-    // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
-    loadingStatus() {
-      return this.$store.getters.loadingStatus;
-    },
-    courses() {
-      return this.$store.getters.classes;
-    }
+    ...mapGetters([
+      'loadingStatus',
+      'errorStatus',
+      'classes'
+    ]),
   },
-  mounted() {
-    this.$store.dispatch('fetchClasses');
+  async mounted() {
+    if(this.classes && this.classes.length > 0) return;
+    try {
+      await this.$store.dispatch('fetchClasses');
+    } catch (e) {
+      this.errorStatus = e;
+    }
   }
 };
 </script>

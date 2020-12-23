@@ -44,7 +44,7 @@ export default {
 <style scoped lang="scss">
 	.blog__post-list {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 		grid-auto-rows: 25rem;
 		margin-bottom: 4rem;
 		font-size: .8rem;
@@ -60,6 +60,9 @@ export default {
 			flex-direction: column;
 			padding: 2rem;
 			background-color: var(--blog-post-list-shortened-bgc);
+			@media (max-width: 992px) {
+      	grid-column: 1/-1;
+    	}
 		}
 		&-heading {
 			margin-bottom: .75rem;

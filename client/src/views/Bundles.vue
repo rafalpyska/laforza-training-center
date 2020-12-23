@@ -44,6 +44,7 @@ export default {
     };
   },
   async mounted() {
+    if(this.bundles && this.bundles.length > 0) return;
     this.http('http://localhost:1337/bundles')
       .then(data => {
         this.bundles = data;

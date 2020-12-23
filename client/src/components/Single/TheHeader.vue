@@ -147,6 +147,9 @@ export default {
   font-family: 'Play', sans-serif;
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
+  @media (max-width: 1280px) {
+    padding: 0 5rem;
+  }
   &__logo {
     display: block;
   }

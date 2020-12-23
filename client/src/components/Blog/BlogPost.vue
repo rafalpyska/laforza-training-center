@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import AppLoadingSpinner from '../Base/AppLoadingSpinner'
 import ImageItem from '../ImageItem';
 import BlogPostDate from './BlogPostDate'
@@ -61,16 +62,19 @@ export default {
     }
   },
   computed: {
-    loadingStatus() {
-      return this.$store.getters.loadingStatus;
-    },
-    post() {
-      return this.$store.getters.post;
-    }
+    ...mapGetters([
+      'loadingStatus',
+      'errorStatus',
+      'post'
+    ]),
   },
-  mounted() {
-    this.$store.dispatch('fetchOneBlogPost', this.slug);
-  } 
+  async mounted() {
+    try {
+      await this.$store.dispatch('fetchOneBlogPost', this.slug);
+    } catch (e) {
+      this.errorStatus = e;
+    }
+  }
 }
 </script>
 

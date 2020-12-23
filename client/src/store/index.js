@@ -5,11 +5,15 @@ export default createStore({
     classes: null,
     posts: null,
     post: null,
-    loading: true
+    loading: true,
+    error: null
   },
   mutations: {
-    loading(state, loadingStatus) {
+    setLoading(state, loadingStatus) {
       return (state.loading = loadingStatus);
+    },
+    setError(state, error) {
+      return (state.error = error);
     },
     SET_COURSES(state, classes) {
       state.classes = classes;
@@ -25,7 +29,7 @@ export default createStore({
   },
   actions: {
     async fetchClasses({ commit }) {
-      commit('loading', true)
+      commit('setLoading', true)
       return await fetch('http://localhost:1337/classes', {
         method: 'GET',
         headers: {
@@ -35,12 +39,14 @@ export default createStore({
         .then(response => response.json())
         .then(data => {
           commit('SET_COURSES', data);
-          commit('loading', false)
+          commit('setLoading', false);
         }) // TODO: handle errors (catch)
-        .catch(reason => console.log(reason));
+        .catch(error => {
+          commit('setError', error);
+        });
     },
     async fetchBlogPosts({ commit }) {
-      commit('loading', true)
+      commit('setLoading', true)
       return await fetch('http://localhost:1337/posts', {
         method: 'GET',
         headers: {
@@ -50,12 +56,14 @@ export default createStore({
         .then(response => response.json())
         .then(data => {
           commit('SET_BLOG_POSTS', data);
-          commit('loading', false)
+          commit('setLoading', false)
         }) // TODO: handle errors (catch)
-        .catch(reason => console.log(reason));
+        .catch(error => {
+          commit('setError', error);
+        });
     },
     async fetchOneBlogPost({ commit }, postSlug) {
-      commit('loading', true)
+      commit('setLoading', true)
       return await fetch(`http://localhost:1337/posts?slug=${postSlug}`, {
         method: 'GET',
         headers: {
@@ -65,9 +73,11 @@ export default createStore({
         .then(response => response.json())
         .then(data => {
           commit('SET_ONE_BLOG_POST', data);
-          commit('loading', false)
+          commit('setLoading', false)
         }) // TODO: handle errors (catch)
-        .catch(reason => console.log(reason));
+        .catch(error => {
+          commit('setError', error);
+        });
     }
   },
   getters: {
@@ -82,6 +92,9 @@ export default createStore({
     },
     loadingStatus (state) {
       return state.loading
+    },
+    errorStatus (state) {
+      return state.error
     }
   },
   modules: {}
