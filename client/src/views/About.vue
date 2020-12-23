@@ -7,11 +7,14 @@
           <p>Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <trainers-mini-profile 
+      
+      <div class="trainer__list">
+        <trainers-mini-profile 
           v-for="trainer in trainers"
           :key="trainer.id"
           :trainer="trainer"
         />
+      </div>
     </div>
   </section>
 </template>
@@ -42,4 +45,13 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .trainer {
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+      grid-gap: 1rem;
+      grid-auto-rows: 1fr;
+    }
+  }
+</style>
