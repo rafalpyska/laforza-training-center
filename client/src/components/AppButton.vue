@@ -46,6 +46,11 @@ export default {
       background-color: var(--white);
       color: var(--color-primary);
     }
+    &:hover > *,
+    &:focus > *,
+    &:active > * {
+      color: var(--color-primary);
+    }
   }
   &__send-story {
     color: white;

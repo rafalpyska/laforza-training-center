@@ -1,10 +1,10 @@
 <template>
   <section class="section blog">
     <div class="container">
-      <AppLoadingSpinner
+      <app-loading-spinner
           v-if="loadingStatus"
         />
-      <BlogPostsList 
+      <blog-posts-list
         v-else
         v-for="post in posts"
         :key="post.id"
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-
+import { mapGetters } from 'vuex'
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner'
 import fetchData from '../mixins/fetchData';
 import BlogPostsList from '../components/Blog/BlogPostsList';
@@ -28,16 +28,18 @@ export default {
   },
   mixins: [fetchData],
   computed: {
-    // TODO: ...mapState (spread operator doesn't work, despite installing babel plugin) / add spinner when data is loading
-    loadingStatus() {
-      return this.$store.getters.loadingStatus;
-    },
-    posts() {
-      return this.$store.getters.posts;
-    }
+    ...mapGetters([
+      'loadingStatus',
+      'errorStatus',
+      'posts'
+    ]),
   },
-  mounted() {
-    this.$store.dispatch('fetchBlogPosts');
+  async created() {
+    try {
+      await this.$store.dispatch('fetchBlogPosts');
+    } catch (e) {
+      this.errorStatus = e;
+    }
   }
 };
 </script>

@@ -1,11 +1,11 @@
 <template>
 	<div class="blog__post-list">
 		<div class="blog__post-list-image-container">
-			<ImageItem
+			<image-item
 				:source="`http://localhost:1337${post.image.url}`"
 				:alt="`${post.image.alternativeText}`"
 			/>
-			<BlogPostDate 
+			<blog-post-date
 				:post="post"
 			/>
 		</div>
@@ -13,7 +13,9 @@
 			<h2 class="blog__post-list-heading">{{ post.title }}</h2>
 			<p class="blog__post-list-paragraph">{{ post.summary  }}</p>
 			<div class="blog__post-list-controls">
-				<router-link :to="{name: 'Post', params: { slug: post.slug }}" class="btn btn__load-more">Read More</router-link>
+				<app-button type="load-more">
+					<router-link :to="{name: 'Post', params: { slug: post.slug }}" class="blog__post-list-controls-read-more">Read More</router-link>
+				</app-button>
 				<p class="blog__post-list-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
 			</div>
 		</div>
@@ -25,12 +27,14 @@
 <script>
 import ImageItem from '../ImageItem';
 import BlogPostDate from './BlogPostDate'
+import AppButton from '../AppButton'
 
 export default {
   name: 'BlogPostsList',
   components: {
 		ImageItem,
-    BlogPostDate
+		BlogPostDate,
+		AppButton
 	},
 	props: {
 		post: {
@@ -44,22 +48,32 @@ export default {
 <style scoped lang="scss">
 	.blog__post-list {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-auto-rows: 25rem;
-		margin-bottom: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+		margin-bottom: 2rem;
 		font-size: .8rem;
 		&:hover .blog__post-date{
 			background-color: var(--color-primary);
 		}
+		&:nth-of-type(odd) .blog__post-list-image-container {
+			order: 2;
+			@media (max-width: 992px) {
+      	order: 0;
+    	}
+		}
 		&-image-container {
 			position: relative;
-			grid-column: 1/3;
+			@media (max-width: 992px) {
+      	grid-column: 1/-1;
+    	}
 		}
 		&-shortened {
 			display: flex;
 			flex-direction: column;
 			padding: 2rem;
 			background-color: var(--blog-post-list-shortened-bgc);
+			@media (max-width: 992px) {
+      	grid-column: 1/-1;
+    	}
 		}
 		&-heading {
 			margin-bottom: .75rem;
@@ -72,6 +86,10 @@ export default {
 			justify-content: space-between;
 			align-items: center;
 			margin-top: 1.75rem;
+			&-read-more:link, 
+			&-read-more:visited {
+				color: white;
+			}
 		}
 	}
 </style>

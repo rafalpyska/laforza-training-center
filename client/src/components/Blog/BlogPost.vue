@@ -1,7 +1,7 @@
 <template>
 
 <div>
-<AppLoadingSpinner
+<app-loading-spinner
   v-if="loadingStatus"
 />
   <section class="section blog" v-else>
@@ -9,11 +9,11 @@
       <div class="blog__post-wrapper">
         <div class="blog__post">
           <div class="blog__post-image-container">
-            <ImageItem
-            :source="`http://localhost:1337${post[0].image.url}`"
+            <image-item
+            :source="`http://localhost:1337${post[0].image.formats.large.url}`"
             :alt="`${post[0].image.alternativeText}`"
             />
-            <BlogPostDate 
+            <blog-post-date
 	            :post="post[0]"
 			      />
           </div>
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import AppLoadingSpinner from '../Base/AppLoadingSpinner'
 import ImageItem from '../ImageItem';
 import BlogPostDate from './BlogPostDate'
@@ -61,16 +62,19 @@ export default {
     }
   },
   computed: {
-    loadingStatus() {
-      return this.$store.getters.loadingStatus;
-    },
-    post() {
-      return this.$store.getters.post;
-    }
+    ...mapGetters([
+      'loadingStatus',
+      'errorStatus',
+      'post'
+    ]),
   },
-  mounted() {
-    this.$store.dispatch('fetchOneBlogPost', this.slug);
-  } 
+  async created() {
+    try {
+      await this.$store.dispatch('fetchOneBlogPost', this.slug);
+    } catch (e) {
+      this.errorStatus = e;
+    }
+  }
 }
 </script>
 

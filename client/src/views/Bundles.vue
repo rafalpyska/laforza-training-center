@@ -10,10 +10,10 @@
       <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
       <div class="section__courses-bundles-container">
         
-        <AppLoadingSpinner
+        <app-loading-spinner
           v-if="loading"
         />
-        <ClassesBundle
+        <classes-bundle
           v-else
           v-for="bundle in bundles"
           :key="bundle.id"
@@ -43,11 +43,16 @@ export default {
       bundles: null
     };
   },
-  async mounted() {
-    this.http('http://localhost:1337/bundles')
+  async created() {
+    if(this.bundles && this.bundles.length > 0) return;
+    // TODO: Fetching and caching data
+    await this.http('http://localhost:1337/bundles')
       .then(data => {
         this.bundles = data;
         this.loading = false;
+      })
+      .catch(error => {
+        this.error = error;
       })
   }
 };

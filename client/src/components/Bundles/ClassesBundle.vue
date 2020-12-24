@@ -2,10 +2,12 @@
   <div class="courses__bundle">
     <h2 class="courses__bundle-name">{{ bundle.name }}</h2>
     <div class="courses__bundle-price-container">
-      <p class="courses__bundle-price">{{ bundle.price }} $</p>
+      <p class="courses__bundle-price">
+        <span class="courses__bundle-price-currency">$</span>
+        {{ bundle.price }}</p>
       <p class="courses__bundle-reccuring-payment">per month</p>
     </div>
-    <AppDivider />
+    <app-divider />
     <ul class="courses__bundle-list">
       <li
         class="courses__bundle-item"
@@ -15,9 +17,9 @@
         {{ course.name }}
       </li>
     </ul>
-    <AppButton type="sign-up">
+    <app-button type="sign-up">
       Sign Up
-    </AppButton>
+    </app-button>
   </div>
 </template>
 
@@ -48,6 +50,7 @@ export default {
     align-items: center;
     background-color: var(--courses-bundle-bgc);
     padding: 3.5rem 2.5rem;
+    font-size: .75rem;
     &:hover {
       background-color: var(--color-primary);
     }
@@ -60,11 +63,11 @@ export default {
     }
     &-name {
       text-transform: uppercase;
+
     }
     &-price {
-      font-weight: bold;
-      font-size: 2em;
       &-container {
+        font-family: 'Play', sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -75,8 +78,18 @@ export default {
         border: 5px solid var(--color-primary);
         border-radius: 50%;
       }
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-currency {
+      }
+    }
+    &-reccuring-payment {
+      font-size: .65rem;
     }
     &-list {
+      font-family: 'Play', sans-serif;
       flex: 1;
       text-align: center;
       margin-bottom: 2rem;

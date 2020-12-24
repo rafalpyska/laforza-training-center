@@ -33,6 +33,11 @@ export default {
     object-fit: cover;
     width: 100%;
     max-height: 100%;
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+    &[data-url] {
+      opacity: 0;
+    }
   }
 }
 </style>

@@ -26,22 +26,22 @@
         </p>
       </div>
     </div>
-    <AppActionStrip>
+    <app-action-strip>
       <template v-slot:first-column>
         <p class="action-strip__name">Client Stories</p>
       </template>
       <template v-slot:last-column>
-        <AppButton type="send-story">
+        <app-button type="send-story">
           Send story
-        </AppButton>
+        </app-button>
       </template>
-    </AppActionStrip>
+    </app-action-strip>
     <div class="stories__list-wrapper">
       <div class="stories__list container">
-        <AppLoadingSpinner
+        <app-loading-spinner
           v-if="loading"
         />
-        <ClientStory 
+        <client-story 
           v-else
           v-for="story in stories"
           :key="story.id"
@@ -86,20 +86,35 @@ export default {
 
 <style scoped lang="scss">
 .stories {
+  padding: 0;
   &__info,
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 4rem;
   }
   &__info {
     font-size: 0.8rem;
     margin-bottom: 4rem;
+    @media (max-width: 1280px) {
+      padding: 0 5rem;
+    }
   }
   &__list {
-    padding: 4rem 0;
+    padding: 5rem 0;
     &-wrapper {
-      // background-color: var(--stories-list-bgc);
+      @media (max-width: 1280px) {
+        padding: 0 5rem;
+      }
+      background-color: var(--stories-list-bgc);
+    }
+  }
+}
+.section {
+  &__description {
+    padding-top: 4rem;
+    @media (max-width: 1280px) {
+      padding: 4rem 5rem 0 5rem;
     }
   }
 }

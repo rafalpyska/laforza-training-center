@@ -49,7 +49,6 @@ export default {
 .row {
   display: flex;
 }
-
 .vueperslide {
   &__title {
     text-transform: uppercase;
@@ -73,9 +72,6 @@ export default {
   @media (max-width: 1280px) {
     padding: 4rem 5rem;
   }
-}
-
-.section {
   &__description {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -84,12 +80,20 @@ export default {
     &-info {
       grid-column: 1/3;
       margin-right: 4em;
+      @media (max-width: 992px) {
+        grid-column: 1/-1;
+        margin-right: 0;
+      }
     }
     &-encouragement {
-      flex: 1 1 40%;
+      @media (max-width: 992px) {
+        grid-column: 1/-1;
+        margin-top: 2rem;
+      }
     }
   }
 }
+
 .encouragement-box {
   padding: 2rem 1rem;
   text-align: center;
