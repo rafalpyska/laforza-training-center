@@ -8,7 +8,7 @@
         </div>
       </div>
       <app-loading-spinner
-          v-if="loadingStatus"
+        v-if="loadingStatus"
       />
       <trainers-list
         v-else
@@ -24,7 +24,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
-import TrainersList from '../components/TrainersList';
+import TrainersList from '../components/Trainers/TrainersList';
 
 export default {
   name: 'Trainers',

@@ -7,7 +7,6 @@
           <p>Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      
       <div class="trainer__list">
         <trainers-mini-profile 
           v-for="trainer in trainers"
@@ -21,7 +20,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import TrainersMiniProfile from '../components/TrainersMiniProfile'
+import TrainersMiniProfile from '../components/Trainers/TrainersMiniProfile'
 export default {
   name: 'About',
   components: {
@@ -35,6 +34,7 @@ export default {
     ]),
   },
   async mounted() {
+    
     if(this.trainers && this.trainers.length > 0) return;
     try {
       await this.$store.dispatch('fetchTrainers');

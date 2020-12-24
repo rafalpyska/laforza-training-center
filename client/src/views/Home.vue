@@ -21,10 +21,11 @@
           v-if="loadingStatus"
         />
         <classes-home
-          v-for="course in classes"
+          v-for="(course, index) in classes"
           :key="course.id"
           :course="course"
-       />
+          :idx="index"
+        />
     </div>
   </section>
 </template>

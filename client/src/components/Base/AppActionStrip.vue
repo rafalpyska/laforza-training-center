@@ -22,8 +22,11 @@ export default {
 <style scoped lang="scss">
 .action-strip {
   background-color: var(--color-primary);
-  padding: 0.5rem 0;
+  padding: .5rem 0;
   text-transform: uppercase;
+    @media (max-width: 1280px) {
+    padding: .5rem 5rem;
+  }
   &-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

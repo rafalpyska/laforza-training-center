@@ -1,7 +1,7 @@
 <template>
   <div class="trainer-mini-profile">
     <figure class="trainer-mini-profile__info">
-      <img src="../assets/images/480x425.png" alt="" class="trainer-mini-profile__info-image image">
+      <img src="@/assets/images/480x425.png" alt="" class="trainer-mini-profile__info-image image">
       <figcaption class="trainer-mini-profile__info-description">
         <p class="trainer-mini-profile__info-description-username">{{ trainer.username }}</p>
         <p class="trainer-mini-profile__info-description-class" v-for="course in trainer.classes" :key="course.id">{{ course.name }}</p>

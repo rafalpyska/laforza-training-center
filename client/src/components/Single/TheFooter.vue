@@ -125,9 +125,12 @@ export default {
   }
   &__info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     justify-items: end;
     grid-gap: 2rem;
+    @media (max-width: 1280px) {
+      padding: 0 5rem;
+    }
   }
   &__contact {
     &__list {
@@ -145,6 +148,9 @@ export default {
     margin-top: 4rem;
     padding: 1.5rem 0;
     background-color: var(--footer-copyrights-bgc);
+    @media (max-width: 1280px) {
+     padding: 1.5rem 5rem;
+    }
   }
 }
 .pages {

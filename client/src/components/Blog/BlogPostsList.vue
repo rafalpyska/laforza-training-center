@@ -14,9 +14,8 @@
 			<p class="blog__post-list-paragraph">{{ post.summary  }}</p>
 			<div class="blog__post-list-controls">
 				<app-button type="load-more">
-					<router-link :to="{name: 'Post', params: { slug: post.slug }}" class="">Read More</router-link>
+					<router-link :to="{name: 'Post', params: { slug: post.slug }}" class="blog__post-list-controls-read-more">Read More</router-link>
 				</app-button>
-
 				<p class="blog__post-list-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
 			</div>
 		</div>
@@ -50,15 +49,22 @@ export default {
 	.blog__post-list {
 		display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-		grid-auto-rows: 25rem;
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 		font-size: .8rem;
 		&:hover .blog__post-date{
 			background-color: var(--color-primary);
 		}
+		&:nth-of-type(odd) .blog__post-list-image-container {
+			order: 2;
+			@media (max-width: 992px) {
+      	order: 0;
+    	}
+		}
 		&-image-container {
 			position: relative;
-			grid-column: 1/3;
+			@media (max-width: 992px) {
+      	grid-column: 1/-1;
+    	}
 		}
 		&-shortened {
 			display: flex;
@@ -80,6 +86,10 @@ export default {
 			justify-content: space-between;
 			align-items: center;
 			margin-top: 1.75rem;
+			&-read-more:link, 
+			&-read-more:visited {
+				color: white;
+			}
 		}
 	}
 </style>

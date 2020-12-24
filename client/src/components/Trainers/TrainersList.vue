@@ -2,7 +2,7 @@
   <div class="trainer">
     <div class="trainer__image-container">
       <img
-        src="../assets/images/placeholder.png"
+        src="@/assets/images/placeholder.png"
         class="image"
         alt="placeholder"
       />
@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import AppButton from './AppButton';
+import AppButton from '../AppButton';
 export default {
   name: 'TrainersList',
   components: {

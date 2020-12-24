@@ -51,6 +51,9 @@ export default {
         this.bundles = data;
         this.loading = false;
       })
+      .catch(error => {
+        this.error = error;
+      })
   }
 };
 </script>

@@ -44,6 +44,9 @@ export default {
     course: {
       type: Object,
       required: true
+    },
+    idx: {
+      type: Number
     }
   }
 };
