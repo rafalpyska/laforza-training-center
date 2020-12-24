@@ -1,30 +1,38 @@
 <template>
-	<div class="blog__post-list">
-		<div class="blog__post-list-image-container">
-			<image-item
-				:source="`http://localhost:1337${post.image.url}`"
-				:alt="`${post.image.alternativeText}`"
-			/>
-			<blog-post-date
-				:post="post"
-			/>
-		</div>
-		<div class="blog__post-list-shortened">
-			<h2 class="blog__post-list-heading">{{ post.title }}</h2>
-			<p class="blog__post-list-paragraph">{{ post.summary  }}</p>
-			<div class="blog__post-list-controls">
-				<app-button type="load-more">
-					<router-link :to="{name: 'Post', params: { slug: post.slug }}" class="blog__post-list-controls-read-more">Read More</router-link>
-				</app-button>
-				<p class="blog__post-list-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
+  <div class="container">
+		<app-loading-spinner
+  		v-if="loadingStatus"
+		/>
+		<div class="blog__post-list" v-for="post in posts" :key="post.id" v-else>
+			<div class="blog__post-list-image-container">
+				<image-item
+					:source="`http://localhost:1337${post.image.url}`"
+					:alt="`${post.image.alternativeText}`"
+				/>
+				<blog-post-date
+					:post="post"
+				/>
 			</div>
+			<div class="blog__post-list-shortened">
+				<h2 class="blog__post-list-heading">{{ post.title }}</h2>
+				<p class="blog__post-list-paragraph">{{ post.summary  }}</p>
+				<div class="blog__post-list-controls">
+					<app-button type="load-more">
+						<router-link :to="{name: 'BlogPost', params: { slug: post.slug }}" class="blog__post-list-controls-read-more">Read More</router-link>
+					</app-button>
+					<p class="blog__post-list-posted-by" v-for="author in post.authors" :key="author.id">{{ author.username }}</p>
+				</div>
+			</div>
+			<router-view>
+			</router-view>
 		</div>
-		<router-view>
-		</router-view>
 	</div>
 </template>
 
 <script>
+import AppLoadingSpinner from '../Base/AppLoadingSpinner'
+import { mapGetters } from 'vuex'
+import fetchData from '@/mixins/fetchData';
 import ImageItem from '../ImageItem';
 import BlogPostDate from './BlogPostDate'
 import AppButton from '../AppButton'
@@ -32,16 +40,26 @@ import AppButton from '../AppButton'
 export default {
   name: 'BlogPostsList',
   components: {
+		AppLoadingSpinner,
 		ImageItem,
 		BlogPostDate,
 		AppButton
 	},
-	props: {
-		post: {
-			type: Object,
-			required: true
-		}
-	}
+  mixins: [fetchData],
+  computed: {
+    ...mapGetters([
+      'loadingStatus',
+      'errorStatus',
+      'posts'
+    ]),
+  },
+  async created() {
+    try {
+      await this.$store.dispatch('fetchBlogPosts');
+    } catch (e) {
+      this.errorStatus = e;
+    }
+  }
 }
 </script>
 

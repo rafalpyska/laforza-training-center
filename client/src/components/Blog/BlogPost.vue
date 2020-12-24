@@ -1,45 +1,44 @@
 <template>
 
-<div>
-<app-loading-spinner
-  v-if="loadingStatus"
-/>
-  <section class="section blog" v-else>
-    <div class="container">
-      <div class="blog__post-wrapper">
-        <div class="blog__post">
-          <div class="blog__post-image-container">
-            <image-item
-            :source="`http://localhost:1337${post[0].image.formats.large.url}`"
-            :alt="`${post[0].image.alternativeText}`"
-            />
-            <blog-post-date
-	            :post="post[0]"
-			      />
+  <div class="container">
+    <app-loading-spinner
+     v-if="loadingStatus"
+    />
+    <section class="section blog" v-else>
+      <div class="container">
+        <div class="blog__post-wrapper">
+          <div class="blog__post">
+            <div class="blog__post-image-container">
+              <image-item
+              :source="`http://localhost:1337${post[0].image.formats.large.url}`"
+              :alt="`${post[0].image.alternativeText}`"
+              />
+              <blog-post-date
+                :post="post[0]"
+              />
+            </div>
+            <div class="blog__post-shortened">
+              <h2 class="blog__post-heading">{{ post[0].title }}</h2>
+              <p class="blog__post-posted-by" v-for="author in post[0].authors" :key="author.id">Published by: {{ author.username }}</p>
+              <p class="blog__post-paragraph">
+                {{ post[0].content }}
+                </p>
+            </div>
           </div>
-          <div class="blog__post-shortened">
-            <h2 class="blog__post-heading">{{ post[0].title }}</h2>
-            <p class="blog__post-posted-by" v-for="author in post[0].authors" :key="author.id">Published by: {{ author.username }}</p>
-            <p class="blog__post-paragraph">
-              {{ post[0].content }}
-              </p>
-          </div>
+          <aside class="blog__post-sidebar">
+            <div class="blog__post-category">
+              <h2 class="blog__post-category-heading">Categories</h2>
+              <ul class="blog__post-category-list">
+                <li class="blog__post-category-item" v-for="category in post[0].categories" :key="category.id">
+                  #{{ category.name }}
+                </li>
+              </ul>
+            </div>
+          </aside>
         </div>
-        <aside class="blog__post-sidebar">
-          <div class="blog__post-category">
-            <h2 class="blog__post-category-heading">Categories</h2>
-            <ul class="blog__post-category-list">
-              <li class="blog__post-category-item" v-for="category in post[0].categories" :key="category.id">
-                #{{ category.name }}
-              </li>
-            </ul>
-          </div>
-        </aside>
       </div>
-    </div>
-  </section>
-</div>
-
+    </section>
+  </div>
 </template>
 
 <script>
