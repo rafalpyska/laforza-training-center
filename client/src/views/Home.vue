@@ -3,8 +3,8 @@
     <div class="container">
       <div class="section__description">
         <div class="section__description-info">
-          <h2 class="color-primary">We help peaople find themselves</h2>
-          <p>
+          <h2 class="section__title color-primary">We help people find themselves</h2>
+          <p class="section__subtitle">
             Many every day looking in the mirror and promise to begin to engage
             in their health tomorrow. We will give you the incentive to start
           </p>

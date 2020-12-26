@@ -2,7 +2,7 @@
   <div class="events-calendar">
     <event-calendar-weekdays/>
 
-    <ol class="events-calendar__days">
+    <ol class="events-calendar__days-list">
       <event-calendar-month-day-item
         v-for="day in days"
         :key="day.date"
@@ -49,7 +49,6 @@ export default {
   components: {
     EventCalendarMonthDayItem,
     EventCalendarDateIndicator,
-    // EventCalendarDateSelector,
     EventCalendarWeekdays,
     EventCalendarNextMonth,
     EventCalendarPreviousMonth
@@ -173,14 +172,20 @@ export default {
 
 <style scoped lang="scss">
   .events-calendar {
+    display: flex;
+    flex-direction: column;
     font-family: 'Play', sans-serif;
-    position: relative;
     background-color: var(--grey-200);
+        border-radius: 55px;
     border: solid 1px var(--grey-300);
-    &__days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-auto-rows: minmax(5rem, 1fr);
+    &__days-list {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-auto-rows: minmax(5rem, 1fr);
+      @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+        order: 3;
+      }
   }
     &-footer {
       display: grid;

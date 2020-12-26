@@ -3,8 +3,8 @@
     <div class="container">
       <div class="section__description">
         <div class="section__description-info">
-          <h2 class="color-primary">Client Stories</h2>
-          <p>Etiam rhoncus. Maecenas tempus</p>
+          <h2 class="section__title color-primary">Client Stories</h2>
+          <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
       <div class="trainer__list">

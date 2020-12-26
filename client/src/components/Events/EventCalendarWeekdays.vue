@@ -34,12 +34,16 @@ export default {
         background-color: var(--color-primary);
         text-align: center;
         text-transform: uppercase;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        @media (max-width: 992px) {
+          display: none;
+          order: 2;
+        }
       }
       &-item {
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid var(--events-calendar-border);
         padding: 1rem;
       }
     }

@@ -1,4 +1,5 @@
 <template>
+
   <li
     class="events-calendar-day"
     :class="{
@@ -55,9 +56,13 @@ export default {
       justify-content: center;
       align-items: center;
       position: relative;
+      padding: 1rem;
       background-color: var(--events-calendar-odd-event-cell-bgc);
       color: black;
-      border: 1px solid var(--events-calendar-border);
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      @media (max-width: 992px) {
+        align-items: flex-start;
+      }
       &--not-current {
         background-color: var(--events-calendar-even-event-cell-bgc);
         color: var(--grey-300);
@@ -67,8 +72,8 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 25px;
-          height: 25px;
+          width: 2rem;
+          height: 2rem;
           color: #fff;
           border-radius: 50%;
           background-color: var(--color-primary);
@@ -79,6 +84,13 @@ export default {
       &-event {
         color: var(--color-primary);
         text-align: center;
+        @media (max-width: 992px) {
+          color: white;
+          margin-top: .5rem;
+          padding: .5rem;
+          border-radius: 4px;
+          background-color: rgba(248, 49, 49, 1);
+        }
       }
     }
   }

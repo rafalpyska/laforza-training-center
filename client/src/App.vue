@@ -76,7 +76,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 2.5rem;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     &-info {
       grid-column: 1/3;
       margin-right: 4em;
@@ -91,6 +91,13 @@ export default {
         margin-top: 2rem;
       }
     }
+  }
+  &__title {
+    text-transform: uppercase;
+  }
+  &__subtitle {
+    color: var(--section-subtitle);
+    text-transform: uppercase;
   }
 }
 
