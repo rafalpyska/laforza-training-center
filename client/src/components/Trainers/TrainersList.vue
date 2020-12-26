@@ -125,7 +125,6 @@ export default {
     margin-bottom: 2.5rem;
   }
   &__image-container {
-
   }
   &__info {
     color: white;

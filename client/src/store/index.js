@@ -81,9 +81,9 @@ export default createStore({
           commit('setError', error);
         });
     },
-    async fetchTrainers({ commit }) {
+    async fetchTrainers({ commit }, start = 0, limit = 50) {
       commit('setLoading', true);
-      return await fetch('http://localhost:1337/users', {
+      return await fetch(`http://localhost:1337/users?_start=${start}&_limit=${limit}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

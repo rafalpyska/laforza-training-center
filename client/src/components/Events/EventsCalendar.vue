@@ -1,35 +1,40 @@
 <template>
-  <div class="events-calendar">
-    <event-calendar-weekdays/>
+  <div class="events-calendar__wrapper">
 
-    <ol class="events-calendar__days-list">
-      <event-calendar-month-day-item
-        v-for="day in days"
-        :key="day.date"
-        :day="day"
-        :is-today="day.date === today"
-        :events="events"
-      />
-    </ol>
+    <app-loading-spinner v-if="loading" />
 
-    <div class="events-calendar-footer">
-      <event-calendar-previous-month
-        :selected-date="selectedDate"
-        @dateSelected="selectDate"
-      />
-      <event-calendar-date-indicator
-        :selected-date="selectedDate"
-      />
-      <event-calendar-next-month
-        :selected-date="selectedDate"
-        @dateSelected="selectDate"
-      />
+    <div v-else class="events-calendar">
+      <event-calendar-weekdays/>
+
+      <ol class="events-calendar__days-list">
+        <event-calendar-month-day-item
+          v-for="day in days"
+          :key="day.date"
+          :day="day"
+          :is-today="day.date === today"
+          :events="events"
+        />
+      </ol>
+
+      <div class="events-calendar-footer">
+        <event-calendar-previous-month
+          :selected-date="selectedDate"
+          @dateSelected="selectDate"
+        />
+        <event-calendar-date-indicator
+          :selected-date="selectedDate"
+        />
+        <event-calendar-next-month
+          :selected-date="selectedDate"
+          @dateSelected="selectDate"
+        />
+      </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import AppLoadingSpinner from '../Base/AppLoadingSpinner';
 import fetchData from '@/mixins/fetchData';
 import dayjs from "dayjs";
 import weekday from "dayjs/plugin/weekday";
@@ -47,6 +52,7 @@ dayjs.extend(weekOfYear);
 export default {
   name: 'EventsCalendar',
   components: {
+    AppLoadingSpinner,
     EventCalendarMonthDayItem,
     EventCalendarDateIndicator,
     EventCalendarWeekdays,
@@ -203,6 +209,4 @@ export default {
     font-size: 18px;
     background-color: var(--color-primary);
   }
-
-  
 </style>

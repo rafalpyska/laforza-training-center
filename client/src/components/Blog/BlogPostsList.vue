@@ -4,7 +4,7 @@
     <div class="blog__post-list" v-for="post in posts" :key="post.id" v-else>
       <div class="blog__post-list-image-container">
         <image-item
-          :source="`http://localhost:1337${post.image.url}`"
+          :source="`http://localhost:1337${post.image.formats.large.url}`"
           :alt="`${post.image.alternativeText}`"
         />
         <blog-post-date :post="post" />
