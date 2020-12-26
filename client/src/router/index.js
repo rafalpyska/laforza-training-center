@@ -56,12 +56,26 @@ const routes = [
     path: '/blog',
     name: 'Blog',
     component: () => import(/* webpackChunkName: "blog" */ '../views/Blog.vue'),
-  },
-  {
-    path: '/post/:slug',
-    name: "Post",
-    component: () => import(/* webpackChunkName: "BlogPost" */ '@/components/Blog/BlogPost.vue'),
-    props: true,
+    children: [
+      {
+        path: '',
+        name: 'BlogPostList',
+        component: () =>
+          import(
+            /* webpackChunkName: "BlogPostList" */ '@/components/Blog/BlogPostsList.vue'
+          ),
+        props: true
+      },
+      {
+        path: 'post/:slug',
+        name: 'BlogPost',
+        component: () =>
+          import(
+            /* webpackChunkName: "BlogPost" */ '@/components/Blog/BlogPost.vue'
+          ),
+        props: true
+      }
+    ]
   },
   {
     path: '/contact',
@@ -72,9 +86,8 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    component: () =>
-      import(/* webpackChunkName: "404" */ '../views/404.vue')
-  },
+    component: () => import(/* webpackChunkName: "404" */ '../views/404.vue')
+  }
 ];
 
 const router = createRouter({

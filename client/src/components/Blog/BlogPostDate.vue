@@ -18,11 +18,24 @@ export default {
     return {
       day: this.post.publishedAt.split('-')[2],
       month: this.post.publishedAt.split('-')[1]
-    }
+    };
   },
   methods: {
     monthName(month) {
-      return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'][month - 1]
+      return [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'June',
+        'July',
+        'Aug',
+        'Sept',
+        'Oct',
+        'Nov',
+        'Dec'
+      ][month - 1];
     }
   }
 };

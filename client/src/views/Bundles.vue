@@ -9,10 +9,7 @@
       </div>
       <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
       <div class="section__courses-bundles-container">
-        
-        <app-loading-spinner
-          v-if="loading"
-        />
+        <app-loading-spinner v-if="loading" />
         <classes-bundle
           v-else
           v-for="bundle in bundles"
@@ -44,7 +41,7 @@ export default {
     };
   },
   async created() {
-    if(this.bundles && this.bundles.length > 0) return;
+    if (this.bundles && this.bundles.length > 0) return;
     // TODO: Fetching and caching data
     await this.http('http://localhost:1337/bundles')
       .then(data => {
@@ -53,7 +50,7 @@ export default {
       })
       .catch(error => {
         this.error = error;
-      })
+      });
   }
 };
 </script>

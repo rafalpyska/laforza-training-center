@@ -28,8 +28,7 @@
         <span class="class__description-price">
           ${{ course.price }} / month
         </span>
-			</div>
-
+      </div>
     </div>
     <div class="class__general-info">
       <div class="class__complexity">
@@ -112,7 +111,7 @@ export default {
     &-price {
       font-family: 'Play', sans-serif;
       font-size: 1rem;
-      margin-left: .75rem;
+      margin-left: 0.75rem;
     }
   }
   &__general-info {

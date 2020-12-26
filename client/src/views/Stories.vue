@@ -38,10 +38,8 @@
     </app-action-strip>
     <div class="stories__list-wrapper">
       <div class="stories__list container">
-        <app-loading-spinner
-          v-if="loading"
-        />
-        <client-story 
+        <app-loading-spinner v-if="loading" />
+        <client-story
           v-else
           v-for="story in stories"
           :key="story.id"
@@ -66,7 +64,7 @@ export default {
     AppActionStrip,
     AppButton
   },
- mixins: [fetchData],
+  mixins: [fetchData],
   data() {
     return {
       loading: false,
@@ -75,11 +73,10 @@ export default {
     };
   },
   async mounted() {
-    this.http('http://localhost:1337/stories')
-      .then(data => {
-        this.stories = data;
-        this.loading = false;
-      })
+    this.http('http://localhost:1337/stories').then(data => {
+      this.stories = data;
+      this.loading = false;
+    });
   }
 };
 </script>

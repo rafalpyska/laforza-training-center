@@ -39,7 +39,12 @@
 
     // ### TRAINERS MINI PROFILE ###
     --trainers-mini-profile-info-bgc: rgba(61, 61, 61, 1);
-    --trainers-mini-profile-socials-bgc: rgba(88, 88, 88, 1)
+    --trainers-mini-profile-socials-bgc: rgba(88, 88, 88, 1);
 
+    // ### EVENTS CALENDAR ###
+    --events-calendar-border: rgba(221, 221, 221, 1);
 
+    --events-calendar-even-event-cell-bgc: rgba(210, 210, 210, 1);
+    --events-calendar-odd-event-cell-bgc:rgba(230, 230, 230, 1);
+    --events-calendar-footer:rgba(109, 109, 109, 1);
 }

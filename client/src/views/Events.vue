@@ -7,13 +7,18 @@
           <p>Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
+      <events-calendar />
     </div>
   </section>
 </template>
 
 <script>
+import EventsCalendar from '../components/Events/EventsCalendar';
 export default {
-  name: 'Events'
+  name: 'Events',
+  components: {
+    EventsCalendar
+  }
 };
 </script>
 

@@ -6,9 +6,7 @@
         <p>Etiam rhoncus. Maecenas tempus</p>
       </div>
     </div>
-    <app-loading-spinner
-      v-if="loadingStatus"
-    />
+    <app-loading-spinner v-if="loadingStatus" />
     <classes-list
       v-else
       v-for="course in classes"
@@ -20,7 +18,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner'
+import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import ClassesList from '../components/Classes/ClassesList';
 
 export default {
@@ -30,14 +28,10 @@ export default {
     ClassesList
   },
   computed: {
-    ...mapGetters([
-      'loadingStatus',
-      'errorStatus',
-      'classes'
-    ]),
+    ...mapGetters(['loadingStatus', 'errorStatus', 'classes'])
   },
   async created() {
-    if(this.classes && this.classes.length > 0) return;
+    if (this.classes && this.classes.length > 0) return;
     try {
       await this.$store.dispatch('fetchClasses');
     } catch (e) {

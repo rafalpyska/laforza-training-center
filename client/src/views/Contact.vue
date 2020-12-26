@@ -199,7 +199,6 @@ export default {
     @media (max-width: 992px) {
       grid-column: 1/-1;
     }
-
   }
 }
 .map {

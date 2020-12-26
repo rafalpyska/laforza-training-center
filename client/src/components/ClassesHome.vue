@@ -12,8 +12,7 @@
       <p class="course__description">{{ course.summary }}</p>
       <!-- <a href="#" class="btn btn__more">More</a> -->
       <app-button type="more">
-        <router-link
-        to="/classes">
+        <router-link to="/classes">
           More
         </router-link>
       </app-button>
