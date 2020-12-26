@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="trainer__list">
-        <trainers-mini-profile 
+        <trainers-mini-profile
           v-for="trainer in trainers"
           :key="trainer.id"
           :trainer="trainer"
@@ -20,22 +20,17 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import TrainersMiniProfile from '../components/Trainers/TrainersMiniProfile'
+import TrainersMiniProfile from '../components/Trainers/TrainersMiniProfile';
 export default {
   name: 'About',
   components: {
     TrainersMiniProfile
   },
   computed: {
-    ...mapGetters([
-      'loadingStatus',
-      'errorStatus',
-      'trainers'
-    ]),
+    ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
   },
   async mounted() {
-    
-    if(this.trainers && this.trainers.length > 0) return;
+    if (this.trainers && this.trainers.length > 0) return;
     try {
       await this.$store.dispatch('fetchTrainers');
     } catch (e) {
@@ -46,12 +41,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .trainer {
-    &__list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-      grid-gap: 1rem;
-      grid-auto-rows: 1fr;
-    }
+.trainer {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    grid-gap: 1rem;
+    grid-auto-rows: 1fr;
   }
+}
 </style>

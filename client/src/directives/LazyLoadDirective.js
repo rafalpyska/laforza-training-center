@@ -11,7 +11,7 @@ export default {
         // TODO: Remove console.log error
         imageElement.addEventListener('error', () => console.log('error'));
         imageElement.src = imageElement.dataset.url;
-        imageElement.removeAttribute('data-url')
+        imageElement.removeAttribute('data-url');
       }
     }
 
@@ -22,14 +22,14 @@ export default {
         } else {
           loadImage();
           observer.unobserve(el);
-        }  
+        }
       });
     }
 
     function createObserver() {
       const options = {
         root: null,
-        rootMargin: "0px 0px 100px 0px",
+        rootMargin: '0px 0px 100px 0px',
         threshold: '0'
       };
       const observer = new IntersectionObserver(handleIntersect, options);

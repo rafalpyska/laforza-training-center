@@ -17,21 +17,19 @@
           </div>
         </div>
       </div>
-        <app-loading-spinner
-          v-if="loadingStatus"
-        />
-        <classes-home
-          v-for="(course, index) in classes"
-          :key="course.id"
-          :course="course"
-          :idx="index"
-        />
+      <app-loading-spinner v-if="loadingStatus" />
+      <classes-home
+        v-for="(course, index) in classes"
+        :key="course.id"
+        :course="course"
+        :idx="index"
+      />
     </div>
   </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 import ClassesHome from '../components/ClassesHome';
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 
@@ -42,14 +40,10 @@ export default {
     AppLoadingSpinner
   },
   computed: {
-    ...mapGetters([
-      'loadingStatus',
-      'errorStatus',
-      'classes'
-    ]),
+    ...mapGetters(['loadingStatus', 'errorStatus', 'classes'])
   },
   async created() {
-    if(this.classes && this.classes.length > 0) return;
+    if (this.classes && this.classes.length > 0) return;
     try {
       await this.$store.dispatch('fetchClasses');
     } catch (e) {

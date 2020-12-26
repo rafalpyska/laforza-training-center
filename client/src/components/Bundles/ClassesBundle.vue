@@ -4,7 +4,8 @@
     <div class="courses__bundle-price-container">
       <p class="courses__bundle-price">
         <span class="courses__bundle-price-currency">$</span>
-        {{ bundle.price }}</p>
+        {{ bundle.price }}
+      </p>
       <p class="courses__bundle-reccuring-payment">per month</p>
     </div>
     <app-divider />
@@ -50,7 +51,7 @@ export default {
     align-items: center;
     background-color: var(--courses-bundle-bgc);
     padding: 3.5rem 2.5rem;
-    font-size: .75rem;
+    font-size: 0.75rem;
     &:hover {
       background-color: var(--color-primary);
     }
@@ -63,7 +64,6 @@ export default {
     }
     &-name {
       text-transform: uppercase;
-
     }
     &-price {
       &-container {
@@ -86,7 +86,7 @@ export default {
       }
     }
     &-reccuring-payment {
-      font-size: .65rem;
+      font-size: 0.65rem;
     }
     &-list {
       font-family: 'Play', sans-serif;

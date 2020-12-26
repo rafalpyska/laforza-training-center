@@ -1,32 +1,57 @@
 <template>
   <div class="trainer">
     <div class="trainer__image-container">
-      <img
-        src="@/assets/images/placeholder.png"
-        class="image"
-        alt="placeholder"
+      <image-item
+        :source="
+          `http://localhost:1337${trainer.avatar.url}`
+        "
+        :alt="`${trainer.avatar.alternativeText}`"
       />
     </div>
     <div class="trainer__info">
       <h3 class="trainer__heading">
-        {{ trainer.username }} 
-        <span v-for="course in trainer.classes" :key="course.id" class="trainer__class">{{ course.name }}</span>
+        {{ trainer.username }}
+        <span
+          v-for="course in trainer.classes"
+          :key="course.id"
+          class="trainer__class"
+          >{{ course.name }}</span
+        >
       </h3>
-      <p v-for="info in trainer.shortInfo" :key="info.id" class="trainer__description">
+      <p
+        v-for="info in trainer.shortInfo"
+        :key="info.id"
+        class="trainer__description"
+      >
         {{ info.shortInfo }}
       </p>
       <div class="trainer__socials">
-        <a v-for="social in trainer.socials" :key="social.id" :href="`${social.facebook}`" class="href trainer__socials-link">
+        <a
+          v-for="social in trainer.socials"
+          :key="social.id"
+          :href="`${social.facebook}`"
+          class="href trainer__socials-link"
+        >
           <i class="fab fa-facebook-f trainer__socials-icon" aria-hidden="true">
             <span class="visuallyhidden">Facebook</span>
           </i>
         </a>
-        <a v-for="social in trainer.socials" :key="social.id" :href="`${social.twitter}`" class="href trainer__socials-link">
+        <a
+          v-for="social in trainer.socials"
+          :key="social.id"
+          :href="`${social.twitter}`"
+          class="href trainer__socials-link"
+        >
           <i class="fab fa-twitter trainer__socials-icon" aria-hidden="true">
             <span class="visuallyhidden">Twitter</span>
           </i>
         </a>
-        <a v-for="social in trainer.socials" :key="social.id" :href="`${social.instagram}`" class="href trainer__socials-link">
+        <a
+          v-for="social in trainer.socials"
+          :key="social.id"
+          :href="`${social.instagram}`"
+          class="href trainer__socials-link"
+        >
           <i class="fab fa-instagram trainer__socials-icon" aria-hidden="true">
             <span class="visuallyhidden">Instagram</span>
           </i>
@@ -70,10 +95,13 @@
 </template>
 
 <script>
+import ImageItem from '../ImageItem';
 import AppButton from '../AppButton';
+
 export default {
   name: 'TrainersList',
   components: {
+    ImageItem,
     AppButton
   },
   props: {
@@ -96,10 +124,8 @@ export default {
   &:not(:last-child) {
     margin-bottom: 2.5rem;
   }
-  &__img {
-    object-fit: cover;
-    width: 100%;
-    max-height: 100%;
+  &__image-container {
+
   }
   &__info {
     color: white;

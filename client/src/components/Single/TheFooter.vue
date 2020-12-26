@@ -149,7 +149,7 @@ export default {
     padding: 1.5rem 0;
     background-color: var(--footer-copyrights-bgc);
     @media (max-width: 1280px) {
-     padding: 1.5rem 5rem;
+      padding: 1.5rem 5rem;
     }
   }
 }

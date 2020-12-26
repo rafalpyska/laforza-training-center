@@ -1,11 +1,10 @@
 <template>
   <section class="section blog">
-    <router-view/>
+    <router-view />
   </section>
 </template>
 
 <script>
-
 export default {
   name: 'Blog'
 };

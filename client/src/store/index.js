@@ -31,7 +31,7 @@ export default createStore({
   },
   actions: {
     async fetchClasses({ commit }) {
-      commit('setLoading', true)
+      commit('setLoading', true);
       return await fetch('http://localhost:1337/classes', {
         method: 'GET',
         headers: {
@@ -48,7 +48,7 @@ export default createStore({
         });
     },
     async fetchBlogPosts({ commit }) {
-      commit('setLoading', true)
+      commit('setLoading', true);
       return await fetch('http://localhost:1337/posts', {
         method: 'GET',
         headers: {
@@ -58,14 +58,14 @@ export default createStore({
         .then(response => response.json())
         .then(data => {
           commit('SET_BLOG_POSTS', data);
-          commit('setLoading', false)
+          commit('setLoading', false);
         })
         .catch(error => {
           commit('setError', error);
         });
     },
     async fetchOneBlogPost({ commit }, postSlug) {
-      commit('setLoading', true)
+      commit('setLoading', true);
       return await fetch(`http://localhost:1337/posts?slug=${postSlug}`, {
         method: 'GET',
         headers: {
@@ -75,14 +75,14 @@ export default createStore({
         .then(response => response.json())
         .then(data => {
           commit('SET_ONE_BLOG_POST', data);
-          commit('setLoading', false)
+          commit('setLoading', false);
         })
         .catch(error => {
           commit('setError', error);
         });
     },
     async fetchTrainers({ commit }) {
-      commit('setLoading', true)
+      commit('setLoading', true);
       return await fetch('http://localhost:1337/users', {
         method: 'GET',
         headers: {
@@ -92,7 +92,7 @@ export default createStore({
         .then(response => response.json())
         .then(data => {
           commit('SET_TRAINERS', data);
-          commit('setLoading', false)
+          commit('setLoading', false);
         })
         .catch(error => {
           commit('setError', error);
@@ -100,23 +100,23 @@ export default createStore({
     }
   },
   getters: {
-    classes (state) {
-      return state.classes
+    classes(state) {
+      return state.classes;
     },
-    posts (state) {
-      return state.posts
+    posts(state) {
+      return state.posts;
     },
-    post (state) {
-      return state.post
+    post(state) {
+      return state.post;
     },
-    trainers (state) {
-      return state.trainers
+    trainers(state) {
+      return state.trainers;
     },
-    loadingStatus (state) {
-      return state.loading
+    loadingStatus(state) {
+      return state.loading;
     },
-    errorStatus (state) {
-      return state.error
+    errorStatus(state) {
+      return state.error;
     }
   },
   modules: {}

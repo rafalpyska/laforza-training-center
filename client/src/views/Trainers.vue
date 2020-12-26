@@ -7,16 +7,25 @@
           <p>Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <app-loading-spinner
-        v-if="loadingStatus"
-      />
+      <app-loading-spinner v-if="loadingStatus" />
       <trainers-list
         v-else
         v-for="trainer in trainers"
         :key="trainer.id"
         :trainer="trainer"
       />
-      <button @click="() => this.$router.push({ path: `/trainers?page=${this.$route.query + 1}`, query: { page: 1 }})" class="btn btn__load-more">Load more</button>
+      <button
+        @click="
+          () =>
+            this.$router.push({
+              path: `/trainers?page=${this.$route.query + 1}`,
+              query: { page: 1 }
+            })
+        "
+        class="btn btn__load-more"
+      >
+        Load more
+      </button>
     </div>
   </section>
 </template>
@@ -32,15 +41,11 @@ export default {
     AppLoadingSpinner,
     TrainersList
   },
-    computed: {
-    ...mapGetters([
-      'loadingStatus',
-      'errorStatus',
-      'trainers'
-    ]),
+  computed: {
+    ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
   },
   async created() {
-    if(this.trainers && this.trainers.length > 0) return;
+    if (this.trainers && this.trainers.length > 0) return;
     try {
       await this.$store.dispatch('fetchTrainers');
     } catch (e) {
@@ -50,5 +55,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

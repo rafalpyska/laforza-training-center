@@ -9,7 +9,7 @@
       />
     </template>
     <template v-slot:last-column>
-      <a href="#home" class="go-top">
+      <a @click="smoothScroll" ref="gotop" href="#home" class="go-top" aria-label="Scroll to Top">
         <i class="fas fa-chevron-up go-top__icon"></i>
       </a>
     </template>
@@ -75,7 +75,7 @@ export default {
   &__description {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     font-size: 0.85rem;
     &-info {
       grid-column: 1/3;

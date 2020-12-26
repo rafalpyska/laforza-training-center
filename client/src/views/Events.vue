@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import EventsCalendar from '../components/EventsCalendar'
+import EventsCalendar from '../components/Events/EventsCalendar';
 export default {
   name: 'Events',
   components: {
