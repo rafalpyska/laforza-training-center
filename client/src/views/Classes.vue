@@ -1,7 +1,7 @@
 <template>
   <section class="section classes container">
-    <div class="section__description">
-      <div class="section__description-info">
+    <div class="section__info">
+      <div class="section__info-titles-container">
         <h2 class="section__title color-primary">Classes</h2>
         <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
       </div>

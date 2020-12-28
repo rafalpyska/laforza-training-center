@@ -1,15 +1,17 @@
 <template>
   <section class="section home">
     <div class="container">
-      <div class="section__description">
-        <div class="section__description-info">
-          <h2 class="section__title color-primary">We help people find themselves</h2>
+      <div class="section__info">
+        <div class="section__info-titles-container">
+          <h2 class="section__title color-primary">
+            We help people find themselves
+          </h2>
           <p class="section__subtitle">
             Many every day looking in the mirror and promise to begin to engage
             in their health tomorrow. We will give you the incentive to start
           </p>
         </div>
-        <div class="section__description-encouragement">
+        <div class="section__info-encouragement">
           <div class="encouragement-box">
             <p>
               <span class="bold">Start</span> to engage in sports right now!

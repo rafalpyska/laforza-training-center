@@ -83,12 +83,15 @@ export default createStore({
     },
     async fetchTrainers({ commit }, start = 0, limit = 50) {
       commit('setLoading', true);
-      return await fetch(`http://localhost:1337/users?_start=${start}&_limit=${limit}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
+      return await fetch(
+        `http://localhost:1337/users?_start=${start}&_limit=${limit}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
         }
-      })
+      )
         .then(response => response.json())
         .then(data => {
           commit('SET_TRAINERS', data);

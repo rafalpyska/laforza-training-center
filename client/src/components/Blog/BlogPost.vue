@@ -4,7 +4,7 @@
     <section class="section blog" v-else>
       <div class="container">
         <div class="blog__post-wrapper">
-          <div class="blog__post">
+          <article class="blog__post">
             <div class="blog__post-image-container">
               <image-item
                 :source="
@@ -27,7 +27,7 @@
                 {{ post[0].content }}
               </p>
             </div>
-          </div>
+          </article>
           <aside class="blog__post-sidebar">
             <div class="blog__post-category">
               <h2 class="blog__post-category-heading">Categories</h2>

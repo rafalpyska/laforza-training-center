@@ -2,9 +2,7 @@
   <div class="trainer">
     <div class="trainer__image-container">
       <image-item
-        :source="
-          `http://localhost:1337${trainer.avatar.url}`
-        "
+        :source="`http://localhost:1337${trainer.avatar.url}`"
         :alt="`${trainer.avatar.alternativeText}`"
       />
     </div>
