@@ -95,6 +95,11 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "schedule": {
+      "type": "component",
+      "repeatable": true,
+      "component": "trainer-schedule.schedule"
     }
   }
 }
