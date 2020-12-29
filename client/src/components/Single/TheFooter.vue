@@ -19,7 +19,6 @@
               <li class="pages__item">
                 <a href="#" class="pages__link">Home</a>
               </li>
-
               <li class="pages__item">
                 <a href="#" class="pages__link">Intro</a>
               </li>

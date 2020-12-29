@@ -11,14 +11,14 @@
       </h2>
       <p class="course__description">{{ course.summary }}</p>
       <!-- <a href="#" class="btn btn__more">More</a> -->
-      <app-button type="more">
+      <AppButton type="more">
         <router-link to="/classes">
           More
         </router-link>
-      </app-button>
+      </AppButton>
     </div>
     <div class="course__image-container">
-      <image-item
+      <ImageItem
         :source="`http://localhost:1337${course.image.url}`"
         :alt="`${course.image.alternativeText}`"
       />

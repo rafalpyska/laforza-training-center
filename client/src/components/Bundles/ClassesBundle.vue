@@ -8,7 +8,7 @@
       </p>
       <p class="courses__bundle-reccuring-payment">per month</p>
     </div>
-    <app-divider />
+    <AppDivider />
     <ul class="courses__bundle-list">
       <li
         class="courses__bundle-item"
@@ -18,9 +18,9 @@
         {{ course.name }}
       </li>
     </ul>
-    <app-button type="sign-up">
+    <AppButton type="sign-up">
       Sign Up
-    </app-button>
+    </AppButton>
   </div>
 </template>
 

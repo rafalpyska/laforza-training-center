@@ -1,10 +1,8 @@
 <template>
   <div class="trainer">
     <div class="trainer__image-container">
-      <image-item
-        :source="
-          `http://localhost:1337${trainer.avatar.url}`
-        "
+      <ImageItem
+        :source="`http://localhost:1337${trainer.avatar.url}`"
         :alt="`${trainer.avatar.alternativeText}`"
       />
     </div>
@@ -125,7 +123,6 @@ export default {
     margin-bottom: 2.5rem;
   }
   &__image-container {
-
   }
   &__info {
     color: white;

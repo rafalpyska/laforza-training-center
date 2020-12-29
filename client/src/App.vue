@@ -9,7 +9,13 @@
       />
     </template>
     <template v-slot:last-column>
-      <a @click="smoothScroll" ref="gotop" href="#home" class="go-top" aria-label="Scroll to Top">
+      <a
+        @click="smoothScroll"
+        ref="gotop"
+        href="#home"
+        class="go-top"
+        aria-label="Scroll to Top"
+      >
         <i class="fas fa-chevron-up go-top__icon"></i>
       </a>
     </template>
@@ -72,12 +78,12 @@ export default {
   @media (max-width: 1280px) {
     padding: 4rem 5rem;
   }
-  &__description {
+  &__info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 2.5rem;
-    font-size: 0.85rem;
-    &-info {
+    font-size: 0.75rem;
+    &-titles-container {
       grid-column: 1/3;
       margin-right: 4em;
       @media (max-width: 992px) {
@@ -89,6 +95,38 @@ export default {
       @media (max-width: 992px) {
         grid-column: 1/-1;
         margin-top: 2rem;
+      }
+    }
+  }
+  &__title {
+    text-transform: uppercase;
+  }
+  &__subtitle {
+    color: var(--section-subtitle);
+    text-transform: uppercase;
+  }
+  &__description {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 2rem;
+    margin: 2rem 0;
+    font-size: .85rem;
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      grid-column: span 2;
+      &-paragraph {
+        &:not(:last-of-type) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+    &-image {
+      height: 15rem;
+      &-description {
+        font-size: 0.75rem;
       }
     }
   }

@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_trainer_schedule_schedules",
+  "info": {
+    "name": "schedule",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Monday": {
+      "type": "string",
+      "required": false
+    },
+    "Tuesday": {
+      "type": "string"
+    },
+    "Wednesday": {
+      "type": "string"
+    },
+    "Thursday": {
+      "type": "string"
+    },
+    "Friday": {
+      "type": "string"
+    }
+  }
+}

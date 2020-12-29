@@ -1,14 +1,14 @@
 <template>
   <section class="section trainer">
     <div class="container">
-      <div class="section__description">
-        <div class="section__description-info">
-          <h2 class="color-primary">Trainers</h2>
-          <p>Etiam rhoncus. Maecenas tempus</p>
+      <div class="section__info">
+        <div class="section__info-titles-container">
+          <h2 class="section__title color-primary">Trainers</h2>
+          <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <app-loading-spinner v-if="loadingStatus" />
-      <trainers-list
+      <AppLoadingSpinner v-if="loadingStatus" />
+      <TrainersList
         v-else
         v-for="trainer in trainers"
         :key="trainer.id"

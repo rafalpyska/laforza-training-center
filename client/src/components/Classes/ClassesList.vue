@@ -22,9 +22,9 @@
       </h3>
       <p class="class__description">{{ course.description }}</p>
       <div class="class__description-controls">
-        <app-button type="enroll">
+        <AppButton type="enroll">
           Enroll
-        </app-button>
+        </AppButton>
         <span class="class__description-price">
           ${{ course.price }} / month
         </span>

@@ -1,16 +1,16 @@
 <template>
   <section class="section prices">
     <div class="container">
-      <div class="section__description">
-        <div class="section__description-info">
-          <h2 class="color-primary">Bundles</h2>
-          <p>Etiam rhoncus. Maecenas tempus</p>
+      <div class="section__info">
+        <div class="section__info-titles-container">
+          <h2 class="section__title color-primary">Bundles</h2>
+          <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
       <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
       <div class="section__courses-bundles-container">
-        <app-loading-spinner v-if="loading" />
-        <classes-bundle
+        <AppLoadingSpinner v-if="loading" />
+        <ClassesBundle
           v-else
           v-for="bundle in bundles"
           :key="bundle.id"
