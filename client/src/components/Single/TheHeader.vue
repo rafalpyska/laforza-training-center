@@ -155,12 +155,24 @@ export default {
   }
   &__list {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
     flex-wrap: wrap;
   }
   &__item {
     text-transform: uppercase;
+    &:not(:first-child) .navigation__link {
+      padding: 0 1rem;
+    }
+    &:first-child .navigation__link {
+      border-top: none;
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.2s all linear;
   }
   &__link:link,
   &__link:visited {
@@ -169,6 +181,7 @@ export default {
   &__link:hover,
   &__link:active,
   & .router-link-active {
+    border-top: 3px solid var(--color-primary);
     color: var(--color-primary);
   }
 }

@@ -13,12 +13,11 @@
         <h2 class="blog__post-list-heading">{{ post.title }}</h2>
         <p class="blog__post-list-paragraph">{{ post.summary }}</p>
         <div class="blog__post-list-controls">
-          <AppButton type="load-more">
-            <router-link
-              :to="{ name: 'BlogPost', params: { slug: post.slug } }"
-              class="blog__post-list-controls-read-more"
-              >Read More</router-link
-            >
+          <AppButton
+            btnType="load-more"
+            :to="{ name: 'BlogPost', params: { slug: post.slug } }"
+          >
+            Read More
           </AppButton>
           <p
             class="blog__post-list-posted-by"
@@ -105,10 +104,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin-top: 1.75rem;
-    &-read-more:link,
-    &-read-more:visited {
-      color: white;
-    }
   }
 }
 </style>

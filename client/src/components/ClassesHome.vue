@@ -10,11 +10,8 @@
         {{ course.name }}
       </h2>
       <p class="course__description">{{ course.summary }}</p>
-      <!-- <a href="#" class="btn btn__more">More</a> -->
-      <AppButton type="more">
-        <router-link to="/classes">
-          More
-        </router-link>
+      <AppButton to="/classes" btnType="more">
+        More
       </AppButton>
     </div>
     <div class="course__image-container">

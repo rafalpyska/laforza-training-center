@@ -31,7 +31,7 @@
         <p class="action-strip__name">Client Stories</p>
       </template>
       <template v-slot:last-column>
-        <AppButton type="send-story">
+        <AppButton btnType="send-story">
           Send story
         </AppButton>
       </template>

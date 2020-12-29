@@ -18,7 +18,7 @@
         {{ course.name }}
       </li>
     </ul>
-    <AppButton type="sign-up">
+    <AppButton btnType="sign-up">
       Sign Up
     </AppButton>
   </div>
