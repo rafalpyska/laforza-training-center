@@ -85,7 +85,7 @@
           >An athletic body
         </li>
       </ul>
-      <AppButton type="schedule">
+      <AppButton btnType="schedule">
         Enroll
       </AppButton>
     </div>

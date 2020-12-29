@@ -110,7 +110,7 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     grid-gap: 2rem;
     margin: 2rem 0;
-    font-size: .85rem;
+    font-size: 0.85rem;
     &-info {
       display: flex;
       flex-direction: column;

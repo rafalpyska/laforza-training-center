@@ -13,12 +13,12 @@
         <h2 class="blog__post-list-heading">{{ post.title }}</h2>
         <p class="blog__post-list-paragraph">{{ post.summary }}</p>
         <div class="blog__post-list-controls">
-          <AppButton type="load-more">
-            <router-link
-              :to="{ name: 'BlogPost', params: { slug: post.slug } }"
-              class="blog__post-list-controls-read-more"
-              >Read More</router-link
-            >
+          <AppButton
+            btnType="load-more"
+            :to="{ name: 'BlogPost', params: { slug: post.slug } }"
+            class="blog__post-list-controls-read-more"
+          >
+            Read More
           </AppButton>
           <p
             class="blog__post-list-posted-by"

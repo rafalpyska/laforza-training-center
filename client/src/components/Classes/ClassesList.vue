@@ -22,7 +22,7 @@
       </h3>
       <p class="class__description">{{ course.description }}</p>
       <div class="class__description-controls">
-        <AppButton type="enroll">
+        <AppButton btnType="enroll">
           Enroll
         </AppButton>
         <span class="class__description-price">

@@ -1,10 +1,8 @@
 <template>
-  <div class="schedule__list">
-  </div>
+  <div class="schedule__list"></div>
 </template>
 
 <script>
-
 export default {
   name: 'ScheduleList',
   props: {

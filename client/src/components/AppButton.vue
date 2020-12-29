@@ -1,16 +1,37 @@
 <template>
   <!-- BUTTON TYPES: more, enroll, show-all, schedule, send-story, sign-up -->
-  <button class="btn" :class="`btn__${type}`" :disabled="disabled">
+  <component
+    :is="type"
+    :to="to"
+    class="btn"
+    :class="`btn__${btnType}`"
+    :disabled="disabled"
+  >
     <slot></slot>
-  </button>
+  </component>
 </template>
 
 <script>
 export default {
   name: 'AppButon',
   props: {
-    type: String,
-    disabled: Boolean
+    to: {
+      required: false
+    },
+    btnType: {
+      type: String
+    },
+    disabled: {
+      type: Boolean
+    }
+  },
+  computed: {
+    type() {
+      if (this.to) {
+        return 'router-link';
+      }
+      return 'button';
+    }
   }
 };
 </script>

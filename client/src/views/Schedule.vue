@@ -44,11 +44,8 @@
           </figcaption>
         </figure>
       </div>
-      <AppLoadingSpinner v-if="loadingStatus"/>
-      <ScheduleList
-        v-else
-        :trainers="trainers"
-      />
+      <AppLoadingSpinner v-if="loadingStatus" />
+      <ScheduleList v-else :trainers="trainers" />
     </div>
   </section>
 </template>
