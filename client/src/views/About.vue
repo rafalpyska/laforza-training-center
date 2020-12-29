@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="trainer__list">
-        <trainers-mini-profile
+        <TrainersMiniProfile
           v-for="trainer in trainers"
           :key="trainer.id"
           :trainer="trainer"

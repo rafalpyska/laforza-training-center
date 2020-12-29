@@ -7,7 +7,7 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <div class="stories__info">
+      <div class="section__description">
         <p>
           Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
           quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam
@@ -26,20 +26,20 @@
         </p>
       </div>
     </div>
-    <app-action-strip>
+    <AppActionStrip>
       <template v-slot:first-column>
         <p class="action-strip__name">Client Stories</p>
       </template>
       <template v-slot:last-column>
-        <app-button type="send-story">
+        <AppButton type="send-story">
           Send story
-        </app-button>
+        </AppButton>
       </template>
-    </app-action-strip>
+    </AppActionStrip>
     <div class="stories__list-wrapper">
       <div class="stories__list container">
-        <app-loading-spinner v-if="loading" />
-        <client-story
+        <AppLoadingSpinner v-if="loading" />
+        <ClientStory
           v-else
           v-for="story in stories"
           :key="story.id"
@@ -108,7 +108,7 @@ export default {
   }
 }
 .section {
-  &__description {
+  &__info {
     padding-top: 4rem;
     @media (max-width: 1280px) {
       padding: 4rem 5rem 0 5rem;

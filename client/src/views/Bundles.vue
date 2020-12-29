@@ -9,8 +9,8 @@
       </div>
       <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
       <div class="section__courses-bundles-container">
-        <app-loading-spinner v-if="loading" />
-        <classes-bundle
+        <AppLoadingSpinner v-if="loading" />
+        <ClassesBundle
           v-else
           v-for="bundle in bundles"
           :key="bundle.id"

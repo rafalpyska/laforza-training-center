@@ -1,6 +1,6 @@
 <template>
-  <span class="event-calendar__previous-month" @click="selectPrevious">
-    <i class="fas fa-arrow-circle-left event-calendar__previous-icon"></i>
+  <span class="event-calendar__next-month" @click="selectNext">
+    <i class="fas fa-arrow-circle-right event-calendar__next-icon"></i>
   </span>
 </template>
 
@@ -8,8 +8,7 @@
 import dayjs from 'dayjs';
 
 export default {
-  name: 'EventCalendarPreviousMonth',
-
+  name: 'EventsCalendarNextMonth',
   props: {
     selectedDate: {
       type: Object,
@@ -18,8 +17,8 @@ export default {
   },
 
   methods: {
-    selectPrevious() {
-      let newSelectedDate = dayjs(this.selectedDate).subtract(1, 'month');
+    selectNext() {
+      let newSelectedDate = dayjs(this.selectedDate).add(1, 'month');
       this.$emit('dateSelected', newSelectedDate);
     }
   }
@@ -27,9 +26,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.event-calendar__previous {
+.event-calendar__next {
   &-month {
-    grid-area: previous;
+    grid-area: next;
     cursor: pointer;
     &:hover {
       color: var(--color-primary);

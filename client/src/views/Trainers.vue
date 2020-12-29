@@ -7,8 +7,8 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <app-loading-spinner v-if="loadingStatus" />
-      <trainers-list
+      <AppLoadingSpinner v-if="loadingStatus" />
+      <TrainersList
         v-else
         v-for="trainer in trainers"
         :key="trainer.id"

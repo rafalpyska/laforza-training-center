@@ -1,25 +1,25 @@
 <template>
   <div class="container">
-    <app-loading-spinner v-if="loadingStatus" />
+    <AppLoadingSpinner v-if="loadingStatus" />
     <div class="blog__post-list" v-for="post in posts" :key="post.id" v-else>
       <div class="blog__post-list-image-container">
-        <image-item
+        <ImageItem
           :source="`http://localhost:1337${post.image.formats.large.url}`"
           :alt="`${post.image.alternativeText}`"
         />
-        <blog-post-date :post="post" />
+        <BlogPostDate :post="post" />
       </div>
       <div class="blog__post-list-shortened">
         <h2 class="blog__post-list-heading">{{ post.title }}</h2>
         <p class="blog__post-list-paragraph">{{ post.summary }}</p>
         <div class="blog__post-list-controls">
-          <app-button type="load-more">
+          <AppButton type="load-more">
             <router-link
               :to="{ name: 'BlogPost', params: { slug: post.slug } }"
               class="blog__post-list-controls-read-more"
               >Read More</router-link
             >
-          </app-button>
+          </AppButton>
           <p
             class="blog__post-list-posted-by"
             v-for="author in post.authors"

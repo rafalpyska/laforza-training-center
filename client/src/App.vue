@@ -109,14 +109,14 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     grid-gap: 2rem;
-    margin-top: 2rem;
+    margin: 2rem 0;
+    font-size: .85rem;
     &-info {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       grid-column: span 2;
-      font-size: 0.85rem;
       &-paragraph {
         &:not(:last-of-type) {
           margin-bottom: 1rem;

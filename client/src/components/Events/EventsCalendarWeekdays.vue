@@ -14,8 +14,7 @@
 const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export default {
-  name: 'CalendarWeekdays',
-
+  name: 'EventsCalendarWeekdays',
   computed: {
     weekdays() {
       return WEEKDAYS;

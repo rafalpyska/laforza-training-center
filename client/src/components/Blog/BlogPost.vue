@@ -1,18 +1,18 @@
 <template>
   <div class="container">
-    <app-loading-spinner v-if="loadingStatus" />
+    <AppLoadingSpinner v-if="loadingStatus" />
     <section class="section blog" v-else>
       <div class="container">
         <div class="blog__post-wrapper">
           <article class="blog__post">
             <div class="blog__post-image-container">
-              <image-item
+              <ImageItem
                 :source="
                   `http://localhost:1337${post[0].image.formats.large.url}`
                 "
                 :alt="`${post[0].image.alternativeText}`"
               />
-              <blog-post-date :post="post[0]" />
+              <BlogPostDate :post="post[0]" />
             </div>
             <div class="blog__post-shortened">
               <h2 class="blog__post-heading">{{ post[0].title }}</h2>

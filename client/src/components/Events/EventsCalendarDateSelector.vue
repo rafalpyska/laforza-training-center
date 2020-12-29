@@ -10,8 +10,7 @@
 import dayjs from 'dayjs';
 
 export default {
-  name: 'EventCalendarDateSelector',
-
+  name: 'EventsCalendarDateSelector',
   props: {
     currentDate: {
       type: String,

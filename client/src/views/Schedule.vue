@@ -3,7 +3,7 @@
     <div class="container">
       <div class="section__info">
         <div class="section__info-titles-container">
-          <h2 class="section__title color-primary">Events</h2>
+          <h2 class="section__title color-primary">Schedule</h2>
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
@@ -44,13 +44,37 @@
           </figcaption>
         </figure>
       </div>
+      <AppLoadingSpinner v-if="loadingStatus"/>
+      <ScheduleList
+        v-else
+        :trainers="trainers"
+      />
     </div>
   </section>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
+import ScheduleList from '../components/Schedule/ScheduleList';
+
 export default {
-  name: 'Schedule'
+  name: 'Schedule',
+  components: {
+    ScheduleList,
+    AppLoadingSpinner
+  },
+  computed: {
+    ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
+  },
+  async created() {
+    if (this.trainers && this.trainers.length > 0) return;
+    try {
+      await this.$store.dispatch('fetchTrainers');
+    } catch (e) {
+      this.errorStatus = e;
+    }
+  }
 };
 </script>
 

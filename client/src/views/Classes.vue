@@ -6,8 +6,8 @@
         <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
       </div>
     </div>
-    <app-loading-spinner v-if="loadingStatus" />
-    <classes-list
+    <AppLoadingSpinner v-if="loadingStatus" />
+    <ClassesList
       v-else
       v-for="course in classes"
       :key="course.id"

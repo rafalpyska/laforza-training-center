@@ -7,7 +7,7 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <events-calendar />
+      <EventsCalendar />
       <div class="section__description">
         <div class="section__description-info">
           <p class="section__description-info-paragraph">

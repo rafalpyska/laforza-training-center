@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'EventsCalendarDateIndicator',
   props: {
     selectedDate: {
       type: Object,

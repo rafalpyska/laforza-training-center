@@ -19,8 +19,8 @@
           </div>
         </div>
       </div>
-      <app-loading-spinner v-if="loadingStatus" />
-      <classes-home
+      <AppLoadingSpinner v-if="loadingStatus" />
+      <ClassesHome
         v-for="(course, index) in classes"
         :key="course.id"
         :course="course"

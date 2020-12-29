@@ -1,12 +1,12 @@
 <template>
   <div class="events-calendar__wrapper">
-    <app-loading-spinner v-if="loading" />
+    <AppLoadingSpinner v-if="loading" />
 
     <div v-else class="events-calendar">
-      <event-calendar-weekdays />
+      <EventsCalendarWeekdays />
 
       <ol class="events-calendar__days-list">
-        <event-calendar-month-day-item
+        <EventsCalendarMonthDayItem
           v-for="day in days"
           :key="day.date"
           :day="day"
@@ -16,12 +16,12 @@
       </ol>
 
       <div class="events-calendar-footer">
-        <event-calendar-previous-month
+        <EventsCalendarPreviousMonth
           :selected-date="selectedDate"
           @dateSelected="selectDate"
         />
-        <event-calendar-date-indicator :selected-date="selectedDate" />
-        <event-calendar-next-month
+        <EventsCalendarDateIndicator :selected-date="selectedDate" />
+        <EventsCalendarNextMonth
           :selected-date="selectedDate"
           @dateSelected="selectDate"
         />
@@ -36,11 +36,11 @@ import fetchData from '@/mixins/fetchData';
 import dayjs from 'dayjs';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
-import EventCalendarMonthDayItem from './EventCalendarMonthDayItem';
-import EventCalendarDateIndicator from './EventCalendarDateIndicator';
-import EventCalendarPreviousMonth from './EventCalendarPreviousMonth';
-import EventCalendarNextMonth from './EventCalendarNextMonth';
-import EventCalendarWeekdays from './EventCalendarWeekdays';
+import EventsCalendarMonthDayItem from './EventsCalendarMonthDayItem';
+import EventsCalendarDateIndicator from './EventsCalendarDateIndicator';
+import EventsCalendarPreviousMonth from './EventsCalendarPreviousMonth';
+import EventsCalendarNextMonth from './EventsCalendarNextMonth';
+import EventsCalendarWeekdays from './EventsCalendarWeekdays';
 
 dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
@@ -49,11 +49,11 @@ export default {
   name: 'EventsCalendar',
   components: {
     AppLoadingSpinner,
-    EventCalendarMonthDayItem,
-    EventCalendarDateIndicator,
-    EventCalendarWeekdays,
-    EventCalendarNextMonth,
-    EventCalendarPreviousMonth
+    EventsCalendarMonthDayItem,
+    EventsCalendarDateIndicator,
+    EventsCalendarWeekdays,
+    EventsCalendarNextMonth,
+    EventsCalendarPreviousMonth
   },
   mixins: [fetchData],
   data() {
