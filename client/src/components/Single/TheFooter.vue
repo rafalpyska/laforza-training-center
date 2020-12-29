@@ -17,43 +17,37 @@
           <div class="pages__list-wrapper">
             <ul class="pages__list">
               <li class="pages__item">
-                <a href="#" class="pages__link">Home</a>
+                <router-link to="/" class="pages__link">Home</router-link>
               </li>
               <li class="pages__item">
-                <a href="#" class="pages__link">Intro</a>
+                <router-link to="/about" class="pages__link">About Us</router-link>
               </li>
               <li class="pages__item">
-                <a href="#" class="pages__link">Featured</a>
+                <router-link to="/classes" class="pages__link">Classes</router-link>
               </li>
               <li class="pages__item">
-                <a href="#" class="pages__link">Plan</a>
+                <router-link to="/bundles" class="pages__link">Bundles</router-link>
               </li>
               <li class="pages__item">
-                <a href="#" class="pages__link">Trainer</a>
-              </li>
-              <li class="pages__item">
-                <a href="#" class="pages__link">Stories</a>
+                <router-link to="/trainers" class="pages__link">Trainers</router-link>
               </li>
             </ul>
             <ul class="pages__list">
               <li class="pages__item">
-                <a href="#" class="pages__link">Home</a>
+                <router-link to="/events" class="pages__link">Events</router-link>
               </li>
 
               <li class="pages__item">
-                <a href="#" class="pages__link">Intro</a>
+                <router-link to="/stories" class="pages__link">Stories</router-link>
               </li>
               <li class="pages__item">
-                <a href="#" class="pages__link">Featured</a>
+                <router-link to="/blog" class="pages__link">Blog</router-link>
               </li>
               <li class="pages__item">
-                <a href="#" class="pages__link">Plan</a>
+                <router-link to="/contact" class="pages__link">Contact</router-link>
               </li>
               <li class="pages__item">
-                <a href="#" class="pages__link">Trainer</a>
-              </li>
-              <li class="pages__item">
-                <a href="#" class="pages__link">Stories</a>
+                <router-link to="/schedule" class="pages__link">Schedule</router-link>
               </li>
             </ul>
           </div>

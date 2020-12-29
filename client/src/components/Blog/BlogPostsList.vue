@@ -16,7 +16,6 @@
           <AppButton
             btnType="load-more"
             :to="{ name: 'BlogPost', params: { slug: post.slug } }"
-            class="blog__post-list-controls-read-more"
           >
             Read More
           </AppButton>
@@ -105,10 +104,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin-top: 1.75rem;
-    &-read-more:link,
-    &-read-more:visited {
-      color: white;
-    }
   }
 }
 </style>
