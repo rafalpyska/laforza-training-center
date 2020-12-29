@@ -11,13 +11,24 @@
 </template>
 
 <script>
-const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
 export default {
   name: 'EventsCalendarWeekdays',
+  data() {
+    return {
+      days: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+      ]
+    };
+  },
   computed: {
     weekdays() {
-      return WEEKDAYS;
+      return this.days;
     }
   }
 };

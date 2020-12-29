@@ -44,7 +44,7 @@ export default {
   font-weight: bold;
   border: none;
   cursor: pointer;
-  transition: .1s all linear;
+  transition: 0.1s all linear;
   &__more {
     color: black;
     border: 1px solid black;
