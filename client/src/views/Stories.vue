@@ -103,6 +103,9 @@ export default {
       @media (max-width: 1280px) {
         padding: 0 5rem;
       }
+      @media (max-width: 768px) {
+        padding: 4rem 3rem;
+      }
       background-color: var(--stories-list-bgc);
     }
   }
@@ -112,6 +115,17 @@ export default {
     padding-top: 4rem;
     @media (max-width: 1280px) {
       padding: 4rem 5rem 0 5rem;
+    }
+    @media (max-width: 768px) {
+      padding: 4rem 3rem 0 3rem;
+    }
+  }
+  &__description {
+    @media (max-width: 1280px) {
+      padding: 0 5rem 0 5rem;
+    }
+    @media (max-width: 768px) {
+      padding: 0 3rem 3rem 3rem;
     }
   }
 }
