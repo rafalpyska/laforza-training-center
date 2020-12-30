@@ -140,6 +140,9 @@ export default {
     @media (max-width: 1280px) {
       padding: 0 5rem;
     }
+    @media (max-width: 800px) {
+      justify-items: start;
+    }
   }
   &__contact {
     &__list {

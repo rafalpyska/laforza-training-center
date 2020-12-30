@@ -57,12 +57,37 @@ export default {
 }
 .vueperslide {
   &__title {
+    font-family: 'Play', sans-serif;
     text-transform: uppercase;
     font-size: 2rem;
+    @media (max-width: 800px) {
+      font-size: 1.5rem;
+    }
+    @media (max-width: 468px) {
+      font-size: 1.25rem;
+    }
   }
   &__content {
+    font-family: 'Play', sans-serif;
     text-transform: uppercase;
     font-size: 1.25em;
+    @media (max-width: 800px) {
+      font-size: .85rem;
+    }
+    @media (max-width: 468px) {
+      font-size: .65rem;
+    }
+  }
+}
+.vueperslides {
+  &__arrow {
+    font-size: .85rem;
+    @media (max-width: 1440px) {
+      font-size: .7rem;
+    }
+    @media (max-width: 468px) {
+      font-size: .5rem;
+    }
   }
 }
 .image {
@@ -77,6 +102,9 @@ export default {
   background-color: var(--color-secondary);
   @media (max-width: 1280px) {
     padding: 4rem 5rem;
+  }
+  @media (max-width: 768px) {
+    padding: 4rem 3rem;
   }
   &__info {
     display: grid;

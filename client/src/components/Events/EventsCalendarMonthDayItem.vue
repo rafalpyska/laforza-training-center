@@ -71,7 +71,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
     padding: 1rem;
     background-color: var(--events-calendar-odd-event-cell-bgc);
     color: black;

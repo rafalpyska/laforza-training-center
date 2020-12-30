@@ -3,7 +3,7 @@
     <li
       v-for="weekday in weekdays"
       :key="weekday"
-      class="events-calendar__days-of-week-item"
+      class="events-calendar__days-of-week-item bold"
     >
       {{ weekday }}
     </li>

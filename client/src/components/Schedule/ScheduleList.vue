@@ -1,21 +1,21 @@
 <template>
   <div class="schedule__list">
-    <!-- <ol class="schedule__header">
-      <li v-for="(item, index) in scheduleHeader" :key="index" class="schedule__item">{{ item }}</li>
+    <ol class="schedule__header">
+      <li v-for="(item, index) in scheduleHeader" :key="index" class="schedule__item bold">{{ item }}</li>
     </ol>
     
     <div>
-      <div class="schedule__content" v-for="trainer in trainers" :key="trainer.id">
-        {{trainer.username}} 
+      <ul class="schedule__content-list" v-for="trainer in trainers" :key="trainer.id">
+        <li class="schedule__content-item bold">{{trainer.username}}</li>
         <template v-for="item in trainer.schedule" :key="item.id">
-          <span>{{ item.Monday }}</span>
-          <span>{{ item.Tuesday }}</span>
-          <span>{{ item.Wednesday }}</span>
-          <span>{{ item.Thursday }}</span>
-          <span>{{ item.Friday }}</span>
+          <li class="schedule__content-item">{{ item.Monday }}</li>
+          <li class="schedule__content-item">{{ item.Tuesday }}</li>
+          <li class="schedule__content-item">{{ item.Wednesday }}</li>
+          <li class="schedule__content-item">{{ item.Thursday }}</li>
+          <li class="schedule__content-item">{{ item.Friday }}</li>
         </template>
-      </div>
-    </div> -->
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -48,9 +48,11 @@ export default {
   &__header {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: minmax(5rem, 1fr);
+    grid-auto-rows: minmax(4rem, 1fr);
     background-color: var(--color-primary);
-    text-align: center;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;;
     text-transform: uppercase;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -66,16 +68,23 @@ export default {
     padding: 1rem;
   }
   &__content {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: minmax(5rem, 1fr);
-    align-items: center;
-    justify-items: center;
-    padding: 1rem;
-    background-color: var(--events-calendar-odd-event-cell-bgc);
-    color: black;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: minmax(5rem, 1fr);
+      background-color: var(--events-calendar-odd-event-cell-bgc);
+      color: black;
+    }
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    }
   }
 }
 </style>
