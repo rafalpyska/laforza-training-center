@@ -6,7 +6,14 @@
       'events-calendar-day--today': isToday
     }"
   >
-    <span>{{ label }}</span>
+    <span 
+      class="events-calendar__label-day"
+      :class="{
+        'events-calendar__label-day-today': isToday
+      }"
+    >
+    {{ label }}
+    </span>
     <template v-for="event in events" :key="event.id">
       <span
         class="events-calendar__label-event"
@@ -64,7 +71,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
     padding: 1rem;
     background-color: var(--events-calendar-odd-event-cell-bgc);
     color: black;
@@ -77,8 +83,10 @@ export default {
       background-color: var(--events-calendar-even-event-cell-bgc);
       color: var(--grey-300);
     }
-    &--today {
-      & > span {
+  }
+  &__label {
+    &-day{
+      &-today {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -89,8 +97,6 @@ export default {
         background-color: var(--color-primary);
       }
     }
-  }
-  &__label {
     &-event {
       color: var(--color-primary);
       text-align: center;

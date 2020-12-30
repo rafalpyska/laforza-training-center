@@ -18,7 +18,7 @@
         :content="parallaxFixedContent ? slide.content : ''"
       />
     </vueper-slides>
-    <nav class="navigation">
+    <nav class="navigation" :class="{ 'navigation--expanded' : isExpanded }">
       <ul class="navigation__list container">
         <li class="navigation__item">
           <router-link to="/" id="home" class="navigation__link">
@@ -78,6 +78,9 @@
           >
         </li>
       </ul>
+      <button class="navigation__toggle" aria-expanded="false" aria-controls="navigation__toggle" @click="navigationToggle()">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
     </nav>
   </header>
 </template>
@@ -113,11 +116,17 @@ export default {
         content: 'And You will succeed with us',
         image: require('@/assets/images/hero-3.jpg')
       }
-    ]
+    ],
+    isExpanded: false
   }),
   computed: {
     currentRouteName() {
       return this.$route.name;
+    }
+  },
+  methods: {
+    navigationToggle() {
+      this.isExpanded = !this.isExpanded;
     }
   }
 };
@@ -144,22 +153,34 @@ export default {
   }
 }
 .navigation {
+  display: flex;
+  align-items: center;
   font-family: 'Play', sans-serif;
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
   @media (max-width: 1280px) {
     padding: 0 5rem;
   }
+  @media (max-width: 768px) {
+    padding: 0 3rem;
+  }
   &__logo {
     display: block;
   }
   &__list {
     display: flex;
-    // justify-content: space-between;
     flex-wrap: wrap;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
   &__item {
     text-transform: uppercase;
+    &:not(:first-child) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
     &:not(:first-child) .navigation__link {
       padding: 0 1rem;
     }
@@ -183,6 +204,25 @@ export default {
   & .router-link-active {
     border-top: 3px solid var(--color-primary);
     color: var(--color-primary);
+  }
+  &__toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.15rem;
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+  &--expanded {
+    & .navigation__item {
+      display: block;
+      padding: .5rem 0;
+    }
+    & .navigation__list {
+      flex-direction: column;
+    }
   }
 }
 </style>
