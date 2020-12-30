@@ -143,6 +143,9 @@ export default {
     @media (max-width: 800px) {
       justify-items: start;
     }
+    @media (max-width: 768px) {
+      padding: 4rem 3rem;
+    }
   }
   &__contact {
     &__list {
