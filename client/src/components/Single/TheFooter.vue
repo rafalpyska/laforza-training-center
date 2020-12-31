@@ -144,7 +144,7 @@ export default {
       justify-items: start;
     }
     @media (max-width: 768px) {
-      padding: 4rem 3rem;
+      padding: 0 3rem;
     }
   }
   &__contact {
@@ -165,6 +165,9 @@ export default {
     background-color: var(--footer-copyrights-bgc);
     @media (max-width: 1280px) {
       padding: 1.5rem 5rem;
+    }
+    @media (max-width: 768px) {
+      padding: 1.5rem 3rem;
     }
   }
 }
