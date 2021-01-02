@@ -91,12 +91,15 @@ export default {
       &--trainer {
         @media (max-width: 992px) {
           background-color: var(--color-primary);
+          text-transform: uppercase;
+          font-weight: bold;
         }
       }
       &--day {
         display: none;
         @media (max-width: 992px) {
           display: inline;
+          font-style: italic;
         }
       }
     }

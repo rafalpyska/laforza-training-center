@@ -2,10 +2,11 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    classes: null,
-    posts: null,
-    post: null,
-    trainer: null,
+    classes: [],
+    posts: [],
+    post: [],
+    trainer: [],
+    cart: [],
     loading: true,
     error: null
   },
@@ -27,6 +28,20 @@ export default createStore({
     },
     SET_TRAINERS(state, trainers) {
       state.trainers = trainers;
+    },
+    ADD_TO_CART(state, { course, quantity } ) {
+      let courseInCart = state.cart.find(item => {
+        return item.course.name === course.name
+      });
+
+      if (courseInCart) {
+        courseInCart.quantity += quantity;
+        return;
+      }
+      state.cart.push({
+        course,
+        quantity
+      });
     }
   },
   actions: {
@@ -100,6 +115,10 @@ export default createStore({
         .catch(error => {
           commit('setError', error);
         });
+    },
+    addCourseToCart({ commit }, { course, quantity } ) {
+
+      commit('ADD_TO_CART', { course, quantity } );
     }
   },
   getters: {
@@ -120,6 +139,19 @@ export default createStore({
     },
     errorStatus(state) {
       return state.error;
+    },
+    cart(state) {
+      return state.cart;
+    },
+    cartItemCount(state) {
+      return state.cart.length;
+    },
+    cartTotalItemPrice(state) {
+      let total = 0;
+      state.cart.forEach(item => {
+        total += item.course.price * item.quantity;
+      });
+      return total;
     }
   },
   modules: {}

@@ -25,6 +25,7 @@ export default {
       type: Boolean
     }
   },
+  emits: ['addCourseToCart()'],
   computed: {
     type() {
       if (this.to) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="trainer">
+  <div class="trainer" v-for="trainer in course.trainers" :key="trainer.id">
     <div class="trainer__image-container">
       <ImageItem
         :source="`http://localhost:1337${trainer.avatar.url}`"
@@ -85,7 +85,7 @@
           >An athletic body
         </li>
       </ul>
-      <AppButton btnType="schedule">
+      <AppButton btnType="schedule" @click="addToCart()">
         Enroll
       </AppButton>
     </div>
@@ -103,9 +103,17 @@ export default {
     AppButton
   },
   props: {
-    trainer: {
+    course: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    addToCart() {
+      this.$store.dispatch('addCourseToCart', {
+        course: this.course,
+        quantity: 1
+      })
     }
   }
 };

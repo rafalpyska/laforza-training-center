@@ -10,9 +10,9 @@
       <AppLoadingSpinner v-if="loadingStatus" />
       <TrainersList
         v-else
-        v-for="trainer in trainers"
-        :key="trainer.id"
-        :trainer="trainer"
+        v-for="course in classes"
+        :key="course.id"
+        :course="course"
       />
       <button
         @click="
@@ -42,12 +42,12 @@ export default {
     TrainersList
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
+    ...mapGetters(['loadingStatus', 'errorStatus', 'classes'])
   },
   async created() {
     if (this.trainers && this.trainers.length > 0) return;
     try {
-      await this.$store.dispatch('fetchTrainers');
+      await this.$store.dispatch('fetchClasses');
     } catch (e) {
       this.errorStatus = e;
     }

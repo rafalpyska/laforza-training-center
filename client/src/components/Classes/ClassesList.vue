@@ -15,14 +15,15 @@
             <template
               class="color-primary"
               v-if="index !== course.trainers.length - 1"
-              >/
+            >
+              /
             </template>
           </span>
         </template>
       </h3>
       <p class="class__description">{{ course.description }}</p>
       <div class="class__description-controls">
-        <AppButton btnType="enroll">
+        <AppButton btnType="enroll" @click="addToCart()">
           Enroll
         </AppButton>
         <span class="class__description-price">
@@ -72,6 +73,14 @@ export default {
     course: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    addToCart() {
+      this.$store.dispatch('addCourseToCart', {
+        course: this.course,
+        quantity: 1
+      })
     }
   }
 };
