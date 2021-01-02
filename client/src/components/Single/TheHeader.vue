@@ -121,6 +121,11 @@ export default {
     ],
     isExpanded: false
   }),
+  watch: {
+    '$route' () {
+      this.isExpanded = false;
+    }
+  },
   computed: {
     currentRouteName() {
       return this.$route.name;
