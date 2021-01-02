@@ -13,11 +13,13 @@
       :key="course.id"
       :course="course"
     />
+    <MiniCart />
   </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import MiniCart from '../components/MiniCart';
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import ClassesList from '../components/Classes/ClassesList';
 
@@ -25,7 +27,8 @@ export default {
   name: 'Classes',
   components: {
     AppLoadingSpinner,
-    ClassesList
+    ClassesList,
+    MiniCart
   },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'classes'])

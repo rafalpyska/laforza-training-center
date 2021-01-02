@@ -22,8 +22,17 @@
         </template>
       </h3>
       <p class="class__description">{{ course.description }}</p>
+      <div class="select-trainer__container">
+        <label class="bold" for="select-trainer">Select trainer:</label>
+        <select class="select-trainer" v-model="selectedTrainer" name="select-trainer" id="">
+          <option value="" selected disabled>Choose</option>
+          <option v-for="trainer in course.trainers" :key="trainer.id" selected>
+            {{ trainer.username }}
+          </option>
+        </select>
+      </div>
       <div class="class__description-controls">
-        <AppButton btnType="enroll" @click="addToCart()">
+        <AppButton btnType="enroll" @click="addToCart()" :disabled="selectedTrainer === ''">
           Enroll
         </AppButton>
         <span class="class__description-price">
@@ -75,15 +84,21 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      selectedTrainer: ''
+    }
+  },
   methods: {
     addToCart() {
       this.$store.dispatch('addCourseToCart', {
         course: this.course,
-        quantity: 1
+        quantity: 1,
+        trainer: this.selectedTrainer
       })
     }
   }
-};
+}
 </script>
 <style scoped lang="scss">
 .class {
@@ -175,6 +190,17 @@ export default {
       padding: 0.25rem;
       font-size: 1rem;
     }
+  }
+}
+.select-trainer {
+  padding: .5rem;
+  background-color: var(--section-subtitle);
+  color: white;
+  width: 50%;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
   }
 }
 </style>

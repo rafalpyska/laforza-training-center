@@ -29,9 +29,9 @@ export default createStore({
     SET_TRAINERS(state, trainers) {
       state.trainers = trainers;
     },
-    ADD_TO_CART(state, { course, quantity } ) {
+    ADD_TO_CART(state, { course, quantity, trainer } ) {
       let courseInCart = state.cart.find(item => {
-        return item.course.name === course.name
+        return item.course.name === course.name && item.trainer === trainer;
       });
 
       if (courseInCart) {
@@ -40,7 +40,8 @@ export default createStore({
       }
       state.cart.push({
         course,
-        quantity
+        quantity,
+        trainer
       });
     }
   },
@@ -116,9 +117,9 @@ export default createStore({
           commit('setError', error);
         });
     },
-    addCourseToCart({ commit }, { course, quantity } ) {
+    addCourseToCart({ commit }, { course, quantity, trainer } ) {
 
-      commit('ADD_TO_CART', { course, quantity } );
+      commit('ADD_TO_CART', { course, quantity, trainer } );
     }
   },
   getters: {

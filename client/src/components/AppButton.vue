@@ -46,6 +46,13 @@ export default {
   border: none;
   cursor: pointer;
   transition: 0.1s all linear;
+  &:disabled {
+    cursor: not-allowed;
+    &:hover {
+      background-color: var(--color-primary);
+      color: white;
+    }
+  }
   &__more {
     color: black;
     border: 1px solid black;
