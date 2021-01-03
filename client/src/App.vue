@@ -1,5 +1,6 @@
 <template>
   <TheHeader />
+  <MiniCart />
   <router-view />
   <AppActionStrip>
     <template v-slot:first-column>
@@ -25,12 +26,14 @@
 
 <script>
 import TheHeader from '@/components/Single/TheHeader.vue';
+import MiniCart from '@/components/MiniCart';
 import AppActionStrip from '@/components/Base/AppActionStrip.vue';
 import TheFooter from '@/components/Single/TheFooter.vue';
 
 export default {
   components: {
     TheHeader,
+    MiniCart,
     AppActionStrip,
     TheFooter
   }
@@ -72,21 +75,21 @@ export default {
     text-transform: uppercase;
     font-size: 1.25em;
     @media (max-width: 800px) {
-      font-size: .85rem;
+      font-size: 0.85rem;
     }
     @media (max-width: 468px) {
-      font-size: .65rem;
+      font-size: 0.65rem;
     }
   }
 }
 .vueperslides {
   &__arrow {
-    font-size: .85rem;
+    font-size: 0.85rem;
     @media (max-width: 1440px) {
-      font-size: .7rem;
+      font-size: 0.7rem;
     }
     @media (max-width: 468px) {
-      font-size: .5rem;
+      font-size: 0.5rem;
     }
   }
 }

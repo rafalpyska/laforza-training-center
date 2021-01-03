@@ -6,13 +6,13 @@
       'events-calendar-day--today': isToday
     }"
   >
-    <span 
+    <span
       class="events-calendar__label-day"
       :class="{
         'events-calendar__label-day-today': isToday
       }"
     >
-    {{ label }}
+      {{ label }}
     </span>
     <template v-for="event in events" :key="event.id">
       <span
@@ -85,7 +85,7 @@ export default {
     }
   }
   &__label {
-    &-day{
+    &-day {
       &-today {
         display: flex;
         justify-content: center;

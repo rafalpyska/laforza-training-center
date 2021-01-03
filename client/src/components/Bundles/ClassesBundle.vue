@@ -18,7 +18,7 @@
         {{ course.name }}
       </li>
     </ul>
-    <AppButton btnType="sign-up">
+    <AppButton btnType="sign-up" @click="addToCart()">
       Sign Up
     </AppButton>
   </div>
@@ -38,6 +38,14 @@ export default {
     bundle: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    addToCart() {
+      this.$store.dispatch('addCourseToCart', {
+        course: this.bundle,
+        quantity: 1
+      });
     }
   }
 };

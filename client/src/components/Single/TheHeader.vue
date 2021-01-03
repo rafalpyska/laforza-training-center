@@ -18,7 +18,7 @@
         :content="parallaxFixedContent ? slide.content : ''"
       />
     </vueper-slides>
-    <nav class="navigation" :class="{ 'navigation--expanded' : isExpanded }">
+    <nav class="navigation" :class="{ 'navigation--expanded': isExpanded }">
       <div class="navigation__wrapper container">
         <router-link to="/" id="home" class="navigation__logo-container">
           <img
@@ -29,7 +29,13 @@
         </router-link>
         <!-- set aria expanded 
              close on click     -->
-        <button class="navigation__toggle" aria-expanded="false" aria-controls="navigation__toggle" @click="navigationToggle()">
+        <button
+          class="navigation__toggle"
+          aria-expanded="false"
+          ref="toggle"
+          aria-controls="navigation__toggle"
+          @click="navigationToggle()"
+        >
           <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
         <ul class="navigation__list container">
@@ -82,6 +88,13 @@
             >
           </li>
         </ul>
+        <button class="navigation__cart">
+          <i
+            class="fas fa-shopping-cart navigation__cart-icon"
+            aria-hidden="true"
+          ></i>
+          Cart
+        </button>
       </div>
     </nav>
   </header>
@@ -121,6 +134,11 @@ export default {
     ],
     isExpanded: false
   }),
+  watch: {
+    $route() {
+      this.isExpanded = false;
+    }
+  },
   computed: {
     currentRouteName() {
       return this.$route.name;
@@ -129,6 +147,7 @@ export default {
   methods: {
     navigationToggle() {
       this.isExpanded = !this.isExpanded;
+      this.$refs.toggle.setAttribute('aria-expanded', this.isExpanded);
     }
   }
 };
@@ -152,8 +171,9 @@ export default {
   font-family: 'Play', sans-serif;
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
+  position: relative;
   @media (max-width: 768px) {
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
   &__wrapper {
     display: flex;
@@ -171,8 +191,8 @@ export default {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    transition: .2s all;
-    @media (max-width: 1093px) {
+    transition: 0.2s all;
+    @media (max-width: 1203px) {
       display: none;
       padding: 2rem 0;
       width: 100%;
@@ -181,7 +201,7 @@ export default {
   &__item {
     text-transform: uppercase;
     width: auto;
-    @media (max-width: 1093px) {
+    @media (max-width: 1203px) {
       display: none;
       width: 100%;
     }
@@ -205,6 +225,26 @@ export default {
     border-top: 3px solid var(--color-primary);
     color: var(--color-primary);
   }
+  &__cart {
+    margin-left: auto;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    background: none;
+    &:hover,
+    &:active,
+    &:focus {
+      border-top: 3px solid var(--color-primary);
+      outline: none;
+      color: var(--color-primary);
+    }
+    @media (max-width: 1203px) {
+      order: 1;
+    }
+    &-icon {
+      margin-right: 0.25rem;
+    }
+  }
   &__toggle {
     align-self: center;
     background-color: transparent;
@@ -213,24 +253,31 @@ export default {
     font-size: 1.15rem;
     display: none;
     margin-right: 2rem;
-    margin-left: auto;
-    @media (max-width: 1093px) {
+    margin-left: 2rem;
+    @media (max-width: 1203px) {
       display: flex;
+      order: 2;
     }
   }
   &--expanded {
     & .navigation__list {
       display: flex;
-      padding: 2rem 0;
+      order: 3;
     }
     & .navigation__item {
       display: block;
       &:not(:first-of-type) {
-        padding: .5rem 0;
+        padding: 0.5rem 0;
       }
     }
     & .navigation__link {
       border-top: none;
+    }
+    & .navigation__toggle {
+      order: 2;
+    }
+    & .navigation__cart {
+      order: 1;
     }
   }
 }

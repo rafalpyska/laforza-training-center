@@ -15,14 +15,20 @@
             <template
               class="color-primary"
               v-if="index !== course.trainers.length - 1"
-              >/
+            >
+              /
             </template>
           </span>
         </template>
       </h3>
       <p class="class__description">{{ course.description }}</p>
+      <SelectTrainer :course="course" @selectedTrainer="setSelectedTrainer" />
       <div class="class__description-controls">
-        <AppButton btnType="enroll">
+        <AppButton
+          btnType="enroll"
+          @click="addToCart()"
+          :disabled="selectedTrainer === ''"
+        >
           Enroll
         </AppButton>
         <span class="class__description-price">
@@ -59,6 +65,7 @@
 <script>
 import AppButton from '../AppButton';
 import ImageItem from '../ImageItem';
+import SelectTrainer from '../SelectTrainer';
 import ClassesComplexityIndicator from './ClassesComplexityIndicator';
 
 export default {
@@ -66,12 +73,30 @@ export default {
   components: {
     AppButton,
     ImageItem,
+    SelectTrainer,
     ClassesComplexityIndicator
   },
   props: {
     course: {
       type: Object,
       required: true
+    }
+  },
+  data() {
+    return {
+      selectedTrainer: ''
+    };
+  },
+  methods: {
+    addToCart() {
+      this.$store.dispatch('addCourseToCart', {
+        course: this.course,
+        quantity: 1,
+        trainer: this.selectedTrainer
+      });
+    },
+    setSelectedTrainer(value) {
+      this.selectedTrainer = value;
     }
   }
 };
