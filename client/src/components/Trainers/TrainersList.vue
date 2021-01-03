@@ -147,8 +147,6 @@ export default {
   &:not(:last-child) {
     margin-bottom: 2.5rem;
   }
-  &__image-container {
-  }
   &__info {
     color: white;
   }
