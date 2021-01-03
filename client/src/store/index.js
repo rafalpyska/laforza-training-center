@@ -29,7 +29,7 @@ export default createStore({
     SET_TRAINERS(state, trainers) {
       state.trainers = trainers;
     },
-    ADD_TO_CART(state, { course, quantity, trainer } ) {
+    ADD_TO_CART(state, { course, quantity, trainer }) {
       let courseInCart = state.cart.find(item => {
         return item.course.name === course.name && item.trainer === trainer;
       });
@@ -117,9 +117,8 @@ export default createStore({
           commit('setError', error);
         });
     },
-    addCourseToCart({ commit }, { course, quantity, trainer } ) {
-
-      commit('ADD_TO_CART', { course, quantity, trainer } );
+    addCourseToCart({ commit }, { course, quantity, trainer }) {
+      commit('ADD_TO_CART', { course, quantity, trainer });
     }
   },
   getters: {

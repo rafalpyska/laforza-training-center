@@ -45,9 +45,9 @@ export default {
       this.$store.dispatch('addCourseToCart', {
         course: this.bundle,
         quantity: 1
-      })
+      });
     }
-  } 
+  }
 };
 </script>
 

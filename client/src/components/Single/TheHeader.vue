@@ -18,7 +18,7 @@
         :content="parallaxFixedContent ? slide.content : ''"
       />
     </vueper-slides>
-    <nav class="navigation" :class="{ 'navigation--expanded' : isExpanded }">
+    <nav class="navigation" :class="{ 'navigation--expanded': isExpanded }">
       <div class="navigation__wrapper container">
         <router-link to="/" id="home" class="navigation__logo-container">
           <img
@@ -29,7 +29,13 @@
         </router-link>
         <!-- set aria expanded 
              close on click     -->
-        <button class="navigation__toggle" aria-expanded="false" ref="toggle" aria-controls="navigation__toggle" @click="navigationToggle()">
+        <button
+          class="navigation__toggle"
+          aria-expanded="false"
+          ref="toggle"
+          aria-controls="navigation__toggle"
+          @click="navigationToggle()"
+        >
           <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
         <ul class="navigation__list container">
@@ -83,7 +89,10 @@
           </li>
         </ul>
         <button class="navigation__cart">
-          <i class="fas fa-shopping-cart navigation__cart-icon" aria-hidden="true"></i>
+          <i
+            class="fas fa-shopping-cart navigation__cart-icon"
+            aria-hidden="true"
+          ></i>
           Cart
         </button>
       </div>
@@ -123,10 +132,10 @@ export default {
         image: require('@/assets/images/hero-3.jpg')
       }
     ],
-    isExpanded: false,
+    isExpanded: false
   }),
   watch: {
-    '$route' () {
+    $route() {
       this.isExpanded = false;
     }
   },
@@ -162,8 +171,9 @@ export default {
   font-family: 'Play', sans-serif;
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
+  position: relative;
   @media (max-width: 768px) {
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
   &__wrapper {
     display: flex;
@@ -181,7 +191,7 @@ export default {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    transition: .2s all;
+    transition: 0.2s all;
     @media (max-width: 1203px) {
       display: none;
       padding: 2rem 0;
@@ -232,7 +242,7 @@ export default {
       order: 1;
     }
     &-icon {
-      margin-right: .25rem;
+      margin-right: 0.25rem;
     }
   }
   &__toggle {
@@ -257,7 +267,7 @@ export default {
     & .navigation__item {
       display: block;
       &:not(:first-of-type) {
-        padding: .5rem 0;
+        padding: 0.5rem 0;
       }
     }
     & .navigation__link {

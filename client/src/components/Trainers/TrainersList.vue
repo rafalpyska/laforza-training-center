@@ -1,5 +1,5 @@
 <template>
-  <div class="trainer" v-for="trainer in course.trainers" :key="trainer.id">
+  <div class="trainer">
     <div class="trainer__image-container">
       <ImageItem
         :source="`http://localhost:1337${trainer.avatar.url}`"
@@ -88,6 +88,14 @@
       <AppButton btnType="schedule" @click="addToCart()">
         Enroll
       </AppButton>
+      <teleport to="#modal">
+        <AppModal
+          ref="popup"
+          :title="trainer.classes[0].name"
+          :subtitle="trainer.username"
+        >
+        </AppModal>
+      </teleport>
     </div>
   </div>
 </template>
@@ -95,25 +103,34 @@
 <script>
 import ImageItem from '../ImageItem';
 import AppButton from '../AppButton';
+import AppModal from '../Base/AppModal';
 
 export default {
   name: 'TrainersList',
   components: {
     ImageItem,
-    AppButton
+    AppButton,
+    AppModal
   },
   props: {
-    course: {
+    trainer: {
       type: Object,
       required: true
     }
   },
+  data() {
+    return {
+      show: false
+    };
+  },
   methods: {
     addToCart() {
       this.$store.dispatch('addCourseToCart', {
-        course: this.course,
-        quantity: 1
-      })
+        course: this.trainer.classes[0],
+        quantity: 1,
+        trainer: this.trainer.username
+      });
+      this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };

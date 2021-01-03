@@ -1,23 +1,21 @@
 <template>
   <div class="select-trainer__container">
-    <label class="bold" for="select-trainer">Select trainer:</label>
+    <label class="bold" for="select-trainer">Select class:</label>
     <select
       class="select-trainer"
-      v-model="selectedTrainer"
-      @change="emitSelectedTrainer"
+      v-model="selectedClass"
+      @change="emitSelectedClass"
       name="select-trainer"
     >
       <option value="" selected disabled>Choose</option>
-      <option v-for="trainer in course.trainers" :key="trainer.id">
-        {{ trainer.username }}
-      </option>
+      <option>{{ course.name }}</option>
     </select>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SelectTrainer',
+  name: 'SelectClass',
   props: {
     course: {
       type: Object,
@@ -26,12 +24,12 @@ export default {
   },
   data() {
     return {
-      selectedTrainer: ''
+      selectedClass: ''
     };
   },
   methods: {
     emitSelectedTrainer() {
-      this.$emit('selectedTrainer', this.selectedTrainer);
+      this.$emit('selectedClass', this.selectedClass);
     }
   }
 };
