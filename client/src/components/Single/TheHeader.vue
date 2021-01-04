@@ -18,7 +18,7 @@
         :content="parallaxFixedContent ? slide.content : ''"
       />
     </vueper-slides>
-    <nav class="navigation" :class="{ 'navigation--expanded': isExpanded }">
+    <nav class="navigation" :class="{ 'navigation--expanded': isNavExpanded }">
       <div class="navigation__wrapper container">
         <router-link to="/" id="home" class="navigation__logo-container">
           <img
@@ -89,11 +89,10 @@
           </li>
         </ul>
         <button class="navigation__cart">
-          <i
-            class="fas fa-shopping-cart navigation__cart-icon"
-            aria-hidden="true"
-          ></i>
-          Cart
+          <router-link to="/cart" class="navigation__link">
+            <i class="fas fa-shopping-cart navigation__cart-icon" aria-hidden="true"></i>
+            Cart
+          </router-link>    
         </button>
       </div>
     </nav>
@@ -132,11 +131,12 @@ export default {
         image: require('@/assets/images/hero-3.jpg')
       }
     ],
-    isExpanded: false
+    isNavExpanded: false,
+    isMiniCartVisible: false
   }),
   watch: {
     $route() {
-      this.isExpanded = false;
+      this.isNavExpanded = false;
     }
   },
   computed: {
@@ -146,8 +146,8 @@ export default {
   },
   methods: {
     navigationToggle() {
-      this.isExpanded = !this.isExpanded;
-      this.$refs.toggle.setAttribute('aria-expanded', this.isExpanded);
+      this.isNavExpanded = !this.isNavExpanded;
+      this.$refs.toggle.setAttribute('aria-expanded', this.isNavExpanded);
     }
   }
 };
@@ -161,6 +161,7 @@ export default {
 .header {
   background-color: var(--header-bgc);
   color: var(--white);
+  position: relative;
   &__box {
     padding: 2rem;
     background-color: var(--color-primary);
@@ -171,7 +172,6 @@ export default {
   font-family: 'Play', sans-serif;
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
-  position: relative;
   @media (max-width: 768px) {
     font-size: 0.85rem;
   }
@@ -231,13 +231,6 @@ export default {
     text-transform: uppercase;
     border: none;
     background: none;
-    &:hover,
-    &:active,
-    &:focus {
-      border-top: 3px solid var(--color-primary);
-      outline: none;
-      color: var(--color-primary);
-    }
     @media (max-width: 1203px) {
       order: 1;
     }

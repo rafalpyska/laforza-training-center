@@ -1,5 +1,5 @@
 <template>
-  <div class="mini-cart">
+  <div class="mini-cart" :class="{ 'mini-cart--visible': isMiniCartVisible }">
     <p class="mini-cart__product-title"></p>
 
     <p v-for="item in cart" :key="item.id">
@@ -12,8 +12,13 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  name: 'MiniCart',
-  props: {},
+  name: 'ShoppingCart',
+  props: {
+    isMiniCartVisible: {
+      type: Boolean,
+      required: true
+    }
+  },
   computed: {
     ...mapGetters(['cart', 'cartTotalItemPrice'])
   }
@@ -21,9 +26,13 @@ export default {
 </script>
 <style scoped lang="scss">
 .mini-cart {
+  display: none;
   padding: 2rem;
   text-align: end;
   background-color: var(--color-secondary);
   color: white;
+  &--visible {
+    display: flex;
+  }
 }
 </style>
