@@ -1,3 +1,6 @@
 module.exports = {
-  publicPath: '/'
+  publicPath: '/',
+  pwa: {
+    name: 'LaForza Training Center'
+  }
 };

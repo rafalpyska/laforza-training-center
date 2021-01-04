@@ -160,7 +160,7 @@ export default {
   async created() {
     if (this.events && this.events.length > 0) return;
     // TODO: Fetching and caching data
-    await this.http('http://localhost:1337/events')
+    await this.http(`${process.env.VUE_APP_API_URL}/events`)
       .then(data => {
         this.events = data;
         this.loading = false;

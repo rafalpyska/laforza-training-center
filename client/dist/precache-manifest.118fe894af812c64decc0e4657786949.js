@@ -1,5 +1,9 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
+    "revision": "6a02faf7ea2a9584134ffe15779a0e44",
+    "url": "/_redirects"
+  },
+  {
     "revision": "1a8e01ca81b8cef80bcf",
     "url": "/css/BlogPost.aa34b925.css"
   },
@@ -12,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.eca8e9b1.css"
   },
   {
-    "revision": "da4238225fb3017da305",
+    "revision": "39b2d3013507318ed0d2",
     "url": "/css/app.2350246c.css"
   },
   {
@@ -28,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/contact.174c5629.css"
   },
   {
-    "revision": "628ca9f2a66a62dd2ad7",
-    "url": "/css/events.cbe7c099.css"
+    "revision": "0ce5f7ffde124ea3cfad",
+    "url": "/css/events.0af69464.css"
   },
   {
     "revision": "8135549e6a37a524a49b",
@@ -60,7 +64,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/hero.0be4c0be.jpg"
   },
   {
-    "revision": "cfec19689633b070c05335123ea61d00",
+    "revision": "512408c4bd4b0cd001daa2ec6bc4c97f",
     "url": "/index.html"
   },
   {
@@ -80,8 +84,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.5b5b92be.js"
   },
   {
-    "revision": "da4238225fb3017da305",
-    "url": "/js/app.10ac0493.js"
+    "revision": "39b2d3013507318ed0d2",
+    "url": "/js/app.e9382ef7.js"
   },
   {
     "revision": "435ba06f3c3901709f5f",
@@ -100,8 +104,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/contact.f33b1d47.js"
   },
   {
-    "revision": "628ca9f2a66a62dd2ad7",
-    "url": "/js/events.a65eb52c.js"
+    "revision": "0ce5f7ffde124ea3cfad",
+    "url": "/js/events.ab7c0ec6.js"
   },
   {
     "revision": "8135549e6a37a524a49b",
@@ -120,7 +124,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/trainer.cce9aac6.js"
   },
   {
-    "revision": "8eff00fb23e5046e8587fb699e79e093",
+    "revision": "441b5a0a170333adfdb9e82f2f223397",
     "url": "/manifest.json"
   },
   {
