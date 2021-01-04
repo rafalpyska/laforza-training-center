@@ -12,19 +12,24 @@
         <h3 class="mini-cart__product-title"><span class="color-primary text-uppercase">{{ item.course.name }}</span> with <span class="color-primary text-uppercase">{{ item.trainer }}</span></h3>
         <p>Quantity: {{ item.quantity }}</p>
         <p>Price: ${{ item.course.price }}</p>
-        <p>total : {{ cartTotalItemPrice }}</p>
         <button class="cart__remove" @click="removeCourseFromCart(item.course)">
           <span class="visuallyhidden">Remove from cart"</span>
           <i class="far fa-trash-alt"></i>
         </button>
       </div>
+      <AppDivider v-if="cart.length > 0"/>
+      <p>Total: ${{ cartTotalItemPrice }}</p>
     </div>
   </section>
 </template>
 <script>
+import AppDivider from '@/components/Base/AppDivider.vue';
 import { mapGetters } from 'vuex';
 export default {
   name: 'Cart',
+  components: {
+    AppDivider
+  },
   props: {},
   computed: {
     ...mapGetters(['cart', 'cartTotalItemPrice'])
