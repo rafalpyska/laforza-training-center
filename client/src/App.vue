@@ -1,6 +1,5 @@
 <template>
   <TheHeader />
-  <MiniCart />
   <router-view />
   <AppActionStrip>
     <template v-slot:first-column>
@@ -26,14 +25,12 @@
 
 <script>
 import TheHeader from '@/components/Single/TheHeader.vue';
-import MiniCart from '@/components/MiniCart';
 import AppActionStrip from '@/components/Base/AppActionStrip.vue';
 import TheFooter from '@/components/Single/TheFooter.vue';
 
 export default {
   components: {
     TheHeader,
-    MiniCart,
     AppActionStrip,
     TheFooter
   }
@@ -49,14 +46,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-secondary);
-}
-
-.container {
-  max-width: 1170px;
-  margin: 0 auto;
-}
-.row {
-  display: flex;
 }
 .vueperslide {
   &__title {
@@ -92,6 +81,16 @@ export default {
       font-size: 0.5rem;
     }
   }
+  &--fixed-height {
+    height: 100vh;
+  }
+}
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.row {
+  display: flex;
 }
 .image {
   object-fit: cover;

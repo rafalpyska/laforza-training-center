@@ -43,6 +43,11 @@ export default createStore({
         quantity,
         trainer
       });
+    },
+    REMOVE_COURSE_FROM_CART(state, course) {
+      state.cart = state.cart.filter(item => {
+        return item.course.id !== course.id;
+      });
     }
   },
   actions: {
@@ -122,6 +127,9 @@ export default createStore({
     },
     addCourseToCart({ commit }, { course, quantity, trainer }) {
       commit('ADD_TO_CART', { course, quantity, trainer });
+    },
+    removeCourseFromCart({ commit }, course) {
+      commit('REMOVE_COURSE_FROM_CART', course);
     }
   },
   getters: {
