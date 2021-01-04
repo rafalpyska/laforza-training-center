@@ -16,7 +16,7 @@
     </div>
     <div class="course__image-container">
       <ImageItem
-        :source="`http://localhost:1337${course.image.url}`"
+        :source="`${course.image.url}`"
         :alt="`${course.image.alternativeText}`"
       />
     </div>

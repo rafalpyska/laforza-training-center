@@ -2,7 +2,7 @@
   <div class="trainer">
     <div class="trainer__image-container">
       <ImageItem
-        :source="`http://localhost:1337${trainer.avatar.url}`"
+        :source="`${trainer.avatar.url}`"
         :alt="`${trainer.avatar.alternativeText}`"
       />
     </div>
@@ -120,7 +120,8 @@ export default {
   },
   data() {
     return {
-      show: false
+      show: false,
+      apiUrl: process.env.VUE_APP_API_URL
     };
   },
   methods: {

@@ -2,7 +2,7 @@
   <div class="trainer-mini-profile">
     <figure class="trainer-mini-profile__info">
       <img
-        :src="`http://localhost:1337${trainer.avatar.url}`"
+        :src="`${trainer.avatar.url}`"
         alt=""
         class="trainer-mini-profile__info-image image"
       />
