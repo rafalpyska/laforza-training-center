@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "752af8a511d590295116",
-    "url": "/css/BlogPost.061b426f.css"
+    "revision": "1a8e01ca81b8cef80bcf",
+    "url": "/css/BlogPost.aa34b925.css"
   },
   {
-    "revision": "131b4788e40986a69a38",
-    "url": "/css/BlogPostList.07906b8b.css"
+    "revision": "2fc2fc62dcf7efcc9b9d",
+    "url": "/css/BlogPostList.ca07fec1.css"
   },
   {
-    "revision": "ead7591f8dbd80d9fcb1",
-    "url": "/css/about.aff5224e.css"
+    "revision": "239d032f677f85d296e4",
+    "url": "/css/about.eca8e9b1.css"
   },
   {
-    "revision": "4eafc0e59f6674e5941a",
-    "url": "/css/app.1eebadee.css"
+    "revision": "da4238225fb3017da305",
+    "url": "/css/app.2350246c.css"
   },
   {
     "revision": "ad738d689ef5737806de",
     "url": "/css/chunk-vendors.eb78aeb9.css"
   },
   {
-    "revision": "e783ca84b365d3edea38",
-    "url": "/css/classes.0b7e0d4f.css"
+    "revision": "f5ec39447bf4cd962d3c",
+    "url": "/css/classes.d8d7a5e0.css"
   },
   {
     "revision": "a7e472abe57e61a21535",
@@ -32,20 +32,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/events.cbe7c099.css"
   },
   {
-    "revision": "e05467bb59e674b17048",
-    "url": "/css/prices.eb1d4320.css"
+    "revision": "8135549e6a37a524a49b",
+    "url": "/css/prices.05f5c8f7.css"
   },
   {
     "revision": "a993897d5f9750d781ed",
     "url": "/css/schedule.dc811425.css"
   },
   {
-    "revision": "4d8ba64f8e13a30e159a",
-    "url": "/css/stories.f839a0c2.css"
+    "revision": "6f2020cf1f4685883392",
+    "url": "/css/stories.230f6d93.css"
   },
   {
-    "revision": "905cbb9740b8dea00075",
-    "url": "/css/trainer.ed6d02ed.css"
+    "revision": "289f264fbae32b2458df",
+    "url": "/css/trainer.9584da48.css"
   },
   {
     "revision": "8f17089cf3e61c7f9f74966663455d5a",
@@ -60,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/hero.0be4c0be.jpg"
   },
   {
-    "revision": "ad05b259cb5bc66d3ca216e6f91bae4d",
+    "revision": "cfec19689633b070c05335123ea61d00",
     "url": "/index.html"
   },
   {
@@ -68,20 +68,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/404.fe0869c3.js"
   },
   {
-    "revision": "752af8a511d590295116",
-    "url": "/js/BlogPost.9f83fbf6.js"
+    "revision": "1a8e01ca81b8cef80bcf",
+    "url": "/js/BlogPost.fad2ede6.js"
   },
   {
-    "revision": "131b4788e40986a69a38",
-    "url": "/js/BlogPostList.edffa650.js"
+    "revision": "2fc2fc62dcf7efcc9b9d",
+    "url": "/js/BlogPostList.4a5f6d8b.js"
   },
   {
-    "revision": "ead7591f8dbd80d9fcb1",
-    "url": "/js/about.feb535d1.js"
+    "revision": "239d032f677f85d296e4",
+    "url": "/js/about.5b5b92be.js"
   },
   {
-    "revision": "4eafc0e59f6674e5941a",
-    "url": "/js/app.57f90bf0.js"
+    "revision": "da4238225fb3017da305",
+    "url": "/js/app.10ac0493.js"
   },
   {
     "revision": "435ba06f3c3901709f5f",
@@ -92,8 +92,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-vendors.debc9f3b.js"
   },
   {
-    "revision": "e783ca84b365d3edea38",
-    "url": "/js/classes.9f763b7d.js"
+    "revision": "f5ec39447bf4cd962d3c",
+    "url": "/js/classes.0da1b54c.js"
   },
   {
     "revision": "a7e472abe57e61a21535",
@@ -104,20 +104,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/events.a65eb52c.js"
   },
   {
-    "revision": "e05467bb59e674b17048",
-    "url": "/js/prices.1459cd92.js"
+    "revision": "8135549e6a37a524a49b",
+    "url": "/js/prices.32530337.js"
   },
   {
     "revision": "a993897d5f9750d781ed",
     "url": "/js/schedule.6e6be0a5.js"
   },
   {
-    "revision": "4d8ba64f8e13a30e159a",
-    "url": "/js/stories.d786eccb.js"
+    "revision": "6f2020cf1f4685883392",
+    "url": "/js/stories.78c6b641.js"
   },
   {
-    "revision": "905cbb9740b8dea00075",
-    "url": "/js/trainer.8f01bd5e.js"
+    "revision": "289f264fbae32b2458df",
+    "url": "/js/trainer.cce9aac6.js"
   },
   {
     "revision": "8eff00fb23e5046e8587fb699e79e093",

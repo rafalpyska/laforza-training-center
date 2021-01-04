@@ -48,7 +48,7 @@ export default createStore({
   actions: {
     async fetchClasses({ commit }) {
       commit('setLoading', true);
-      return await fetch('http://localhost:1337/classes', {
+      return await fetch(`${process.env.VUE_APP_API_URL}/classes`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ export default createStore({
     },
     async fetchBlogPosts({ commit }) {
       commit('setLoading', true);
-      return await fetch('http://localhost:1337/posts', {
+      return await fetch(`${process.env.VUE_APP_API_URL}/posts`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -82,12 +82,15 @@ export default createStore({
     },
     async fetchOneBlogPost({ commit }, postSlug) {
       commit('setLoading', true);
-      return await fetch(`http://localhost:1337/posts?slug=${postSlug}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
+      return await fetch(
+        `${process.env.VUE_APP_API_URL}/posts?slug=${postSlug}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
         }
-      })
+      )
         .then(response => response.json())
         .then(data => {
           commit('SET_ONE_BLOG_POST', data);
@@ -100,7 +103,7 @@ export default createStore({
     async fetchTrainers({ commit }, start = 0, limit = 50) {
       commit('setLoading', true);
       return await fetch(
-        `http://localhost:1337/users?_start=${start}&_limit=${limit}`,
+        `${process.env.VUE_APP_API_URL}/users?_start=${start}&_limit=${limit}`,
         {
           method: 'GET',
           headers: {

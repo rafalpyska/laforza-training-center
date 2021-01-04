@@ -43,7 +43,7 @@ export default {
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
     // TODO: Fetching and caching data
-    await this.http('http://localhost:1337/bundles')
+    await this.http(`${process.env.VUE_APP_API_URL}/bundles`)
       .then(data => {
         this.bundles = data;
         this.loading = false;

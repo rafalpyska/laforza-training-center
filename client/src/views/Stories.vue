@@ -73,7 +73,7 @@ export default {
     };
   },
   async mounted() {
-    this.http('http://localhost:1337/stories').then(data => {
+    this.http(`${process.env.VUE_APP_API_URL}/stories`).then(data => {
       this.stories = data;
       this.loading = false;
     });
