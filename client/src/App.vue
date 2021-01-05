@@ -5,6 +5,7 @@
     <template v-slot:first-column>
       <img
         src="./assets/images/logos/footer-logo.png"
+        class="logo__bottom"
         alt="LaFORZA Training Center Logo"
       />
     </template>
@@ -190,5 +191,15 @@ export default {
 }
 .action-strip__name {
   font-size: 1rem;
+}
+.logo__bottom {
+  width: 200px;
+  height: auto;
+  @media (max-width: 1222px) {
+    width: 155px;
+  }
+  @media (max-width: 768px) {
+    width: 135px;
+  }
 }
 </style>
