@@ -22,7 +22,7 @@
       <div class="navigation__wrapper container">
         <router-link to="/" id="home" class="navigation__logo-container">
           <img
-            src="@/assets/images/logos/logo-1.png"
+            src="@/assets/images/logos/logo-black.png"
             class="navigation__logo"
             alt="LaFORZA Training Center Logo"
           />
@@ -90,9 +90,12 @@
         </ul>
         <button class="navigation__cart">
           <router-link to="/cart" class="navigation__link">
-            <i class="fas fa-shopping-cart navigation__cart-icon" aria-hidden="true"></i>
+            <i
+              class="fas fa-shopping-cart navigation__cart-icon"
+              aria-hidden="true"
+            ></i>
             Cart
-          </router-link>    
+          </router-link>
         </button>
       </div>
     </nav>
@@ -172,6 +175,7 @@ export default {
   font-family: 'Play', sans-serif;
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
+  padding: 0 2rem;
   @media (max-width: 768px) {
     font-size: 0.85rem;
   }
@@ -182,6 +186,14 @@ export default {
   &__logo {
     display: block;
     border-top: none;
+    width: 200px;
+    height: auto;
+    @media (max-width: 1222px) {
+      width: 160px;
+    }
+    @media (max-width: 768px) {
+      width: 145px;
+    }
     &-container {
       &.router-link-active {
         border-top: none;
@@ -192,7 +204,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     transition: 0.2s all;
-    @media (max-width: 1203px) {
+    @media (max-width: 1222px) {
       display: none;
       padding: 2rem 0;
       width: 100%;
@@ -201,7 +213,7 @@ export default {
   &__item {
     text-transform: uppercase;
     width: auto;
-    @media (max-width: 1203px) {
+    @media (max-width: 1222px) {
       display: none;
       width: 100%;
     }
@@ -231,7 +243,7 @@ export default {
     text-transform: uppercase;
     border: none;
     background: none;
-    @media (max-width: 1203px) {
+    @media (max-width: 1222px) {
       order: 1;
     }
     &-icon {
@@ -247,7 +259,7 @@ export default {
     display: none;
     margin-right: 2rem;
     margin-left: 2rem;
-    @media (max-width: 1203px) {
+    @media (max-width: 1222px) {
       display: flex;
       order: 2;
     }

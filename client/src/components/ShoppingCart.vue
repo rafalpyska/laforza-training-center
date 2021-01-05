@@ -1,13 +1,10 @@
 <template>
-
+  <div></div>
 </template>
 <script>
-
 export default {
   name: 'ShoppingCart',
   props: {}
 };
 </script>
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

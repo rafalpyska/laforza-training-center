@@ -18,7 +18,7 @@
         @click="
           () =>
             this.$router.push({
-              path: `/trainers?page=${this.$route.query + 1}`,
+              path: `/trainers`,
               query: { page: 1 }
             })
         "
@@ -41,6 +41,9 @@ export default {
     AppLoadingSpinner,
     TrainersList
   },
+  data() {
+    return {};
+  },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
   },
@@ -51,6 +54,10 @@ export default {
     } catch (e) {
       this.errorStatus = e;
     }
+  },
+  mounted() {
+    let posts = this.trainers;
+    console.log(posts);
   }
 };
 </script>
