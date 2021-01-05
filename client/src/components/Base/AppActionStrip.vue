@@ -30,6 +30,15 @@ export default {
   @media (max-width: 768px) {
     padding: 0.5rem 3rem;
   }
+  &--bottom {
+    padding: 0;
+    @media (max-width: 1280px) {
+      padding: 0 5rem;
+    }
+    @media (max-width: 768px) {
+      padding: 0 3rem;
+    }
+  }
   &-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

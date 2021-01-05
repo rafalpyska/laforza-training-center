@@ -120,8 +120,7 @@ export default {
   },
   data() {
     return {
-      show: false,
-      apiUrl: process.env.VUE_APP_API_URL
+      show: false
     };
   },
   methods: {

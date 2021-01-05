@@ -44,6 +44,11 @@ export default {
     idx: {
       type: Number
     }
+  },
+  data() {
+    return {
+      url: process.env.VUE_APP_API_URL
+    }
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <TheHeader />
   <router-view />
-  <AppActionStrip>
+  <AppActionStrip class="action-strip--bottom">
     <template v-slot:first-column>
       <img
         src="./assets/images/logos/footer-logo.png"
