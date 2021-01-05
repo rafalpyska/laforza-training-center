@@ -42,9 +42,7 @@ export default {
     TrainersList
   },
   data() {
-    return {
-      
-    }
+    return {};
   },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
@@ -58,8 +56,8 @@ export default {
     }
   },
   mounted() {
-    let posts = this.trainers
-    console.log(posts)
+    let posts = this.trainers;
+    console.log(posts);
   }
 };
 </script>

@@ -1,12 +1,12 @@
 import { createStore } from 'vuex';
-import blog from './modules/blog'
-import cart from './modules/cart'
-import courses from './modules/courses'
-import trainers from './modules/trainers'
+import blog from './modules/blog';
+import cart from './modules/cart';
+import courses from './modules/courses';
+import trainers from './modules/trainers';
 export default createStore({
   state: {
     loading: true,
-    error: null,
+    error: null
   },
   getters: {
     loadingStatus(state) {
@@ -14,7 +14,7 @@ export default createStore({
     },
     errorStatus(state) {
       return state.error;
-    },
+    }
   },
   mutations: {
     setLoading(state, loadingStatus) {
@@ -24,8 +24,7 @@ export default createStore({
       return (state.error = error);
     }
   },
-  actions: {
-  },
+  actions: {},
   modules: {
     blog,
     cart,

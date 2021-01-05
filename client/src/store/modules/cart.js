@@ -47,4 +47,4 @@ export default {
       commit('REMOVE_COURSE_FROM_CART', course);
     }
   }
-}
+};

@@ -1,7 +1,7 @@
 export default {
   state: {
     post: [],
-    posts: [],
+    posts: []
   },
   getters: {
     posts(state) {
@@ -17,7 +17,7 @@ export default {
     },
     SET_ONE_BLOG_POST(state, post) {
       state.post = post;
-    },
+    }
   },
   actions: {
     async fetchBlogPosts({ commit }) {
@@ -58,4 +58,4 @@ export default {
         });
     }
   }
-}
+};

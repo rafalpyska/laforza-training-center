@@ -10,8 +10,7 @@ export default {
   mutations: {
     SET_COURSES(state, classes) {
       state.classes = classes;
-    },
-
+    }
   },
   actions: {
     async fetchClasses({ commit }) {
@@ -30,6 +29,6 @@ export default {
         .catch(error => {
           commit('setError', error);
         });
-    },
+    }
   }
-}
+};

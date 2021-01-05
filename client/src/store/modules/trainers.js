@@ -8,7 +8,6 @@ export default {
     }
   },
   mutations: {
-
     SET_TRAINERS(state, trainers) {
       state.trainers = trainers;
     }
@@ -35,4 +34,4 @@ export default {
         });
     }
   }
-}
+};
