@@ -26,20 +26,24 @@
         :course="course"
         :idx="index"
       />
+      <Shortcut />
     </div>
   </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import ClassesHome from '../components/ClassesHome';
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
+import ClassesHome from '../components/ClassesHome';
+import Shortcut from '../components/Shortcut';
+
 
 export default {
   name: 'Home',
   components: {
+    AppLoadingSpinner,
     ClassesHome,
-    AppLoadingSpinner
+    Shortcut
   },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'classes'])

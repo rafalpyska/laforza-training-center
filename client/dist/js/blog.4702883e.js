@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["blog"],{fd3f:function(e,o,c){"use strict";c.r(o);var n=c("7a23");const t={class:"section blog"};function r(e,o,c,r,s,a){const b=Object(n["resolveComponent"])("router-view");return Object(n["openBlock"])(),Object(n["createBlock"])("section",t,[Object(n["createVNode"])(b)])}var s={name:"Blog"};s.render=r;o["default"]=s}}]);
+//# sourceMappingURL=blog.4702883e.js.map

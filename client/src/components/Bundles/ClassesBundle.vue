@@ -104,7 +104,7 @@ export default {
     }
     &-item {
       text-transform: uppercase;
-      padding: 0.35rem;
+      padding: 0.1rem;
     }
   }
 }
