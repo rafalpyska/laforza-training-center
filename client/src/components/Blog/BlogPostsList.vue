@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <AppLoadingSpinner v-if="loadingStatus" />
+    <AppLoadingSpinner v-if="postsLoadingStatus" />
     <div class="blog__post-list" v-for="post in posts" :key="post.id" v-else>
       <div class="blog__post-list-image-container">
         <ImageItem
@@ -52,20 +52,15 @@ export default {
   mixins: [fetchData],
   data() {
     return {
-      API_URL: process.env.VUE_APP_API_URL,
       startPostsFrom: 0,
       numberOfPosts: 50
     }
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'posts'])
+    ...mapGetters(['postsLoadingStatus', 'postsErrorStatus', 'posts'])
   },
   async created() {
-    try {
-      await this.$store.dispatch('fetchBlogPosts', { start: this.startPostsFrom, limit: this.numberOfPosts });
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchBlogPosts', { start: this.startPostsFrom, limit: this.numberOfPosts });
   }
 };
 </script>

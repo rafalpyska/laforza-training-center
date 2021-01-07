@@ -6,7 +6,7 @@
         <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
       </div>
     </div>
-    <AppLoadingSpinner v-if="loadingStatus" />
+    <AppLoadingSpinner v-if="classesLoadingStatus" />
     <ClassesList
       v-else
       v-for="course in classes"
@@ -28,15 +28,12 @@ export default {
     ClassesList
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'classes'])
+    ...mapGetters(['classesLoadingStatus', 'classesError', 'classes'])
   },
   async created() {
     if (this.classes && this.classes.length > 0) return;
-    try {
-      await this.$store.dispatch('fetchClasses');
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchClasses');
+
   }
 };
 </script>

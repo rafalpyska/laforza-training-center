@@ -66,11 +66,8 @@ export default {
   },
   async created() {
     if (this.trainers && this.trainers.length > 0) return;
-    try {
-      await this.$store.dispatch('fetchTrainers');
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchTrainers');
+
   }
 };
 </script>

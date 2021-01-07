@@ -1,27 +1,55 @@
 export default {
   state: {
-    post: [],
-    posts: []
+    postsLoading: true,
+    postsError: null,
+    posts: [],
+    singlePostLoading: true,
+    singlePostError: null,
+    singlePost: []
   },
   getters: {
+    postsLoadingStatus(state) {
+      return state.postsLoading;
+    },
+    postsErrorStatus(state) {
+      return state.postsError;
+    },
     posts(state) {
       return state.posts;
     },
+    singlePostLoadingStatus(state) {
+      return state.singlePostLoading;
+    },
+    singlePostErrorStatus(state) {
+      return state.singlePostError;
+    },
     post(state) {
-      return state.post;
+      return state.singlePost;
     }
   },
   mutations: {
+    setPostsLoading(state, loadingStatus) {
+      return (state.postsLoading = loadingStatus);
+    },
+    setPostsError(state, error) {
+      return (state.postsError = error);
+    },
     SET_BLOG_POSTS(state, posts) {
       state.posts = posts;
     },
+    setSinglePostLoading(state, loadingStatus) {
+      return (state.singlePostLoading = loadingStatus);
+    },
+    setSinglePostError(state, error) {
+      return (state.singlePostError = error);
+    },
     SET_ONE_BLOG_POST(state, post) {
-      state.post = post;
+      state.singlePost = post;
     }
   },
   actions: {
     async fetchBlogPosts({ commit }, {start = 0, limit = 50}) {
-      commit('setLoading', true);
+      commit('setPostsLoading', true);
       return await fetch(`${process.env.VUE_APP_API_URL}/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`, {
         method: 'GET',
         headers: {
@@ -31,14 +59,14 @@ export default {
         .then(response => response.json())
         .then(data => {
           commit('SET_BLOG_POSTS', data);
-          commit('setLoading', false);
+          commit('setPostsLoading', false);
         })
         .catch(error => {
-          commit('setError', error);
+          commit('setPostsError', error);
         });
     },
-    async fetchOneBlogPost({ commit }, postSlug) {
-      commit('setLoading', true);
+    async fetchSingleBlogPost({ commit }, postSlug) {
+      commit('setSinglePostLoading', true);
       return await fetch(
         `${process.env.VUE_APP_API_URL}/posts?slug=${postSlug}`,
         {
@@ -51,10 +79,10 @@ export default {
         .then(response => response.json())
         .then(data => {
           commit('SET_ONE_BLOG_POST', data);
-          commit('setLoading', false);
+          commit('setSinglePostLoading', false);
         })
         .catch(error => {
-          commit('setError', error);
+          commit('setSinglePostError', error);
         });
     }
   }

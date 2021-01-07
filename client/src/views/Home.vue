@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <AppLoadingSpinner v-if="loadingStatus" />
+      <AppLoadingSpinner v-if="classesLoadingStatus" />
       <ClassesHome
         v-for="(course, index) in classes"
         :key="course.id"
@@ -47,15 +47,12 @@ export default {
     Shortcut
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'classes'])
+    ...mapGetters(['classesLoadingStatus', 'classesErrorStatus', 'classes'])
   },
   async created() {
     if (this.classes && this.classes.length > 0) return;
-    try {
-      await this.$store.dispatch('fetchClasses');
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchClasses');
+
   }
 };
 </script>
