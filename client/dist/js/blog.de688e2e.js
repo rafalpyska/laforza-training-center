@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["blog"],{fd3f:function(e,o,c){"use strict";c.r(o);var n=c("7a23"),t={class:"section blog"};function r(e,o,c,r,a,s){var b=Object(n["resolveComponent"])("router-view");return Object(n["openBlock"])(),Object(n["createBlock"])("section",t,[Object(n["createVNode"])(b)])}var a={name:"Blog"};a.render=r;o["default"]=a}}]);
-//# sourceMappingURL=blog.de688e2e.js.map

@@ -3,6 +3,7 @@ import blog from './modules/blog';
 import cart from './modules/cart';
 import courses from './modules/courses';
 import trainers from './modules/trainers';
+import bundles from './modules/bundles';
 export default createStore({
   state: {
     loading: true,
@@ -29,6 +30,7 @@ export default createStore({
     blog,
     cart,
     courses,
-    trainers
+    trainers,
+    bundles
   }
 });

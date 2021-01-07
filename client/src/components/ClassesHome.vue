@@ -16,7 +16,7 @@
     </div>
     <div class="course__image-container">
       <ImageItem
-        :source="`${course.image.url}`"
+        :source="`${API_URL}${course.image.url}`"
         :alt="`${course.image.alternativeText}`"
       />
     </div>
@@ -47,7 +47,7 @@ export default {
   },
   data() {
     return {
-      url: process.env.VUE_APP_API_URL
+      API_URL: process.env.VUE_APP_API_URL
     };
   }
 };

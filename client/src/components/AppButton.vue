@@ -4,7 +4,7 @@
     :is="type"
     :to="to"
     class="btn"
-    :class="`btn__${btnType}`"
+    :class="`btn--${btnType}`"
     :disabled="disabled"
   >
     <slot></slot>
@@ -53,7 +53,7 @@ export default {
       color: white;
     }
   }
-  &__more {
+  &--more {
     color: black;
     border: 1px solid black;
     &:hover,
@@ -63,11 +63,11 @@ export default {
       color: var(--white);
     }
   }
-  &__sign-up,
-  &__read-more,
-  &__enroll,
-  &__schedule,
-  &__load-more {
+  &--sign-up,
+  &--read-more,
+  &--enroll,
+  &--schedule,
+  &--load-more {
     color: var(--white);
     background-color: var(--color-primary);
     &:hover,
@@ -82,7 +82,7 @@ export default {
       color: var(--color-primary);
     }
   }
-  &__send-story {
+  &--send-story {
     color: white;
     border: 1px solid white;
     &:hover,

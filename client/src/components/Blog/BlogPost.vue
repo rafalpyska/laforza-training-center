@@ -7,7 +7,7 @@
           <article class="blog__post">
             <div class="blog__post-image-container">
               <ImageItem
-                :source="`${post[0].image.formats.large.url}`"
+                :source="`${API_URL}${post[0].image.formats.large.url}`"
                 :alt="`${post[0].image.alternativeText}`"
               />
               <BlogPostDate :post="post[0]" />
@@ -64,6 +64,11 @@ export default {
       type: String,
       required: true
     }
+  },
+  data() {
+    return {
+      API_URL: process.env.VUE_APP_API_URL
+    };
   },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'post'])

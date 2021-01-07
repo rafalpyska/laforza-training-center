@@ -2,8 +2,8 @@
   <div class="trainer-mini-profile">
     <figure class="trainer-mini-profile__info">
       <img
-        :src="`${trainer.avatar.url}`"
-        alt=""
+        :src="`${API_URL}${trainer.avatar.url}`"
+        :alt="`${trainer.avatar.alternativeText}`"
         class="trainer-mini-profile__info-image image"
       />
       <figcaption class="trainer-mini-profile__info-description">
@@ -70,6 +70,11 @@ export default {
     trainer: {
       type: Object,
       required: true
+    }
+  },
+  data() {
+    return {
+      API_URL: process.env.VUE_APP_API_URL
     }
   }
 };

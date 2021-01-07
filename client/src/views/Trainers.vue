@@ -14,7 +14,7 @@
         :key="trainer.id"
         :trainer="trainer"
       />
-      <button
+      <!-- <button
         @click="
           () =>
             this.$router.push({
@@ -25,7 +25,7 @@
         class="btn btn__load-more"
       >
         Load more
-      </button>
+      </button> -->
     </div>
   </section>
 </template>
@@ -40,9 +40,6 @@ export default {
   components: {
     AppLoadingSpinner,
     TrainersList
-  },
-  data() {
-    return {};
   },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])

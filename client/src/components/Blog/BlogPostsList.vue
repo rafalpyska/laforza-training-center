@@ -4,7 +4,7 @@
     <div class="blog__post-list" v-for="post in posts" :key="post.id" v-else>
       <div class="blog__post-list-image-container">
         <ImageItem
-          :source="`${post.image.formats.large.url}`"
+          :source="`${API_URL}${post.image.formats.large.url}`"
           :alt="`${post.image.alternativeText}`"
         />
         <BlogPostDate :post="post" />
@@ -50,12 +50,19 @@ export default {
     AppButton
   },
   mixins: [fetchData],
+  data() {
+    return {
+      API_URL: process.env.VUE_APP_API_URL,
+      startPostsFrom: 0,
+      numberOfPosts: 50
+    }
+  },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'posts'])
   },
   async created() {
     try {
-      await this.$store.dispatch('fetchBlogPosts');
+      await this.$store.dispatch('fetchBlogPosts', { start: this.startPostsFrom, limit: this.numberOfPosts });
     } catch (e) {
       this.errorStatus = e;
     }
@@ -67,6 +74,7 @@ export default {
 .blog__post-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  // grid-auto-rows: minmax(10rem, 24rem);
   margin-bottom: 2rem;
   font-size: 0.8rem;
   &:hover .blog__post-date {
