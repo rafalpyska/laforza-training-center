@@ -2,7 +2,7 @@
   <div class="trainer">
     <div class="trainer__image-container">
       <ImageItem
-        :source="`${API_URL}${trainer.avatar.url}`"
+        :source="`${trainer.avatar.url}`"
         :alt="`${trainer.avatar.alternativeText}`"
       />
     </div>
@@ -120,7 +120,6 @@ export default {
   },
   data() {
     return {
-      API_URL: process.env.VUE_APP_API_URL,
       show: false
     };
   },
