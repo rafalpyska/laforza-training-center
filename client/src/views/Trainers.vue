@@ -7,7 +7,7 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <AppLoadingSpinner v-if="loadingStatus" />
+      <AppLoadingSpinner v-if="trainersLoadingStatus" />
       <TrainersList
         v-else
         v-for="trainer in trainers"
@@ -42,15 +42,11 @@ export default {
     TrainersList
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
+    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers'])
   },
   async created() {
     if (this.trainers && this.trainers.length > 0) return;
-    try {
-      await this.$store.dispatch('fetchTrainers');
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchTrainers');
   },
   mounted() {
     let posts = this.trainers;

@@ -92,20 +92,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'bundles', 'posts'])
+    ...mapGetters(['bundlesLoadingStatus', 'bundlesErrorStatus', 'bundles', 'postsLoadingStatus', 'postsErrorStatus', 'posts'])
   },
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
-    try {
-      await this.$store.dispatch('fetchBundles');
-    } catch (e) {
-      this.errorStatus = e;
-    }
-    try {
-      await this.$store.dispatch('fetchBlogPosts', { start: this.startPostsFrom, limit: this.numberOfPosts });
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchBundles');
+    await this.$store.dispatch('fetchBlogPosts', { start: this.startPostsFrom, limit: this.numberOfPosts });
   },
   methods: {
     goTo(direction, sliderItemsContainer, sliderItemsClass) {

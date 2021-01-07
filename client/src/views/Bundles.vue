@@ -9,7 +9,7 @@
       </div>
       <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
       <div class="section__courses-bundles-container">
-        <AppLoadingSpinner v-if="loadingStatus" />
+        <AppLoadingSpinner v-if="bundlesLoadingStatus" />
         <ClassesBundle
           v-else
           v-for="bundle in bundles"
@@ -33,15 +33,11 @@ export default {
     ClassesBundle
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'bundles'])
+    ...mapGetters(['bundlesLoadingStatus', 'bundlesErrorStatus', 'bundles'])
   },
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
-    try {
-      await this.$store.dispatch('fetchBundles');
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchBundles');
   }
 };
 </script>

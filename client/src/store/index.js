@@ -5,26 +5,9 @@ import courses from './modules/courses';
 import trainers from './modules/trainers';
 import bundles from './modules/bundles';
 export default createStore({
-  state: {
-    loading: true,
-    error: null
-  },
-  getters: {
-    loadingStatus(state) {
-      return state.loading;
-    },
-    errorStatus(state) {
-      return state.error;
-    }
-  },
-  mutations: {
-    setLoading(state, loadingStatus) {
-      return (state.loading = loadingStatus);
-    },
-    setError(state, error) {
-      return (state.error = error);
-    }
-  },
+  state: {},
+  getters: {},
+  mutations: {},
   actions: {},
   modules: {
     blog,

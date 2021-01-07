@@ -7,7 +7,7 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <AppLoadingSpinner v-if="loadingStatus" />
+      <AppLoadingSpinner v-if="trainersLoadingStatus" />
       <div class="trainer__list" v-else>
         <TrainersMiniProfile
           v-for="trainer in trainers"
@@ -30,15 +30,12 @@ export default {
     TrainersMiniProfile
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
+    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers'])
   },
   async mounted() {
     if (this.trainers && this.trainers.length > 0) return;
-    try {
-      await this.$store.dispatch('fetchTrainers');
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchTrainers');
+
   }
 };
 </script>

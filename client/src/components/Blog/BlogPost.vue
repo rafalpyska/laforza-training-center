@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <AppLoadingSpinner v-if="loadingStatus" />
+    <AppLoadingSpinner v-if="singlePostLoadingStatus" />
     <section class="section blog" v-else>
       <div class="container">
         <div class="blog__post-wrapper">
@@ -65,20 +65,11 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      API_URL: process.env.VUE_APP_API_URL
-    };
-  },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'post'])
+    ...mapGetters(['singlePostLoadingStatus', 'singlePostErrorStatus', 'post'])
   },
   async created() {
-    try {
-      await this.$store.dispatch('fetchOneBlogPost', this.slug);
-    } catch (e) {
-      this.errorStatus = e;
-    }
+    await this.$store.dispatch('fetchSingleBlogPost', this.slug);
   }
 };
 </script>
