@@ -62,7 +62,7 @@ const routes = [
         name: 'BlogPostList',
         component: () =>
           import(
-            /* webpackChunkName: "BlogPostList" */ '@/components/Blog/BlogPostsList.vue'
+            /* webpackChunkName: "blog" */ '@/components/Blog/BlogPostsList.vue'
           ),
         props: true
       },
@@ -71,7 +71,7 @@ const routes = [
         name: 'BlogPost',
         component: () =>
           import(
-            /* webpackChunkName: "BlogPost" */ '@/components/Blog/BlogPost.vue'
+            /* webpackChunkName: "blog" */ '@/components/Blog/BlogPost.vue'
           ),
         props: true
       }
@@ -87,7 +87,7 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: () =>
-      import(/* webpackChunkName: "contact" */ '../views/Cart.vue')
+      import(/* webpackChunkName: "cart" */ '../views/Cart.vue')
   },
   {
     path: '/:pathMatch(.*)*',

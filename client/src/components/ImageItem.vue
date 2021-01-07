@@ -4,6 +4,8 @@
       class="image__item"
       src="../assets/images/placeholder.png"
       :data-url="source"
+      :width="width"
+      :height="height"
       :alt="alt"
     />
   </figure>
@@ -19,6 +21,14 @@ export default {
     alt: {
       type: String,
       required: true
+    },
+    width: {
+      type: String,
+      default: null
+    },
+    height: {
+      type: String,
+      default: null
     }
   }
 };

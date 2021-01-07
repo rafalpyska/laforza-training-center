@@ -9,7 +9,7 @@
       </div>
       <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
       <div class="section__courses-bundles-container">
-        <AppLoadingSpinner v-if="loading" />
+        <AppLoadingSpinner v-if="loadingStatus" />
         <ClassesBundle
           v-else
           v-for="bundle in bundles"
@@ -22,35 +22,26 @@
 </template>
 
 <script>
-import fetchData from '../mixins/fetchData';
-import ClassesBundle from '../components/Bundles/ClassesBundle';
+import { mapGetters } from 'vuex';
 import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
+import ClassesBundle from '../components/Bundles/ClassesBundle';
 
 export default {
   name: 'Bundles',
   components: {
-    ClassesBundle,
-    AppLoadingSpinner
+    AppLoadingSpinner,
+    ClassesBundle
   },
-  mixins: [fetchData],
-  data() {
-    return {
-      loading: false,
-      error: '',
-      bundles: null
-    };
+  computed: {
+    ...mapGetters(['loadingStatus', 'errorStatus', 'bundles'])
   },
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
-    // TODO: Fetching and caching data
-    await this.http(`${process.env.VUE_APP_API_URL}/bundles`)
-      .then(data => {
-        this.bundles = data;
-        this.loading = false;
-      })
-      .catch(error => {
-        this.error = error;
-      });
+    try {
+      await this.$store.dispatch('fetchBundles');
+    } catch (e) {
+      this.errorStatus = e;
+    }
   }
 };
 </script>

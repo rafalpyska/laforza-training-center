@@ -26,9 +26,9 @@
         :course="course"
         :idx="index"
       />
-      <Shortcut />
     </div>
   </section>
+  <Shortcut />
 </template>
 
 <script>

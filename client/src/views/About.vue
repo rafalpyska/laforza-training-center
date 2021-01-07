@@ -7,7 +7,8 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <div class="trainer__list">
+      <AppLoadingSpinner v-if="loadingStatus" />
+      <div class="trainer__list" v-else>
         <TrainersMiniProfile
           v-for="trainer in trainers"
           :key="trainer.id"
@@ -20,10 +21,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import TrainersMiniProfile from '../components/Trainers/TrainersMiniProfile';
 export default {
   name: 'About',
   components: {
+    AppLoadingSpinner,
     TrainersMiniProfile
   },
   computed: {
