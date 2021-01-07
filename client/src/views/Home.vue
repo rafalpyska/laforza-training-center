@@ -28,7 +28,8 @@
       />
     </div>
   </section>
-  <Shortcut />
+  <AppLoadingSpinner v-if="loadingStatus" />
+  <Shortcut v-else/>
 </template>
 
 <script>

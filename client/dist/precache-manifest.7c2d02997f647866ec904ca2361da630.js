@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/apple-touch-icon-192x192.ico"
   },
   {
-    "revision": "ef90182e24ae640a7651",
-    "url": "/css/about.283bd402.css"
+    "revision": "ae49214358dc400065d0",
+    "url": "/css/about.c2f5ea2a.css"
   },
   {
-    "revision": "f76818419d7aa7d89350",
+    "revision": "688d5268b5f4e7b5a155",
     "url": "/css/app.9f2cffad.css"
   },
   {
-    "revision": "86c72b0788b447300efd",
-    "url": "/css/blog.8870d683.css"
+    "revision": "5ffaa49aa5e1ed2f1625",
+    "url": "/css/blog.ea5bf15a.css"
   },
   {
     "revision": "8ab9d51e56a746101d4f",
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-vendors.eb78aeb9.css"
   },
   {
-    "revision": "d4fd1abba2267932069f",
-    "url": "/css/classes.e4a27623.css"
+    "revision": "f5ec39447bf4cd962d3c",
+    "url": "/css/classes.d8d7a5e0.css"
   },
   {
     "revision": "a7e472abe57e61a21535",
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/stories.230f6d93.css"
   },
   {
-    "revision": "dc6fdf4f30421abc9391",
-    "url": "/css/trainer.3242bee8.css"
+    "revision": "5a11626831ca221615f0",
+    "url": "/css/trainer.ad183689.css"
   },
   {
     "revision": "c489cf012b11d870a0b6d49e6a947f5b",
@@ -112,7 +112,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/logo-black.8149c5aa.png"
   },
   {
-    "revision": "aa9b657b589d7723abd23c9ceeaeb417",
+    "revision": "7d8b94f83d9ca92aa83153e23d901f81",
     "url": "/index.html"
   },
   {
@@ -120,16 +120,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/404.fe0869c3.js"
   },
   {
-    "revision": "ef90182e24ae640a7651",
-    "url": "/js/about.896976e3.js"
+    "revision": "ae49214358dc400065d0",
+    "url": "/js/about.96a042a8.js"
   },
   {
-    "revision": "f76818419d7aa7d89350",
-    "url": "/js/app.e7250ec0.js"
+    "revision": "688d5268b5f4e7b5a155",
+    "url": "/js/app.fa4b2476.js"
   },
   {
-    "revision": "86c72b0788b447300efd",
-    "url": "/js/blog.6c4ffb7a.js"
+    "revision": "5ffaa49aa5e1ed2f1625",
+    "url": "/js/blog.c7f9799f.js"
   },
   {
     "revision": "8ab9d51e56a746101d4f",
@@ -140,8 +140,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-vendors.b9abfa62.js"
   },
   {
-    "revision": "d4fd1abba2267932069f",
-    "url": "/js/classes.97a4b141.js"
+    "revision": "f5ec39447bf4cd962d3c",
+    "url": "/js/classes.0da1b54c.js"
   },
   {
     "revision": "a7e472abe57e61a21535",
@@ -164,8 +164,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/stories.78c6b641.js"
   },
   {
-    "revision": "dc6fdf4f30421abc9391",
-    "url": "/js/trainer.8e2498fc.js"
+    "revision": "5a11626831ca221615f0",
+    "url": "/js/trainer.2f2dc373.js"
   },
   {
     "revision": "441b5a0a170333adfdb9e82f2f223397",

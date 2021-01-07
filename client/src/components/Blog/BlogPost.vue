@@ -7,7 +7,7 @@
           <article class="blog__post">
             <div class="blog__post-image-container">
               <ImageItem
-                :source="`${API_URL}${post[0].image.formats.large.url}`"
+                :source="`${post[0].image.formats.large.url}`"
                 :alt="`${post[0].image.alternativeText}`"
               />
               <BlogPostDate :post="post[0]" />

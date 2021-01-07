@@ -16,7 +16,7 @@
     </div>
     <div class="course__image-container">
       <ImageItem
-        :source="`${API_URL}${course.image.url}`"
+        :source="`${course.image.url}`"
         :alt="`${course.image.alternativeText}`"
       />
     </div>
@@ -44,11 +44,6 @@ export default {
     idx: {
       type: Number
     }
-  },
-  data() {
-    return {
-      API_URL: process.env.VUE_APP_API_URL
-    };
   }
 };
 </script>
