@@ -9,7 +9,7 @@
       </div>
       <!-- TODO: Return only certain selected fields in relation (Strapi) - Bundles are conntected with Classes, and all classes fields are return with Bundles-->
       <div class="section__courses-bundles-container">
-        <AppLoadingSpinner v-if="bundlesLoadingStatus" />
+        <BaseLoadingSpinner v-if="bundlesLoadingStatus" />
         <ClassesBundle
           v-else
           v-for="bundle in bundles"
@@ -23,13 +23,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import ClassesBundle from '../components/Bundles/ClassesBundle';
 
 export default {
   name: 'Bundles',
   components: {
-    AppLoadingSpinner,
     ClassesBundle
   },
   computed: {

@@ -1,6 +1,6 @@
 <template>
   <div class="events-calendar__wrapper">
-    <AppLoadingSpinner v-if="loading" />
+    <BaseLoadingSpinner v-if="loading" />
 
     <div v-else class="events-calendar">
       <EventsCalendarWeekdays />
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import AppLoadingSpinner from '../Base/AppLoadingSpinner';
 import fetchData from '@/mixins/fetchData';
 import dayjs from 'dayjs';
 import weekday from 'dayjs/plugin/weekday';
@@ -48,7 +47,6 @@ dayjs.extend(weekOfYear);
 export default {
   name: 'EventsCalendar',
   components: {
-    AppLoadingSpinner,
     EventsCalendarMonthDayItem,
     EventsCalendarDateIndicator,
     EventsCalendarWeekdays,

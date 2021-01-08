@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <AppLoadingSpinner v-if="classesLoadingStatus" />
+      <BaseLoadingSpinner v-if="classesLoadingStatus" />
       <ClassesHome
         v-for="(course, index) in classes"
         :key="course.id"
@@ -28,31 +28,33 @@
       />
     </div>
   </section>
-  <AppLoadingSpinner v-if="loadingStatus" />
-  <Shortcut v-else/>
+  <BaseLoadingSpinner v-if="classesLoadingStatus && bundlesLoadingStatus" />
+  <Shortcut v-else />
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import ClassesHome from '../components/ClassesHome';
 import Shortcut from '../components/Shortcut';
-
 
 export default {
   name: 'Home',
   components: {
-    AppLoadingSpinner,
     ClassesHome,
     Shortcut
   },
   computed: {
-    ...mapGetters(['classesLoadingStatus', 'classesErrorStatus', 'classes'])
+    ...mapGetters([
+      'classesLoadingStatus',
+      'bundlesLoadingStatus',
+      'bundlesErrorStatus',
+      'classesErrorStatus',
+      'classes'
+    ])
   },
   async created() {
     if (this.classes && this.classes.length > 0) return;
     await this.$store.dispatch('fetchClasses');
-
   }
 };
 </script>

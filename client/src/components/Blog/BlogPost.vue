@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <AppLoadingSpinner v-if="singlePostLoadingStatus" />
+    <BaseLoadingSpinner v-if="singlePostLoadingStatus" />
     <section class="section blog" v-else>
       <div class="container">
         <div class="blog__post-wrapper">
@@ -48,14 +48,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import AppLoadingSpinner from '../Base/AppLoadingSpinner';
 import ImageItem from '../ImageItem';
 import BlogPostDate from './BlogPostDate';
 
 export default {
   name: 'BlogPost',
   components: {
-    AppLoadingSpinner,
     ImageItem,
     BlogPostDate
   },

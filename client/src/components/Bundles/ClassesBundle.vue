@@ -8,7 +8,7 @@
       </p>
       <p class="courses__bundle-reccuring-payment">per month</p>
     </div>
-    <AppDivider />
+    <BaseDivider />
     <ul class="courses__bundle-list">
       <li
         class="courses__bundle-item"
@@ -18,22 +18,15 @@
         {{ course.name }}
       </li>
     </ul>
-    <AppButton btnType="sign-up" @click="addToCart()">
+    <BaseButton btnType="sign-up" @click="addToCart()">
       Sign Up
-    </AppButton>
+    </BaseButton>
   </div>
 </template>
 
 <script>
-import AppButton from '../AppButton';
-import AppDivider from '../Base/AppDivider';
-
 export default {
   name: 'ClassesBundle',
-  components: {
-    AppButton,
-    AppDivider
-  },
   props: {
     bundle: {
       type: Object,

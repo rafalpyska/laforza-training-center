@@ -24,13 +24,13 @@
       <p class="class__description">{{ course.description }}</p>
       <SelectTrainer :course="course" @selectedTrainer="setSelectedTrainer" />
       <div class="class__description-controls">
-        <AppButton
+        <BaseButton
           btnType="enroll"
           @click="addToCart()"
           :disabled="selectedTrainer === ''"
         >
           Enroll
-        </AppButton>
+        </BaseButton>
         <span class="class__description-price">
           ${{ course.price }} / month
         </span>
@@ -63,7 +63,6 @@
 </template>
 
 <script>
-import AppButton from '../AppButton';
 import ImageItem from '../ImageItem';
 import SelectTrainer from '../SelectTrainer';
 import ClassesComplexityIndicator from './ClassesComplexityIndicator';
@@ -71,7 +70,6 @@ import ClassesComplexityIndicator from './ClassesComplexityIndicator';
 export default {
   name: 'ClassesList',
   components: {
-    AppButton,
     ImageItem,
     SelectTrainer,
     ClassesComplexityIndicator

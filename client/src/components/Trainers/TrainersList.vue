@@ -85,16 +85,16 @@
           >An athletic body
         </li>
       </ul>
-      <AppButton btnType="schedule" @click="addToCart()">
+      <BaseButton btnType="schedule" @click="addToCart()">
         Enroll
-      </AppButton>
+      </BaseButton>
       <teleport to="#modal">
-        <AppModal
+        <BaseModal
           ref="popup"
           :title="trainer.classes[0].name"
           :subtitle="trainer.username"
         >
-        </AppModal>
+        </BaseModal>
       </teleport>
     </div>
   </div>
@@ -102,15 +102,11 @@
 
 <script>
 import ImageItem from '../ImageItem';
-import AppButton from '../AppButton';
-import AppModal from '../Base/AppModal';
 
 export default {
   name: 'TrainersList',
   components: {
-    ImageItem,
-    AppButton,
-    AppModal
+    ImageItem
   },
   props: {
     trainer: {

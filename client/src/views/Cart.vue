@@ -23,19 +23,15 @@
           <i class="far fa-trash-alt"></i>
         </button>
       </div>
-      <AppDivider v-if="cart.length > 0" />
+      <BaseDivider v-if="cart.length > 0" />
       <p v-if="cart.length > 0">Total: ${{ cartTotalItemPrice }}</p>
     </div>
   </section>
 </template>
 <script>
-import AppDivider from '@/components/Base/AppDivider.vue';
 import { mapGetters } from 'vuex';
 export default {
   name: 'Cart',
-  components: {
-    AppDivider
-  },
   props: {},
   computed: {
     ...mapGetters(['cart', 'cartTotalItemPrice'])

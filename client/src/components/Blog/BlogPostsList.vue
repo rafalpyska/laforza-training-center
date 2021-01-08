@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <AppLoadingSpinner v-if="postsLoadingStatus" />
+    <BaseLoadingSpinner v-if="postsLoadingStatus" />
     <div class="blog__post-list" v-for="post in posts" :key="post.id" v-else>
       <div class="blog__post-list-image-container">
         <ImageItem
@@ -13,12 +13,12 @@
         <h2 class="blog__post-list-heading">{{ post.title }}</h2>
         <p class="blog__post-list-paragraph">{{ post.summary }}</p>
         <div class="blog__post-list-controls">
-          <AppButton
+          <BaseButton
             btnType="load-more"
             :to="{ name: 'BlogPost', params: { slug: post.slug } }"
           >
             Read More
-          </AppButton>
+          </BaseButton>
           <p
             class="blog__post-list-posted-by"
             v-for="author in post.authors"
@@ -34,33 +34,32 @@
 </template>
 
 <script>
-import AppLoadingSpinner from '../Base/AppLoadingSpinner';
 import { mapGetters } from 'vuex';
 import fetchData from '@/mixins/fetchData';
 import ImageItem from '../ImageItem';
 import BlogPostDate from './BlogPostDate';
-import AppButton from '../AppButton';
 
 export default {
   name: 'BlogPostsList',
   components: {
-    AppLoadingSpinner,
     ImageItem,
-    BlogPostDate,
-    AppButton
+    BlogPostDate
   },
   mixins: [fetchData],
   data() {
     return {
       startPostsFrom: 0,
       numberOfPosts: 50
-    }
+    };
   },
   computed: {
     ...mapGetters(['postsLoadingStatus', 'postsErrorStatus', 'posts'])
   },
   async created() {
-    await this.$store.dispatch('fetchBlogPosts', { start: this.startPostsFrom, limit: this.numberOfPosts });
+    await this.$store.dispatch('fetchBlogPosts', {
+      start: this.startPostsFrom,
+      limit: this.numberOfPosts
+    });
   }
 };
 </script>

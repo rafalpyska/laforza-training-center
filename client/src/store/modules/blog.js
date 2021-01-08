@@ -48,14 +48,17 @@ export default {
     }
   },
   actions: {
-    async fetchBlogPosts({ commit }, {start = 0, limit = 50}) {
+    async fetchBlogPosts({ commit }, { start = 0, limit = 50 }) {
       commit('setPostsLoading', true);
-      return await fetch(`${process.env.VUE_APP_API_URL}/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
+      return await fetch(
+        `${process.env.VUE_APP_API_URL}/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
         }
-      })
+      )
         .then(response => response.json())
         .then(data => {
           commit('SET_BLOG_POSTS', data);

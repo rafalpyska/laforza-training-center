@@ -115,7 +115,7 @@
           </li>
         </ul>
       </div>
-      <AppDivider />
+      <BaseDivider />
       <div class="contact__info">
         <h2 class="color-primary">Branch office</h2>
         <p>
@@ -165,13 +165,8 @@
 </template>
 
 <script>
-import AppDivider from '../components/Base/AppDivider';
-
 export default {
-  name: 'Contact',
-  components: {
-    AppDivider
-  }
+  name: 'Contact'
 };
 </script>
 

@@ -7,7 +7,7 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <AppLoadingSpinner v-if="trainersLoadingStatus" />
+      <BaseLoadingSpinner v-if="trainersLoadingStatus" />
       <TrainersList
         v-else
         v-for="trainer in trainers"
@@ -32,13 +32,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import TrainersList from '../components/Trainers/TrainersList';
 
 export default {
   name: 'Trainers',
   components: {
-    AppLoadingSpinner,
     TrainersList
   },
   computed: {
