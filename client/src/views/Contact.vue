@@ -154,13 +154,15 @@
           </li>
         </ul>
       </div>
-      <iframe
-        class="map"
+    </div>
+    <div class="map">
+          <iframe
+        class="map-iframe"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25215.625657884106!2d144.956637!3d-37.81456500000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4e793770d3%3A0x9e44d6ad0d76ba7c!2s121+King+St%2C+Melbourne+VIC+3000%2C+Australia!5e0!3m2!1sen!2sus!4v1435061406583"
         height="400"
         allowfullscreen
       ></iframe>
-    </div>
+      </div>
   </section>
 </template>
 
@@ -173,9 +175,13 @@ export default {
 <style scoped lang="scss">
 .contact {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   grid-gap: 2rem;
   font-size: 0.8rem;
+  @media (max-width: 640px) {
+    grid-gap: 0;
+    row-gap: 2rem;
+  }
   &__info {
     margin-bottom: 2rem;
     &-list {
@@ -197,7 +203,10 @@ export default {
   }
 }
 .map {
-  width: 100%;
-  border: none;
+  grid-column: 1/-1;
+  &-iframe {
+    width: 100%;
+    border: none;
+  }
 }
 </style>

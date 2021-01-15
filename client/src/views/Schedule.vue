@@ -59,12 +59,16 @@ export default {
   components: {
     ScheduleList
   },
+  data() {
+    return {
+      limit: 50
+    }
+  },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
   },
   async created() {
-    if (this.trainers && this.trainers.length > 0) return;
-    await this.$store.dispatch('fetchTrainers');
+    await this.$store.dispatch('fetchTrainers', this.limit);
   }
 };
 </script>
