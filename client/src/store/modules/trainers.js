@@ -57,13 +57,17 @@ export default {
     },
     SET_PAGINATION_TOTAL(state, total) {
       return (state.pagination.total = total);
+    },
+    SET_PAGINATION_LIMIT(state, limit) {
+      return (state.pagination.limit = limit)
     }
   },
   actions: {
-    async fetchTrainers({ commit, getters }) {
+    async fetchTrainers({ commit, getters }, limit = getters.limit) {
       commit('SET_TRAINERS_LOADING', true);
+      commit
       return await fetch(
-        `${process.env.VUE_APP_API_URL}/users?_start=${getters.start}&_limit=${getters.limit}`,
+        `${process.env.VUE_APP_API_URL}/users?_start=${getters.start}&_limit=${limit}`,
         {
           method: 'GET',
           headers: {

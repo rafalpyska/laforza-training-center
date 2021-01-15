@@ -81,6 +81,12 @@ export default {
     &:active > * {
       color: var(--color-primary);
     }
+    &:disabled {
+      background-color: var(--btn-disabled);
+      &:hover {
+        background-color: var(--btn-disabled);
+      }
+    }
   }
   &--send-story {
     color: white;
