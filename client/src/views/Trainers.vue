@@ -8,17 +8,18 @@
         </div>
       </div>
       <BaseLoadingSpinner v-if="trainersLoadingStatus" />
-      <TrainersList
-        v-else
-        v-for="trainer in trainers"
-        :key="trainer.id"
-        :trainer="trainer"
-      />
-      <BasePagination
-        :pagination="pagination"
-        :next="'paginationLoadMore'"
-        :previous="'paginationPrevious'"
-      />
+      <template v-else>
+        <TrainersList
+          v-for="trainer in trainers"
+          :key="trainer.id"
+          :trainer="trainer"
+        />
+        <BasePagination
+          :pagination="pagination"
+          :next="'paginationLoadMore'"
+          :previous="'paginationPrevious'"
+        />
+      </template>
     </div>
   </section>
 </template>
