@@ -1,7 +1,7 @@
 <template>
   <div class="pagination">
-      <BaseButton :disabled="pagination.page === 1" @click="moveBack" btnType="load-more" class="previous">Previous</BaseButton>
-      <BaseButton @click="loadMore" btnType="load-more">Next</BaseButton>
+      <BaseButton :disabled="pagination.pageNumber === 1" @click="moveBack" btnType="load-more" class="previous">Previous</BaseButton>
+      <BaseButton :disabled="pagination.pageNumber >= pagination.pagesTotal" @click="loadMore" btnType="load-more">Next</BaseButton>
   </div>  
 </template>
 
@@ -33,12 +33,12 @@ export default {
       // should I store fetched records in data, in order not to fetch all
       // the time over again when a user would like to move back?
       if(this.pagination.start <= this.pagination.limit) {
-        await this.$store.dispatch(this.next, { start: this.start, page: this.page });
+        await this.$store.dispatch(this.next, { start: this.start, pageNumber: this.page });
       }
     },
     async moveBack() {
       if(this.pagination.start !== 0) {
-        await this.$store.dispatch(this.previous, { start: this.start, page: this.page });
+        await this.$store.dispatch(this.previous, { start: this.start, pageNumber: this.page });
       }
     }
   }

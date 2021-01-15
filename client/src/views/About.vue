@@ -27,12 +27,16 @@ export default {
   components: {
     TrainersMiniProfile
   },
+  data() {
+    return {
+      limit: 50
+    }
+  },
   computed: {
     ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers'])
   },
   async mounted() {
-    if (this.trainers && this.trainers.length > 0) return;
-    await this.$store.dispatch('fetchTrainers');
+    await this.$store.dispatch('fetchTrainers', this.limit);
   }
 };
 </script>

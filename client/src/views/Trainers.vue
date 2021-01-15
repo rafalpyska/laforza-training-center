@@ -33,10 +33,9 @@ export default {
     TrainersList
   },
   computed: {
-    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers', 'pagination', 'page'])
+    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers', 'pagination', 'pageNumber', 'pagesTotal'])
   },
   async created() {
-    if (this.trainers && this.trainers.length > 0) return;
     await this.$store.dispatch('fetchTrainers');
   }
 };

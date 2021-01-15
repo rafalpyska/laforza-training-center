@@ -4,10 +4,11 @@ export default {
     trainersError: null,
     trainers: [],
     pagination: {
-      page: 1,
+      pageNumber: 1,
+      pagesTotal: null,
       start: 0,
       limit: 3,
-      total: 0,
+      totalItems: 0,
     }
   },
   getters: {
@@ -23,14 +24,17 @@ export default {
     pagination(state) {
       return state.pagination;
     },
-    page(state) {
-      return state.pagination.page;
+    pageNumber(state) {
+      return state.pagination.pageNumber;
+    },
+    pagesTotal(state) {
+      return state.pagination.pagesTotal;
     },
     start(state) {
       return state.pagination.start;
     },
     limit(state) {
-      return state.pagination.limit
+      return state.pagination.limit;
     }
   },
   mutations: {
@@ -46,28 +50,30 @@ export default {
     SET_PAGINATION_START_NEXT(state, start) {
       return (state.pagination.start += start)
     },
-    SET_PAGINATION_PAGE_NEXT(state, page) {
-      return (state.pagination.page += page);
+    SET_PAGINATION_PAGE_NEXT(state, pageNumber) {
+      return (state.pagination.pageNumber += pageNumber);
     },
     SET_PAGINATION_START_PREV(state, start) {
       return (state.pagination.start -= start)
     },
-    SET_PAGINATION_PAGE_PREV(state, page) {
-      return (state.pagination.page -= page);
+    SET_PAGINATION_PAGE_PREV(state, pageNumber) {
+      return (state.pagination.pageNumber -= pageNumber);
     },
-    SET_PAGINATION_TOTAL(state, total) {
-      return (state.pagination.total = total);
+    SET_PAGINATION_TOTAL(state, totalItems) {
+      return (state.pagination.totalItems = totalItems);
     },
     SET_PAGINATION_LIMIT(state, limit) {
       return (state.pagination.limit = limit)
+    },
+    SET_TOTAL_PAGES(state, { totalItems, limit }) {
+      return (state.pagination.pagesTotal = Math.ceil(totalItems/limit))
     }
   },
   actions: {
-    async fetchTrainers({ commit, getters }, limit = getters.limit) {
+    async fetchTrainers({ commit, getters }) {
       commit('SET_TRAINERS_LOADING', true);
-      commit
       return await fetch(
-        `${process.env.VUE_APP_API_URL}/users?_start=${getters.start}&_limit=${limit}`,
+        `${process.env.VUE_APP_API_URL}/users?_start=${getters.start}&_limit=${getters.limit}`,
         {
           method: 'GET',
           headers: {
@@ -91,6 +97,7 @@ export default {
           .then(response => response.json())
           .then(data => {
             commit('SET_PAGINATION_TOTAL', data || 0);
+            commit('SET_TOTAL_PAGES', { totalItems: getters.pagination.totalItems, limit: getters.pagination.limit });
           })
           .catch(error => {
             console.log(error)
@@ -100,14 +107,14 @@ export default {
           commit('SET_TRAINERS_ERROR', error);
         });
     },
-    paginationLoadMore({ commit, dispatch }, { start, page }) {
+    paginationLoadMore({ commit, dispatch }, { start, pageNumber }) {
       commit('SET_PAGINATION_START_NEXT', start);
-      commit('SET_PAGINATION_PAGE_NEXT', page);
+      commit('SET_PAGINATION_PAGE_NEXT', pageNumber);
       dispatch('fetchTrainers');
     },
-    paginationPrevious({ commit, dispatch }, { start, page }) {
+    paginationPrevious({ commit, dispatch }, { start, pageNumber }) {
       commit('SET_PAGINATION_START_PREV', start);
-      commit('SET_PAGINATION_PAGE_PREV', page);
+      commit('SET_PAGINATION_PAGE_PREV', pageNumber);
       dispatch('fetchTrainers');
     },
   }
