@@ -14,18 +14,9 @@
         :key="trainer.id"
         :trainer="trainer"
       />
-      <!-- <button
-        @click="
-          () =>
-            this.$router.push({
-              path: `/trainers`,
-              query: { page: 1 }
-            })
-        "
-        class="btn btn__load-more"
-      >
-        Load more
-      </button> -->
+      <BaseButton v-if="page > 1" @click="moveBack" btnType="load-more" class="previous">Previous</BaseButton>
+      <BaseButton @click="loadMore" btnType="load-more">Next</BaseButton>
+      <router-view/>
     </div>
   </section>
 </template>
@@ -40,17 +31,31 @@ export default {
     TrainersList
   },
   computed: {
-    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers'])
+    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers', 'pagination', 'page'])
   },
   async created() {
     if (this.trainers && this.trainers.length > 0) return;
     await this.$store.dispatch('fetchTrainers');
   },
-  mounted() {
-    let posts = this.trainers;
-    console.log(posts);
+  methods: {
+    async loadMore() {
+      // should I store fetched records in data, in order not to fetch all
+      // the time over again when a user would like to move back?
+      if(this.pagination.start <= this.pagination.limit) {
+        await this.$store.dispatch('paginationLoadMore', { start: 3, page: 1 });
+      }
+    },
+    async moveBack() {
+      if(this.pagination.start !== 0) {
+        await this.$store.dispatch('paginationPrevious', { start: 3, page: 1 });
+      }
+    }
   }
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .previous {
+    margin-right: 1rem;
+  }
+</style>

@@ -31,8 +31,21 @@ const routes = [
   {
     path: '/trainers',
     name: 'Trainers',
+    props: true,
     component: () =>
-      import(/* webpackChunkName: "trainer" */ '../views/Trainers.vue')
+      import(/* webpackChunkName: "trainer" */ '../views/Trainers.vue'),
+    children: [
+      {
+        path: ':page',
+        name: 'TrainersList',
+        component: () => {
+          import(
+            /* webpackChunkName: "trainer" */ '@/components/Trainers/TrainersList.vue'
+          )
+        },
+        props: true
+      }
+    ]
   },
   {
     path: '/schedule',

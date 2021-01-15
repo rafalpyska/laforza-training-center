@@ -28,19 +28,19 @@ export default {
     }
   },
   mutations: {
-    setPostsLoading(state, loadingStatus) {
+    SET_POSTS_LOADING(state, loadingStatus) {
       return (state.postsLoading = loadingStatus);
     },
-    setPostsError(state, error) {
+    SET_POSTS_ERROR(state, error) {
       return (state.postsError = error);
     },
     SET_BLOG_POSTS(state, posts) {
       state.posts = posts;
     },
-    setSinglePostLoading(state, loadingStatus) {
+    SET_SINGLE_POST_LOADING(state, loadingStatus) {
       return (state.singlePostLoading = loadingStatus);
     },
-    setSinglePostError(state, error) {
+    SET_SINGLE_POST_ERROR(state, error) {
       return (state.singlePostError = error);
     },
     SET_ONE_BLOG_POST(state, post) {
@@ -49,7 +49,7 @@ export default {
   },
   actions: {
     async fetchBlogPosts({ commit }, { start = 0, limit = 50 }) {
-      commit('setPostsLoading', true);
+      commit('SET_POSTS_LOADING', true);
       return await fetch(
         `${process.env.VUE_APP_API_URL}/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`,
         {
@@ -62,14 +62,14 @@ export default {
         .then(response => response.json())
         .then(data => {
           commit('SET_BLOG_POSTS', data);
-          commit('setPostsLoading', false);
+          commit('SET_POSTS_LOADING', false);
         })
         .catch(error => {
-          commit('setPostsError', error);
+          commit('SET_POSTS_ERROR', error);
         });
     },
     async fetchSingleBlogPost({ commit }, postSlug) {
-      commit('setSinglePostLoading', true);
+      commit('SET_SINGLE_POST_LOADING', true);
       return await fetch(
         `${process.env.VUE_APP_API_URL}/posts?slug=${postSlug}`,
         {
@@ -82,10 +82,10 @@ export default {
         .then(response => response.json())
         .then(data => {
           commit('SET_ONE_BLOG_POST', data);
-          commit('setSinglePostLoading', false);
+          commit('SET_SINGLE_POST_LOADING', false);
         })
         .catch(error => {
-          commit('setSinglePostError', error);
+          commit('SET_SINGLE_POST_ERROR', error);
         });
     }
   }

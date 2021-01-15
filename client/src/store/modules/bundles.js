@@ -16,7 +16,7 @@ export default {
     }
   },
   mutations: {
-    setBundlesLoading(state, loadingStatus) {
+    SET_BUNDLES_LOADING(state, loadingStatus) {
       return (state.loading = loadingStatus);
     },
     setBundlesError(state, error) {
@@ -28,7 +28,7 @@ export default {
   },
   actions: {
     async fetchBundles({ commit }) {
-      commit('setBundlesLoading', true);
+      commit('SET_BUNDLES_LOADING', true);
       return await fetch(`${process.env.VUE_APP_API_URL}/bundles`, {
         method: 'GET',
         headers: {
@@ -38,7 +38,7 @@ export default {
         .then(response => response.json())
         .then(data => {
           commit('SET_BUNDLES', data);
-          commit('setBundlesLoading', false);
+          commit('SET_BUNDLES_LOADING', false);
         })
         .catch(error => {
           commit('setBundlesError', error);

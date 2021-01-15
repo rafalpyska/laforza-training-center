@@ -16,10 +16,10 @@ export default {
     }
   },
   mutations: {
-    setClassesLoading(state, loadingStatus) {
+    SET_CLASSES_LOADING(state, loadingStatus) {
       return (state.classesLoading = loadingStatus);
     },
-    setClassesError(state, error) {
+    SET_CLASSES_ERROR(state, error) {
       return (state.classesError = error);
     },
     SET_COURSES(state, classes) {
@@ -28,7 +28,7 @@ export default {
   },
   actions: {
     async fetchClasses({ commit }) {
-      commit('setClassesLoading', true);
+      commit('SET_CLASSES_LOADING', true);
       return await fetch(`${process.env.VUE_APP_API_URL}/classes`, {
         method: 'GET',
         headers: {
@@ -38,10 +38,10 @@ export default {
         .then(response => response.json())
         .then(data => {
           commit('SET_COURSES', data);
-          commit('setClassesLoading', false);
+          commit('SET_CLASSES_LOADING', false);
         })
         .catch(error => {
-          commit('setClassesError', error);
+          commit('SET_CLASSES_ERROR', error);
         });
     }
   }

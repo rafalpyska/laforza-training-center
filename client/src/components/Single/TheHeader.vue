@@ -2,8 +2,9 @@
   <header class="header">
     <!-- fixed-height="100vh" on slider-->
     <vueper-slides
-      fade
       autoplay
+      :dragging-distance="70"
+      prevent-y-scroll
       :pause-on-hover="pauseOnHover"
       @autoplay-pause="internalAutoPlaying = false"
       @autoplay-resume="internalAutoPlaying = true"
