@@ -8,23 +8,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/apple-touch-icon-192x192.ico"
   },
   {
-    "revision": "704803998dabc7115380",
-    "url": "/css/about.cb3eea9d.css"
+    "revision": "b9afc1ef28d7b63f30ee",
+    "url": "/css/about.85a33d64.css"
   },
   {
-    "revision": "7d9369ee4620b4b0be61",
-    "url": "/css/app.2ecc211a.css"
+    "revision": "3a22b240b07f4347aa4e",
+    "url": "/css/app.a47fc268.css"
   },
   {
-    "revision": "40fd5759e684a0ead79d",
-    "url": "/css/blog.7c78889f.css"
+    "revision": "af08ba28c658bf787ddf",
+    "url": "/css/blog.f9632186.css"
   },
   {
     "revision": "670d3a87868f3d4127c1",
     "url": "/css/cart.a6ac5d83.css"
   },
   {
-    "revision": "6b0c91e2d01229910791",
+    "revision": "97a3d43be6929a6c25df",
     "url": "/css/chunk-vendors.eb78aeb9.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/contact.01307c1b.css"
   },
   {
-    "revision": "b4c1390d7e8285ba5139",
-    "url": "/css/events.3f923542.css"
+    "revision": "e4e54b00a251da29814c",
+    "url": "/css/events.49ae7cb5.css"
   },
   {
     "revision": "5f0ecd3f24408036948b",
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/stories.641fbad3.css"
   },
   {
-    "revision": "5447bdb3bf617488ff15",
-    "url": "/css/trainer.db232adb.css"
+    "revision": "97584872a8b2ce18c742",
+    "url": "/css/trainer.7b2d3405.css"
   },
   {
     "revision": "c489cf012b11d870a0b6d49e6a947f5b",
@@ -62,10 +62,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "74b1866c9bd06ebd9794fdb401a46fdd",
     "url": "/favicon-32x32.png"
-  },
-  {
-    "revision": "eb51d982acd8c0f24ebe53de26d1356c",
-    "url": "/favicon.ico:Zone.Identifier"
   },
   {
     "revision": "bd173486c6b596d8cf6416f8c0018ea2",
@@ -92,8 +88,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/6.35556669.png"
   },
   {
-    "revision": "d5c41631e2b660ad3523abcdbebf8dd6",
-    "url": "/img/footer-logo.d5c41631.png"
+    "revision": "4d21c09d8664ada510c9bcbb744d5bc0",
+    "url": "/img/footer-logo.4d21c09d.png"
   },
   {
     "revision": "4f10685d6ef00b3f3bc3d6dfe5b03507",
@@ -108,11 +104,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/hero.56c634ca.jpg"
   },
   {
-    "revision": "8149c5aa97e86add30f223cd2ad9a40e",
-    "url": "/img/logo-black.8149c5aa.png"
+    "revision": "078042a90ae870fa6cda7fe01b867936",
+    "url": "/img/logo-black.078042a9.png"
   },
   {
-    "revision": "14cac6e1160aeebbabc7e9167bbaa51c",
+    "revision": "b7d14af922ceaafd4c7e448151144afb",
     "url": "/index.html"
   },
   {
@@ -120,24 +116,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/404.fe0869c3.js"
   },
   {
-    "revision": "704803998dabc7115380",
-    "url": "/js/about.3b4745d1.js"
+    "revision": "b9afc1ef28d7b63f30ee",
+    "url": "/js/about.40cc771e.js"
   },
   {
-    "revision": "7d9369ee4620b4b0be61",
-    "url": "/js/app.62b5e56d.js"
+    "revision": "3a22b240b07f4347aa4e",
+    "url": "/js/app.f2d257fb.js"
   },
   {
-    "revision": "40fd5759e684a0ead79d",
-    "url": "/js/blog.90d2c3a8.js"
+    "revision": "af08ba28c658bf787ddf",
+    "url": "/js/blog.7ecfb14a.js"
   },
   {
     "revision": "670d3a87868f3d4127c1",
     "url": "/js/cart.15300e1a.js"
   },
   {
-    "revision": "6b0c91e2d01229910791",
-    "url": "/js/chunk-vendors.069a00ab.js"
+    "revision": "97a3d43be6929a6c25df",
+    "url": "/js/chunk-vendors.a516d246.js"
   },
   {
     "revision": "85809ddbc9bee9dfe59a",
@@ -148,8 +144,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/contact.79014ccc.js"
   },
   {
-    "revision": "b4c1390d7e8285ba5139",
-    "url": "/js/events.d2476b2b.js"
+    "revision": "e4e54b00a251da29814c",
+    "url": "/js/events.be783941.js"
   },
   {
     "revision": "5f0ecd3f24408036948b",
@@ -164,8 +160,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/stories.746e8be7.js"
   },
   {
-    "revision": "5447bdb3bf617488ff15",
-    "url": "/js/trainer.94d308ed.js"
+    "revision": "97584872a8b2ce18c742",
+    "url": "/js/trainer.452c405a.js"
   },
   {
     "revision": "474f370125dc6ee281cd570a7bf0f870",

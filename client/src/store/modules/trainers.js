@@ -70,10 +70,10 @@ export default {
     }
   },
   actions: {
-    async fetchTrainers({ commit, getters }) {
+    async fetchTrainers({ commit, getters }, limit = getters.limit) {
       commit('SET_TRAINERS_LOADING', true);
       return await fetch(
-        `${process.env.VUE_APP_API_URL}/users?_start=${getters.start}&_limit=${getters.limit}`,
+        `${process.env.VUE_APP_API_URL}/users?_start=${getters.start}&_limit=${limit}`,
         {
           method: 'GET',
           headers: {
