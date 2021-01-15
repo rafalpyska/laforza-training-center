@@ -30,7 +30,8 @@ export default {
       type: String,
       default: null
     }
-  }
+  },
+  inheritAttrs: false
 };
 </script>
 <style scoped lang="scss">

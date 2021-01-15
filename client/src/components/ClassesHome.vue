@@ -10,9 +10,9 @@
         {{ course.name }}
       </h2>
       <p class="course__description">{{ course.summary }}</p>
-      <AppButton to="/classes" btnType="more">
+      <BaseButton to="/classes" btnType="more">
         More
-      </AppButton>
+      </BaseButton>
     </div>
     <div class="course__image-container">
       <ImageItem
@@ -28,12 +28,10 @@
 </template>
 
 <script>
-import AppButton from './AppButton';
 import ImageItem from './ImageItem';
 export default {
   name: 'ClassesHome',
   components: {
-    AppButton,
     ImageItem
   },
   props: {

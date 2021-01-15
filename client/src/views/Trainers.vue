@@ -7,52 +7,42 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <AppLoadingSpinner v-if="trainersLoadingStatus" />
+      <BaseLoadingSpinner v-if="trainersLoadingStatus" />
       <TrainersList
         v-else
         v-for="trainer in trainers"
         :key="trainer.id"
         :trainer="trainer"
       />
-      <!-- <button
-        @click="
-          () =>
-            this.$router.push({
-              path: `/trainers`,
-              query: { page: 1 }
-            })
-        "
-        class="btn btn__load-more"
-      >
-        Load more
-      </button> -->
+      <BasePagination
+        :pagination="pagination"
+        :next="'paginationLoadMore'"
+        :previous="'paginationPrevious'"
+      />
     </div>
   </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import TrainersList from '../components/Trainers/TrainersList';
 
 export default {
   name: 'Trainers',
   components: {
-    AppLoadingSpinner,
     TrainersList
   },
   computed: {
-    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers'])
+    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers', 'pagination', 'pageNumber', 'pagesTotal'])
   },
   async created() {
-    if (this.trainers && this.trainers.length > 0) return;
     await this.$store.dispatch('fetchTrainers');
-  },
-  mounted() {
-    let posts = this.trainers;
-    console.log(posts);
   }
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .previous {
+    margin-right: 1rem;
+  }
+</style>

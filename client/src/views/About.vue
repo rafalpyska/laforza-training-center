@@ -7,7 +7,7 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <AppLoadingSpinner v-if="trainersLoadingStatus" />
+      <BaseLoadingSpinner v-if="trainersLoadingStatus" />
       <div class="trainer__list" v-else>
         <TrainersMiniProfile
           v-for="trainer in trainers"
@@ -21,21 +21,22 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import TrainersMiniProfile from '../components/Trainers/TrainersMiniProfile';
 export default {
   name: 'About',
   components: {
-    AppLoadingSpinner,
     TrainersMiniProfile
+  },
+  data() {
+    return {
+      limit: 50
+    }
   },
   computed: {
     ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers'])
   },
   async mounted() {
-    if (this.trainers && this.trainers.length > 0) return;
-    await this.$store.dispatch('fetchTrainers');
-
+    await this.$store.dispatch('fetchTrainers', this.limit);
   }
 };
 </script>

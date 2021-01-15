@@ -26,19 +26,19 @@
         </p>
       </div>
     </div>
-    <AppActionStrip>
+    <BaseActionStrip>
       <template v-slot:first-column>
         <p class="action-strip__name">Client Stories</p>
       </template>
       <template v-slot:last-column>
-        <AppButton btnType="send-story">
+        <BaseButton btnType="send-story">
           Send story
-        </AppButton>
+        </BaseButton>
       </template>
-    </AppActionStrip>
+    </BaseActionStrip>
     <div class="stories__list-wrapper">
       <div class="stories__list container">
-        <AppLoadingSpinner v-if="loading" />
+        <BaseLoadingSpinner v-if="loading" />
         <ClientStory
           v-else
           v-for="story in stories"
@@ -51,18 +51,12 @@
 </template>
 
 <script>
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import fetchData from '../mixins/fetchData';
 import ClientStory from '../components/ClientStory';
-import AppActionStrip from '@/components/Base/AppActionStrip.vue';
-import AppButton from '@/components/AppButton.vue';
 export default {
   name: 'Stories',
   components: {
-    AppLoadingSpinner,
-    ClientStory,
-    AppActionStrip,
-    AppButton
+    ClientStory
   },
   mixins: [fetchData],
   data() {

@@ -44,7 +44,7 @@
           </figcaption>
         </figure>
       </div>
-      <AppLoadingSpinner v-if="loadingStatus" />
+      <BaseLoadingSpinner v-if="loadingStatus" />
       <ScheduleList v-else :trainers="trainers" />
     </div>
   </section>
@@ -52,14 +52,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import AppLoadingSpinner from '../components/Base/AppLoadingSpinner';
 import ScheduleList from '../components/Schedule/ScheduleList';
 
 export default {
   name: 'Schedule',
   components: {
-    ScheduleList,
-    AppLoadingSpinner
+    ScheduleList
   },
   computed: {
     ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
@@ -67,7 +65,6 @@ export default {
   async created() {
     if (this.trainers && this.trainers.length > 0) return;
     await this.$store.dispatch('fetchTrainers');
-
   }
 };
 </script>
