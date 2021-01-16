@@ -61,7 +61,7 @@
             >
           </li>
           <li class="navigation__item">
-            <router-link :to="{ name: 'Trainers', params: { page: pageNumber } }" class="navigation__link"
+            <router-link :to="{ name: 'Trainers', params: { page: pagination.pageNumber } }" class="navigation__link"
               >Trainers</router-link
             >
           </li>
@@ -145,7 +145,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['pageNumber']),
+    ...mapGetters(['pagination']),
     currentRouteName() {
       return this.$route.name;
     }

@@ -44,7 +44,7 @@
           </figcaption>
         </figure>
       </div>
-      <BaseLoadingSpinner v-if="loadingStatus" />
+      <BaseLoadingSpinner v-if="trainersLoadingStatus" />
       <ScheduleList v-else :trainers="trainers" />
     </div>
   </section>
@@ -65,7 +65,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['loadingStatus', 'errorStatus', 'trainers'])
+    ...mapGetters(['trainersLoadingStatus', 'trainerserrorStatus', 'trainers'])
   },
   async created() {
     await this.$store.dispatch('fetchTrainers', this.limit);

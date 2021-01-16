@@ -23,7 +23,8 @@ export default {
     }
   },
   watch: {
-    '$route.path': {
+    'pagination.pageNumber': {
+      deep: true,
       async handler () {
         await this.$store.dispatch('fetchTrainers', { limit: this.pagination.limit, start: (Number(this.$route.params.page) - 1) * this.pagination.limit, page: Number(this.$route.params.page) });
       }
