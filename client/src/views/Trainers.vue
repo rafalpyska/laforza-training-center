@@ -8,17 +8,19 @@
         </div>
       </div>
       <BaseLoadingSpinner v-if="trainersLoadingStatus" />
-      <TrainersList
-        v-else
-        v-for="trainer in trainers"
-        :key="trainer.id"
-        :trainer="trainer"
-      />
-      <BasePagination
-        :pagination="pagination"
-        :next="'paginationLoadMore'"
-        :previous="'paginationPrevious'"
-      />
+      <template v-else>
+        <TrainersList
+          v-for="trainer in trainers"
+          :key="trainer.id"
+          :trainer="trainer"
+        />
+        <BasePagination
+          :pagination="pagination"
+          :next="'paginationLoadMore'"
+          :previous="'paginationPrevious'"
+        />
+        <router-view :key="$route.fullPath" />
+      </template>
     </div>
   </section>
 </template>
@@ -36,7 +38,7 @@ export default {
     ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers', 'pagination', 'pageNumber', 'pagesTotal'])
   },
   async created() {
-    await this.$store.dispatch('fetchTrainers');
+    await this.$store.dispatch('fetchTrainers', { limit: this.pagination.limit, start: (Number(this.$route.params.page) - 1) * this.pagination.limit, page: Number(this.$route.params.page) });
   }
 };
 </script>
