@@ -50,16 +50,16 @@ export default {
     SET_PAGINATION_START_NEXT(state, start) {
       return (state.pagination.start += start)
     },
-    SET_PAGINATION_PAGE_NEXT(state, pageNumber) {
-      return (state.pagination.pageNumber += pageNumber);
+    SET_PAGINATION_PAGE_NEXT(state) {
+      return (state.pagination.pageNumber += 1);
     },
     SET_PAGINATION_START_PREV(state, start) {
       return (state.pagination.start -= start)
     },
-    SET_PAGINATION_PAGE_PREV(state, pageNumber) {
-      return (state.pagination.pageNumber -= pageNumber);
+    SET_PAGINATION_PAGE_PREV(state) {
+      return (state.pagination.pageNumber -= 1);
     },
-    SET_PAGINATION_TOTAL(state, totalItems) {
+    SET_PAGINATION_TOTAL_ITEMS(state, totalItems) {
       return (state.pagination.totalItems = totalItems);
     },
     SET_PAGINATION_LIMIT(state, limit) {
@@ -67,13 +67,19 @@ export default {
     },
     SET_TOTAL_PAGES(state, { totalItems, limit }) {
       return (state.pagination.pagesTotal = Math.ceil(totalItems/limit))
+    },
+    SET_CURRENT_PAGE(state, pageNumber) {
+      return (state.pagination.pageNumber = pageNumber)
+    },
+    SET_PAGINATION_START(state, start) {
+      return (state.pagination.start = start)
     }
   },
   actions: {
-    async fetchTrainers({ commit, getters }, limit = getters.limit) {
+    async fetchTrainers({ commit, getters }, { limit = getters.limit, start = getters.start, page = getters.pageNumber }) {
       commit('SET_TRAINERS_LOADING', true);
       return await fetch(
-        `${process.env.VUE_APP_API_URL}/users?_start=${getters.start}&_limit=${limit}`,
+        `${process.env.VUE_APP_API_URL}/users?_start=${start}&_limit=${limit}`,
         {
           method: 'GET',
           headers: {
@@ -96,8 +102,10 @@ export default {
           )
           .then(response => response.json())
           .then(data => {
-            commit('SET_PAGINATION_TOTAL', data || 0);
-            commit('SET_TOTAL_PAGES', { totalItems: getters.pagination.totalItems, limit: getters.pagination.limit });
+            commit('SET_CURRENT_PAGE', page);
+            commit('SET_PAGINATION_START', start);
+            commit('SET_PAGINATION_TOTAL_ITEMS', data || 0);
+            commit('SET_TOTAL_PAGES', { totalItems: getters.pagination.totalItems, limit: limit });
           })
           .catch(error => {
             console.log(error)

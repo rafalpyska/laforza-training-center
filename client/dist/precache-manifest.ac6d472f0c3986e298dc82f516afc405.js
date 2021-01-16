@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.85a33d64.css"
   },
   {
-    "revision": "3a22b240b07f4347aa4e",
-    "url": "/css/app.a47fc268.css"
+    "revision": "076a0d40f4cf18e72d25",
+    "url": "/css/app.3c0a729e.css"
   },
   {
     "revision": "af08ba28c658bf787ddf",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/classes.9f68606e.css"
   },
   {
-    "revision": "7e2a63c3d6e45e8d3f08",
-    "url": "/css/contact.01307c1b.css"
+    "revision": "3dfcdf11a4cef1e0d412",
+    "url": "/css/contact.8581d6a6.css"
   },
   {
     "revision": "e4e54b00a251da29814c",
@@ -44,7 +44,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/prices.06e9c3f6.css"
   },
   {
-    "revision": "eeb24351cc5e5a99bb79",
+    "revision": "00f2b82153f0a1993a5b",
     "url": "/css/schedule.dc811425.css"
   },
   {
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/stories.641fbad3.css"
   },
   {
-    "revision": "97584872a8b2ce18c742",
-    "url": "/css/trainer.7b2d3405.css"
+    "revision": "8f7d9639311c3eb81837",
+    "url": "/css/trainer.7cdd9135.css"
   },
   {
     "revision": "c489cf012b11d870a0b6d49e6a947f5b",
@@ -108,7 +108,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/logo-black.078042a9.png"
   },
   {
-    "revision": "b7d14af922ceaafd4c7e448151144afb",
+    "revision": "9d3c334bcb40e03a6a02dcb009a11210",
     "url": "/index.html"
   },
   {
@@ -120,8 +120,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.40cc771e.js"
   },
   {
-    "revision": "3a22b240b07f4347aa4e",
-    "url": "/js/app.f2d257fb.js"
+    "revision": "076a0d40f4cf18e72d25",
+    "url": "/js/app.38ca0d85.js"
   },
   {
     "revision": "af08ba28c658bf787ddf",
@@ -140,8 +140,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/classes.15da0ddc.js"
   },
   {
-    "revision": "7e2a63c3d6e45e8d3f08",
-    "url": "/js/contact.79014ccc.js"
+    "revision": "3dfcdf11a4cef1e0d412",
+    "url": "/js/contact.9beeba55.js"
   },
   {
     "revision": "e4e54b00a251da29814c",
@@ -152,16 +152,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/prices.1a0d1241.js"
   },
   {
-    "revision": "eeb24351cc5e5a99bb79",
-    "url": "/js/schedule.1711bbf0.js"
+    "revision": "00f2b82153f0a1993a5b",
+    "url": "/js/schedule.37b7c9a2.js"
   },
   {
     "revision": "50fc9be09f4b354185a6",
     "url": "/js/stories.746e8be7.js"
   },
   {
-    "revision": "97584872a8b2ce18c742",
-    "url": "/js/trainer.452c405a.js"
+    "revision": "8f7d9639311c3eb81837",
+    "url": "/js/trainer.43c8422e.js"
   },
   {
     "revision": "474f370125dc6ee281cd570a7bf0f870",

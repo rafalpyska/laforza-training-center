@@ -61,7 +61,7 @@
             >
           </li>
           <li class="navigation__item">
-            <router-link to="/trainers" class="navigation__link"
+            <router-link :to="{ name: 'Trainers', params: { page: pageNumber } }" class="navigation__link"
               >Trainers</router-link
             >
           </li>
@@ -103,6 +103,7 @@
   </header>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 import { VueperSlides, VueperSlide } from 'vueperslides';
 import 'vueperslides/dist/vueperslides.css';
 
@@ -144,6 +145,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['pageNumber']),
     currentRouteName() {
       return this.$route.name;
     }
