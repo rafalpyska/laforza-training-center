@@ -35,7 +35,7 @@ export default {
     },
     async moveBack() {
       if(this.pagination.start !== 0) {
-        await this.$store.dispatch(this.previous, { start: (Number(this.$route.params.page) - 1) * this.pagination.limit, pageNumber: this.pagination.pageNumber })
+        await this.$store.dispatch(this.previous, { start: this.pagination.start, pageNumber: this.pagination.pageNumber })
           .then(() => {
             this.$router.push({ name: "Trainers", params: { page: this.pagination.pageNumber } })
           })

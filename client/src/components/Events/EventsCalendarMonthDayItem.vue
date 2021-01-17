@@ -1,10 +1,12 @@
 <template>
   <li
     class="events-calendar-day"
+    @click="showEvents"
     :class="{
       'events-calendar-day--not-current': !day.isCurrentMonth,
       'events-calendar-day--today': isToday
     }"
+    ref="day"
   >
     <span
       class="events-calendar__label-day"
@@ -24,18 +26,26 @@
             .split(':')
             .splice(0, 2)
             .join(':')
-        }}</span
-      >
+        }}
+      </span>
+      <EventsInfo
+        v-if="showEvents && event.startDate == day.date"
+        :isVisible="isEventInfoVisible"
+        :event="event"
+        :width="elementWidth"
+      />
     </template>
   </li>
 </template>
 
 <script>
 import dayjs from 'dayjs';
-
+import EventsInfo from './EventsInfo';
 export default {
   name: 'EventsCalendarMonthDayItem',
-
+  components: {
+    EventsInfo
+  },
   props: {
     day: {
       type: Object,
@@ -56,9 +66,21 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isEventInfoVisible: false,
+      elementWidth: null
+    }
+  },
   computed: {
     label() {
       return dayjs(this.day.date).format('D');
+    }
+  },
+  methods: {
+    showEvents() {
+      this.isEventInfoVisible = !this.isEventInfoVisible;
+      this.elementWidth = this.$refs.day.clientWidth;
     }
   }
 };
@@ -67,6 +89,7 @@ export default {
 <style scoped lang="scss">
 .events-calendar {
   &-day {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,12 +99,16 @@ export default {
     color: black;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    cursor: pointer;
     @media (max-width: 992px) {
       align-items: flex-start;
     }
     &--not-current {
       background-color: var(--events-calendar-even-event-cell-bgc);
       color: var(--grey-300);
+    }
+    & .events__info--visible {
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
     }
   }
   &__label {

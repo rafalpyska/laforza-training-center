@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/apple-touch-icon-192x192.ico"
   },
   {
-    "revision": "b9afc1ef28d7b63f30ee",
-    "url": "/css/about.85a33d64.css"
+    "revision": "673d8fe20220c3c816b6",
+    "url": "/css/about.c38b59b0.css"
   },
   {
-    "revision": "076a0d40f4cf18e72d25",
-    "url": "/css/app.3c0a729e.css"
+    "revision": "ba20ea97bf672f2e1efa",
+    "url": "/css/app.3f497ef8.css"
   },
   {
     "revision": "af08ba28c658bf787ddf",
@@ -36,15 +36,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/contact.8581d6a6.css"
   },
   {
-    "revision": "e4e54b00a251da29814c",
-    "url": "/css/events.49ae7cb5.css"
+    "revision": "9f80af03eb324cb14222",
+    "url": "/css/events.8498a64e.css"
   },
   {
     "revision": "5f0ecd3f24408036948b",
     "url": "/css/prices.06e9c3f6.css"
   },
   {
-    "revision": "00f2b82153f0a1993a5b",
+    "revision": "dd9ff09f31887fba5d2c",
     "url": "/css/schedule.dc811425.css"
   },
   {
@@ -108,7 +108,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/logo-black.078042a9.png"
   },
   {
-    "revision": "9d3c334bcb40e03a6a02dcb009a11210",
+    "revision": "061bc88992e582d3f6005684403d9a29",
     "url": "/index.html"
   },
   {
@@ -116,12 +116,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/404.fe0869c3.js"
   },
   {
-    "revision": "b9afc1ef28d7b63f30ee",
-    "url": "/js/about.40cc771e.js"
+    "revision": "673d8fe20220c3c816b6",
+    "url": "/js/about.04c1f44f.js"
   },
   {
-    "revision": "076a0d40f4cf18e72d25",
-    "url": "/js/app.38ca0d85.js"
+    "revision": "ba20ea97bf672f2e1efa",
+    "url": "/js/app.da6005e5.js"
   },
   {
     "revision": "af08ba28c658bf787ddf",
@@ -144,16 +144,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/contact.9beeba55.js"
   },
   {
-    "revision": "e4e54b00a251da29814c",
-    "url": "/js/events.be783941.js"
+    "revision": "9f80af03eb324cb14222",
+    "url": "/js/events.4a268140.js"
   },
   {
     "revision": "5f0ecd3f24408036948b",
     "url": "/js/prices.1a0d1241.js"
   },
   {
-    "revision": "00f2b82153f0a1993a5b",
-    "url": "/js/schedule.37b7c9a2.js"
+    "revision": "dd9ff09f31887fba5d2c",
+    "url": "/js/schedule.458d285d.js"
   },
   {
     "revision": "50fc9be09f4b354185a6",
