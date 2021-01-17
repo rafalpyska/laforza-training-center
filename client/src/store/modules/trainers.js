@@ -115,14 +115,14 @@ export default {
           commit('SET_TRAINERS_ERROR', error);
         });
     },
-    paginationLoadMore({ commit, dispatch }, { start, pageNumber }) {
+    paginationLoadMore({ commit, dispatch }, { start, page }) {
       commit('SET_PAGINATION_START_NEXT', start);
-      commit('SET_PAGINATION_PAGE_NEXT', pageNumber);
+      commit('SET_PAGINATION_PAGE_NEXT', page);
       dispatch('fetchTrainers');
     },
-    paginationPrevious({ commit, dispatch }, { start, pageNumber }) {
+    paginationPrevious({ commit, dispatch }, { start, page }) {
       commit('SET_PAGINATION_START_PREV', start);
-      commit('SET_PAGINATION_PAGE_PREV', pageNumber);
+      commit('SET_PAGINATION_PAGE_PREV', page);
       dispatch('fetchTrainers');
     },
   }

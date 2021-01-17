@@ -1,6 +1,6 @@
 <template>
   <TheHeader />
-  <router-view />
+  <router-view :key="$route.fullPath"/>
   <BaseActionStrip class="action-strip--bottom">
     <template v-slot:first-column>
       <img

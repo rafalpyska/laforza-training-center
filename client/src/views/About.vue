@@ -36,7 +36,7 @@ export default {
     ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers'])
   },
   async mounted() {
-    await this.$store.dispatch('fetchTrainers', this.limit);
+    await this.$store.dispatch('fetchTrainers', { limit: this.limit });
   }
 };
 </script>
