@@ -22,27 +22,23 @@ export default {
       required: true
     }
   },
-  watch: {
-    'pagination.pageNumber': {
-      deep: true,
-      async handler () {
-        await this.$store.dispatch('fetchTrainers', { limit: this.pagination.limit, start: (Number(this.$route.params.page) - 1) * this.pagination.limit, page: Number(this.$route.params.page) });
-      }
-    }
-  },
   methods: {
     async loadMore() {
       // should I store fetched records in data, in order not to fetch all
       // the time over again when a user would like to move back?
       if(this.pagination.start <= this.pagination.limit) {
-        await this.$store.dispatch(this.next, { start: (Number(this.$route.params.page) - 1) * this.pagination.limit, pageNumber: this.pagination.pageNumber });
-        this.$router.push({ name: "Trainers", params: { page: this.pagination.pageNumber } })
+        await this.$store.dispatch(this.next, { start: this.pagination.start, pageNumber: this.pagination.pageNumber })
+          .then(() => {
+            this.$router.push({ name: "Trainers", params: { page: this.pagination.pageNumber } })
+          })
       }
     },
     async moveBack() {
       if(this.pagination.start !== 0) {
-        await this.$store.dispatch(this.previous, { start: (Number(this.$route.params.page) - 1) * this.pagination.limit, pageNumber: this.pagination.pageNumber });
-        this.$router.push({ name: "Trainers", params: { page: this.pagination.pageNumber } })
+        await this.$store.dispatch(this.previous, { start: (Number(this.$route.params.page) - 1) * this.pagination.limit, pageNumber: this.pagination.pageNumber })
+          .then(() => {
+            this.$router.push({ name: "Trainers", params: { page: this.pagination.pageNumber } })
+          })
       }
     }
   }
