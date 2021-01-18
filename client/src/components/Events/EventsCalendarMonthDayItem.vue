@@ -1,7 +1,6 @@
 <template>
   <li
     class="events-calendar-day"
-    @click="showEvents"
     :class="{
       'events-calendar-day--not-current': !day.isCurrentMonth,
       'events-calendar-day--today': isToday
@@ -29,10 +28,9 @@
         }}
       </span>
       <EventsInfo
-        v-if="showEvents && event.startDate == day.date"
-        :isVisible="isEventInfoVisible"
+        v-if="event.startDate == day.date"
         :event="event"
-        :width="elementWidth"
+        :offsetLeft="elementWidth"
       />
     </template>
   </li>
@@ -68,19 +66,12 @@ export default {
   },
   data() {
     return {
-      isEventInfoVisible: false,
-      elementWidth: null
+      elementWidth: 0
     }
   },
   computed: {
     label() {
       return dayjs(this.day.date).format('D');
-    }
-  },
-  methods: {
-    showEvents() {
-      this.isEventInfoVisible = !this.isEventInfoVisible;
-      this.elementWidth = this.$refs.day.clientWidth;
     }
   }
 };
