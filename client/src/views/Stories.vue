@@ -39,13 +39,13 @@
     <div class="stories__list-wrapper">
       <div class="stories__list container">
         <BaseLoadingSpinner v-if="loading" />
-        <hooper v-else ref="plans" :itemsToShow="3">
+        <hooper v-else ref="plans" :settings="hooperSettings">
           <slide v-for="story in stories" :key="story.id">
             <ClientStory
               :story="story"
             />
           </slide>
-          <hooper-navigation slot="hooper-addons"></hooper-navigation>
+          <hooper-pagination slot="hooper-addons"></hooper-pagination>
         </hooper>
       </div>
     </div>
@@ -58,7 +58,7 @@ import ClientStory from "../components/ClientStory";
 import { 
   Hooper,
   Slide,
-  Navigation as HooperNavigation
+  Pagination as HooperPagination
 } from 'hooper';
 
 export default {
@@ -67,14 +67,30 @@ export default {
     ClientStory,
     Hooper,
     Slide,
-    HooperNavigation
+    HooperPagination
   },
   mixins: [fetchData],
   data() {
     return {
       loading: false,
       error: "",
-      stories: null
+      stories: null,
+      hooperSettings: {
+        itemsToShow: 3,
+        wheelControl: false,
+        breakpoints: {
+          300: {
+            itemsToShow: 1
+          },
+          800: {
+            itemsToShow: 2
+          },
+          1280: {
+            itemsToShow: 3,
+            pagination: 'fraction'
+          }
+        }
+      }
     };
   },
   async mounted() {

@@ -15,12 +15,11 @@
 }
 .hooper-progress-inner {
   height: 100%;
-  background-color: #4285f4;
+  background-color: rgba(248, 49, 49, 1);
   transition: 300ms;
 }
 .hooper-pagination {
   position: absolute;
-  bottom: 0;
   right: 50%;
   transform: translateX(50%);
   display: flex;
@@ -34,7 +33,7 @@
 }
 .hooper-indicator:hover,
 .hooper-indicator.is-active {
-  background-color: #4285f4;
+  background-color: rgba(248, 49, 49, 1);
 }
 .hooper-indicator {
   margin: 0 2px;
@@ -104,6 +103,7 @@
   box-sizing: border-box;
   width: 100%;
   height: auto;
+  outline: none;
 }
 .hooper * {
   box-sizing: border-box;

@@ -196,12 +196,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.hooper {
-  height: auto;
-  &-list {
-    overflow: hidden;
-  }
-}
 .shortcut {
   margin: 4rem 0;
   &__container {
