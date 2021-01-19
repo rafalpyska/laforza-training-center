@@ -4,12 +4,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/_redirects"
   },
   {
+    "revision": "d01813aa39c93e14e568dc6f87e38e5e",
+    "url": "/apple-touch-icon-192x192.ico"
+  },
+  {
     "revision": "7b3f24f1b2629287b3da",
     "url": "/css/about.55a3a373.css"
   },
   {
-    "revision": "729717ea9088b16203bd",
-    "url": "/css/app.85323d79.css"
+    "revision": "65f2015d3fccf25d60aa",
+    "url": "/css/app.bb44f3c6.css"
   },
   {
     "revision": "5a37ac9d8b1ac4455223",
@@ -44,12 +48,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/schedule.70c37a61.css"
   },
   {
-    "revision": "543e4e01ca7a344b981b",
-    "url": "/css/stories.d712b34c.css"
+    "revision": "6267aa90dc68042763c0",
+    "url": "/css/stories.134cde9a.css"
   },
   {
     "revision": "0a67890d354a69b2b46f",
     "url": "/css/trainer.27fe17c5.css"
+  },
+  {
+    "revision": "c489cf012b11d870a0b6d49e6a947f5b",
+    "url": "/favicon-16x16.png"
+  },
+  {
+    "revision": "74b1866c9bd06ebd9794fdb401a46fdd",
+    "url": "/favicon-32x32.png"
   },
   {
     "revision": "bd173486c6b596d8cf6416f8c0018ea2",
@@ -96,7 +108,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/logo-black.078042a9.png"
   },
   {
-    "revision": "987adaa914b67f94af5d06b35ed6cd19",
+    "revision": "95c9ffb13a1aeeaaba89cca3095ade94",
     "url": "/index.html"
   },
   {
@@ -108,8 +120,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.10bad092.js"
   },
   {
-    "revision": "729717ea9088b16203bd",
-    "url": "/js/app.bc1d17d5.js"
+    "revision": "65f2015d3fccf25d60aa",
+    "url": "/js/app.b3a7721d.js"
   },
   {
     "revision": "5a37ac9d8b1ac4455223",
@@ -144,8 +156,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/schedule.5060b34e.js"
   },
   {
-    "revision": "543e4e01ca7a344b981b",
-    "url": "/js/stories.aa5e9e76.js"
+    "revision": "6267aa90dc68042763c0",
+    "url": "/js/stories.af1d86ee.js"
   },
   {
     "revision": "0a67890d354a69b2b46f",
