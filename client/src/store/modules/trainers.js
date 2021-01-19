@@ -59,13 +59,10 @@ export default {
     SET_PAGINATION_PAGE_PREV(state) {
       return (state.pagination.pageNumber -= 1);
     },
-    SET_PAGINATION_TOTAL_ITEMS(state, totalItems) {
-      return (state.pagination.totalItems = totalItems);
-    },
     SET_PAGINATION_LIMIT(state, limit) {
       return (state.pagination.limit = limit);
     },
-    SET_TOTAL_PAGES(state, { totalItems, limit }) {
+    SET_PAGINATION_TOTAL_ITEMS(state, { totalItems, limit }) {
       return (state.pagination.pagesTotal = Math.ceil(totalItems / limit));
     },
     SET_CURRENT_PAGE(state, pageNumber) {
@@ -108,9 +105,8 @@ export default {
             .then(data => {
               commit("SET_CURRENT_PAGE", page);
               commit("SET_PAGINATION_START", start);
-              commit("SET_PAGINATION_TOTAL_ITEMS", data || 0);
-              commit("SET_TOTAL_PAGES", {
-                totalItems: getters.pagination.totalItems,
+              commit("SET_PAGINATION_TOTAL_ITEMS", {
+                totalItems: data,
                 limit: limit
               });
             })
