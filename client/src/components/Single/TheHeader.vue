@@ -204,7 +204,7 @@ export default {
       width: 145px;
     }
     &-container {
-      &.router-link-active {
+      &.router-link-exact-active {
         border-top: none;
       }
     }
@@ -242,7 +242,7 @@ export default {
   }
   &__link:hover,
   &__link:active,
-  &__link.router-link-active {
+  &__link.router-link-exact-active {
     border-top: 3px solid var(--color-primary);
     color: var(--color-primary);
   }
