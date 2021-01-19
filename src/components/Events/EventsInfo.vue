@@ -1,5 +1,5 @@
 <template>
-  <div class="events__info" :class="{ 'events__info--active': isVisible }">
+  <div class="events__info">
     <div class="events__info-header">
       {{ event.title }}
     </div>
@@ -28,10 +28,6 @@ import dayjs from "dayjs";
 export default {
   name: "EventsInfo",
   props: {
-    isVisible: {
-      type: Boolean,
-      required: true
-    },
     event: {
       type: Object,
       required: true
@@ -46,9 +42,6 @@ export default {
     startHour() {
       return dayjs(this.event.startHour).format("HH");
     }
-  },
-  methods: {
-    close() {}
   }
 };
 </script>

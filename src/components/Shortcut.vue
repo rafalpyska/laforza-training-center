@@ -40,7 +40,7 @@
             btnType="slider"
             class="btn--slider-prev"
             ref="prev"
-            @click="goTo('prev', $refs.news, '.slider__slide-news')"
+            @click.native="goTo('prev', $refs.news, '.slider__slide-news')"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
             <span class="visuallyhidden">Previous training plan</span>
@@ -49,7 +49,7 @@
             btnType="slider"
             class="btn--slider-next"
             ref="next"
-            @click="goTo('next', $refs.news, '.slider__slide-news')"
+            @click.native="goTo('next', $refs.news, '.slider__slide-news')"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
             <span class="visuallyhidden">Next training plan</span>
@@ -131,7 +131,7 @@
           <BaseButton
             btnType="slider"
             class="btn--slider-white"
-            @click="goTo('prev', $refs.plans, '.slider__slide-plans')"
+            @click.native="goTo('prev', $refs.plans, '.slider__slide-plans')"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
             <span class="visuallyhidden">Previous training plan</span>
@@ -139,7 +139,7 @@
           <BaseButton
             btnType="slider"
             class="btn--slider-white"
-            @click="goTo('next', $refs.plans, '.slider__slide-plans')"
+            @click.native="goTo('next', $refs.plans, '.slider__slide-plans')"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
             <span class="visuallyhidden">Next training plan</span>

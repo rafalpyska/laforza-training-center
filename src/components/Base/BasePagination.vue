@@ -2,14 +2,14 @@
   <div class="pagination">
     <BaseButton
       :disabled="pagination.pageNumber === 1"
-      @click="moveBack"
+      @click.native="moveBack"
       btnType="load-more"
       class="previous"
       >Previous</BaseButton
     >
     <BaseButton
       :disabled="pagination.pageNumber >= pagination.pagesTotal"
-      @click="loadMore"
+      @click.native="loadMore"
       btnType="load-more"
       >Next</BaseButton
     >

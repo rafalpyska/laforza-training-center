@@ -15,8 +15,9 @@
     >
       {{ label }}
     </span>
-    <template v-for="event in events" :key="event.id">
+    <template v-for="event in events">
       <span
+        :key="`label-${event.id}`"
         class="events-calendar__label-event"
         v-if="event.startDate == day.date"
         >{{ event.title }}, start:
@@ -28,6 +29,7 @@
         }}
       </span>
       <EventsInfo
+        :key="`info-${event.id}`"
         v-if="event.startDate == day.date"
         :event="event"
         :offsetLeft="elementWidth"

@@ -21,42 +21,28 @@
     </figure>
     <div class="trainer-mini-profile__socials">
       <a
-        v-for="social in trainer.socials"
+        v-for="social in trainer.socialMedia"
         :key="social.id"
-        :href="`${social.facebook}`"
+        :href="`${social.url}`"
         class="href trainer-mini-profile__socials-link"
       >
-        <i
+        <i v-if="social.name === 'Facebook'"  
           class="fab fa-facebook-f trainer-mini-profile__socials-icon"
           aria-hidden="true"
         >
-          <span class="visuallyhidden">Facebook</span>
+          <span class="visuallyhidden">{{ social.name}}</span>
         </i>
-      </a>
-      <a
-        v-for="social in trainer.socials"
-        :key="social.id"
-        :href="`${social.twitter}`"
-        class="href trainer-mini-profile__socials-link"
-      >
-        <i
+        <i v-if="social.name === 'Twitter'" 
           class="fab fa-twitter trainer-mini-profile__socials-icon"
           aria-hidden="true"
         >
-          <span class="visuallyhidden">Twitter</span>
+          <span class="visuallyhidden">{{ social.name}}</span>
         </i>
-      </a>
-      <a
-        v-for="social in trainer.socials"
-        :key="social.id"
-        :href="`${social.instagram}`"
-        class="href trainer-mini-profile__socials-link"
-      >
-        <i
+        <i v-if="social.name === 'Instagram'" 
           class="fab fa-instagram trainer-mini-profile__socials-icon"
           aria-hidden="true"
         >
-          <span class="visuallyhidden">Instagram</span>
+          <span class="visuallyhidden">{{ social.name}}</span>
         </i>
       </a>
     </div>

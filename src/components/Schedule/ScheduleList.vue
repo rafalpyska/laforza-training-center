@@ -19,28 +19,10 @@
           >
             {{ trainer.username }}
           </li>
-          <template v-for="item in trainer.schedule" :key="item.id">
-            <li class="schedule__content-item">
-              <span class="schedule__content-item--day">Monday</span
-              >{{ item.Monday }}
-            </li>
-            <li class="schedule__content-item">
-              <span class="schedule__content-item--day">Tuesday</span
-              >{{ item.Tuesday }}
-            </li>
-            <li class="schedule__content-item">
-              <span class="schedule__content-item--day">Wednesday</span
-              >{{ item.Wednesday }}
-            </li>
-            <li class="schedule__content-item">
-              <span class="schedule__content-item--day">Thursday</span
-              >{{ item.Thursday }}
-            </li>
-            <li class="schedule__content-item">
-              <span class="schedule__content-item--day">Friday</span
-              >{{ item.Friday }}
-            </li>
-          </template>
+          <li class="schedule__content-item" v-for="day in trainer.schedule" :key="day.id">
+            <span class="schedule__content-item--day">{{ day.name }}</span
+            >{{ day.availability }}
+          </li>
         </template>
       </ul>
     </div>

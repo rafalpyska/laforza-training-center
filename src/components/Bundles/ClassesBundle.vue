@@ -18,7 +18,7 @@
         {{ course.name }}
       </li>
     </ul>
-    <BaseButton btnType="sign-up" @click="addToCart()">
+    <BaseButton btnType="sign-up" @click.native="addToCart()">
       Sign Up
     </BaseButton>
   </div>
