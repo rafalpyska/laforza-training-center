@@ -39,12 +39,14 @@
     <div class="stories__list-wrapper">
       <div class="stories__list container">
         <BaseLoadingSpinner v-if="loading" />
-        <ClientStory
-          v-else
-          v-for="story in stories"
-          :key="story.id"
-          :story="story"
-        />
+        <hooper v-else ref="plans" :itemsToShow="3">
+          <slide v-for="story in stories" :key="story.id">
+            <ClientStory
+              :story="story"
+            />
+          </slide>
+          <hooper-navigation slot="hooper-addons"></hooper-navigation>
+        </hooper>
       </div>
     </div>
   </section>
@@ -53,10 +55,19 @@
 <script>
 import fetchData from "../mixins/fetchData";
 import ClientStory from "../components/ClientStory";
+import { 
+  Hooper,
+  Slide,
+  Navigation as HooperNavigation
+} from 'hooper';
+
 export default {
   name: "Stories",
   components: {
-    ClientStory
+    ClientStory,
+    Hooper,
+    Slide,
+    HooperNavigation
   },
   mixins: [fetchData],
   data() {
@@ -83,6 +94,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 4rem;
+    overflow: hidden;
   }
   &__info {
     font-size: 0.8rem;

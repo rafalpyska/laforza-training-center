@@ -146,7 +146,7 @@
 import { mapGetters } from "vuex";
 import ellipsify from "@/mixins/ellipsify";
 import { Hooper, Slide } from 'hooper';
-import 'hooper/dist/hooper.css';
+import '@/assets/styles/hooper.css';
 export default {
   name: "Shortcut",
   mixins: [ellipsify],
@@ -198,6 +198,9 @@ export default {
 <style scoped lang="scss">
 .hooper {
   height: auto;
+  &-list {
+    overflow: hidden;
+  }
 }
 .shortcut {
   margin: 4rem 0;
