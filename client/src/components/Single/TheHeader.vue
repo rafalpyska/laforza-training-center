@@ -179,6 +179,7 @@ export default {
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
   padding: 0 2rem;
+  min-height: 3rem;
   @media (max-width: 768px) {
     font-size: 0.85rem;
   }

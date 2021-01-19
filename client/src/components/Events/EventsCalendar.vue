@@ -12,6 +12,8 @@
           :day="day"
           :is-today="day.date === today"
           :events="events"
+          @click="selected = day.date"
+          :class="{'events-calendar-day--active': day.date == selected }"
         />
       </ol>
 
@@ -56,10 +58,11 @@ export default {
   mixins: [fetchData],
   data() {
     return {
+      selected: null,
       loading: false,
       error: '',
       events: [],
-      selectedDate: dayjs()
+      selectedDate: dayjs(),
     };
   },
   computed: {
@@ -93,7 +96,6 @@ export default {
         };
       });
     },
-
     previousMonthDays() {
       const firstDayOfTheMonthWeekday = this.getWeekday(
         this.currentMonthDays[0].date
@@ -125,7 +127,6 @@ export default {
         }
       );
     },
-
     nextMonthDays() {
       const lastDayOfTheMonthWeekday = this.getWeekday(
         `${this.year}-${this.month}-${this.currentMonthDays.length}`

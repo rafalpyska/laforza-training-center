@@ -21,7 +21,7 @@
                   alt=""
                   class="shortcut__news-image"
                 />
-                <p>{{ post.summary }}</p>
+                <p>{{ ellipsify(post.summary, 150) }}</p>
               </div>
               <div class="shortcut__news-info-container">
                 <p><span class="bold">Title:</span> {{ post.title }}</p>
@@ -38,7 +38,7 @@
         <div class="slider__controls">
           <BaseButton
             btnType="slider"
-            class="btn--slider--prev"
+            class="btn--slider-prev"
             ref="prev"
             @click="goTo('prev', $refs.news, '.slider__slide-news')"
           >
@@ -47,7 +47,7 @@
           </BaseButton>
           <BaseButton
             btnType="slider"
-            class="btn--slider--next"
+            class="btn--slider-next"
             ref="next"
             @click="goTo('next', $refs.news, '.slider__slide-news')"
           >
@@ -130,6 +130,7 @@
           </BaseButton>
           <BaseButton
             btnType="slider"
+            class="btn--slider-white"
             @click="goTo('prev', $refs.plans, '.slider__slide-plans')"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
@@ -137,6 +138,7 @@
           </BaseButton>
           <BaseButton
             btnType="slider"
+            class="btn--slider-white"
             @click="goTo('next', $refs.plans, '.slider__slide-plans')"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -150,9 +152,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import ellipsify from '@/mixins/ellipsify'
 export default {
   name: 'Shortcut',
-  components: {},
+  mixins: [ellipsify],
   data() {
     return {
       startPostsFrom: 0,
@@ -198,7 +201,6 @@ export default {
 
 <style scoped lang="scss">
 .shortcut {
-  margin-bottom: 4rem;
   &__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -253,6 +255,11 @@ export default {
   &__partners {
     background-color: var(--shortcut-news-bgc);
     padding: 3.5rem 2.5rem;
+    transition: 0.2s all;
+    &:hover {
+      background-color: red;
+      transform: scale(1.05);
+    }
     &-logo {
       &-container {
         display: grid;
@@ -267,6 +274,10 @@ export default {
   }
   &__training-plan {
     background-color: var(--shortcut-training-plans-bgc);
+    transition: 0.2s all;
+    &:hover {
+      transform: scale(1.05);
+    }
     @media (max-width: 1232px) {
       grid-column: 1/-1;
     }
@@ -316,12 +327,15 @@ export default {
   }
 }
 .btn--slider {
-  &--prev {
+  &-prev {
     border-color: #c4c4c4;
   }
-  &--next {
+  &-next {
     border-color: #c4c4c4;
     border-left: none;
+  }
+  &-white {
+    border: 1px solid white;
   }
 }
 </style>
