@@ -34,13 +34,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import fetchData from '@/mixins/fetchData';
-import ImageItem from '../ImageItem';
-import BlogPostDate from './BlogPostDate';
+import { mapGetters } from "vuex";
+import fetchData from "@/mixins/fetchData";
+import ImageItem from "../ImageItem";
+import BlogPostDate from "./BlogPostDate";
 
 export default {
-  name: 'BlogPostsList',
+  name: "BlogPostsList",
   components: {
     ImageItem,
     BlogPostDate
@@ -53,10 +53,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['postsLoadingStatus', 'postsErrorStatus', 'posts'])
+    ...mapGetters(["postsLoadingStatus", "postsErrorStatus", "posts"])
   },
   async created() {
-    await this.$store.dispatch('fetchBlogPosts', {
+    await this.$store.dispatch("fetchBlogPosts", {
       start: this.startPostsFrom,
       limit: this.numberOfPosts
     });

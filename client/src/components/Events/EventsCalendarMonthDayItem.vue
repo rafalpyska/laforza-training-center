@@ -15,19 +15,21 @@
     >
       {{ label }}
     </span>
-    <template v-for="event in events" :key="event.id">
+    <template v-for="event in events">
       <span
+        :key="`label-${event.id}`"
         class="events-calendar__label-event"
         v-if="event.startDate == day.date"
         >{{ event.title }}, start:
         {{
           event.startHour
-            .split(':')
+            .split(":")
             .splice(0, 2)
-            .join(':')
+            .join(":")
         }}
       </span>
       <EventsInfo
+        :key="`info-${event.id}`"
         v-if="event.startDate == day.date"
         :event="event"
         :offsetLeft="elementWidth"
@@ -37,10 +39,10 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
-import EventsInfo from './EventsInfo';
+import dayjs from "dayjs";
+import EventsInfo from "./EventsInfo";
 export default {
-  name: 'EventsCalendarMonthDayItem',
+  name: "EventsCalendarMonthDayItem",
   components: {
     EventsInfo
   },
@@ -60,18 +62,18 @@ export default {
       default: false
     },
     events: {
-      type: Object,
+      type: Array,
       required: true
     }
   },
   data() {
     return {
       elementWidth: 0
-    }
+    };
   },
   computed: {
     label() {
-      return dayjs(this.day.date).format('D');
+      return dayjs(this.day.date).format("D");
     }
   }
 };
@@ -99,7 +101,8 @@ export default {
       color: var(--grey-300);
     }
     & .events__info--visible {
-      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+        0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
     }
   }
   &__label {

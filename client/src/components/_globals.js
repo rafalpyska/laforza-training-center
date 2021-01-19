@@ -1,24 +1,22 @@
-import upperFirst from 'lodash/upperFirst'
-import camelCase from 'lodash/camelCase'
+import Vue from "vue";
+import upperFirst from "lodash/upperFirst";
+import camelCase from "lodash/camelCase";
 
 const requireComponent = require.context(
-  './Base',
+  "./Base",
   false,
   /Base[A-Z]\w+\.(vue|js)$/
-)
+);
 
-export const registerComponents = app => requireComponent.keys().forEach(fileName => {
-  const componentConfig = requireComponent(fileName)
+requireComponent.keys().forEach(fileName => {
+  const componentConfig = requireComponent(fileName);
   const componentName = upperFirst(
     camelCase(
       fileName
-        .split('/')
+        .split("/")
         .pop()
-        .replace(/\.\w+$/, '')
+        .replace(/\.\w+$/, "")
     )
-  )
-  app.component(
-    componentName,
-    componentConfig.default || componentConfig
-  )
-})
+  );
+  Vue.component(componentName, componentConfig.default || componentConfig);
+});

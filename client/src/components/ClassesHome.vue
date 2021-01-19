@@ -28,9 +28,9 @@
 </template>
 
 <script>
-import ImageItem from './ImageItem';
+import ImageItem from "./ImageItem";
 export default {
-  name: 'ClassesHome',
+  name: "ClassesHome",
   components: {
     ImageItem
   },
@@ -80,7 +80,7 @@ export default {
     }
   }
   &__heading {
-    font-family: 'Play', sans-serif;
+    font-family: "Play", sans-serif;
     font-size: 1.75em;
     text-transform: uppercase;
   }

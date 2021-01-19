@@ -41,10 +41,10 @@ export default {
   },
   actions: {
     addCourseToCart({ commit }, { course, quantity, trainer }) {
-      commit('ADD_TO_CART', { course, quantity, trainer });
+      commit("ADD_TO_CART", { course, quantity, trainer });
     },
     removeCourseFromCart({ commit }, course) {
-      commit('REMOVE_COURSE_FROM_CART', course);
+      commit("REMOVE_COURSE_FROM_CART", course);
     }
   }
 };

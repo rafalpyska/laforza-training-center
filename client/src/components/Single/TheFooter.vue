@@ -118,13 +118,13 @@
 
 <script>
 export default {
-  name: 'TheFooter'
+  name: "TheFooter"
 };
 </script>
 
 <style scoped lang="scss">
 .footer {
-  font-family: 'Play', sans-serif;
+  font-family: "Play", sans-serif;
   color: var(--white);
   background-color: var(--footer-bgc);
   font-size: 0.8rem;

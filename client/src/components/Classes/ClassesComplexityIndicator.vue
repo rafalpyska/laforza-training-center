@@ -1,7 +1,8 @@
 <template>
   <li class="class__complexity-item">
-    <template v-for="(n, index) in max" :key="index">
+    <template v-for="(n, index) in max">
       <i
+        :key="index"
         :class="
           `${
             rating >= n
@@ -18,7 +19,7 @@
 
 <script>
 export default {
-  name: 'ClassesComplexityIndicator',
+  name: "ClassesComplexityIndicator",
   props: {
     rating: {
       type: [Number, String],

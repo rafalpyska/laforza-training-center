@@ -1,12 +1,14 @@
-import { createStore } from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
+import blog from "./modules/blog";
+import cart from "./modules/cart";
+import courses from "./modules/courses";
+import trainers from "./modules/trainers";
+import bundles from "./modules/bundles";
 
-import blog from './modules/blog';
-import cart from './modules/cart';
-import courses from './modules/courses';
-import trainers from './modules/trainers';
-import bundles from './modules/bundles';
+Vue.use(Vuex);
 
-export default createStore({
+export default new Vuex.Store({
   state: {},
   getters: {},
   mutations: {},

@@ -1,5 +1,5 @@
 <template>
-  <div class="events__info" :class="{ 'events__info--active': isVisible }">
+  <div class="events__info">
     <div class="events__info-header">
       {{ event.title }}
     </div>
@@ -11,7 +11,7 @@
       </p>
       <p class="">
         <i class="far fa-clock events__info-icon" aria-hidden="true"></i>
-        <span class="bold">Start hour: </span> 
+        <span class="bold">Start hour: </span>
         {{ startHour }}
       </p>
       <p class="">
@@ -24,14 +24,10 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 export default {
-  name: 'EventsInfo',
+  name: "EventsInfo",
   props: {
-    isVisible: {
-      type: Boolean,
-      required: true
-    },
     event: {
       type: Object,
       required: true
@@ -44,46 +40,41 @@ export default {
   },
   computed: {
     startHour() {
-      return dayjs(this.event.startHour).format('HH');
-    }
-  },
-  methods: {
-    close() {
-      
+      return dayjs(this.event.startHour).format("HH");
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
-  .events {
-    &__info {
-      display: none;
-      min-width: 20rem;
-      &-header {
-        padding: 2rem 1rem;
-        color: white;
-        background-color: var(--color-primary);
-      }
-      &-body {
-        padding: 1rem;
-        background-color: white;
-        color: black;
-      }
-      &-icon {
-        margin-right: .25rem;
-      }
+.events {
+  &__info {
+    display: none;
+    min-width: 20rem;
+    &-header {
+      padding: 2rem 1rem;
+      color: white;
+      background-color: var(--color-primary);
     }
-    &-calendar-day--active .events__info {
-      display: block;
-      position: absolute;
-      left: 167px;
-      top: 0;
-      z-index: 1;
-      @media (max-width: 992px) {
-        position: static;
-        margin-top: 2rem;
-      }
+    &-body {
+      padding: 1rem;
+      background-color: white;
+      color: black;
+    }
+    &-icon {
+      margin-right: 0.25rem;
     }
   }
+  &-calendar-day--active .events__info {
+    display: block;
+    position: absolute;
+    left: 167px;
+    top: 0;
+    z-index: 1;
+    @media (max-width: 992px) {
+      position: static;
+      margin-top: 2rem;
+    }
+  }
+}
 </style>

@@ -12,7 +12,7 @@
 </template>
 <script>
 export default {
-  name: 'ImageItem',
+  name: "ImageItem",
   props: {
     source: {
       type: String,

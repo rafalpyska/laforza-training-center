@@ -25,40 +25,34 @@
       </p>
       <div class="trainer__socials">
         <a
-          v-for="social in trainer.socials"
+          v-for="social in trainer.socialMedia"
           :key="social.id"
-          :href="`${social.facebook}`"
-          class="href trainer__socials-link"
+          :href="`${social.url}`"
+          class="trainer__socials-link"
         >
-          <i class="fab fa-facebook-f trainer__socials-icon" aria-hidden="true">
-            <span class="visuallyhidden">Facebook</span>
+          <i v-if="social.name === 'Facebook'"  
+            class="fab fa-facebook-f trainer__socials-link"
+            aria-hidden="true"
+          >
+            <span class="visuallyhidden">{{ social.name}}</span>
           </i>
-        </a>
-        <a
-          v-for="social in trainer.socials"
-          :key="social.id"
-          :href="`${social.twitter}`"
-          class="href trainer__socials-link"
-        >
-          <i class="fab fa-twitter trainer__socials-icon" aria-hidden="true">
-            <span class="visuallyhidden">Twitter</span>
+          <i v-if="social.name === 'Twitter'" 
+            class="fab fa-twitter trainer__socials-link"
+            aria-hidden="true"
+          >
+            <span class="visuallyhidden">{{ social.name}}</span>
           </i>
-        </a>
-        <a
-          v-for="social in trainer.socials"
-          :key="social.id"
-          :href="`${social.instagram}`"
-          class="href trainer__socials-link"
-        >
-          <i class="fab fa-instagram trainer__socials-icon" aria-hidden="true">
-            <span class="visuallyhidden">Instagram</span>
+          <i v-if="social.name === 'Instagram'" 
+            class="fab fa-instagram trainer__socials-link"
+            aria-hidden="true"
+          >
+            <span class="visuallyhidden">{{ social.name}}</span>
           </i>
         </a>
       </div>
     </div>
     <div class="trainer__general-info">
       <h3 class="trainer__heading">Schedule</h3>
-      <span class="visuallyhidden">Facebook</span>
       <ul class="trainer__schedule-list">
         <li class="trainer__schedule-item">
           <i class="far fa-star trainer__schedule-icon" aria-hidden="true"></i
@@ -85,26 +79,26 @@
           >An athletic body
         </li>
       </ul>
-      <BaseButton btnType="schedule" @click="addToCart()">
+      <BaseButton btnType="schedule" @click.native="addToCart()">
         Enroll
       </BaseButton>
-      <teleport to="#modal">
-        <BaseModal
+      <!-- <teleport to="#modal"> -->
+        <!-- <BaseModal
           ref="popup"
           :title="trainer.classes[0].name"
           :subtitle="trainer.username"
         >
-        </BaseModal>
-      </teleport>
+        </BaseModal> -->
+      <!-- </teleport> -->
     </div>
   </div>
 </template>
 
 <script>
-import ImageItem from '../ImageItem';
+import ImageItem from "../ImageItem";
 
 export default {
-  name: 'TrainersList',
+  name: "TrainersList",
   components: {
     ImageItem
   },
@@ -121,12 +115,12 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.dispatch('addCourseToCart', {
+      this.$store.dispatch("addCourseToCart", {
         course: this.trainer.classes[0],
         quantity: 1,
         trainer: this.trainer.username
       });
-      this.$refs.popup.show = !this.$refs.popup.show;
+      // this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };

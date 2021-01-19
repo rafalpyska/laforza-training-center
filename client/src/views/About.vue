@@ -20,23 +20,23 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import TrainersMiniProfile from '../components/Trainers/TrainersMiniProfile';
+import { mapGetters } from "vuex";
+import TrainersMiniProfile from "../components/Trainers/TrainersMiniProfile";
 export default {
-  name: 'About',
+  name: "About",
   components: {
     TrainersMiniProfile
   },
   data() {
     return {
       limit: 50
-    }
+    };
   },
   computed: {
-    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers'])
+    ...mapGetters(["trainersLoadingStatus", "trainersErrorStatus", "trainers"])
   },
   async mounted() {
-    await this.$store.dispatch('fetchTrainers', { limit: this.limit });
+    await this.$store.dispatch("fetchTrainers", { limit: this.limit });
   }
 };
 </script>

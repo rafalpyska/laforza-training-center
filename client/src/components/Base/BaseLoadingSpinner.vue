@@ -6,16 +6,16 @@
 
 <script>
 export default {
-  name: 'BaseLoadingSpinner',
+  name: "BaseLoadingSpinner",
   computed: {
     spinner__styles() {
       return {
-        'border-radius': '100%',
-        border: '4px solid rgba(255, 255, 255, .9)',
-        'border-top': '4px solid var(--color-primary)',
-        width: '50px',
-        height: '50px',
-        animation: 'spinner-animation 0.8s linear infinite'
+        "border-radius": "100%",
+        border: "4px solid rgba(255, 255, 255, .9)",
+        "border-top": "4px solid var(--color-primary)",
+        width: "50px",
+        height: "50px",
+        animation: "spinner-animation 0.8s linear infinite"
       };
     }
   }

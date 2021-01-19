@@ -28,20 +28,20 @@ export default {
   },
   actions: {
     async fetchClasses({ commit }) {
-      commit('SET_CLASSES_LOADING', true);
+      commit("SET_CLASSES_LOADING", true);
       return await fetch(`${process.env.VUE_APP_API_URL}/classes`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
       })
         .then(response => response.json())
         .then(data => {
-          commit('SET_COURSES', data);
-          commit('SET_CLASSES_LOADING', false);
+          commit("SET_COURSES", data);
+          commit("SET_CLASSES_LOADING", false);
         })
         .catch(error => {
-          commit('SET_CLASSES_ERROR', error);
+          commit("SET_CLASSES_ERROR", error);
         });
     }
   }

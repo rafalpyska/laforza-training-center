@@ -51,24 +51,24 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import ScheduleList from '../components/Schedule/ScheduleList';
+import { mapGetters } from "vuex";
+import ScheduleList from "../components/Schedule/ScheduleList";
 
 export default {
-  name: 'Schedule',
+  name: "Schedule",
   components: {
     ScheduleList
   },
   data() {
     return {
       limit: 50
-    }
+    };
   },
   computed: {
-    ...mapGetters(['trainersLoadingStatus', 'trainerserrorStatus', 'trainers'])
+    ...mapGetters(["trainersLoadingStatus", "trainersErrorStatus", "trainers"])
   },
   async created() {
-    await this.$store.dispatch('fetchTrainers', this.limit);
+    await this.$store.dispatch("fetchTrainers", this.limit);
   }
 };
 </script>

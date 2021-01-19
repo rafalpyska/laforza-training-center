@@ -9,14 +9,15 @@
     <div class="class__info">
       <h3 class="class__heading">
         {{ course.name }}
-        <template v-for="(trainer, index) in course.trainers" :key="trainer.id">
-          <span class="class__trainer"
+        <template v-for="(trainer, index) in course.trainers">
+          <span :key="trainer.id" class="class__trainer"
             >{{ trainer.username }}
             <template
               class="color-primary"
               v-if="index !== course.trainers.length - 1"
             >
-              /
+              
+              / <!-- Add slash, but not to the last item-->
             </template>
           </span>
         </template>
@@ -26,7 +27,7 @@
       <div class="class__description-controls">
         <BaseButton
           btnType="enroll"
-          @click="addToCart()"
+          @click.native="addToCart()"
           :disabled="selectedTrainer === ''"
         >
           Enroll
@@ -63,12 +64,12 @@
 </template>
 
 <script>
-import ImageItem from '../ImageItem';
-import SelectTrainer from '../SelectTrainer';
-import ClassesComplexityIndicator from './ClassesComplexityIndicator';
+import ImageItem from "../ImageItem";
+import SelectTrainer from "../SelectTrainer";
+import ClassesComplexityIndicator from "./ClassesComplexityIndicator";
 
 export default {
-  name: 'ClassesList',
+  name: "ClassesList",
   components: {
     ImageItem,
     SelectTrainer,
@@ -82,12 +83,12 @@ export default {
   },
   data() {
     return {
-      selectedTrainer: ''
+      selectedTrainer: ""
     };
   },
   methods: {
     addToCart() {
-      this.$store.dispatch('addCourseToCart', {
+      this.$store.dispatch("addCourseToCart", {
         course: this.course,
         quantity: 1,
         trainer: this.selectedTrainer
@@ -132,7 +133,7 @@ export default {
   &__description {
     margin: 1rem 0;
     &-price {
-      font-family: 'Play', sans-serif;
+      font-family: "Play", sans-serif;
       font-size: 1rem;
       margin-left: 0.75rem;
     }

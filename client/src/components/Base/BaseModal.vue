@@ -52,7 +52,7 @@ export default {
   max-width: 22rem;
   background: #ffffff;
   border-radius: 0.25rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 0.85rem;
   &__header {
     display: flex;
@@ -74,7 +74,7 @@ export default {
   }
 
   &__heading {
-    font-family: 'Play', sans-serif;
+    font-family: "Play", sans-serif;
   }
   &-wrapper {
     position: fixed;

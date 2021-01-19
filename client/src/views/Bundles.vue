@@ -22,20 +22,20 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import ClassesBundle from '../components/Bundles/ClassesBundle';
+import { mapGetters } from "vuex";
+import ClassesBundle from "../components/Bundles/ClassesBundle";
 
 export default {
-  name: 'Bundles',
+  name: "Bundles",
   components: {
     ClassesBundle
   },
   computed: {
-    ...mapGetters(['bundlesLoadingStatus', 'bundlesErrorStatus', 'bundles'])
+    ...mapGetters(["bundlesLoadingStatus", "bundlesErrorStatus", "bundles"])
   },
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
-    await this.$store.dispatch('fetchBundles');
+    await this.$store.dispatch("fetchBundles");
   }
 };
 </script>

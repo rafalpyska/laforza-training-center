@@ -1,5 +1,5 @@
 <template>
-<BaseLoadingSpinner v-if="classesLoadingStatus && bundlesLoadingStatus" />
+  <BaseLoadingSpinner v-if="classesLoadingStatus && bundlesLoadingStatus" />
   <section class="section home" v-else>
     <div class="container">
       <div class="section__info">
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      
+
       <ClassesHome
         v-for="(course, index) in classes"
         :key="course.id"
@@ -30,32 +30,31 @@
     </div>
     <Shortcut />
   </section>
-  
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import ClassesHome from '../components/ClassesHome';
-import Shortcut from '../components/Shortcut';
+import { mapGetters } from "vuex";
+import ClassesHome from "../components/ClassesHome";
+import Shortcut from "../components/Shortcut";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     ClassesHome,
     Shortcut
   },
   computed: {
     ...mapGetters([
-      'classesLoadingStatus',
-      'classesErrorStatus',
-      'classes',
-      'bundlesLoadingStatus',
-      'bundlesErrorStatus',
+      "classesLoadingStatus",
+      "classesErrorStatus",
+      "classes",
+      "bundlesLoadingStatus",
+      "bundlesErrorStatus"
     ])
   },
   async created() {
     if (this.classes && this.classes.length > 0) return;
-    await this.$store.dispatch('fetchClasses');
+    await this.$store.dispatch("fetchClasses");
   }
 };
 </script>
