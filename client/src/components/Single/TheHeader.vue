@@ -61,7 +61,12 @@
             >
           </li>
           <li class="navigation__item">
-            <router-link :to="{ name: 'Trainers', params: { page: pagination.pageNumber } }" class="navigation__link"
+            <router-link
+              :to="{
+                name: 'Trainers',
+                params: { page: pagination.pageNumber }
+              }"
+              class="navigation__link"
               >Trainers</router-link
             >
           </li>
@@ -103,12 +108,12 @@
   </header>
 </template>
 <script>
-import { mapGetters } from 'vuex';
-import { VueperSlides, VueperSlide } from 'vueperslides';
-import 'vueperslides/dist/vueperslides.css';
+import { mapGetters } from "vuex";
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
 
 export default {
-  name: 'TheHeader',
+  name: "TheHeader",
   components: {
     VueperSlides,
     VueperSlide
@@ -121,19 +126,19 @@ export default {
     parallaxFixedContent: true,
     slides: [
       {
-        title: 'Little effort',
-        content: 'And You will succeed with us',
-        image: require('@/assets/images/hero.jpg')
+        title: "Little effort",
+        content: "And You will succeed with us",
+        image: require("@/assets/images/hero.jpg")
       },
       {
-        title: 'Change your life',
-        content: 'And find themselves',
-        image: require('@/assets/images/hero-2.jpg')
+        title: "Change your life",
+        content: "And find themselves",
+        image: require("@/assets/images/hero-2.jpg")
       },
       {
-        title: 'Little effort',
-        content: 'And You will succeed with us',
-        image: require('@/assets/images/hero-3.jpg')
+        title: "Little effort",
+        content: "And You will succeed with us",
+        image: require("@/assets/images/hero-3.jpg")
       }
     ],
     isNavExpanded: false,
@@ -145,7 +150,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['pagination']),
+    ...mapGetters(["pagination"]),
     currentRouteName() {
       return this.$route.name;
     }
@@ -153,7 +158,7 @@ export default {
   methods: {
     navigationToggle() {
       this.isNavExpanded = !this.isNavExpanded;
-      this.$refs.toggle.setAttribute('aria-expanded', this.isNavExpanded);
+      this.$refs.toggle.setAttribute("aria-expanded", this.isNavExpanded);
     }
   }
 };
@@ -175,7 +180,7 @@ export default {
   }
 }
 .navigation {
-  font-family: 'Play', sans-serif;
+  font-family: "Play", sans-serif;
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
   padding: 0 2rem;

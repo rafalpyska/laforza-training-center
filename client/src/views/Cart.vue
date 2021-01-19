@@ -29,16 +29,16 @@
   </section>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 export default {
-  name: 'Cart',
+  name: "Cart",
   props: {},
   computed: {
-    ...mapGetters(['cart', 'cartTotalItemPrice'])
+    ...mapGetters(["cart", "cartTotalItemPrice"])
   },
   methods: {
     removeCourseFromCart(course) {
-      this.$store.dispatch('removeCourseFromCart', course);
+      this.$store.dispatch("removeCourseFromCart", course);
     }
   }
 };

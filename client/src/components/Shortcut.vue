@@ -40,7 +40,7 @@
             btnType="slider"
             class="btn--slider-prev"
             ref="prev"
-            @click="goTo('prev', $refs.news, '.slider__slide-news')"
+            @click.native="goTo('prev', $refs.news, '.slider__slide-news')"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
             <span class="visuallyhidden">Previous training plan</span>
@@ -49,7 +49,7 @@
             btnType="slider"
             class="btn--slider-next"
             ref="next"
-            @click="goTo('next', $refs.news, '.slider__slide-news')"
+            @click.native="goTo('next', $refs.news, '.slider__slide-news')"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
             <span class="visuallyhidden">Next training plan</span>
@@ -131,7 +131,7 @@
           <BaseButton
             btnType="slider"
             class="btn--slider-white"
-            @click="goTo('prev', $refs.plans, '.slider__slide-plans')"
+            @click.native="goTo('prev', $refs.plans, '.slider__slide-plans')"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
             <span class="visuallyhidden">Previous training plan</span>
@@ -139,7 +139,7 @@
           <BaseButton
             btnType="slider"
             class="btn--slider-white"
-            @click="goTo('next', $refs.plans, '.slider__slide-plans')"
+            @click.native="goTo('next', $refs.plans, '.slider__slide-plans')"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
             <span class="visuallyhidden">Next training plan</span>
@@ -151,10 +151,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import ellipsify from '@/mixins/ellipsify'
+import { mapGetters } from "vuex";
+import ellipsify from "@/mixins/ellipsify";
 export default {
-  name: 'Shortcut',
+  name: "Shortcut",
   mixins: [ellipsify],
   data() {
     return {
@@ -164,18 +164,18 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'bundlesLoadingStatus',
-      'bundlesErrorStatus',
-      'bundles',
-      'postsLoadingStatus',
-      'postsErrorStatus',
-      'posts'
+      "bundlesLoadingStatus",
+      "bundlesErrorStatus",
+      "bundles",
+      "postsLoadingStatus",
+      "postsErrorStatus",
+      "posts"
     ])
   },
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
-    await this.$store.dispatch('fetchBundles');
-    await this.$store.dispatch('fetchBlogPosts', {
+    await this.$store.dispatch("fetchBundles");
+    await this.$store.dispatch("fetchBlogPosts", {
       start: this.startPostsFrom,
       limit: this.numberOfPosts
     });
@@ -185,15 +185,15 @@ export default {
       let strip = sliderItemsContainer;
       let items = strip.querySelectorAll(sliderItemsClass);
 
-      let current = parseInt(strip.getAttribute('data-current'), 10);
-      if (direction === 'next') {
+      let current = parseInt(strip.getAttribute("data-current"), 10);
+      if (direction === "next") {
         if (current >= items.length) return;
         current++;
       } else {
         if (current <= 1) return;
         current--;
       }
-      strip.setAttribute('data-current', current);
+      strip.setAttribute("data-current", current);
     }
   }
 };
@@ -207,7 +207,7 @@ export default {
     grid-auto-rows: auto;
   }
   &__heading {
-    font-family: 'Play', sans-serif;
+    font-family: "Play", sans-serif;
     margin-bottom: 0.75rem;
     &--news {
       color: var(--shortcut-news-heading-color);
@@ -306,7 +306,7 @@ export default {
     flex: 1;
     transition: transform 300ms;
     @for $i from 1 through 20 {
-      &[data-current='#{$i}'] {
+      &[data-current="#{$i}"] {
         transform: translateX(-100% * ($i - 1));
       }
     }

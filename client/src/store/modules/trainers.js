@@ -8,7 +8,7 @@ export default {
       pagesTotal: null,
       start: 0,
       limit: 3,
-      totalItems: 0,
+      totalItems: 0
     }
   },
   getters: {
@@ -48,13 +48,13 @@ export default {
       return (state.trainersError = error);
     },
     SET_PAGINATION_START_NEXT(state, start) {
-      return (state.pagination.start += start)
+      return (state.pagination.start += start);
     },
     SET_PAGINATION_PAGE_NEXT(state) {
       return (state.pagination.pageNumber += 1);
     },
     SET_PAGINATION_START_PREV(state, start) {
-      return (state.pagination.start -= start)
+      return (state.pagination.start -= start);
     },
     SET_PAGINATION_PAGE_PREV(state) {
       return (state.pagination.pageNumber -= 1);
@@ -63,67 +63,74 @@ export default {
       return (state.pagination.totalItems = totalItems);
     },
     SET_PAGINATION_LIMIT(state, limit) {
-      return (state.pagination.limit = limit)
+      return (state.pagination.limit = limit);
     },
     SET_TOTAL_PAGES(state, { totalItems, limit }) {
-      return (state.pagination.pagesTotal = Math.ceil(totalItems/limit))
+      return (state.pagination.pagesTotal = Math.ceil(totalItems / limit));
     },
     SET_CURRENT_PAGE(state, pageNumber) {
-      return (state.pagination.pageNumber = pageNumber)
+      return (state.pagination.pageNumber = pageNumber);
     },
     SET_PAGINATION_START(state, start) {
-      return (state.pagination.start = start)
+      return (state.pagination.start = start);
     }
   },
   actions: {
-    async fetchTrainers({ commit, getters }, { limit = getters.limit, start = getters.start, page = getters.pageNumber }) {
-      commit('SET_TRAINERS_LOADING', true);
+    async fetchTrainers(
+      { commit, getters },
+      {
+        limit = getters.limit,
+        start = getters.start,
+        page = getters.pageNumber
+      }
+    ) {
+      commit("SET_TRAINERS_LOADING", true);
       return await fetch(
         `${process.env.VUE_APP_API_URL}/users?_start=${start}&_limit=${limit}`,
         {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
           }
         }
       )
         .then(response => response.json())
         .then(data => {
-          commit('SET_TRAINERS', data || [] );
-          commit('SET_TRAINERS_LOADING', false);
-          return fetch(
-            `${process.env.VUE_APP_API_URL}/users/count`,
-            {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json'
-              }
+          commit("SET_TRAINERS", data || []);
+          commit("SET_TRAINERS_LOADING", false);
+          return fetch(`${process.env.VUE_APP_API_URL}/users/count`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
             }
-          )
-          .then(response => response.json())
-          .then(data => {
-            commit('SET_CURRENT_PAGE', page);
-            commit('SET_PAGINATION_START', start);
-            commit('SET_PAGINATION_TOTAL_ITEMS', data || 0);
-            commit('SET_TOTAL_PAGES', { totalItems: getters.pagination.totalItems, limit: limit });
           })
-          .catch(error => {
-            console.log(error)
-          })
+            .then(response => response.json())
+            .then(data => {
+              commit("SET_CURRENT_PAGE", page);
+              commit("SET_PAGINATION_START", start);
+              commit("SET_PAGINATION_TOTAL_ITEMS", data || 0);
+              commit("SET_TOTAL_PAGES", {
+                totalItems: getters.pagination.totalItems,
+                limit: limit
+              });
+            })
+            .catch(error => {
+              console.log(error);
+            });
         })
         .catch(error => {
-          commit('SET_TRAINERS_ERROR', error);
+          commit("SET_TRAINERS_ERROR", error);
         });
     },
     paginationLoadMore({ commit, dispatch }, { start, page }) {
-      commit('SET_PAGINATION_START_NEXT', start);
-      commit('SET_PAGINATION_PAGE_NEXT', page);
-      dispatch('fetchTrainers');
+      commit("SET_PAGINATION_START_NEXT", start);
+      commit("SET_PAGINATION_PAGE_NEXT", page);
+      dispatch("fetchTrainers");
     },
     paginationPrevious({ commit, dispatch }, { start, page }) {
-      commit('SET_PAGINATION_START_PREV', start);
-      commit('SET_PAGINATION_PAGE_PREV', page);
-      dispatch('fetchTrainers');
-    },
+      commit("SET_PAGINATION_START_PREV", start);
+      commit("SET_PAGINATION_PAGE_PREV", page);
+      dispatch("fetchTrainers");
+    }
   }
 };

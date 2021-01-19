@@ -89,8 +89,10 @@
             <i class="fas fa-map-marked-alt contact__icon" aria-hidden="true">
               <span class="visuallyhidden">Address</span>
             </i>
-            LaForza training center
-            <span>USA California 900 Samoset Drive. DE1-023-45-67</span>
+            <p>
+              LaForza training center
+              <span>USA California 900 Samoset Drive. DE1-023-45-67</span>
+            </p>
           </li>
           <li class="contact__info-item">
             <i class="fas fa-mobile-alt contact__icon" aria-hidden="true">
@@ -128,8 +130,10 @@
             <i class="fas fa-map-marked-alt contact__icon" aria-hidden="true">
               <span class="visuallyhidden">Address</span>
             </i>
-            LaForza training center
-            <span>USA California 900 Samoset Drive. DE1-023-45-67</span>
+            <p>
+              LaForza training center
+              <span>USA California 900 Samoset Drive. DE1-023-45-67</span>
+            </p>
           </li>
           <li class="contact__info-item">
             <i class="fas fa-mobile-alt contact__icon" aria-hidden="true">
@@ -156,19 +160,19 @@
       </div>
     </div>
     <div class="map">
-          <iframe
+      <iframe
         class="map-iframe"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25215.625657884106!2d144.956637!3d-37.81456500000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4e793770d3%3A0x9e44d6ad0d76ba7c!2s121+King+St%2C+Melbourne+VIC+3000%2C+Australia!5e0!3m2!1sen!2sus!4v1435061406583"
         height="400"
         allowfullscreen
       ></iframe>
-      </div>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Contact'
+  name: "Contact"
 };
 </script>
 
@@ -188,13 +192,17 @@ export default {
       margin-top: 1rem;
     }
     &-item {
+      display: flex;
     }
   }
   &__form {
     grid-column: 1/3;
   }
   &__icon {
+    width: 20px;
+    margin-top: 0.2rem;
     margin-right: 0.5rem;
+    text-align: center;
   }
   &__details {
     @media (max-width: 992px) {

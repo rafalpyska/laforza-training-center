@@ -1,32 +1,28 @@
 <template>
-  <TheHeader />
-  <router-view :key="$route.fullPath"/>
-  <BaseActionStrip class="action-strip--bottom">
-    <template v-slot:first-column>
-      <img
-        src="./assets/images/logos/footer-logo.png"
-        class="logo__bottom"
-        alt="LaFORZA Training Center Logo"
-      />
-    </template>
-    <template v-slot:last-column>
-      <a
-        @click="smoothScroll"
-        ref="gotop"
-        href="#home"
-        class="go-top"
-        aria-label="Scroll to Top"
-      >
-        <i class="fas fa-chevron-up go-top__icon"></i>
-      </a>
-    </template>
-  </BaseActionStrip>
-  <TheFooter />
+  <div id="app">
+    <TheHeader />
+    <router-view :key="$route.fullPath" />
+    <BaseActionStrip class="action-strip--bottom">
+      <template v-slot:first-column>
+        <img
+          src="./assets/images/logos/footer-logo.png"
+          class="logo__bottom"
+          alt="LaFORZA Training Center Logo"
+        />
+      </template>
+      <template v-slot:last-column>
+        <a ref="gotop" href="#home" class="go-top" aria-label="Scroll to Top">
+          <i class="fas fa-chevron-up go-top__icon"></i>
+        </a>
+      </template>
+    </BaseActionStrip>
+    <TheFooter />
+  </div>
 </template>
 
 <script>
-import TheHeader from '@/components/Single/TheHeader.vue';
-import TheFooter from '@/components/Single/TheFooter.vue';
+import TheHeader from "@/components/Single/TheHeader.vue";
+import TheFooter from "@/components/Single/TheFooter.vue";
 
 export default {
   components: {
@@ -36,19 +32,19 @@ export default {
 };
 </script>
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
 
 #app {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-secondary);
 }
 .vueperslide {
   &__title {
-    font-family: 'Play', sans-serif;
+    font-family: "Play", sans-serif;
     text-transform: uppercase;
     font-size: 2rem;
     @media (max-width: 800px) {
@@ -59,7 +55,7 @@ export default {
     }
   }
   &__content {
-    font-family: 'Play', sans-serif;
+    font-family: "Play", sans-serif;
     text-transform: uppercase;
     font-size: 1.25em;
     @media (max-width: 800px) {

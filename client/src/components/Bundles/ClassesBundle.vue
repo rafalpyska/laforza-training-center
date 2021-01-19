@@ -18,7 +18,7 @@
         {{ course.name }}
       </li>
     </ul>
-    <BaseButton btnType="sign-up" @click="addToCart()">
+    <BaseButton btnType="sign-up" @click.native="addToCart()">
       Sign Up
     </BaseButton>
   </div>
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'ClassesBundle',
+  name: "ClassesBundle",
   props: {
     bundle: {
       type: Object,
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.dispatch('addCourseToCart', {
+      this.$store.dispatch("addCourseToCart", {
         course: this.bundle,
         quantity: 1
       });
@@ -68,7 +68,7 @@ export default {
     }
     &-price {
       &-container {
-        font-family: 'Play', sans-serif;
+        font-family: "Play", sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -90,7 +90,7 @@ export default {
       font-size: 0.65rem;
     }
     &-list {
-      font-family: 'Play', sans-serif;
+      font-family: "Play", sans-serif;
       flex: 1;
       text-align: center;
       margin-bottom: 2rem;

@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'SelectTrainer',
+  name: "SelectTrainer",
   props: {
     course: {
       type: Object,
@@ -26,12 +26,12 @@ export default {
   },
   data() {
     return {
-      selectedTrainer: ''
+      selectedTrainer: ""
     };
   },
   methods: {
     emitSelectedTrainer() {
-      this.$emit('selectedTrainer', this.selectedTrainer);
+      this.$emit("selectedTrainer", this.selectedTrainer);
     }
   }
 };

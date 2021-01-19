@@ -51,10 +51,10 @@
 </template>
 
 <script>
-import fetchData from '../mixins/fetchData';
-import ClientStory from '../components/ClientStory';
+import fetchData from "../mixins/fetchData";
+import ClientStory from "../components/ClientStory";
 export default {
-  name: 'Stories',
+  name: "Stories",
   components: {
     ClientStory
   },
@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       loading: false,
-      error: '',
+      error: "",
       stories: null
     };
   },

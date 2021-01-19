@@ -4,31 +4,31 @@ export default function paginate({ dataModel }) {
       async fetchPage({ commit, dispatch }, query = {}) {
         const payload = { query };
         const fetchedItems = await dispatch(dataModel, payload);
-        commit('SET_DATA', { fetchedItems })
+        commit("SET_DATA", { fetchedItems });
       },
       paginationLoadMore({ commit, dispatch }, { start, page }) {
-        commit('SET_PAGINATION_START_NEXT', start);
-        commit('SET_PAGINATION_PAGE_NEXT', page);
-        dispatch('fetchTrainers');
+        commit("SET_PAGINATION_START_NEXT", start);
+        commit("SET_PAGINATION_PAGE_NEXT", page);
+        dispatch("fetchTrainers");
       },
       paginationPrevious({ commit, dispatch }, { start, page }) {
-        commit('SET_PAGINATION_START_PREV', start);
-        commit('SET_PAGINATION_PAGE_PREV', page);
-        dispatch('fetchTrainers');
-      },
+        commit("SET_PAGINATION_START_PREV", start);
+        commit("SET_PAGINATION_PAGE_PREV", page);
+        dispatch("fetchTrainers");
+      }
     },
     mutations: {
       SET_DATA(state, { fetchedItems }) {
         state.fetchedItems = fetchedItems;
       },
       SET_PAGINATION_START_NEXT(state, start) {
-        return (state.pagination.start += start)
+        return (state.pagination.start += start);
       },
       SET_PAGINATION_PAGE_NEXT(state) {
         return (state.pagination.pageNumber += 1);
       },
       SET_PAGINATION_START_PREV(state, start) {
-        return (state.pagination.start -= start)
+        return (state.pagination.start -= start);
       },
       SET_PAGINATION_PAGE_PREV(state) {
         return (state.pagination.pageNumber -= 1);
@@ -37,16 +37,16 @@ export default function paginate({ dataModel }) {
         return (state.pagination.totalItems = totalItems);
       },
       SET_PAGINATION_LIMIT(state, limit) {
-        return (state.pagination.limit = limit)
+        return (state.pagination.limit = limit);
       },
       SET_TOTAL_PAGES(state, { totalItems, limit }) {
-        return (state.pagination.pagesTotal = Math.ceil(totalItems/limit))
+        return (state.pagination.pagesTotal = Math.ceil(totalItems / limit));
       },
       SET_CURRENT_PAGE(state, pageNumber) {
-        return (state.pagination.pageNumber = pageNumber)
+        return (state.pagination.pageNumber = pageNumber);
       },
       SET_PAGINATION_START(state, start) {
-        return (state.pagination.start = start)
+        return (state.pagination.start = start);
       }
     },
     getters: {
@@ -73,8 +73,8 @@ export default function paginate({ dataModel }) {
         pagesTotal: null,
         start: 0,
         limit: 3,
-        totalItems: 0,
+        totalItems: 0
       }
     }
-  }
-};
+  };
+}

@@ -1,21 +1,18 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import './registerServiceWorker';
-import router from './router';
-import store from './store';
-import LazyLoadDirective from './directives/LazyLoadDirective';
-import { registerComponents } from '@/components/_globals';
-import './assets/styles/main.scss';
+import Vue from "vue";
+import App from "./App.vue";
+import "./registerServiceWorker";
+import router from "./router";
+import store from "./store";
+import LazyLoadDirective from "./directives/LazyLoadDirective";
+import "./assets/styles/main.scss";
+import "@/components/_globals";
 
-const app = createApp(App);
+Vue.directive("lazyload", LazyLoadDirective);
 
+Vue.config.productionTip = false;
 
-app.directive('lazyload', LazyLoadDirective);
-
-app
-  .use(store)
-  .use(router)
-
-registerComponents(app)
-app
-  .mount('#app');
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");

@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.3c827898c2ea4f421922a6e82ae6b01f.js"
+  "/precache-manifest.15eb5ce7f027c77e41ef20da93be9ccc.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "client"});
+workbox.core.setCacheNameDetails({prefix: "laforza"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {

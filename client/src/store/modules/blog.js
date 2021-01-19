@@ -49,43 +49,43 @@ export default {
   },
   actions: {
     async fetchBlogPosts({ commit }, { start = 0, limit = 50 }) {
-      commit('SET_POSTS_LOADING', true);
+      commit("SET_POSTS_LOADING", true);
       return await fetch(
         `${process.env.VUE_APP_API_URL}/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`,
         {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
           }
         }
       )
         .then(response => response.json())
         .then(data => {
-          commit('SET_BLOG_POSTS', data);
-          commit('SET_POSTS_LOADING', false);
+          commit("SET_BLOG_POSTS", data);
+          commit("SET_POSTS_LOADING", false);
         })
         .catch(error => {
-          commit('SET_POSTS_ERROR', error);
+          commit("SET_POSTS_ERROR", error);
         });
     },
     async fetchSingleBlogPost({ commit }, postSlug) {
-      commit('SET_SINGLE_POST_LOADING', true);
+      commit("SET_SINGLE_POST_LOADING", true);
       return await fetch(
         `${process.env.VUE_APP_API_URL}/posts?slug=${postSlug}`,
         {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
           }
         }
       )
         .then(response => response.json())
         .then(data => {
-          commit('SET_ONE_BLOG_POST', data);
-          commit('SET_SINGLE_POST_LOADING', false);
+          commit("SET_ONE_BLOG_POST", data);
+          commit("SET_SINGLE_POST_LOADING", false);
         })
         .catch(error => {
-          commit('SET_SINGLE_POST_ERROR', error);
+          commit("SET_SINGLE_POST_ERROR", error);
         });
     }
   }

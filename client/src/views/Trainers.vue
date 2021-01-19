@@ -26,25 +26,36 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import TrainersList from '../components/Trainers/TrainersList';
+import { mapGetters } from "vuex";
+import TrainersList from "../components/Trainers/TrainersList";
 
 export default {
-  name: 'Trainers',
+  name: "Trainers",
   components: {
     TrainersList
   },
   computed: {
-    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers', 'pagination', 'pageNumber', 'pagesTotal'])
+    ...mapGetters([
+      "trainersLoadingStatus",
+      "trainersErrorStatus",
+      "trainers",
+      "pagination",
+      "pageNumber",
+      "pagesTotal"
+    ])
   },
   async created() {
-    await this.$store.dispatch('fetchTrainers', { limit: this.pagination.limit, start: (Number(this.$route.params.page) - 1) * this.pagination.limit, page: Number(this.$route.params.page) });
+    await this.$store.dispatch("fetchTrainers", {
+      limit: this.pagination.limit,
+      start: (Number(this.$route.params.page) - 1) * this.pagination.limit,
+      page: Number(this.$route.params.page)
+    });
   }
 };
 </script>
 
 <style scoped lang="scss">
-  .previous {
-    margin-right: 1rem;
-  }
+.previous {
+  margin-right: 1rem;
+}
 </style>

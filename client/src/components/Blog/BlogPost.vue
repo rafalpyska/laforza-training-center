@@ -12,7 +12,7 @@
               />
               <BlogPostDate :post="post[0]" />
             </div>
-            <div class="blog__post-shortened">
+            <div class="blog__post-content">
               <h2 class="blog__post-heading">{{ post[0].title }}</h2>
               <p
                 class="blog__post-posted-by"
@@ -24,6 +24,32 @@
               <p class="blog__post-paragraph">
                 {{ post[0].content }}
               </p>
+            </div>
+            <div
+              class="blog__post-author-info"
+              v-for="author in post[0].authors"
+              :key="author.id"
+            >
+              <figure class="blog__post-author-avatar-container">
+                <img
+                  src="@/assets/images/90x90-placeholder.png"
+                  :alt="author.avatar.alternativeText"
+                  class="blog__post-author-avatar"
+                />
+              </figure>
+              <div class="blog__post-author-credentials">
+                <div class="blog__post-author-credentials-header">
+                  <p>{{ author.username }}</p>
+                  <p>GYM INSTRUCTOR</p>
+                </div>
+                <div class="blog__post-author-credentials-content">
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Dolore esse ut cupiditate nemo in earum atque numquam minus
+                    ab illo.
+                  </p>
+                </div>
+              </div>
             </div>
           </article>
           <aside class="blog__post-sidebar">
@@ -47,12 +73,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import ImageItem from '../ImageItem';
-import BlogPostDate from './BlogPostDate';
+import { mapGetters } from "vuex";
+import ImageItem from "../ImageItem";
+import BlogPostDate from "./BlogPostDate";
 
 export default {
-  name: 'BlogPost',
+  name: "BlogPost",
   components: {
     ImageItem,
     BlogPostDate
@@ -64,10 +90,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['singlePostLoadingStatus', 'singlePostErrorStatus', 'post'])
+    ...mapGetters(["singlePostLoadingStatus", "singlePostErrorStatus", "post"])
   },
   async created() {
-    await this.$store.dispatch('fetchSingleBlogPost', this.slug);
+    await this.$store.dispatch("fetchSingleBlogPost", this.slug);
   }
 };
 </script>
@@ -75,6 +101,7 @@ export default {
 <style scoped lang="scss">
 .blog__post {
   grid-column: 1/3;
+  background-color: var(--blog-post-bgc);
   &-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -86,7 +113,6 @@ export default {
       column-gap: 0;
     }
   }
-  background-color: var(--blog-post-bgc);
   &:hover .blog__post-date {
     background-color: var(--color-primary);
   }
@@ -95,14 +121,14 @@ export default {
     grid-column: 1/3;
     height: 18rem;
   }
-  &-shortened {
+  &-content {
     display: flex;
     flex-direction: column;
     padding: 2rem;
     background-color: var(--blog-post-shortened-bgc);
   }
   &-heading {
-    font-family: 'Play', sans-serif;
+    font-family: "Play", sans-serif;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
   }
@@ -112,6 +138,28 @@ export default {
   }
   &-posted-by {
     margin-bottom: 2rem;
+  }
+  &-author {
+    &-info {
+      display: flex;
+      padding: 2rem;
+      background-color: var(--color-primary);
+    }
+    &-avatar {
+      height: auto;
+      max-width: 90px;
+      max-height: 90px;
+      &-container {
+        margin-right: 1rem;
+      }
+    }
+    &-credentials {
+      &-header {
+        margin-bottom: 0.75rem;
+      }
+      &-body {
+      }
+    }
   }
   &-sidebar {
     padding: 2rem;

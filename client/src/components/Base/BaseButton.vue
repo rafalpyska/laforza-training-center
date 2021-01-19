@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'AppButon',
+  name: "AppButon",
   props: {
     to: {
       required: false
@@ -25,13 +25,13 @@ export default {
       type: Boolean
     }
   },
-  emits: ['addCourseToCart()'],
+  emits: ["addCourseToCart()"],
   computed: {
     type() {
       if (this.to) {
-        return 'router-link';
+        return "router-link";
       }
-      return 'button';
+      return "button";
     }
   }
 };
