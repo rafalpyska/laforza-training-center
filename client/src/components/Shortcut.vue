@@ -1,5 +1,5 @@
 <template>
-  <div class="shortcut section">
+  <div class="shortcut">
     <div class="shortcut__container container">
       <div class="slider shortcut__news">
         <div class="slider__slides-container" data-current="1" ref="news">
@@ -201,6 +201,7 @@ export default {
 
 <style scoped lang="scss">
 .shortcut {
+  margin: 4rem 0;
   &__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));

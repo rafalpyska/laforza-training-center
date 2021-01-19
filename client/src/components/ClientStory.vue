@@ -12,7 +12,7 @@
     </div>
     <figure class="story__user">
       <img
-        src="http://dummyimage.com/40x40"
+        src="https://dummyimage.com/40x40"
         class="story__user-profile-image"
         alt="user placeholder"
       />
