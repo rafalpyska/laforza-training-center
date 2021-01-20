@@ -62,6 +62,8 @@ export default {
 </script>
 <style scoped lang="scss">
 .trainer-mini-profile {
+  display: flex;
+  flex-direction: column;
   &__info {
     background-color: var(--trainers-mini-profile-info-bgc);
     &-image {

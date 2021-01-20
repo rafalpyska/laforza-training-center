@@ -36,18 +36,16 @@
         </BaseButton>
       </template>
     </BaseActionStrip>
-    <div class="stories__list-wrapper">
-      <div class="stories__list container">
-        <BaseLoadingSpinner v-if="loading" />
-        <hooper v-else ref="plans" :settings="hooperSettings">
-          <slide v-for="story in stories" :key="story.id">
-            <ClientStory
-              :story="story"
-            />
-          </slide>
-          <hooper-pagination slot="hooper-addons"></hooper-pagination>
-        </hooper>
-      </div>
+    <div class="stories__list container">
+      <BaseLoadingSpinner v-if="loading" />
+      <hooper v-else ref="plans" :settings="hooperSettings">
+        <slide v-for="story in stories" :key="story.id">
+          <ClientStory
+            :story="story"
+          />
+        </slide>
+        <hooper-pagination slot="hooper-addons"></hooper-pagination>
+      </hooper>
     </div>
   </section>
 </template>
@@ -78,6 +76,7 @@ export default {
       hooperSettings: {
         itemsToShow: 3,
         wheelControl: false,
+        infiniteScroll: true,
         breakpoints: {
           300: {
             itemsToShow: 1
@@ -109,6 +108,7 @@ export default {
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-auto-rows: 1fr;
     gap: 4rem;
     overflow: hidden;
   }
@@ -121,15 +121,6 @@ export default {
   }
   &__list {
     padding: 5rem 0;
-    &-wrapper {
-      @media (max-width: 1280px) {
-        padding: 0 5rem;
-      }
-      @media (max-width: 768px) {
-        padding: 4rem 3rem;
-      }
-      background-color: var(--stories-list-bgc);
-    }
   }
 }
 .section {

@@ -5,7 +5,7 @@
         <h2 class="text-uppercase shortcut__heading shortcut__heading--news">
           News
         </h2>
-        <hooper ref="news" :autoPlay="true" :playSpeed="3000">
+        <hooper ref="news" :autoPlay="true" :playSpeed="3000" :wheelControl="false">
           <slide v-for="post in posts" :key="post.id">
             <article class="shortcut__news-item-container">
               <div class="shortcut__news-container">
@@ -93,7 +93,7 @@
         </div>
       </div>
       <div class="shortcut__item shortcut__training-plan">
-        <hooper ref="plans" :autoPlay="true" :playSpeed="3000">
+        <hooper ref="plans" :autoPlay="true" :playSpeed="3000" :wheelControl="false">
           <slide v-for="bundle in bundles.slice().reverse()" :key="bundle.id">
             <article class="slider__slide slider__slide-plans">
               <h2

@@ -40,8 +40,10 @@ export default {
 <style scoped lang="scss">
 .btn {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  min-width: 3.75rem;
+  padding: 0.35rem 1rem;
   background-color: transparent;
+  text-align: center;
   font-weight: bold;
   border: none;
   cursor: pointer;
