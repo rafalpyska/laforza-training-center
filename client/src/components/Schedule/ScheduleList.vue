@@ -19,7 +19,11 @@
           >
             {{ trainer.username }}
           </li>
-          <li class="schedule__content-item" v-for="day in trainer.schedule" :key="day.id">
+          <li
+            class="schedule__content-item"
+            v-for="day in trainer.schedule"
+            :key="day.id"
+          >
             <span class="schedule__content-item--day">{{ day.name }}</span
             >{{ day.availability }}
           </li>

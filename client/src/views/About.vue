@@ -48,9 +48,7 @@
       <div class="trainer__list container" v-else>
         <hooper ref="plans" :settings="hooperSettings">
           <slide v-for="trainer in trainers" :key="trainer.id">
-            <TrainersMiniProfile
-              :trainer="trainer"
-            />
+            <TrainersMiniProfile :trainer="trainer" />
           </slide>
           <hooper-pagination slot="hooper-addons"></hooper-pagination>
         </hooper>
@@ -62,11 +60,7 @@
 <script>
 import { mapGetters } from "vuex";
 import TrainersMiniProfile from "../components/Trainers/TrainersMiniProfile";
-import { 
-  Hooper,
-  Slide,
-  Pagination as HooperPagination
-} from 'hooper';
+import { Hooper, Slide, Pagination as HooperPagination } from "hooper";
 export default {
   name: "About",
   components: {
@@ -90,7 +84,7 @@ export default {
           },
           1280: {
             itemsToShow: 6,
-            pagination: 'fraction'
+            pagination: "fraction"
           }
         }
       }

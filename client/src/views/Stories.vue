@@ -40,9 +40,7 @@
       <BaseLoadingSpinner v-if="loading" />
       <hooper v-else ref="plans" :settings="hooperSettings">
         <slide v-for="story in stories" :key="story.id">
-          <ClientStory
-            :story="story"
-          />
+          <ClientStory :story="story" />
         </slide>
         <hooper-pagination slot="hooper-addons"></hooper-pagination>
       </hooper>
@@ -53,11 +51,7 @@
 <script>
 import fetchData from "../mixins/fetchData";
 import ClientStory from "../components/ClientStory";
-import { 
-  Hooper,
-  Slide,
-  Pagination as HooperPagination
-} from 'hooper';
+import { Hooper, Slide, Pagination as HooperPagination } from "hooper";
 
 export default {
   name: "Stories",
@@ -86,7 +80,7 @@ export default {
           },
           1280: {
             itemsToShow: 3,
-            pagination: 'fraction'
+            pagination: "fraction"
           }
         }
       }

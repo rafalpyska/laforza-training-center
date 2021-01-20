@@ -30,23 +30,26 @@
           :href="`${social.url}`"
           class="trainer__socials-link"
         >
-          <i v-if="social.name === 'Facebook'"  
+          <i
+            v-if="social.name === 'Facebook'"
             class="fab fa-facebook-f trainer__socials-link"
             aria-hidden="true"
           >
-            <span class="visuallyhidden">{{ social.name}}</span>
+            <span class="visuallyhidden">{{ social.name }}</span>
           </i>
-          <i v-if="social.name === 'Twitter'" 
+          <i
+            v-if="social.name === 'Twitter'"
             class="fab fa-twitter trainer__socials-link"
             aria-hidden="true"
           >
-            <span class="visuallyhidden">{{ social.name}}</span>
+            <span class="visuallyhidden">{{ social.name }}</span>
           </i>
-          <i v-if="social.name === 'Instagram'" 
+          <i
+            v-if="social.name === 'Instagram'"
             class="fab fa-instagram trainer__socials-link"
             aria-hidden="true"
           >
-            <span class="visuallyhidden">{{ social.name}}</span>
+            <span class="visuallyhidden">{{ social.name }}</span>
           </i>
         </a>
       </div>
@@ -83,7 +86,7 @@
         Enroll
       </BaseButton>
       <!-- <teleport to="#modal"> -->
-        <!-- <BaseModal
+      <!-- <BaseModal
           ref="popup"
           :title="trainer.classes[0].name"
           :subtitle="trainer.username"

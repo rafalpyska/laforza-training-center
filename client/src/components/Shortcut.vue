@@ -5,7 +5,8 @@
         <h2 class="text-uppercase shortcut__heading shortcut__heading--news">
           News
         </h2>
-        <hooper ref="news" :autoPlay="true" :playSpeed="3000" :wheelControl="false">
+        <!-- TODO: Add auto play-->
+        <hooper ref="news" :playSpeed="3000" :wheelControl="false">
           <slide v-for="post in posts" :key="post.id">
             <article class="shortcut__news-item-container">
               <div class="shortcut__news-container">
@@ -93,9 +94,9 @@
         </div>
       </div>
       <div class="shortcut__item shortcut__training-plan">
-        <hooper ref="plans" :autoPlay="true" :playSpeed="3000" :wheelControl="false">
+        <hooper ref="plans" :playSpeed="3000" :wheelControl="false">
           <slide v-for="bundle in bundles.slice().reverse()" :key="bundle.id">
-            <article class="slider__slide slider__slide-plans">
+            <article class="training-plan">
               <h2
                 class="text-uppercase shortcut__heading shortcut__heading--plans"
               >
@@ -145,8 +146,8 @@
 <script>
 import { mapGetters } from "vuex";
 import ellipsify from "@/mixins/ellipsify";
-import { Hooper, Slide } from 'hooper';
-import '@/assets/styles/hooper.css';
+import { Hooper, Slide } from "hooper";
+import "@/assets/styles/hooper.css";
 export default {
   name: "Shortcut",
   mixins: [ellipsify],
@@ -231,7 +232,6 @@ export default {
     }
     &:hover {
       background-color: red;
-      transform: scale(1.05);
     }
     &:hover .shortcut__news-item-container {
       color: white;
@@ -260,7 +260,6 @@ export default {
     transition: 0.2s all;
     &:hover {
       background-color: red;
-      transform: scale(1.05);
     }
     &-logo {
       &-container {
@@ -278,7 +277,7 @@ export default {
     background-color: var(--shortcut-training-plans-bgc);
     transition: 0.2s all;
     &:hover {
-      transform: scale(1.05);
+      background-color: var(--color-primary);
     }
     @media (max-width: 1232px) {
       grid-column: 1/-1;
@@ -294,6 +293,10 @@ export default {
       margin-right: 0.25rem;
     }
   }
+}
+.training-plan {
+  display: flex;
+  flex-direction: column;
 }
 
 .btn--slider {

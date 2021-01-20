@@ -16,8 +16,8 @@
               class="color-primary"
               v-if="index !== course.trainers.length - 1"
             >
-              
-              / <!-- Add slash, but not to the last item-->
+              /
+              <!-- Add slash, but not to the last item-->
             </template>
           </span>
         </template>
