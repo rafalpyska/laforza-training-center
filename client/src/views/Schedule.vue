@@ -68,7 +68,11 @@ export default {
     ...mapGetters(["trainersLoadingStatus", "trainersErrorStatus", "trainers"])
   },
   async created() {
-    await this.$store.dispatch("fetchTrainers", this.limit);
+    await this.$store.dispatch("fetchTrainers", {
+      start: 0,
+      limit: this.limit,
+      page: 1
+    });
   }
 };
 </script>
