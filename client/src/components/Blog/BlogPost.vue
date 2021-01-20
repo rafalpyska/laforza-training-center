@@ -32,15 +32,15 @@
             >
               <figure class="blog__post-author-avatar-container">
                 <img
-                  src="@/assets/images/90x90-placeholder.png"
+                  :src="author.avatar.formats.thumbnail.url"
                   :alt="author.avatar.alternativeText"
                   class="blog__post-author-avatar"
                 />
               </figure>
               <div class="blog__post-author-credentials">
                 <div class="blog__post-author-credentials-header">
-                  <p>{{ author.username }}</p>
-                  <p>GYM INSTRUCTOR</p>
+                  <p class="text-uppercase">{{ author.username }}</p>
+                  <p class="text-uppercase">{{ author.occupation }}</p>
                 </div>
                 <div class="blog__post-author-credentials-content">
                   <p>
@@ -53,18 +53,22 @@
             </div>
           </article>
           <aside class="blog__post-sidebar">
-            <div class="blog__post-category">
-              <h2 class="blog__post-category-heading">Categories</h2>
-              <ul class="blog__post-category-list">
-                <li
-                  class="blog__post-category-item"
-                  v-for="category in post[0].categories"
-                  :key="category.id"
-                >
-                  #{{ category.name }}
-                </li>
-              </ul>
-            </div>
+            <BaseWidget>
+              <template v-slot:heading>
+                Categories
+              </template>
+              <template v-slot:content>
+                <ul class="blos__post-category-list">
+                  <li
+                    class="blog__post-category-item"
+                    v-for="category in post[0].categories"
+                    :key="category.id"
+                  >
+                    #{{ category.name }}
+                  </li>
+                </ul>
+              </template>
+            </BaseWidget>
           </aside>
         </div>
       </div>
@@ -162,7 +166,6 @@ export default {
     }
   }
   &-sidebar {
-    padding: 2rem;
     background-color: var(--blog-post-sidebar-bgc);
     @media (max-width: 992px) {
       grid-column: 1/-1;
