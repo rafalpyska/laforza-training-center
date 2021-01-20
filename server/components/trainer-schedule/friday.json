@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_trainer_schedule_fridays",
+  "info": {
+    "name": "Friday",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "day": {
+      "type": "string",
+      "default": "Friday"
+    },
+    "availability": {
+      "type": "string"
+    }
+  }
+}

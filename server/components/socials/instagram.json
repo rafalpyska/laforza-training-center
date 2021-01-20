@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_socials_instagrams",
+  "info": {
+    "name": "instagram",
+    "icon": "adjust",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "default": "https://www.instagram.com"
+    },
+    "name": {
+      "type": "string",
+      "default": "Instagram"
+    }
+  }
+}
