@@ -37,6 +37,12 @@ export default {
 <style scoped lang="scss">
 .client-story {
   margin-right: 2rem;
+  @media (max-width: 1280px) {
+    margin: 0 5rem;
+  }
+  @media (max-width: 768px) {
+    margin: 0 3rem;
+  }
   &__paragraph {
     color: var(--client-story-text-color);
   }

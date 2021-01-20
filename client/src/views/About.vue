@@ -107,6 +107,10 @@ export default {
 .trainer {
   &__list {
     overflow: hidden;
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
   }
 }
 </style>

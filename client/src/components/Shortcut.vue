@@ -239,6 +239,12 @@ export default {
     &:hover .shortcut__heading--news {
       color: white;
     }
+    &-item-container {
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
+      }
+    }
     &-container {
       display: flex;
       font-size: 0.75rem;
@@ -297,6 +303,10 @@ export default {
 .training-plan {
   display: flex;
   flex-direction: column;
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .btn--slider {
