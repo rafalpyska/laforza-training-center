@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <BaseLoadingSpinner v-if="singlePostLoadingStatus" />
-    <div class="blog__post-wrapper">
+    <div class="blog__post-wrapper" v-else>
       <article class="blog__post">
         <div class="blog__post-image-container">
           <ImageItem
