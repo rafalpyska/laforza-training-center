@@ -107,6 +107,11 @@
         "trainer-schedule.thursday",
         "trainer-schedule.friday"
       ]
+    },
+    "occupation": {
+      "type": "string",
+      "required": true,
+      "default": "Instructor"
     }
   }
 }
