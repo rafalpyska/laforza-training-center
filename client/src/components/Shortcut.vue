@@ -1,20 +1,14 @@
 <template>
   <div class="shortcut">
     <div class="shortcut__container container">
-      <div class="slider shortcut__news">
-        <div class="slider__slides-container" data-current="1" ref="news">
-          <router-link
-            class="slider__slide slider__slide-news"
-            :to="{ name: 'BlogPost', params: { slug: post.slug } }"
-            v-for="post in posts"
-            :key="post.id"
-          >
+      <div class="shortcut__item shortcut__news">
+        <h2 class="text-uppercase shortcut__heading shortcut__heading--news">
+          News
+        </h2>
+        <!-- TODO: Add auto play-->
+        <hooper ref="news" :playSpeed="3000" :wheelControl="false">
+          <slide v-for="post in posts" :key="post.id">
             <article class="shortcut__news-item-container">
-              <h2
-                class="text-uppercase shortcut__heading shortcut__heading--news"
-              >
-                News
-              </h2>
               <div class="shortcut__news-container">
                 <img
                   src="../assets/images/90x90-placeholder.png"
@@ -33,30 +27,34 @@
                 </p>
               </div>
             </article>
-          </router-link>
-        </div>
+            <BaseButton
+              btnType="more"
+              :to="{ name: 'BlogPost', params: { slug: post.slug } }"
+            >
+              Read more
+            </BaseButton>
+          </slide>
+        </hooper>
         <div class="slider__controls">
           <BaseButton
             btnType="slider"
             class="btn--slider-prev"
-            ref="prev"
-            @click.native="goTo('prev', $refs.news, '.slider__slide-news')"
+            @click.native="newsSlidePrev"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
-            <span class="visuallyhidden">Previous training plan</span>
+            <span class="visuallyhidden">Previous news</span>
           </BaseButton>
           <BaseButton
             btnType="slider"
             class="btn--slider-next"
-            ref="next"
-            @click.native="goTo('next', $refs.news, '.slider__slide-news')"
+            @click.native="newsSlideNext"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
-            <span class="visuallyhidden">Next training plan</span>
+            <span class="visuallyhidden">Next news</span>
           </BaseButton>
         </div>
       </div>
-      <div class="slider shortcut__item shortcut__partners">
+      <div class="shortcut__item shortcut__partners">
         <h2
           class="text-uppercase shortcut__heading shortcut__heading--partners"
         >
@@ -95,51 +93,46 @@
           />
         </div>
       </div>
-      <div class="slider shortcut__training-plan">
-        <div class="slider__slides-container" data-current="1" ref="plans">
-          <article
-            class="slider__slide slider__slide-plans"
-            v-for="bundle in bundles.slice().reverse()"
-            :key="bundle.id"
-          >
-            <h2
-              class="text-uppercase shortcut__heading shortcut__heading--plans"
-            >
-              ${{ bundle.price }}
-              <span class="color-primary">/ {{ bundle.name }}</span>
-            </h2>
-            <p>Includes following classes:</p>
-            <ul class="shortcut__training-plan-list">
-              <li
-                class="shortcut__training-plan-list-item"
-                v-for="course in bundle.bundleList"
-                :key="course.id"
+      <div class="shortcut__item shortcut__training-plan">
+        <hooper ref="plans" :playSpeed="3000" :wheelControl="false">
+          <slide v-for="bundle in bundles.slice().reverse()" :key="bundle.id">
+            <article class="training-plan">
+              <h2
+                class="text-uppercase shortcut__heading shortcut__heading--plans"
               >
-                <i
-                  class="fas fa-user-shield shortcut__training-plan-icon"
-                  aria-hidden="true"
-                ></i>
-                {{ course.name }}
-              </li>
-            </ul>
-          </article>
-        </div>
+                ${{ bundle.price }}
+                <span class="color-primary">/ {{ bundle.name }}</span>
+              </h2>
+              <p>Includes following classes:</p>
+              <ul class="shortcut__training-plan-list">
+                <li
+                  class="shortcut__training-plan-list-item"
+                  v-for="course in bundle.bundleList"
+                  :key="course.id"
+                >
+                  <i
+                    class="fas fa-user-shield shortcut__training-plan-icon"
+                    aria-hidden="true"
+                  ></i>
+                  {{ course.name }}
+                </li>
+              </ul>
+            </article>
+          </slide>
+        </hooper>
         <div class="slider__controls">
-          <BaseButton btnType="sign-up">
-            Sign up
-          </BaseButton>
           <BaseButton
             btnType="slider"
-            class="btn--slider-white"
-            @click.native="goTo('prev', $refs.plans, '.slider__slide-plans')"
+            class="btn--slider-prev"
+            @click.native="plansSlidePrev"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
             <span class="visuallyhidden">Previous training plan</span>
           </BaseButton>
           <BaseButton
             btnType="slider"
-            class="btn--slider-white"
-            @click.native="goTo('next', $refs.plans, '.slider__slide-plans')"
+            class="btn--slider-next"
+            @click.native="plansSlideNext"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
             <span class="visuallyhidden">Next training plan</span>
@@ -153,9 +146,15 @@
 <script>
 import { mapGetters } from "vuex";
 import ellipsify from "@/mixins/ellipsify";
+import { Hooper, Slide } from "hooper";
+import "@/assets/styles/hooper.css";
 export default {
   name: "Shortcut",
   mixins: [ellipsify],
+  components: {
+    Hooper,
+    Slide
+  },
   data() {
     return {
       startPostsFrom: 0,
@@ -181,19 +180,17 @@ export default {
     });
   },
   methods: {
-    goTo(direction, sliderItemsContainer, sliderItemsClass) {
-      let strip = sliderItemsContainer;
-      let items = strip.querySelectorAll(sliderItemsClass);
-
-      let current = parseInt(strip.getAttribute("data-current"), 10);
-      if (direction === "next") {
-        if (current >= items.length) return;
-        current++;
-      } else {
-        if (current <= 1) return;
-        current--;
-      }
-      strip.setAttribute("data-current", current);
+    newsSlidePrev() {
+      this.$refs.news.slidePrev();
+    },
+    newsSlideNext() {
+      this.$refs.news.slideNext();
+    },
+    plansSlidePrev() {
+      this.$refs.plans.slidePrev();
+    },
+    plansSlideNext() {
+      this.$refs.plans.slideNext();
     }
   }
 };
@@ -220,6 +217,12 @@ export default {
       color: var(--shortcut-training-plans-heading-color);
     }
   }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 3.5rem 2.5rem;
+  }
   &__news {
     color: var(--shortcut-news-text-color);
     background-color: var(--shortcut-news-bgc);
@@ -229,7 +232,6 @@ export default {
     }
     &:hover {
       background-color: red;
-      transform: scale(1.05);
     }
     &:hover .shortcut__news-item-container {
       color: white;
@@ -255,11 +257,9 @@ export default {
   }
   &__partners {
     background-color: var(--shortcut-news-bgc);
-    padding: 3.5rem 2.5rem;
     transition: 0.2s all;
     &:hover {
       background-color: red;
-      transform: scale(1.05);
     }
     &-logo {
       &-container {
@@ -277,7 +277,7 @@ export default {
     background-color: var(--shortcut-training-plans-bgc);
     transition: 0.2s all;
     &:hover {
-      transform: scale(1.05);
+      background-color: var(--color-primary);
     }
     @media (max-width: 1232px) {
       grid-column: 1/-1;
@@ -294,39 +294,11 @@ export default {
     }
   }
 }
-.slider {
+.training-plan {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  @media (max-width: 992px) {
-    grid-column: 1/-1;
-  }
-  &__slides-container {
-    display: flex;
-    flex-wrap: nowrap;
-    flex: 1;
-    transition: transform 300ms;
-    @for $i from 1 through 20 {
-      &[data-current="#{$i}"] {
-        transform: translateX(-100% * ($i - 1));
-      }
-    }
-  }
-  &__slide {
-    padding: 3.5rem 2.5rem 0 2.5rem;
-    min-width: 100%;
-    &-news:link,
-    &-news:visited {
-      color: var(--shortcut-news-text-color);
-    }
-    &-plans {
-      color: white;
-    }
-  }
-  &__controls {
-    padding: 1rem 2.5rem 2.5rem;
-  }
 }
+
 .btn--slider {
   &-prev {
     border-color: #c4c4c4;

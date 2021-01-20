@@ -36,6 +36,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .client-story {
+  margin-right: 2rem;
   &__paragraph {
     color: var(--client-story-text-color);
   }

@@ -26,23 +26,26 @@
         :href="`${social.url}`"
         class="href trainer-mini-profile__socials-link"
       >
-        <i v-if="social.name === 'Facebook'"  
+        <i
+          v-if="social.name === 'Facebook'"
           class="fab fa-facebook-f trainer-mini-profile__socials-icon"
           aria-hidden="true"
         >
-          <span class="visuallyhidden">{{ social.name}}</span>
+          <span class="visuallyhidden">{{ social.name }}</span>
         </i>
-        <i v-if="social.name === 'Twitter'" 
+        <i
+          v-if="social.name === 'Twitter'"
           class="fab fa-twitter trainer-mini-profile__socials-icon"
           aria-hidden="true"
         >
-          <span class="visuallyhidden">{{ social.name}}</span>
+          <span class="visuallyhidden">{{ social.name }}</span>
         </i>
-        <i v-if="social.name === 'Instagram'" 
+        <i
+          v-if="social.name === 'Instagram'"
           class="fab fa-instagram trainer-mini-profile__socials-icon"
           aria-hidden="true"
         >
-          <span class="visuallyhidden">{{ social.name}}</span>
+          <span class="visuallyhidden">{{ social.name }}</span>
         </i>
       </a>
     </div>
@@ -62,6 +65,8 @@ export default {
 </script>
 <style scoped lang="scss">
 .trainer-mini-profile {
+  display: flex;
+  flex-direction: column;
   &__info {
     background-color: var(--trainers-mini-profile-info-bgc);
     &-image {

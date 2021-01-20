@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_trainer_schedule_wednesdays",
+  "info": {
+    "name": "Wednesday",
+    "icon": "air-freshener",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "day": {
+      "type": "string",
+      "required": false,
+      "default": "Wednesday"
+    },
+    "availability": {
+      "type": "string"
+    }
+  }
+}

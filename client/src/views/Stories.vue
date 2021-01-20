@@ -36,16 +36,14 @@
         </BaseButton>
       </template>
     </BaseActionStrip>
-    <div class="stories__list-wrapper">
-      <div class="stories__list container">
-        <BaseLoadingSpinner v-if="loading" />
-        <ClientStory
-          v-else
-          v-for="story in stories"
-          :key="story.id"
-          :story="story"
-        />
-      </div>
+    <div class="stories__list container">
+      <BaseLoadingSpinner v-if="loading" />
+      <hooper v-else ref="plans" :settings="hooperSettings">
+        <slide v-for="story in stories" :key="story.id">
+          <ClientStory :story="story" />
+        </slide>
+        <hooper-pagination slot="hooper-addons"></hooper-pagination>
+      </hooper>
     </div>
   </section>
 </template>
@@ -53,17 +51,39 @@
 <script>
 import fetchData from "../mixins/fetchData";
 import ClientStory from "../components/ClientStory";
+import { Hooper, Slide, Pagination as HooperPagination } from "hooper";
+
 export default {
   name: "Stories",
   components: {
-    ClientStory
+    ClientStory,
+    Hooper,
+    Slide,
+    HooperPagination
   },
   mixins: [fetchData],
   data() {
     return {
       loading: false,
       error: "",
-      stories: null
+      stories: null,
+      hooperSettings: {
+        itemsToShow: 3,
+        wheelControl: false,
+        infiniteScroll: true,
+        breakpoints: {
+          300: {
+            itemsToShow: 1
+          },
+          800: {
+            itemsToShow: 2
+          },
+          1280: {
+            itemsToShow: 3,
+            pagination: "fraction"
+          }
+        }
+      }
     };
   },
   async mounted() {
@@ -82,7 +102,9 @@ export default {
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-auto-rows: 1fr;
     gap: 4rem;
+    overflow: hidden;
   }
   &__info {
     font-size: 0.8rem;
@@ -93,15 +115,6 @@ export default {
   }
   &__list {
     padding: 5rem 0;
-    &-wrapper {
-      @media (max-width: 1280px) {
-        padding: 0 5rem;
-      }
-      @media (max-width: 768px) {
-        padding: 4rem 3rem;
-      }
-      background-color: var(--stories-list-bgc);
-    }
   }
 }
 .section {

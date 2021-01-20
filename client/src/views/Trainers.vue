@@ -34,6 +34,16 @@ export default {
   components: {
     TrainersList
   },
+  data() {
+    return {
+      meta: {
+        start: 0,
+        limit: 3,
+        currentPage: 1,
+        pageCount: 0
+      }
+    };
+  },
   computed: {
     ...mapGetters([
       "trainersLoadingStatus",

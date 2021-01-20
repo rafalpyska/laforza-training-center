@@ -26,6 +26,7 @@ export default {
 .loading {
   display: flex;
   align-items: center;
+  min-height: 50vh;
   background-color: var(--gray);
   z-index: 12;
 }

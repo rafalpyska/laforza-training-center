@@ -75,12 +75,6 @@
       "collection": "story",
       "via": "author"
     },
-    "socials": {
-      "type": "dynamiczone",
-      "components": [
-        "trainer-socials.socials"
-      ]
-    },
     "shortInfo": {
       "type": "dynamiczone",
       "components": [
@@ -96,10 +90,28 @@
       "plugin": "upload",
       "required": false
     },
+    "socialMedia": {
+      "type": "dynamiczone",
+      "components": [
+        "socials.facebook",
+        "socials.instagram",
+        "socials.twitter"
+      ]
+    },
     "schedule": {
-      "type": "component",
-      "repeatable": true,
-      "component": "trainer-schedule.schedule"
+      "type": "dynamiczone",
+      "components": [
+        "trainer-schedule.tuesday",
+        "trainer-schedule.monday",
+        "trainer-schedule.wednesday",
+        "trainer-schedule.thursday",
+        "trainer-schedule.friday"
+      ]
+    },
+    "occupation": {
+      "type": "string",
+      "required": true,
+      "default": "Instructor"
     }
   }
 }

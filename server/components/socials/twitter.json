@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_socials_twitters",
+  "info": {
+    "name": "twitter",
+    "icon": "american-sign-language-interpreting",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "default": "https://www.twitter.com"
+    },
+    "name": {
+      "type": "string",
+      "default": "Twitter"
+    }
+  }
+}

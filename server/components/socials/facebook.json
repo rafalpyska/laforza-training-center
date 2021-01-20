@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_socials_facebooks",
+  "info": {
+    "name": "facebook",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "default": "https://www.facebook.com"
+    },
+    "name": {
+      "type": "string",
+      "default": "Facebook"
+    }
+  }
+}

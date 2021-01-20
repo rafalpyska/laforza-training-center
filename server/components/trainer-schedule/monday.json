@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_trainer_schedule_mondays",
+  "info": {
+    "name": "Monday",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "day": {
+      "type": "string",
+      "required": false,
+      "default": "Monday"
+    },
+    "availability": {
+      "type": "string"
+    }
+  }
+}

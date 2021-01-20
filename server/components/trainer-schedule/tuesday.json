@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_trainer_schedule_tuesdays",
+  "info": {
+    "name": "Tuesday",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "day": {
+      "type": "string",
+      "required": false,
+      "default": "Tuesday"
+    },
+    "availability": {
+      "type": "string"
+    }
+  }
+}

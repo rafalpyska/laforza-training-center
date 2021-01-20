@@ -1,74 +1,112 @@
 <template>
   <div class="container">
     <BaseLoadingSpinner v-if="singlePostLoadingStatus" />
-    <section class="section blog" v-else>
-      <div class="container">
-        <div class="blog__post-wrapper">
-          <article class="blog__post">
-            <div class="blog__post-image-container">
-              <ImageItem
-                :source="`${post[0].image.formats.large.url}`"
-                :alt="`${post[0].image.alternativeText}`"
-              />
-              <BlogPostDate :post="post[0]" />
-            </div>
-            <div class="blog__post-content">
-              <h2 class="blog__post-heading">{{ post[0].title }}</h2>
-              <p
-                class="blog__post-posted-by"
-                v-for="author in post[0].authors"
-                :key="author.id"
-              >
-                Published by: {{ author.username }}
-              </p>
-              <p class="blog__post-paragraph">
-                {{ post[0].content }}
-              </p>
-            </div>
-            <div
-              class="blog__post-author-info"
-              v-for="author in post[0].authors"
-              :key="author.id"
-            >
-              <figure class="blog__post-author-avatar-container">
-                <img
-                  src="@/assets/images/90x90-placeholder.png"
-                  :alt="author.avatar.alternativeText"
-                  class="blog__post-author-avatar"
-                />
-              </figure>
-              <div class="blog__post-author-credentials">
-                <div class="blog__post-author-credentials-header">
-                  <p>{{ author.username }}</p>
-                  <p>GYM INSTRUCTOR</p>
-                </div>
-                <div class="blog__post-author-credentials-content">
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Dolore esse ut cupiditate nemo in earum atque numquam minus
-                    ab illo.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <aside class="blog__post-sidebar">
-            <div class="blog__post-category">
-              <h2 class="blog__post-category-heading">Categories</h2>
-              <ul class="blog__post-category-list">
-                <li
-                  class="blog__post-category-item"
-                  v-for="category in post[0].categories"
-                  :key="category.id"
-                >
-                  #{{ category.name }}
-                </li>
-              </ul>
-            </div>
-          </aside>
+    <div class="blog__post-wrapper">
+      <article class="blog__post">
+        <div class="blog__post-image-container">
+          <ImageItem
+            :source="`${post[0].image.formats.large.url}`"
+            :alt="`${post[0].image.alternativeText}`"
+          />
+          <BlogPostDate :post="post[0]" />
         </div>
-      </div>
-    </section>
+        <div class="blog__post-content">
+          <h2 class="blog__post-heading">{{ post[0].title }}</h2>
+          <p
+            class="blog__post-posted-by"
+            v-for="author in post[0].authors"
+            :key="author.id"
+          >
+            Published by: {{ author.username }}
+          </p>
+          <p class="blog__post-paragraph">
+            {{ post[0].content }}
+          </p>
+        </div>
+        <div
+          class="blog__post-author-info"
+          v-for="author in post[0].authors"
+          :key="author.id"
+        >
+          <figure class="blog__post-author-avatar-container">
+            <img
+              :src="author.avatar.formats.thumbnail.url"
+              :alt="author.avatar.alternativeText"
+              class="blog__post-author-avatar"
+            />
+          </figure>
+          <div class="blog__post-author-credentials">
+            <div class="blog__post-author-credentials-header">
+              <p class="text-uppercase">{{ author.username }}</p>
+              <p class="text-uppercase">{{ author.occupation }}</p>
+            </div>
+            <div class="blog__post-author-credentials-content">
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+                esse ut cupiditate nemo in earum atque numquam minus ab illo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <aside class="blog__post-sidebar">
+        <BaseWidget>
+          <template v-slot:heading>
+            Categories
+          </template>
+          <template v-slot:content>
+            <ul class="blos__post-category-list">
+              <li
+                class="blog__post-category-item"
+                v-for="category in post[0].categories"
+                :key="category.id"
+              >
+                #{{ category.name }}
+              </li>
+            </ul>
+          </template>
+        </BaseWidget>
+        <BaseWidget>
+          <template v-slot:heading>
+            Sample widget based on slots
+          </template>
+          <template v-slot:content>
+            <p>
+              Esllentesque lacus.Vivamus lorem arcu semperd duiac. Cras ornare
+              arcu avamus nda leo. Etiam ind arcu. Morbi justo mauris tempus
+              pharetrad interd um at congue semper purus. Lorem ipsum dolor sit
+              amet sed consectetura.
+            </p>
+          </template>
+        </BaseWidget>
+        <BaseWidget>
+          <template v-slot:heading>
+            Sample widget based on slots
+          </template>
+          <template v-slot:content>
+            <p>
+              Esllentesque lacus.Vivamus lorem arcu semperd duiac. Cras ornare
+              arcu avamus nda leo. Etiam ind arcu. Morbi justo mauris tempus
+              pharetrad interd um at congue semper purus. Lorem ipsum dolor sit
+              amet sed consectetura.
+            </p>
+          </template>
+        </BaseWidget>
+        <BaseWidget>
+          <template v-slot:heading>
+            Sample widget based on slots
+          </template>
+          <template v-slot:content>
+            <p>
+              Esllentesque lacus.Vivamus lorem arcu semperd duiac. Cras ornare
+              arcu avamus nda leo. Etiam ind arcu. Morbi justo mauris tempus
+              pharetrad interd um at congue semper purus. Lorem ipsum dolor sit
+              amet sed consectetura.
+            </p>
+          </template>
+        </BaseWidget>
+      </aside>
+    </div>
   </div>
 </template>
 
@@ -162,7 +200,6 @@ export default {
     }
   }
   &-sidebar {
-    padding: 2rem;
     background-color: var(--blog-post-sidebar-bgc);
     @media (max-width: 992px) {
       grid-column: 1/-1;
