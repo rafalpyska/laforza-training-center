@@ -12,21 +12,21 @@
 <script>
 export default {
   name: "BaseWidget"
-}
+};
 </script>
 
 <style scoped lang="scss">
-  .widget {
-    &__heading {
-      padding: .5rem 1rem;
-      text-transform: uppercase;
-      background-color: var(--widget-heading-bgc);
-    }
-    &__content {
-      display: flex;
-      flex-direction: column;
-      padding: .5rem 1rem;
-      background-color: var(--widget-content-bgc);
-    }
+.widget {
+  &__heading {
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    background-color: var(--widget-heading-bgc);
   }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    background-color: var(--widget-content-bgc);
+  }
+}
 </style>

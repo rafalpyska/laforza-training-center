@@ -94,7 +94,11 @@ export default {
     ...mapGetters(["trainersLoadingStatus", "trainersErrorStatus", "trainers"])
   },
   async mounted() {
-    await this.$store.dispatch("fetchTrainers", { start: 0, limit: this.limit, page: 1 });
+    await this.$store.dispatch("fetchTrainers", {
+      start: 0,
+      limit: this.limit,
+      page: 1
+    });
   }
 };
 </script>

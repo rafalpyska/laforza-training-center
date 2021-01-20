@@ -42,7 +42,7 @@ export default {
         currentPage: 1,
         pageCount: 0
       }
-    }
+    };
   },
   computed: {
     ...mapGetters([
