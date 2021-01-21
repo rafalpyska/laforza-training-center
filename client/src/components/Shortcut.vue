@@ -38,7 +38,7 @@
         <div class="slider__controls">
           <BaseButton
             btnType="slider"
-            class="btn--slider-prev"
+            class="btn--slider-prev btn--slider-dark"
             @click.native="newsSlidePrev"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
@@ -46,7 +46,7 @@
           </BaseButton>
           <BaseButton
             btnType="slider"
-            class="btn--slider-next"
+            class="btn--slider-next btn--slider-dark"
             @click.native="newsSlideNext"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -101,7 +101,9 @@
                 class="text-uppercase shortcut__heading shortcut__heading--plans"
               >
                 ${{ bundle.price }}
-                <span class="color-primary">/ {{ bundle.name }}</span>
+                <span class="color-primary shortcut__heading--plans-plan-name"
+                  >/ {{ bundle.name }}</span
+                >
               </h2>
               <p>Includes following classes:</p>
               <ul class="shortcut__training-plan-list">
@@ -111,7 +113,7 @@
                   :key="course.id"
                 >
                   <i
-                    class="fas fa-user-shield shortcut__training-plan-icon"
+                    class="fas fa-fist-raised shortcut__training-plan-icon"
                     aria-hidden="true"
                   ></i>
                   {{ course.name }}
@@ -123,7 +125,7 @@
         <div class="slider__controls">
           <BaseButton
             btnType="slider"
-            class="btn--slider-prev"
+            class="btn--slider-prev btn--slider-light"
             @click.native="plansSlidePrev"
           >
             <i class="fas fa-chevron-left" aria-hidden="true"></i>
@@ -131,7 +133,7 @@
           </BaseButton>
           <BaseButton
             btnType="slider"
-            class="btn--slider-next"
+            class="btn--slider-next btn--slider-light"
             @click.native="plansSlideNext"
           >
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -174,6 +176,8 @@ export default {
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
     await this.$store.dispatch("fetchBundles");
+
+    if (this.bundles && this.posts.length > 0) return;
     await this.$store.dispatch("fetchBlogPosts", {
       start: this.startPostsFrom,
       limit: this.numberOfPosts
@@ -228,7 +232,7 @@ export default {
     background-color: var(--shortcut-news-bgc);
     transition: 0.2s all;
     @media (max-width: 1232px) {
-      grid-column: span 2;
+      grid-column: 1/-1;
     }
     &:hover {
       background-color: red;
@@ -238,6 +242,29 @@ export default {
     }
     &:hover .shortcut__heading--news {
       color: white;
+    }
+    &:hover .btn--slider {
+      color: white;
+      background-color: var(--color-primary);
+      border-color: white;
+      & > * {
+        color: white;
+      }
+    }
+    &:hover .btn--slider-dark:hover {
+      background-color: black;
+    }
+    &:hover .btn--more {
+      border-color: white;
+      color: white;
+    }
+    &-item-container {
+      max-width: 28rem;
+      margin-bottom: 0.5rem;
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
+      }
     }
     &-container {
       display: flex;
@@ -258,8 +285,14 @@ export default {
   &__partners {
     background-color: var(--shortcut-news-bgc);
     transition: 0.2s all;
+    @media (max-width: 1232px) {
+      grid-column: 1/-1;
+    }
     &:hover {
       background-color: red;
+    }
+    &:hover .shortcut__heading--partners {
+      color: white;
     }
     &-logo {
       &-container {
@@ -276,39 +309,45 @@ export default {
   &__training-plan {
     background-color: var(--shortcut-training-plans-bgc);
     transition: 0.2s all;
-    &:hover {
-      background-color: var(--color-primary);
-    }
     @media (max-width: 1232px) {
       grid-column: 1/-1;
     }
-    &-list {
-      font-size: 0.75rem;
-      text-transform: uppercase;
+    &:hover {
+      background-color: var(--color-primary);
     }
-
     &-icon {
       width: 20px;
       text-align: center;
       margin-right: 0.25rem;
+    }
+    &:hover .shortcut__heading--plans-plan-name {
+      color: black;
+    }
+    &:hover .btn--slider {
+      color: white;
+      border-color: black;
+      & > * {
+        color: black;
+      }
+    }
+    &:hover .shortcut__training-plan-icon {
+      color: black;
+    }
+    &-list {
+      font-size: 0.75rem;
+      text-transform: uppercase;
     }
   }
 }
 .training-plan {
   display: flex;
   flex-direction: column;
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
 }
-
-.btn--slider {
-  &-prev {
-    border-color: #c4c4c4;
-  }
-  &-next {
-    border-color: #c4c4c4;
-    border-left: none;
-  }
-  &-white {
-    border: 1px solid white;
-  }
+.slider__controls {
+  margin: 1rem 0;
 }
 </style>

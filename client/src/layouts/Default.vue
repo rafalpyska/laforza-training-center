@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <TheHeader />
-    <slot />
+    <slot></slot>
     <BaseActionStrip class="action-strip--bottom">
       <template v-slot:first-column>
         <img
-          src="./assets/images/logos/footer-logo.png"
+          src="@/assets/images/logos/footer-logo.png"
           class="logo__bottom"
           alt="LaFORZA Training Center Logo"
         />

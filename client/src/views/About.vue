@@ -83,7 +83,7 @@ export default {
             itemsToShow: 3
           },
           1280: {
-            itemsToShow: 6,
+            itemsToShow: 4,
             pagination: "fraction"
           }
         }
@@ -107,6 +107,10 @@ export default {
 .trainer {
   &__list {
     overflow: hidden;
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
   }
 }
 </style>

@@ -102,6 +102,34 @@ export default {
   }
   &--slider {
     border: 1px solid;
+    padding: 0.35rem;
+    min-width: 2.25rem;
+    &-dark {
+      border-color: black;
+      &:hover {
+        background-color: black;
+        border-color: white;
+      }
+      & > i {
+        color: black;
+      }
+      &:hover > i {
+        color: white;
+      }
+    }
+    &-light {
+      border-color: white;
+      &:hover {
+        background-color: white;
+        border-color: black;
+      }
+      & > i {
+        color: white;
+      }
+      &:hover > i {
+        color: white;
+      }
+    }
   }
 }
 </style>

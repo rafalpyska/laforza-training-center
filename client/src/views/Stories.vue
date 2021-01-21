@@ -105,6 +105,10 @@ export default {
     grid-auto-rows: 1fr;
     gap: 4rem;
     overflow: hidden;
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
   }
   &__info {
     font-size: 0.8rem;

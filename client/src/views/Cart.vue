@@ -48,18 +48,16 @@ export default {
 .cart {
   &__item {
     padding: 1rem 2rem;
+    background-color: var(--courses-bundle-bgc);
     color: white;
+    margin-bottom: 0.25rem;
+    & > .cart__remove {
+      color: white;
+    }
     &-image {
       &-container {
         width: 5rem;
         height: 5rem;
-      }
-    }
-    &:nth-child(even) {
-      background-color: white;
-      color: var(--color-secondary);
-      & > .cart__remove {
-        color: var(--color-secondary);
       }
     }
   }
@@ -68,6 +66,11 @@ export default {
     border: none;
     color: white;
     font-size: 1rem;
+    cursor: pointer;
+    transition: 0.1s all;
+    &:hover {
+      color: var(--color-primary);
+    }
   }
 }
 </style>
