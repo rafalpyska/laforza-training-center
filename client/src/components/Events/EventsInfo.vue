@@ -49,8 +49,15 @@ export default {
 <style scoped lang="scss">
 .events {
   &__info {
-    display: none;
+    display: block;
+    position: absolute;
+    left: 167px;
+    top: 0;
+    z-index: 1;
     min-width: 20rem;
+    @media (max-width: 992px) {
+      left: 0;
+    }
     &-header {
       padding: 2rem 1rem;
       color: white;
@@ -63,17 +70,6 @@ export default {
     }
     &-icon {
       margin-right: 0.25rem;
-    }
-  }
-  &-calendar-day--active .events__info {
-    display: block;
-    position: absolute;
-    left: 167px;
-    top: 0;
-    z-index: 1;
-    @media (max-width: 992px) {
-      position: static;
-      margin-top: 2rem;
     }
   }
 }

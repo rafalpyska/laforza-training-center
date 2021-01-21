@@ -11,9 +11,9 @@
           :key="day.date"
           :day="day"
           :is-today="day.date === today"
+          :isSelected="selectedDay"
+          @click.native="handleEvent(day)"
           :events="events"
-          @click="selected = day.date"
-          :class="{ 'events-calendar-day--active': day.date == selected }"
         />
       </ol>
 
@@ -58,7 +58,8 @@ export default {
   mixins: [fetchData],
   data() {
     return {
-      selected: null,
+      // selected: null,
+      selectedDay: null,
       loading: false,
       error: "",
       events: [],
@@ -154,6 +155,13 @@ export default {
     },
     getWeekday(date) {
       return dayjs(date).weekday();
+    },
+    handleEvent(day) {
+      if(this.selectedDay != day){
+        this.selectedDay = day
+      } else {
+        this.selectedDay = ''
+      }
     }
   },
   async created() {

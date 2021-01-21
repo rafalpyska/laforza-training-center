@@ -174,6 +174,8 @@ export default {
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
     await this.$store.dispatch("fetchBundles");
+
+    if (this.bundles && this.posts.length > 0) return;
     await this.$store.dispatch("fetchBlogPosts", {
       start: this.startPostsFrom,
       limit: this.numberOfPosts
