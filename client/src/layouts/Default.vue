@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <TheHeader />
     <slot></slot>
     <BaseActionStrip class="action-strip--bottom">

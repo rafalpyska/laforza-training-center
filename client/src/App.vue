@@ -144,7 +144,7 @@ export default {
 }
 
 .encouragement-box {
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   text-transform: uppercase;
   background-color: var(--color-primary);

@@ -21,11 +21,11 @@
           </li>
           <li
             class="schedule__content-item"
-            v-for="day in trainer.schedule"
-            :key="day.id"
+            v-for="schedule in trainer.schedule"
+            :key="schedule.id"
           >
-            <span class="schedule__content-item--day">{{ day.name }}</span
-            >{{ day.availability }}
+            <span class="schedule__content-item--day">{{ schedule.day }}</span
+            >{{ schedule.availability }}
           </li>
         </template>
       </ul>
@@ -112,6 +112,7 @@ export default {
         @media (max-width: 992px) {
           display: inline;
           font-style: italic;
+          font-weight: 700;
         }
       }
     }

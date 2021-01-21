@@ -34,7 +34,6 @@
           event.startDate == day.date && isSelected == day && isSelected != null
         "
         :event="event"
-        :offsetLeft="elementWidth"
       />
     </template>
   </li>
@@ -68,11 +67,6 @@ export default {
       required: true
     },
     isSelected: {}
-  },
-  data() {
-    return {
-      elementWidth: 0
-    };
   },
   computed: {
     label() {

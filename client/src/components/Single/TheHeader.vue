@@ -2,8 +2,8 @@
   <header class="header">
     <!-- fixed-height="100vh" on slider-->
     <div class="header__content container">
-      <div class="section__info">
-        <div class="section__info-titles-container">
+      <div class="header__info">
+        <div class="header__info-route">
           <h1>{{ currentRouteName }}</h1>
         </div>
         <div class="encouragement-box">
@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     currentRouteName() {
-      return this.$route.name;
+      return this.$route.fullPath;
     }
   }
 };
@@ -37,6 +37,17 @@ export default {
   position: relative;
   &__content {
     padding: 4rem 0;
+    @media (max-width: 1280px) {
+      padding: 4rem 2rem;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .85rem;
+    &-route {
+      margin-right: auto;
+    }
   }
 }
 </style>
