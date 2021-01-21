@@ -60,6 +60,11 @@
         </div>
       </div>
     </div>
+    <BaseModal
+      ref="popup"
+      :title="course.name"
+    >
+    </BaseModal>
   </div>
 </template>
 
@@ -88,11 +93,14 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.dispatch("addCourseToCart", {
-        course: this.course,
-        quantity: 1,
-        trainer: this.selectedTrainer
-      });
+      if(!this.selectedTrainer === "") {
+        this.$store.dispatch("addCourseToCart", {
+          course: this.course,
+          quantity: 1,
+          trainer: this.selectedTrainer
+        });
+        this.$refs.popup.show = !this.$refs.popup.show;
+      }
     },
     setSelectedTrainer(value) {
       this.selectedTrainer = value;

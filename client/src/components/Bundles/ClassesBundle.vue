@@ -21,6 +21,11 @@
     <BaseButton btnType="sign-up" @click.native="addToCart()">
       Sign Up
     </BaseButton>
+    <BaseModal
+      ref="popup"
+      :title="bundle.name"
+    >
+    </BaseModal>
   </div>
 </template>
 
@@ -39,6 +44,7 @@ export default {
         course: this.bundle,
         quantity: 1
       });
+      this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };

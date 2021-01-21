@@ -86,14 +86,12 @@
       <BaseButton btnType="schedule" @click.native="addToCart()">
         Enroll
       </BaseButton>
-      <!-- <teleport to="#modal"> -->
-      <!-- <BaseModal
-          ref="popup"
-          :title="trainer.classes[0].name"
-          :subtitle="trainer.username"
+      <BaseModal
+        ref="popup"
+        :title="trainer.classes[0].name"
+        :subtitle="trainer.username"
         >
-        </BaseModal> -->
-      <!-- </teleport> -->
+      </BaseModal>
     </div>
   </div>
 </template>
@@ -124,7 +122,7 @@ export default {
         quantity: 1,
         trainer: this.trainer.username
       });
-      // this.$refs.popup.show = !this.$refs.popup.show;
+      this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };
