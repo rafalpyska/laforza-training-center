@@ -20,6 +20,11 @@
     },
     "startHour": {
       "type": "time"
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "default": "Nice event!"
     }
   }
 }
