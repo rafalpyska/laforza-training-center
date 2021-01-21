@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <TheSliderHeader />
     <slot></slot>
     <BaseActionStrip class="action-strip--bottom">

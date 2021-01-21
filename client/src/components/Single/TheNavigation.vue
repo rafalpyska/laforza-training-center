@@ -217,7 +217,6 @@ export default {
     color: white;
     font-size: 1.15rem;
     display: none;
-    margin-right: 2rem;
     margin-left: 2rem;
     @media (max-width: 1222px) {
       display: flex;

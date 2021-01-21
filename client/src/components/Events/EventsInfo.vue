@@ -12,7 +12,7 @@
       <p class="">
         <i class="far fa-clock events__info-icon" aria-hidden="true"></i>
         <span class="bold">Start hour: </span>
-        {{ startHour }}
+        {{ event.startHour.split(":").splice(0, 2).join(":") }}
       </p>
       <p class="">
         <i class="far fa-clipboard events__info-icon" aria-hidden="true"></i>
@@ -24,23 +24,12 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
 export default {
   name: "EventsInfo",
   props: {
     event: {
       type: Object,
       required: true
-    },
-    offsetLeft: {
-      type: Number,
-      required: true,
-      default: 0
-    }
-  },
-  computed: {
-    startHour() {
-      return dayjs(this.event.startHour).format("HH");
     }
   }
 };
