@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <TheHeader />
-    <router-view :key="$route.fullPath" />
+    <TheSliderHeader />
+    <slot></slot>
     <BaseActionStrip class="action-strip--bottom">
       <template v-slot:first-column>
         <img
-          src="./assets/images/logos/footer-logo.png"
+          src="@/assets/images/logos/footer-logo.png"
           class="logo__bottom"
           alt="LaFORZA Training Center Logo"
         />
@@ -21,12 +21,12 @@
 </template>
 
 <script>
-import TheHeader from "@/components/Single/TheHeader.vue";
+import TheSliderHeader from "@/components/Single/TheSliderHeader.vue";
 import TheFooter from "@/components/Single/TheFooter.vue";
 
 export default {
   components: {
-    TheHeader,
+    TheSliderHeader,
     TheFooter
   }
 };

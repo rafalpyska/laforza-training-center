@@ -239,6 +239,14 @@ export default {
     &:hover .shortcut__heading--news {
       color: white;
     }
+    &:hover .btn--slider {
+      color: white;
+      border-color: white;
+    }
+    &:hover .btn--more {
+      border-color: white;
+      color: white;
+    }
     &-item-container {
       cursor: grab;
       &:active {
@@ -312,10 +320,16 @@ export default {
 .btn--slider {
   &-prev {
     border-color: #c4c4c4;
+    &:hover {
+      background-color: black;
+    }
   }
   &-next {
     border-color: #c4c4c4;
     border-left: none;
+    &:hover {
+      background-color: black;
+    }
   }
   &-white {
     border: 1px solid white;

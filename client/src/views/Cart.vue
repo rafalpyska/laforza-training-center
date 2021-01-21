@@ -66,6 +66,11 @@ export default {
     border: none;
     color: white;
     font-size: 1rem;
+    cursor: pointer;
+    transition: .1s all;
+    &:hover {
+      color: var(--color-primary);
+    }
   }
 }
 </style>

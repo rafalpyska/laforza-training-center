@@ -67,6 +67,7 @@ export default {
 .trainer-mini-profile {
   display: flex;
   flex-direction: column;
+  margin-right: 2rem;
   &__info {
     background-color: var(--trainers-mini-profile-info-bgc);
     &-image {

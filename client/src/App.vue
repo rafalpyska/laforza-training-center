@@ -1,33 +1,19 @@
 <template>
   <div id="app">
-    <TheHeader />
-    <router-view :key="$route.fullPath" />
-    <BaseActionStrip class="action-strip--bottom">
-      <template v-slot:first-column>
-        <img
-          src="./assets/images/logos/footer-logo.png"
-          class="logo__bottom"
-          alt="LaFORZA Training Center Logo"
-        />
-      </template>
-      <template v-slot:last-column>
-        <a ref="gotop" href="#home" class="go-top" aria-label="Scroll to Top">
-          <i class="fas fa-chevron-up go-top__icon"></i>
-        </a>
-      </template>
-    </BaseActionStrip>
-    <TheFooter />
+    <component :is="layout">
+      <router-view :key="$route.fullPath" />
+    </component>
   </div>
 </template>
 
 <script>
-import TheHeader from "@/components/Single/TheHeader.vue";
-import TheFooter from "@/components/Single/TheFooter.vue";
+const default_layout = "default";
 
 export default {
-  components: {
-    TheHeader,
-    TheFooter
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || default_layout) + '-layout';
+    }
   }
 };
 </script>
