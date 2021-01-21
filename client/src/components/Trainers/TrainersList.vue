@@ -28,6 +28,7 @@
           v-for="social in trainer.socialMedia"
           :key="social.id"
           :href="`${social.url}`"
+          target="_blank"
           class="trainer__socials-link"
         >
           <i

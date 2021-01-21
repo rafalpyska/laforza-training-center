@@ -99,7 +99,7 @@
   left: 0;
 }
 .hooper {
-  position: relative;
+  flex: 1;
   box-sizing: border-box;
   width: 100%;
   height: auto;

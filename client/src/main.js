@@ -9,9 +9,8 @@ import "@/components/_globals";
 import Default from "./layouts/Default";
 import Homepage from "./layouts/Homepage";
 
-Vue.component('default-layout', Default);
-Vue.component('homepage-layout', Homepage);
-
+Vue.component("default-layout", Default);
+Vue.component("homepage-layout", Homepage);
 
 Vue.directive("lazyload", LazyLoadDirective);
 

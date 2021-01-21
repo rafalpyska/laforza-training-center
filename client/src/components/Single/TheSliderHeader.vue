@@ -25,7 +25,7 @@
 <script>
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-import TheNavigation from './TheNavigation.vue';
+import TheNavigation from "./TheNavigation.vue";
 
 export default {
   name: "TheSliderHeader",
@@ -57,7 +57,7 @@ export default {
         image: require("@/assets/images/hero-3.jpg")
       }
     ]
-  }),
+  })
 };
 </script>
 
@@ -67,5 +67,4 @@ export default {
   color: var(--white);
   position: relative;
 }
-
 </style>

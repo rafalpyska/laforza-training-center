@@ -157,10 +157,10 @@ export default {
       return dayjs(date).weekday();
     },
     handleEvent(day) {
-      if(this.selectedDay != day){
-        this.selectedDay = day
+      if (this.selectedDay != day) {
+        this.selectedDay = day;
       } else {
-        this.selectedDay = ''
+        this.selectedDay = "";
       }
     }
   },

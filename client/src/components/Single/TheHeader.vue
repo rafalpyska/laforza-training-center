@@ -15,7 +15,7 @@
   </header>
 </template>
 <script>
-import TheNavigation from './TheNavigation.vue';
+import TheNavigation from "./TheNavigation.vue";
 
 export default {
   name: "TheHeader",

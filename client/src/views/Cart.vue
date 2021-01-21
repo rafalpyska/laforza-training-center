@@ -50,10 +50,10 @@ export default {
     padding: 1rem 2rem;
     background-color: var(--courses-bundle-bgc);
     color: white;
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
     & > .cart__remove {
       color: white;
-   }
+    }
     &-image {
       &-container {
         width: 5rem;
@@ -67,7 +67,7 @@ export default {
     color: white;
     font-size: 1rem;
     cursor: pointer;
-    transition: .1s all;
+    transition: 0.1s all;
     &:hover {
       color: var(--color-primary);
     }

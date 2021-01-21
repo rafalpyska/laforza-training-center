@@ -83,7 +83,7 @@ export default {
             itemsToShow: 3
           },
           1280: {
-            itemsToShow: 5,
+            itemsToShow: 4,
             pagination: "fraction"
           }
         }

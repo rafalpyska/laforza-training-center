@@ -24,6 +24,7 @@
         v-for="social in trainer.socialMedia"
         :key="social.id"
         :href="`${social.url}`"
+        target="_blank"
         class="href trainer-mini-profile__socials-link"
       >
         <i
@@ -67,7 +68,7 @@ export default {
 .trainer-mini-profile {
   display: flex;
   flex-direction: column;
-  margin-right: 2rem;
+  margin-right: 1rem;
   &__info {
     background-color: var(--trainers-mini-profile-info-bgc);
     &-image {
@@ -75,7 +76,7 @@ export default {
       object-position: 50% 15%;
     }
     &-description {
-      padding: 1rem 0;
+      padding: 1rem 0.5rem;
       text-align: center;
       &-class {
         color: var(--color-primary);

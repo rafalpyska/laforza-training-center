@@ -30,7 +30,9 @@
       </span>
       <EventsInfo
         :key="`info-${event.id}`"
-        v-if="event.startDate == day.date && isSelected == day && isSelected != null"
+        v-if="
+          event.startDate == day.date && isSelected == day && isSelected != null
+        "
         :event="event"
         :offsetLeft="elementWidth"
       />
@@ -65,7 +67,7 @@ export default {
       type: Array,
       required: true
     },
-    isSelected:{}
+    isSelected: {}
   },
   data() {
     return {
