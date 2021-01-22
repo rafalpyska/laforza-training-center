@@ -10,6 +10,7 @@
       @autoplay-resume="internalAutoPlaying = true"
       :parallax="parallax"
       :parallax-fixed-content="parallaxFixedContent"
+      :fixedHeight="media.isMobile"
     >
       <vueper-slide
         v-for="(slide, i) in slides"
@@ -57,7 +58,14 @@ export default {
         image: require("@/assets/images/hero-3.jpg")
       }
     ]
-  })
+  }),
+  computed: {
+    media() {
+      return {
+        'isMobile': !this.$screen.sm
+      };
+    }
+  }
 };
 </script>
 
