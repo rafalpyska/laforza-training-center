@@ -53,6 +53,7 @@ export default {
         course: this.bundle,
         quantity: 1
       });
+      this.$store.commit("ADD_CART_TO_LOCAL_STORAGE");
       this.$refs.popup.show = !this.$refs.popup.show;
     }
   }

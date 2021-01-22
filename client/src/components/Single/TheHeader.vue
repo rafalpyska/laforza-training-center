@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     currentRouteName() {
-      return this.$route.fullPath;
+      return this.$route.name;
     }
   }
 };
