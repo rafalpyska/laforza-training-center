@@ -28,7 +28,10 @@ export default {
     padding: 0.5rem 5rem;
   }
   @media (max-width: 768px) {
-    padding: 0.5rem 3rem;
+    padding: 0.5rem 2rem;
+  }
+  @media (max-width: 338px) {
+    padding: 0.5rem 1rem;
   }
   &--bottom {
     padding: 0;
