@@ -163,6 +163,8 @@ export default {
   width: 2rem;
   height: 2rem;
   border: 1px solid var(--white);
+  background-color: var(--color-primary);
+  cursor: pointer;
   &:hover {
     background-color: white;
   }

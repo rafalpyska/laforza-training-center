@@ -60,7 +60,22 @@
         </div>
       </div>
     </div>
-    <BaseModal ref="popup" :title="course.name"> </BaseModal>
+    <BaseModal ref="popup" :title="course.name">
+      <template v-slot:body>
+        <p>
+          You have successfully added
+          <span class="bold text-uppercase color-primary"
+            >'{{ course.name }}'</span
+          >
+          course with
+          <span class="bold text-uppercase color-primary">{{
+            course.trainers[0].username
+          }}</span>
+          to your cart!
+        </p>
+        <p>Check our other bundles and courses!</p>
+      </template>
+    </BaseModal>
   </div>
 </template>
 
@@ -91,6 +106,11 @@ export default {
     addToCart() {
       if (!this.selectedTrainer == "") {
         this.$store.dispatch("addCourseToCart", {
+          id:
+            "_" +
+            Math.random()
+              .toString(36)
+              .substr(2, 9),
           course: this.course,
           quantity: 1,
           trainer: this.selectedTrainer

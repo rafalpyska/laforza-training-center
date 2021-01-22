@@ -23,8 +23,11 @@
     </BaseButton>
     <BaseModal ref="popup" :title="bundle.name">
       <template v-slot:body>
-        You have successfully added '{{ bundle.name }}' bundle to your cart!
-        Check our other bundles and courses!
+        You have successfully added
+        <span class="bold text-uppercase color-primary"
+          >'{{ bundle.name }}'</span
+        >
+        bundle to your cart! Check our other bundles and courses!
       </template>
     </BaseModal>
   </div>
@@ -42,6 +45,11 @@ export default {
   methods: {
     addToCart() {
       this.$store.dispatch("addCourseToCart", {
+        id:
+          "_" +
+          Math.random()
+            .toString(36)
+            .substr(2, 9),
         course: this.bundle,
         quantity: 1
       });

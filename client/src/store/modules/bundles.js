@@ -19,7 +19,7 @@ export default {
     SET_BUNDLES_LOADING(state, loadingStatus) {
       return (state.bundlesLoading = loadingStatus);
     },
-    setBundlesError(state, error) {
+    SET_BUNDLES_ERROR(state, error) {
       return (state.bundlesError = error);
     },
     SET_BUNDLES(state, bundles) {
@@ -41,7 +41,7 @@ export default {
           commit("SET_BUNDLES_LOADING", false);
         })
         .catch(error => {
-          commit("setBundlesError", error);
+          commit("SET_BUNDLES_ERROR", error);
         });
     }
   }

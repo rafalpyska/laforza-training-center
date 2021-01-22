@@ -11,9 +11,14 @@
         />
       </template>
       <template v-slot:last-column>
-        <a ref="gotop" href="#home" class="go-top" aria-label="Scroll to Top">
+        <button
+          ref="gotop"
+          @click="scrollTop"
+          class="go-top"
+          aria-label="Scroll to Top"
+        >
           <i class="fas fa-chevron-up go-top__icon"></i>
-        </a>
+        </button>
       </template>
     </BaseActionStrip>
     <TheFooter />
@@ -28,6 +33,15 @@ export default {
   components: {
     TheSliderHeader,
     TheFooter
+  },
+  methods: {
+    scrollTop() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
   }
 };
 </script>
