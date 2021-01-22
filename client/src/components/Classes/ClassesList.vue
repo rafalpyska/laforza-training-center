@@ -60,7 +60,15 @@
         </div>
       </div>
     </div>
-    <BaseModal ref="popup" :title="course.name"> </BaseModal>
+    <BaseModal ref="popup" :title="course.name"> 
+      <template v-slot:body>
+        <p>
+          You have successfully added '{{ course.name }}' course
+          with {{ course.trainers[0].username }} to your cart!
+        </p>
+        <p>Check our other bundles and courses!</p>
+      </template>
+    </BaseModal>
   </div>
 </template>
 
