@@ -10,6 +10,7 @@
       @autoplay-resume="internalAutoPlaying = true"
       :parallax="parallax"
       :parallax-fixed-content="parallaxFixedContent"
+      :fixed-height="media.isMobile"
     >
       <vueper-slide
         v-for="(slide, i) in slides"
@@ -17,6 +18,7 @@
         :image="slide.image"
         :title="parallaxFixedContent ? slide.title : ''"
         :content="parallaxFixedContent ? slide.content : ''"
+        
       />
     </vueper-slides>
     <TheNavigation />
@@ -35,6 +37,7 @@ export default {
     TheNavigation
   },
   data: () => ({
+    isMobile: false,
     pauseOnHover: true,
     autoPlaying: true,
     internalAutoPlaying: true,
@@ -57,7 +60,14 @@ export default {
         image: require("@/assets/images/hero-3.jpg")
       }
     ]
-  })
+  }),
+  computed: {
+    media() {
+      return {
+        'isMobile': !this.$screen.sm,
+      }
+    }
+  }
 };
 </script>
 
