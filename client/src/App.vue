@@ -91,6 +91,9 @@ export default {
   @media (max-width: 768px) {
     padding: 4rem 3rem;
   }
+  @media (max-width: 338px) {
+    padding: 3rem 1rem;
+  }
   &__info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

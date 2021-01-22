@@ -13,8 +13,13 @@
           <span class="color-primary text-uppercase">{{
             item.course.name
           }}</span>
-          with
-          <span class="color-primary text-uppercase">{{ item.trainer }}</span>
+          <span v-if="item.trainer !== undefined"> with </span>
+          <span v-if="item.trainer === undefined"> Bundle </span>
+          <span
+            v-if="item.trainer !== undefined"
+            class="color-primary text-uppercase"
+            >{{ item.trainer }}</span
+          >
         </h3>
         <p>Quantity: {{ item.quantity }}</p>
         <p>Price: ${{ item.course.price }}</p>

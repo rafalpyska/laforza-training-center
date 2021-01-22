@@ -12,7 +12,12 @@
       <p class="">
         <i class="far fa-clock events__info-icon" aria-hidden="true"></i>
         <span class="bold">Start hour: </span>
-        {{ event.startHour.split(":").splice(0, 2).join(":") }}
+        {{
+          event.startHour
+            .split(":")
+            .splice(0, 2)
+            .join(":")
+        }}
       </p>
       <p class="">
         <i class="far fa-clipboard events__info-icon" aria-hidden="true"></i>
@@ -43,7 +48,7 @@ export default {
     left: 167px;
     top: 0;
     z-index: 1;
-    min-width: 20rem;
+    min-width: 16rem;
     @media (max-width: 992px) {
       left: 0;
     }

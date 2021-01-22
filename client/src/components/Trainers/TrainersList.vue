@@ -90,7 +90,14 @@
         ref="popup"
         :title="trainer.classes[0].name"
         :subtitle="trainer.username"
-        >
+      >
+        <template v-slot:body>
+          <p>
+            You have successfully added '{{ trainer.classes[0].name }}' course
+            with {{ trainer.username }} to your cart!
+          </p>
+          <p>Check our other bundles and courses!</p>
+        </template>
       </BaseModal>
     </div>
   </div>

@@ -44,7 +44,7 @@ export default {
   &__info {
     display: flex;
     flex-wrap: wrap;
-    font-size: .85rem;
+    font-size: 0.85rem;
     &-route {
       margin-right: auto;
     }

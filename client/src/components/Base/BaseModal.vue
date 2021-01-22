@@ -16,10 +16,7 @@
         </slot>
       </header>
       <div class="modal__body">
-        <slot name="body">
-          You have successfully added '{{ title }}' course, with
-          {{ subtitle }}, to your cart! Check our other courses!
-        </slot>
+        <slot name="body"> </slot>
       </div>
       <footer class="modal__footer">
         <slot name="footer"></slot>
@@ -36,13 +33,24 @@ export default {
       required: true
     },
     subtitle: {
-      type: String,
+      type: String
     }
   },
   data() {
     return {
       show: false
     };
+  },
+  created() {
+    const escapeHandler = e => {
+      if (e.key === "Escape" && this.show === true) {
+        this.show = false;
+      }
+    };
+    document.addEventListener("keydown", escapeHandler);
+    this.$once("hook:destroyed", () => {
+      document.removeEventListener("keydown", escapeHandler);
+    });
   }
 };
 </script>
@@ -53,6 +61,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-width: 20rem;
   max-width: 22rem;
   background: #ffffff;
   border-radius: 0.25rem;

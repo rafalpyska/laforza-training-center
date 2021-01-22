@@ -21,10 +21,11 @@
     <BaseButton btnType="sign-up" @click.native="addToCart()">
       Sign Up
     </BaseButton>
-    <BaseModal
-      ref="popup"
-      :title="bundle.name"
-    >
+    <BaseModal ref="popup" :title="bundle.name">
+      <template v-slot:body>
+        You have successfully added '{{ bundle.name }}' bundle to your cart!
+        Check our other bundles and courses!
+      </template>
     </BaseModal>
   </div>
 </template>

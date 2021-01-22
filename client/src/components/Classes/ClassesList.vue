@@ -54,17 +54,13 @@
         </div>
       </div>
       <div class="class__occupation">
-        <h3 class="class__general-info-heading">The Occupation</h3>
+        <h3 class="class__general-info-heading">Duration</h3>
         <div class="class__occupation-time">
           <p>{{ course.duration }} min</p>
         </div>
       </div>
     </div>
-    <BaseModal
-      ref="popup"
-      :title="course.name"
-    >
-    </BaseModal>
+    <BaseModal ref="popup" :title="course.name"> </BaseModal>
   </div>
 </template>
 
@@ -93,7 +89,7 @@ export default {
   },
   methods: {
     addToCart() {
-      if(!this.selectedTrainer === "") {
+      if (!this.selectedTrainer == "") {
         this.$store.dispatch("addCourseToCart", {
           course: this.course,
           quantity: 1,
