@@ -6,16 +6,18 @@
           <div class="contact__info">
             <h2 class="color-primary">We will be happy to answer</h2>
             <p>
-              Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
-              quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam
-              nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec
-              odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis
-              faucibus. Nullam quis ante.
+              Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus,
+              sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
+              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
+              Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut
+              libero venenatis faucibus. Nullam quis ante.
             </p>
           </div>
           <form class="contact__form" action="">
             <div class="contact__fieldset">
-              <label class="visuallyhidden" for="contact-company">Full name</label>
+              <label class="visuallyhidden" for="contact-company"
+                >Full name</label
+              >
               <input
                 class="input contact__company"
                 id="contact-full-name"
@@ -37,7 +39,9 @@
               />
             </div>
             <div class="contact__fieldset">
-              <label class="visuallyhidden" for="contact-subject">Subject</label>
+              <label class="visuallyhidden" for="contact-subject"
+                >Subject</label
+              >
               <input
                 class="input contact__subject"
                 id="contact-subject"
@@ -88,7 +92,10 @@
             </p>
             <ul class="contact__info-list">
               <li class="contact__info-item">
-                <i class="fas fa-map-marked-alt contact__icon" aria-hidden="true">
+                <i
+                  class="fas fa-map-marked-alt contact__icon"
+                  aria-hidden="true"
+                >
                   <span class="visuallyhidden">Address</span>
                 </i>
                 <p>
@@ -129,7 +136,10 @@
             </p>
             <ul class="contact__info-list">
               <li class="contact__info-item">
-                <i class="fas fa-map-marked-alt contact__icon" aria-hidden="true">
+                <i
+                  class="fas fa-map-marked-alt contact__icon"
+                  aria-hidden="true"
+                >
                   <span class="visuallyhidden">Address</span>
                 </i>
                 <p>

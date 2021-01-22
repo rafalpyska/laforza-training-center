@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.b864e95dba417178437014dfef437e0f.js"
+  "/precache-manifest.07ba08569d8a867bb32171dbddc0d926.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "laforza"});

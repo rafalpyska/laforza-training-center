@@ -141,6 +141,7 @@ export default {
         quantity: 1,
         trainer: this.trainer.username
       });
+      this.$store.commit("ADD_CART_TO_LOCAL_STORAGE");
       this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
