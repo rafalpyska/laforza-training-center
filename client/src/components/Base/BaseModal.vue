@@ -1,7 +1,7 @@
 <template>
   <div id="modal-open" :class="{ show, 'modal-wrapper': true }">
     <div class="modal">
-      <div class="modal__header">
+      <header class="modal__header">
         <span
           @click="show = false"
           title="Close"
@@ -10,15 +10,17 @@
         >
           <i class="fas fa-times"></i>
         </span>
-        <i class="far fa-check-circle modal-success-icon"></i>
-        <h2 class="modal__heading">Great!</h2>
+        <slot name="header">
+          <i class="far fa-check-circle modal-success-icon"></i>
+          <h2 class="modal__heading">Great!</h2>
+        </slot>
+      </header>
+      <div class="modal__body">
+        <slot name="body"> </slot>
       </div>
-      <div class="modal__content">
-        <slot
-          >You have successfully added '{{ title }}' course, with
-          {{ subtitle }}, to your cart! Check our other courses!</slot
-        >
-      </div>
+      <footer class="modal__footer">
+        <slot name="footer"></slot>
+      </footer>
     </div>
   </div>
 </template>
@@ -31,14 +33,24 @@ export default {
       required: true
     },
     subtitle: {
-      type: String,
-      required: true
+      type: String
     }
   },
   data() {
     return {
       show: false
     };
+  },
+  created() {
+    const escapeHandler = e => {
+      if (e.key === "Escape" && this.show === true) {
+        this.show = false;
+      }
+    };
+    document.addEventListener("keydown", escapeHandler);
+    this.$once("hook:destroyed", () => {
+      document.removeEventListener("keydown", escapeHandler);
+    });
   }
 };
 </script>
@@ -49,6 +61,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-width: 20rem;
   max-width: 22rem;
   background: #ffffff;
   border-radius: 0.25rem;
@@ -64,7 +77,7 @@ export default {
     color: white;
     background-color: var(--color-primary);
   }
-  &__content {
+  &__body {
     color: white;
     background-color: var(--footer-copyrights-bgc);
     padding: 2em;

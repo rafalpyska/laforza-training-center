@@ -8,35 +8,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.fc5139d7.css"
   },
   {
-    "revision": "485328fde15a1231f2f1",
-    "url": "/css/app.bbec1ebe.css"
+    "revision": "5f4b14f0028cf82defa3",
+    "url": "/css/app.50c35057.css"
   },
   {
     "revision": "48abfd41333f3b0e51bd",
     "url": "/css/blog.64242d61.css"
   },
   {
-    "revision": "6b547784eb7a8c8ad4f7",
-    "url": "/css/cart.9506e897.css"
+    "revision": "feea637d6eb45f492309",
+    "url": "/css/cart.c69c48d0.css"
   },
   {
     "revision": "f2018573980cbfe12681",
     "url": "/css/chunk-vendors.eb78aeb9.css"
   },
   {
-    "revision": "c58d39c4b2fef9cffce6",
-    "url": "/css/classes.c4b85d0b.css"
+    "revision": "159b2ea289013f6ef9fb",
+    "url": "/css/classes.fdc32102.css"
   },
   {
     "revision": "6eed474e9cce90fddea6",
     "url": "/css/contact.67da9a9e.css"
   },
   {
-    "revision": "06c1c833fb0066c4cee8",
-    "url": "/css/events.3fa7f2ca.css"
+    "revision": "c417ab64acbf99d62273",
+    "url": "/css/events.d0a68d2b.css"
   },
   {
-    "revision": "ff83964ec102402f2b3c",
+    "revision": "98cb49bd437e5462e7ac",
     "url": "/css/prices.51d898b9.css"
   },
   {
@@ -48,8 +48,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/stories.27645a35.css"
   },
   {
-    "revision": "e11d9c7ba4ac78d6bf74",
-    "url": "/css/trainer.72743929.css"
+    "revision": "bb17178883bfadd30815",
+    "url": "/css/trainer.517c1693.css"
   },
   {
     "revision": "bd173486c6b596d8cf6416f8c0018ea2",
@@ -96,7 +96,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/logo-black.078042a9.png"
   },
   {
-    "revision": "011e32d40dfc5a5f42f103c4762c7632",
+    "revision": "26c0b55110ed9eed0a6b397fa46ec91b",
     "url": "/index.html"
   },
   {
@@ -108,36 +108,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.14c9741b.js"
   },
   {
-    "revision": "485328fde15a1231f2f1",
-    "url": "/js/app.815d784f.js"
+    "revision": "5f4b14f0028cf82defa3",
+    "url": "/js/app.c7df68b8.js"
   },
   {
     "revision": "48abfd41333f3b0e51bd",
     "url": "/js/blog.1ec90d07.js"
   },
   {
-    "revision": "6b547784eb7a8c8ad4f7",
-    "url": "/js/cart.b5161323.js"
+    "revision": "feea637d6eb45f492309",
+    "url": "/js/cart.36b15205.js"
   },
   {
     "revision": "f2018573980cbfe12681",
     "url": "/js/chunk-vendors.b40be7f3.js"
   },
   {
-    "revision": "c58d39c4b2fef9cffce6",
-    "url": "/js/classes.c98829e0.js"
+    "revision": "159b2ea289013f6ef9fb",
+    "url": "/js/classes.36c791fc.js"
   },
   {
     "revision": "6eed474e9cce90fddea6",
     "url": "/js/contact.87d61d85.js"
   },
   {
-    "revision": "06c1c833fb0066c4cee8",
-    "url": "/js/events.4efec7d4.js"
+    "revision": "c417ab64acbf99d62273",
+    "url": "/js/events.fba8df0f.js"
   },
   {
-    "revision": "ff83964ec102402f2b3c",
-    "url": "/js/prices.feb21069.js"
+    "revision": "98cb49bd437e5462e7ac",
+    "url": "/js/prices.daf1b16b.js"
   },
   {
     "revision": "a73a0f0f195b04080481",
@@ -148,8 +148,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/stories.c40b5929.js"
   },
   {
-    "revision": "e11d9c7ba4ac78d6bf74",
-    "url": "/js/trainer.6fdfb8f9.js"
+    "revision": "bb17178883bfadd30815",
+    "url": "/js/trainer.0e93eae9.js"
   },
   {
     "revision": "474f370125dc6ee281cd570a7bf0f870",

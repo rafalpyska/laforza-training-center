@@ -21,6 +21,12 @@
     <BaseButton btnType="sign-up" @click.native="addToCart()">
       Sign Up
     </BaseButton>
+    <BaseModal ref="popup" :title="bundle.name">
+      <template v-slot:body>
+        You have successfully added '{{ bundle.name }}' bundle to your cart!
+        Check our other bundles and courses!
+      </template>
+    </BaseModal>
   </div>
 </template>
 
@@ -39,6 +45,7 @@ export default {
         course: this.bundle,
         quantity: 1
       });
+      this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };

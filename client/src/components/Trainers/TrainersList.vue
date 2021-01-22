@@ -86,14 +86,19 @@
       <BaseButton btnType="schedule" @click.native="addToCart()">
         Enroll
       </BaseButton>
-      <!-- <teleport to="#modal"> -->
-      <!-- <BaseModal
-          ref="popup"
-          :title="trainer.classes[0].name"
-          :subtitle="trainer.username"
-        >
-        </BaseModal> -->
-      <!-- </teleport> -->
+      <BaseModal
+        ref="popup"
+        :title="trainer.classes[0].name"
+        :subtitle="trainer.username"
+      >
+        <template v-slot:body>
+          <p>
+            You have successfully added '{{ trainer.classes[0].name }}' course
+            with {{ trainer.username }} to your cart!
+          </p>
+          <p>Check our other bundles and courses!</p>
+        </template>
+      </BaseModal>
     </div>
   </div>
 </template>
@@ -124,7 +129,7 @@ export default {
         quantity: 1,
         trainer: this.trainer.username
       });
-      // this.$refs.popup.show = !this.$refs.popup.show;
+      this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };

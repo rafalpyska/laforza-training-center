@@ -1,9 +1,7 @@
 <template>
-  <div id="app">
-    <component :is="layout">
-      <router-view :key="$route.fullPath" />
-    </component>
-  </div>
+  <component :is="layout">
+    <router-view :key="$route.fullPath" />
+  </component>
 </template>
 
 <script>
@@ -23,6 +21,9 @@ export default {
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
 
 #app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,11 +84,15 @@ export default {
   padding: 4rem 0;
   color: var(--white);
   background-color: var(--color-secondary);
+  flex: 1;
   @media (max-width: 1280px) {
     padding: 4rem 5rem;
   }
   @media (max-width: 768px) {
     padding: 4rem 3rem;
+  }
+  @media (max-width: 338px) {
+    padding: 3rem 1rem;
   }
   &__info {
     display: grid;
