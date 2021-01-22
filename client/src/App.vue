@@ -67,7 +67,10 @@ export default {
     }
   }
   &--fixed-height {
-    height: 100vh;
+    height: 50vh;
+  }
+  &--fixed-height .vueperslide, .vueperslide__image {
+    background-position: 70%;
   }
 }
 .container {
