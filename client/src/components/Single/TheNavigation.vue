@@ -81,7 +81,9 @@
             aria-hidden="true"
           ></i>
           Cart
-          <span class="navigation__cart-item-count" v-if="cartItemCount > 0">{{ cartItemCount }}</span>
+          <span class="navigation__cart-item-count" v-if="cartItemCount > 0">{{
+            cartItemCount
+          }}</span>
         </router-link>
       </button>
     </div>
@@ -215,7 +217,7 @@ export default {
       position: absolute;
       bottom: 1.45rem;
       right: -10px;
-      color: var(--color-primary)
+      color: var(--color-primary);
     }
   }
   &__toggle {

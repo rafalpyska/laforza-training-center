@@ -41,6 +41,15 @@ export default {
       show: false
     };
   },
+  watch: {
+    show: function() {
+      if (this.show) {
+        document.body.style.overflow = "hidden";
+        return;
+      }
+      document.body.style.overflow = "auto";
+    }
+  },
   created() {
     const escapeHandler = e => {
       if (e.key === "Escape" && this.show === true) {
@@ -115,7 +124,7 @@ export default {
   pointer-events: auto;
 }
 .modal-close {
-  color: #aaa;
+  color: white;
   line-height: 50px;
   font-size: 80%;
   position: absolute;

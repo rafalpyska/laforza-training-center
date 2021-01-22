@@ -11,7 +11,12 @@
         />
       </template>
       <template v-slot:last-column>
-        <button ref="gotop" @click="scrollTop" class="go-top" aria-label="Scroll to Top">
+        <button
+          ref="gotop"
+          @click="scrollTop"
+          class="go-top"
+          aria-label="Scroll to Top"
+        >
           <i class="fas fa-chevron-up go-top__icon"></i>
         </button>
       </template>
@@ -34,7 +39,7 @@ export default {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: 'smooth'
+        behavior: "smooth"
       });
     }
   }

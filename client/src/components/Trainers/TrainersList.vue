@@ -93,8 +93,15 @@
       >
         <template v-slot:body>
           <p>
-            You have successfully added '{{ trainer.classes[0].name }}' course
-            with {{ trainer.username }} to your cart!
+            You have successfully added
+            <span class="bold text-uppercase color-primary"
+              >'{{ trainer.classes[0].name }}'</span
+            >
+            course with
+            <span class="bold text-uppercase color-primary">{{
+              trainer.username
+            }}</span>
+            to your cart!
           </p>
           <p>Check our other bundles and courses!</p>
         </template>
@@ -125,7 +132,11 @@ export default {
   methods: {
     addToCart() {
       this.$store.dispatch("addCourseToCart", {
-        id: '_' + Math.random().toString(36).substr(2, 9),
+        id:
+          "_" +
+          Math.random()
+            .toString(36)
+            .substr(2, 9),
         course: this.trainer.classes[0],
         quantity: 1,
         trainer: this.trainer.username
