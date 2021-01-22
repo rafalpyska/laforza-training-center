@@ -89,7 +89,7 @@ export default {
     padding: 4rem 5rem;
   }
   @media (max-width: 768px) {
-    padding: 4rem 3rem;
+    padding: 3rem 2rem;
   }
   @media (max-width: 338px) {
     padding: 3rem 1rem;

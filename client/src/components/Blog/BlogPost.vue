@@ -147,7 +147,7 @@ export default {
     margin-bottom: 4rem;
     font-size: 0.8rem;
     @media (max-width: 992px) {
-      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
       column-gap: 0;
     }
   }
@@ -173,6 +173,7 @@ export default {
   &-paragraph {
     flex: 1;
     white-space: pre-wrap;
+    word-wrap: break-word;
   }
   &-posted-by {
     margin-bottom: 2rem;
