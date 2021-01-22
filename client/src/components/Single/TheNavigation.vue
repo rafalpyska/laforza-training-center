@@ -81,6 +81,7 @@
             aria-hidden="true"
           ></i>
           Cart
+          <span v-if="cartItemCount > 0">{{ cartItemCount }}</span>
         </router-link>
       </button>
     </div>
@@ -101,7 +102,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["pagination"]),
+    ...mapGetters(["pagination", "cartItemCount"]),
     currentRouteName() {
       return this.$route.name;
     }

@@ -23,7 +23,7 @@
         </h3>
         <p>Quantity: {{ item.quantity }}</p>
         <p>Price: ${{ item.course.price }}</p>
-        <button class="cart__remove" @click="removeCourseFromCart(item.course)">
+        <button class="cart__remove" @click="removeCourseFromCart(item.id)">
           <span class="visuallyhidden">Remove from cart"</span>
           <i class="far fa-trash-alt"></i>
         </button>
@@ -42,8 +42,8 @@ export default {
     ...mapGetters(["cart", "cartTotalItemPrice"])
   },
   methods: {
-    removeCourseFromCart(course) {
-      this.$store.dispatch("removeCourseFromCart", course);
+    removeCourseFromCart(id) {
+      this.$store.dispatch("removeCourseFromCart", id);
     }
   }
 };

@@ -18,7 +18,7 @@ export default {
     }
   },
   mutations: {
-    ADD_TO_CART(state, { course, quantity, trainer }) {
+    ADD_TO_CART(state, { course, quantity, trainer, id }) {
       let courseInCart = state.cart.find(item => {
         return item.course.name === course.name && item.trainer === trainer;
       });
@@ -28,23 +28,24 @@ export default {
         return;
       }
       state.cart.push({
+        id,
         course,
         quantity,
         trainer
       });
     },
-    REMOVE_COURSE_FROM_CART(state, course) {
+    REMOVE_COURSE_FROM_CART(state, id) {
       state.cart = state.cart.filter(item => {
-        return item.course.id !== course.id;
+        return item.id !== id;
       });
     }
   },
   actions: {
-    addCourseToCart({ commit }, { course, quantity, trainer }) {
-      commit("ADD_TO_CART", { course, quantity, trainer });
+    addCourseToCart({ commit }, { course, quantity, trainer, id }) {
+      commit("ADD_TO_CART", { course, quantity, trainer, id });
     },
-    removeCourseFromCart({ commit }, course) {
-      commit("REMOVE_COURSE_FROM_CART", course);
+    removeCourseFromCart({ commit }, id) {
+      commit("REMOVE_COURSE_FROM_CART", id);
     }
   }
 };

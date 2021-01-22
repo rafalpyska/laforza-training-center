@@ -125,6 +125,7 @@ export default {
   methods: {
     addToCart() {
       this.$store.dispatch("addCourseToCart", {
+        id: '_' + Math.random().toString(36).substr(2, 9),
         course: this.trainer.classes[0],
         quantity: 1,
         trainer: this.trainer.username

@@ -99,6 +99,7 @@ export default {
     addToCart() {
       if (!this.selectedTrainer == "") {
         this.$store.dispatch("addCourseToCart", {
+          id: '_' + Math.random().toString(36).substr(2, 9),
           course: this.course,
           quantity: 1,
           trainer: this.selectedTrainer

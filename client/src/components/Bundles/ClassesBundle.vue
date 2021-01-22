@@ -42,6 +42,7 @@ export default {
   methods: {
     addToCart() {
       this.$store.dispatch("addCourseToCart", {
+        id: '_' + Math.random().toString(36).substr(2, 9),
         course: this.bundle,
         quantity: 1
       });
