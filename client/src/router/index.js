@@ -108,7 +108,7 @@ const router = new VueRouter({
   scrollBehavior() {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve({ x: 0, y: 500 });
+        resolve({ x: 0, y: 400 });
       }, 400);
     });
   }
