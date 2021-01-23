@@ -11,4 +11,4 @@ module.exports = {
     workboxOptions: {
       exclude: [/\.map$/, /_redirects/]
   }
-};
+}
