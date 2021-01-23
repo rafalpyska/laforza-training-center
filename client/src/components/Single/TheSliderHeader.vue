@@ -62,7 +62,7 @@ export default {
   computed: {
     media() {
       return {
-        'isMobile': !this.$screen.sm
+        isMobile: !this.$screen.sm
       };
     }
   }
