@@ -1,20 +1,53 @@
 <template>
-  <component :is="layout">
-    <router-view :key="$route.fullPath" />
-  </component>
+  <div id="app">
+    <TheHeader />
+    <TransitionPage>
+      <router-view :key="$route.fullPath" />
+    </TransitionPage>
+    <BaseActionStrip class="action-strip--bottom">
+      <template v-slot:first-column>
+        <img
+          src="@/assets/images/logos/footer-logo.png"
+          class="logo__bottom"
+          alt="LaFORZA Training Center Logo"
+        />
+      </template>
+      <template v-slot:last-column>
+        <button
+          ref="gotop"
+          @click="scrollTop"
+          class="go-top"
+          aria-label="Scroll to Top"
+        >
+          <i class="fas fa-chevron-up go-top__icon"></i>
+        </button>
+      </template>
+    </BaseActionStrip>
+    <TheFooter />
+  </div>
 </template>
 
 <script>
-const default_layout = "default";
-
+import TransitionPage from "@/transitions/TransitionPage";
+import TheHeader from "@/components/Single/TheHeader.vue";
+import TheFooter from "@/components/Single/TheFooter.vue";
 export default {
-  computed: {
-    layout() {
-      return (this.$route.meta.layout || default_layout) + "-layout";
-    }
+  components: {
+    TheHeader,
+    TheFooter,
+    TransitionPage
   },
   beforeCreate() {
     this.$store.commit("INITIALISE_CART");
+  },
+  methods: {
+    scrollTop() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
   }
 };
 </script>
@@ -69,7 +102,8 @@ export default {
   &--fixed-height {
     height: 50vh;
   }
-  &--fixed-height .vueperslide, .vueperslide__image {
+  &--fixed-height .vueperslide,
+  .vueperslide__image {
     background-position: 70%;
   }
 }
@@ -153,14 +187,12 @@ export default {
     }
   }
 }
-
 .encouragement-box {
   padding: 1.5rem 1rem;
   text-align: center;
   text-transform: uppercase;
   background-color: var(--color-primary);
 }
-
 .go-top {
   display: flex;
   align-items: center;

@@ -8,7 +8,6 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    meta: { layout: "homepage" },
     component: Home
   },
   {
@@ -36,6 +35,7 @@ const routes = [
     path: "/trainers/:page",
     name: "Trainers",
     props: true,
+    meta: { transitionName: `slide` },
     component: () =>
       import(/* webpackChunkName: "trainer" */ "../views/Trainers.vue")
   },
@@ -74,6 +74,7 @@ const routes = [
       {
         path: "post/:slug",
         name: "BlogPost",
+        meta: { transitionName: `slide` },
         component: () =>
           import(
             /* webpackChunkName: "blog" */ "@/components/Blog/BlogPost.vue"
@@ -104,12 +105,13 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior(to) {
-    if (!to.hash) {
-      return { x: 0, y: 0 }
-    }
+  scrollBehavior() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 500 });
+      }, 400);
+    });
   }
-
 });
 
 export default router;
