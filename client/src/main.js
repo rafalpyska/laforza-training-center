@@ -6,14 +6,9 @@ import store from "./store";
 import LazyLoadDirective from "./directives/LazyLoadDirective";
 import "./assets/styles/main.scss";
 import "@/components/_globals";
-import Default from "./layouts/Default";
-import Homepage from "./layouts/Homepage";
 import VueScreen from "vue-screen";
 
 Vue.use(VueScreen);
-
-Vue.component("default-layout", Default);
-Vue.component("homepage-layout", Homepage);
 
 Vue.directive("lazyload", LazyLoadDirective);
 

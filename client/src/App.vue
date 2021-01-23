@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TheSliderHeader />
+    <TheHeader />
     <TransitionPage>
       <router-view :key="$route.fullPath" />
     </TransitionPage>
@@ -29,11 +29,11 @@
 
 <script>
 import TransitionPage from "@/transitions/TransitionPage";
-import TheSliderHeader from "@/components/Single/TheSliderHeader.vue";
+import TheHeader from "@/components/Single/TheHeader.vue";
 import TheFooter from "@/components/Single/TheFooter.vue";
 export default {
   components: {
-    TheSliderHeader,
+    TheHeader,
     TheFooter,
     TransitionPage
   },
