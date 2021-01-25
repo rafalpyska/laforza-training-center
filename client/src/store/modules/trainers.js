@@ -83,7 +83,7 @@ export default {
     ) {
       commit("SET_TRAINERS_LOADING", true);
       return await fetch(
-        `${process.env.VUE_APP_API_URL}/users?_start=${start}&_limit=${limit}`,
+        `${process.env.VUE_APP_API_URL}/trainers?_start=${start}&_limit=${limit}`,
         {
           method: "GET",
           headers: {
@@ -95,7 +95,7 @@ export default {
         .then(data => {
           commit("SET_TRAINERS", data || []);
           commit("SET_TRAINERS_LOADING", false);
-          return fetch(`${process.env.VUE_APP_API_URL}/users/count`, {
+          return fetch(`${process.env.VUE_APP_API_URL}/trainers/count`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json"
