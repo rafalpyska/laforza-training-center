@@ -63,55 +63,9 @@
       "configurable": false,
       "private": true
     },
-    "classes": {
-      "collection": "class",
-      "via": "trainers"
-    },
-    "posts": {
-      "collection": "post",
-      "via": "authors"
-    },
     "stories": {
-      "collection": "story",
-      "via": "author"
-    },
-    "shortInfo": {
-      "type": "dynamiczone",
-      "components": [
-        "info.trainer-info"
-      ]
-    },
-    "avatar": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
-    "socialMedia": {
-      "type": "dynamiczone",
-      "components": [
-        "socials.facebook",
-        "socials.instagram",
-        "socials.twitter"
-      ]
-    },
-    "schedule": {
-      "type": "dynamiczone",
-      "components": [
-        "trainer-schedule.tuesday",
-        "trainer-schedule.monday",
-        "trainer-schedule.wednesday",
-        "trainer-schedule.thursday",
-        "trainer-schedule.friday"
-      ]
-    },
-    "occupation": {
-      "type": "string",
-      "required": true,
-      "default": "Instructor"
+      "via": "author",
+      "collection": "story"
     }
   }
 }
