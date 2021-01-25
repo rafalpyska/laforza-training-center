@@ -23,12 +23,6 @@
       "type": "richtext",
       "required": true
     },
-    "authors": {
-      "via": "posts",
-      "plugin": "users-permissions",
-      "collection": "user",
-      "dominant": true
-    },
     "publishedAt": {
       "type": "date",
       "required": true
@@ -50,6 +44,10 @@
     "slug": {
       "type": "string",
       "required": false
+    },
+    "authors": {
+      "collection": "trainers",
+      "via": "posts"
     }
   }
 }

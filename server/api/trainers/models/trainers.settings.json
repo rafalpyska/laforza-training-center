@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trainers",
+  "info": {
+    "name": "Trainers",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "classes": {
+      "collection": "class",
+      "via": "trainers",
+      "dominant": true
+    },
+    "shortInfo": {
+      "type": "dynamiczone",
+      "components": [
+        "info.trainer-info"
+      ]
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "socialMedia": {
+      "type": "dynamiczone",
+      "components": [
+        "socials.instagram",
+        "socials.twitter",
+        "socials.facebook"
+      ],
+      "required": true
+    },
+    "schedule": {
+      "type": "dynamiczone",
+      "components": [
+        "trainer-schedule.tuesday",
+        "trainer-schedule.monday",
+        "trainer-schedule.wednesday",
+        "trainer-schedule.thursday",
+        "trainer-schedule.friday"
+      ],
+      "required": true
+    },
+    "occupation": {
+      "type": "string",
+      "required": true,
+      "default": "Instructor"
+    },
+    "users_permissions_role": {
+      "plugin": "users-permissions",
+      "model": "role",
+      "via": "trainers"
+    },
+    "posts": {
+      "via": "authors",
+      "collection": "post",
+      "dominant": true
+    }
+  }
+}
