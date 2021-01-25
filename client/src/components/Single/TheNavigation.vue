@@ -1,6 +1,6 @@
 <template>
   <nav class="navigation" :class="{ 'navigation--expanded': isNavExpanded }">
-    <div class="navigation__wrapper container">
+    <div class="navigation__wrapper">
       <router-link to="/" id="home" class="navigation__logo-container">
         <img
           src="@/assets/images/logos/logo-black.png"
@@ -19,7 +19,7 @@
       >
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
-      <ul class="navigation__list container">
+      <ul class="navigation__list">
         <li class="navigation__item">
           <router-link to="/" id="home" class="navigation__link"
             >Home</router-link
@@ -73,6 +73,16 @@
             >Contact</router-link
           >
         </li>
+        <li class="navigation__item" v-if="!isAuthenticated">
+          <router-link to="/login" class="navigation__link"
+            >Login</router-link
+          >
+        </li>
+        <li class="navigation__item" v-if="!isAuthenticated">
+          <router-link to="/register" class="navigation__link"
+            >Register</router-link
+          >
+        </li>
       </ul>
       <button class="navigation__cart">
         <router-link to="/cart" class="navigation__link">
@@ -104,7 +114,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["pagination", "cartItemCount"]),
+    ...mapGetters({
+      pagination: "pagination", 
+      cartItemCount: "cartItemCount",
+      isAuthenticated: "auth/isAuthenticated"
+      }),
     currentRouteName() {
       return this.$route.name;
     }
@@ -145,6 +159,7 @@ export default {
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   &__logo {
     display: block;
@@ -202,7 +217,6 @@ export default {
   }
   &__cart {
     position: relative;
-    margin-left: auto;
     color: white;
     text-transform: uppercase;
     border: none;

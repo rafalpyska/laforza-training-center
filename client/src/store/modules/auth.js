@@ -9,7 +9,9 @@ export default {
     error: null
   },
   getters: {
-
+    isAuthenticated(state) {
+      return state.isUserLoggedIn;
+    }
   },
   mutations: {
     SET_TOKEN(state, token) {
@@ -28,18 +30,17 @@ export default {
     }
   },
   actions: {
-    async register({ dispatch, commit }, credentials) {
+    async register({ commit }, credentials) {
       try {
-        const response = await AuthenticationService.register(credentials);
-        return dispatch('loginAttempt', { token: response.data.jwt, user: response.data.user });
+        return await AuthenticationService.register(credentials);
       } catch (error) {
         commit('SET_ERROR', error.response.data.message)
       }
     },
     async login({ dispatch, commit }, credentials) {
       try {
-        const response = await AuthenticationService.login(credentials);
-        return dispatch('loginAttempt', { token: response.data.jwt, user: response.data.user });
+        const data = await AuthenticationService.login(credentials);
+        return dispatch('loginAttempt', { token: data.jwt, user: data.user });
       } catch (error) {
         commit('SET_ERROR', error.response.data.message)
       }
