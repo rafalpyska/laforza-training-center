@@ -1,16 +1,38 @@
 import AuthenticationService from '@/services/AuthenticationService';
-
+const credentials = JSON.parse(localStorage.getItem('credentials'));
+const initialState = credentials
+  ? { 
+      token: credentials.jwt, 
+      user: credentials.user,
+      isUserLoggedIn: true,
+      loginError: null,
+      registerError: null,
+      registerSuccessMessage: null
+    } 
+  : {
+      token:
+      null,
+      user: null,
+      isUserLoggedIn: false,
+      loginError: null,
+      registerError: null,
+      registerSuccessMessage: null,
+    }
 export default {
   namespaced: true,
-  state: {
-    token: null,
-    user: null,
-    isUserLoggedIn: false,
-    error: null
-  },
+  state: initialState,
   getters: {
     isAuthenticated(state) {
       return state.isUserLoggedIn;
+    },
+    registerError(state) {
+      return state.registerError;
+    },
+    loginError(state) {
+      return state.loginError;
+    },
+    registerSuccessMessage(state) {
+      return state.registerSuccessMessage;
     }
   },
   mutations: {
@@ -26,19 +48,32 @@ export default {
       state.user = user;
     },
     LOGOUT(state) {
-      state.status.isUserLoggedIn = false;
+      state.isUserLoggedIn = false;
       state.user = null;
     },
-    SET_ERROR(state, error) {
-      state.error = error
+    SET_REGISTER_SUCCESS_MESSAGE(state, message) {
+      state.registerSuccessMessage = message
+    },
+    SET_REGISTER_ERROR(state, error) {
+      state.registerError = error
+    },
+    SET_LOGIN_ERROR(state, error) {
+      state.loginError = error
+    },
+    CLEAR_LOGIN_ERRORS(state) {
+      state.loginError = null;
     }
   },
   actions: {
     async register({ commit }, credentials) {
       try {
-        return await AuthenticationService.register(credentials);
+        const response = await AuthenticationService.register(credentials)
+        if(response.status === 200) {
+          commit("SET_REGISTER_SUCCESS_MESSAGE", "Your account was created successfuly!")
+        }
+        return response;
       } catch (error) {
-        commit('SET_ERROR', error.response.data.message)
+        commit('SET_REGISTER_ERROR', error.response.data.message[0].messages[0])
       }
     },
     async login({ dispatch, commit }, credentials) {
@@ -46,7 +81,7 @@ export default {
         const data = await AuthenticationService.login(credentials);
         return dispatch('loginAttempt', { token: data.jwt, user: data.user });
       } catch (error) {
-        commit('SET_ERROR', error.response.data.message)
+        commit('SET_LOGIN_ERROR', error.response.data.message[0].messages[0])
       }
     },
     logout({ commit }) {

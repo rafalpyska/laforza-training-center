@@ -7,16 +7,16 @@
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <RegisterUser />
+      <UserRegister />
     </div>
   </section>
 </template>
 <script>
-import RegisterUser from '@/components/User/RegisterUser'
+import UserRegister from '@/components/User/UserRegister'
 export default {
   name: "Register",
   components: {
-    RegisterUser
+    UserRegister
   }
 };
 </script>

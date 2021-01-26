@@ -1,5 +1,9 @@
 <template>
   <div class="login-component">
+    <p class="is-false" v-if="error">
+      <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+      {{ error.message }}
+    </p>
     <ValidationObserver v-slot="{ handleSubmit, invalid }">
       <form class="login__form" name="login-form" @submit.prevent="handleSubmit(submit)">
         <label class="visuallyhidden" for="contact-email"
@@ -7,7 +11,7 @@
         >
         <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors, failed, valid }">
           <span :class="`is-${valid}`">
-            <i v-if="failed" class="fas fa-exclamation-triangle"></i>
+            <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
             {{ errors[0] }}
           </span>
           <input
@@ -25,7 +29,7 @@
         >
         <ValidationProvider name="Password" v-slot="{ errors, failed, valid }" rules="required">
           <span :class="`is-${valid}`">
-            <i v-if="failed" class="fas fa-exclamation-triangle"></i>
+            <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
             {{ errors[0] }}
           </span>
           <input
@@ -55,7 +59,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default {
   name: "LoginUser",
@@ -71,12 +75,34 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters({
+      isAuthenticated: 'auth/isAuthenticated',
+      error: 'auth/loginError'
+    })
+  },
+  created() {
+    if(this.isAuthenticated) {
+      this.$router.push('/');
+    }
+  },
   methods: {
     ...mapActions({
-      login: 'auth/login'
+      login: 'auth/login',
     }),
-    submit() {
-      this.login(this.form)
+    ...mapMutations({
+      clearErrors: 'auth/CLEAR_LOGIN_ERRORS',
+    }),
+    async submit() {
+      this.clearErrors();
+      if(this.form.identifier && this.form.password) {
+        await this.login(this.form)
+          .then(() => {
+            if(this.error === null) {
+              this.$router.push('/');
+            }
+          })
+      }
     }
   }
 };

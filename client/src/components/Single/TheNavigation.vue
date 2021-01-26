@@ -83,6 +83,11 @@
             >Register</router-link
           >
         </li>
+        <li class="navigation__item" v-if="isAuthenticated" @click.prevent="logOut">
+          <router-link to="/register" class="navigation__link"
+            >Logout</router-link
+          >
+        </li>
       </ul>
       <button class="navigation__cart">
         <router-link to="/cart" class="navigation__link">
@@ -127,6 +132,12 @@ export default {
     navigationToggle() {
       this.isNavExpanded = !this.isNavExpanded;
       this.$refs.toggle.setAttribute("aria-expanded", this.isNavExpanded);
+    },
+    logOut() {
+      this.$store.dispatch('auth/logout')
+      .then(() => {
+        this.$router.push('/login');
+      })
     }
   }
 };
