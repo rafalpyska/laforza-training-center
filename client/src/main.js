@@ -7,6 +7,7 @@ import LazyLoadDirective from "./directives/LazyLoadDirective";
 import "./assets/styles/main.scss";
 import "@/components/_globals";
 import VueScreen from "vue-screen";
+import './validate';
 
 Vue.use(VueScreen);
 

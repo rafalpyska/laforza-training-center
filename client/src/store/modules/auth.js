@@ -25,6 +25,10 @@ export default {
     SET_USER(state, user) {
       state.user = user;
     },
+    LOGOUT(state) {
+      state.status.isUserLoggedIn = false;
+      state.user = null;
+    },
     SET_ERROR(state, error) {
       state.error = error
     }
@@ -44,6 +48,10 @@ export default {
       } catch (error) {
         commit('SET_ERROR', error.response.data.message)
       }
+    },
+    logout({ commit }) {
+      AuthenticationService.logout();
+      commit('LOGOUT');
     },
     loginAttempt({ commit }, { token, user }) {
       commit('SET_TOKEN', token);

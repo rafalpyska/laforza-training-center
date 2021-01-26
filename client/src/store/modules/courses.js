@@ -1,3 +1,6 @@
+import Api from '@/services/Api';
+
+
 export default {
   state: {
     classesLoading: true,
@@ -29,15 +32,9 @@ export default {
   actions: {
     async fetchClasses({ commit }) {
       commit("SET_CLASSES_LOADING", true);
-      return await fetch(`${process.env.VUE_APP_API_URL}/classes`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-        .then(response => response.json())
-        .then(data => {
-          commit("SET_COURSES", data);
+      return await Api().get('/classes')
+        .then(response => {
+          commit("SET_COURSES", response.data);
           commit("SET_CLASSES_LOADING", false);
         })
         .catch(error => {
