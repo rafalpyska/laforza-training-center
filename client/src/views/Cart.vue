@@ -10,7 +10,7 @@
       <h3 class="mini-cart__product-title" v-if="cartItemCount < 1">
         Your basket is empty!
       </h3>
-      <div class="cart__item" v-for="item in cart" :key="item.id">
+      <article class="cart__item" v-for="item in cart" :key="item.id">
         <!-- TODO: conditional 'with' span wheter course or bundle is selected-->
         <h3 class="mini-cart__product-title">
           <span class="color-primary text-uppercase">{{
@@ -30,7 +30,7 @@
           <span class="visuallyhidden">Remove from cart"</span>
           <i class="far fa-trash-alt"></i>
         </button>
-      </div>
+      </article>
       <BaseDivider v-if="cartItemCount > 0" />
       <p v-if="cart.length > 0">Total: ${{ cartTotalItemPrice }}</p>
     </div>

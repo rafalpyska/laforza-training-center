@@ -83,16 +83,22 @@
             >Register</router-link
           >
         </li>
+        <li class="navigation__item" v-if="isAuthenticated">
+          <router-link to="/profile" class="navigation__link">
+          <i class="fas fa-user navigation__btn-icon"></i>
+          Profile
+          </router-link>
+        </li>
         <li class="navigation__item" v-if="isAuthenticated" @click.prevent="logOut">
-          <router-link to="/register" class="navigation__link"
-            >Logout</router-link
-          >
+          <a class="navigation__link">
+            Logout
+          </a>
         </li>
       </ul>
-      <button class="navigation__cart">
+      <button class="navigation__btn navigation__cart">
         <router-link to="/cart" class="navigation__link">
           <i
-            class="fas fa-shopping-cart navigation__cart-icon"
+            class="fas fa-shopping-cart navigation__btn-icon"
             aria-hidden="true"
           ></i>
           Cart
@@ -226,17 +232,22 @@ export default {
     border-top: 3px solid var(--color-primary);
     color: var(--color-primary);
   }
-  &__cart {
-    position: relative;
+  &__btn {
     color: white;
     text-transform: uppercase;
     border: none;
     background: none;
+    padding: 0 1rem;
+    &-icon {
+      margin-right: 0.25rem;
+    }
+  }
+  &__cart {
     @media (max-width: 1222px) {
       order: 1;
     }
-    &-icon {
-      margin-right: 0.25rem;
+    & .navigation__link {
+      position: relative;
     }
     &-item-count {
       position: absolute;
