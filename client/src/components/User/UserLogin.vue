@@ -62,7 +62,7 @@
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default {
-  name: "LoginUser",
+  name: "UserLogin",
   components: {
     ValidationProvider,
     ValidationObserver
@@ -99,7 +99,7 @@ export default {
         await this.login(this.form)
           .then(() => {
             if(this.error === null) {
-              this.$router.push('/');
+              this.$router.push('/profile');
             }
           })
       }

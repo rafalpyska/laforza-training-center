@@ -1,8 +1,9 @@
-export default function authenticationHeaders() {
-  let credentials = JSON.parse(localStorage.getItem('credentials'));
+import { getCookie } from '@/helpers/cookies';
 
-  if (credentials && credentials.jwt) {
-    return { Authorization: 'Bearer ' + credentials.jwt };
+export default function authenticationHeaders() {
+  let token = getCookie('jwt');
+  if (token) {
+    return { Authorization: 'Bearer ' + token };
   } else {
     return {};
   }

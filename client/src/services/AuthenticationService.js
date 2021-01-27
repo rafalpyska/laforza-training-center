@@ -1,19 +1,22 @@
 import Api from '@/services/Api';
+import { setCookie, deleteCookie } from '@/helpers/cookies';
 
 class AuthenticationService {
-  register(credentials) {
-    return Api().post('/auth/local/register', credentials)
+  async register(credentials) {
+    return await Api().post('/auth/local/register', credentials)
   }
-  login(credentials) {
-    return Api().post('/auth/local', credentials)
+  async login(credentials) {
+    return await Api().post('/auth/local', credentials)
     .then(response => {
       if (response.data.jwt) {
-        localStorage.setItem('credentials', JSON.stringify(response.data));
+        setCookie('jwt', response.data.jwt)
+        localStorage.setItem('credentials', JSON.stringify(response.data.user));
       }
       return response.data;
     })
   }
   logout() {
+    deleteCookie('jwt');
     localStorage.removeItem('credentials');
   }
 }

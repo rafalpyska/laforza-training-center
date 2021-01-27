@@ -1,17 +1,19 @@
 import AuthenticationService from '@/services/AuthenticationService';
+import { getCookie } from '@/helpers/cookies';
+
+const jwt = getCookie('jwt');
 const credentials = JSON.parse(localStorage.getItem('credentials'));
 const initialState = credentials
   ? { 
-      token: credentials.jwt, 
-      user: credentials.user,
+      token: jwt, 
+      user: credentials,
       isUserLoggedIn: true,
       loginError: null,
       registerError: null,
       registerSuccessMessage: null
     } 
   : {
-      token:
-      null,
+      token: null,
       user: null,
       isUserLoggedIn: false,
       loginError: null,
@@ -50,6 +52,7 @@ export default {
     LOGOUT(state) {
       state.isUserLoggedIn = false;
       state.user = null;
+      state.token = null;
     },
     SET_REGISTER_SUCCESS_MESSAGE(state, message) {
       state.registerSuccessMessage = message
@@ -79,7 +82,7 @@ export default {
     async login({ dispatch, commit }, credentials) {
       try {
         const data = await AuthenticationService.login(credentials);
-        return dispatch('loginAttempt', { token: data.jwt, user: data.user });
+        dispatch('loginAttempt', { token: data.jwt, user: data.user });
       } catch (error) {
         commit('SET_LOGIN_ERROR', error.response.data.message[0].messages[0])
       }

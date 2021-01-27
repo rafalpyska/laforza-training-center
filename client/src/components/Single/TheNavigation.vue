@@ -90,9 +90,9 @@
           </router-link>
         </li>
         <li class="navigation__item" v-if="isAuthenticated" @click.prevent="logOut">
-          <a class="navigation__link">
-            Logout
-          </a>
+          <router-link to="/" class="navigation__link">
+          Logout
+          </router-link>
         </li>
       </ul>
       <button class="navigation__btn navigation__cart">

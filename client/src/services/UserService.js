@@ -1,10 +1,12 @@
 import Api from '@/services/Api';
-import authenticationHeaders from './authenticationHeaders';
+import authenticationHeaders from './AuthenticationHeaders';
 
 class UserService {
-  getUserPanel() {
-    return Api().get('/profile', { headers: authenticationHeaders() });
-  }
+  async getUserProfile() {
+    return await Api().get('/user/me', { withCredentials: true, headers: authenticationHeaders() })
+      .then(response => response.data);
+    }
 }
+
 
 export default new UserService();
