@@ -73,48 +73,65 @@
             >Contact</router-link
           >
         </li>
-        <li class="navigation__item" v-if="!isAuthenticated">
-          <router-link to="/login" class="navigation__link"
-            >Login</router-link
-          >
-        </li>
-        <li class="navigation__item" v-if="!isAuthenticated">
+      </ul>
+      <div class="navigation__user">
+        <button class="navigation__btn navigation__cart">
+          <router-link to="/cart" class="navigation__link">
+            <i
+              class="fas fa-shopping-cart navigation__btn-icon"
+              aria-hidden="true"
+            ></i>
+            Cart
+            <span class="navigation__cart-item-count" v-if="cartItemCount > 0">{{
+              cartItemCount
+            }}</span>
+          </router-link>
+        </button>
+        <button class="navigation__btn" v-if="!isAuthenticated" @click="showLogin">
+         Login
+        </button>
+        <button class="navigation__btn" v-if="!isAuthenticated">
           <router-link to="/register" class="navigation__link"
             >Register</router-link
           >
-        </li>
-        <li class="navigation__item" v-if="isAuthenticated">
+        </button>
+        <button class="navigation__btn" v-if="isAuthenticated">
           <router-link to="/profile" class="navigation__link">
           <i class="fas fa-user navigation__btn-icon"></i>
           Profile
           </router-link>
-        </li>
-        <li class="navigation__item" v-if="isAuthenticated" @click.prevent="logOut">
+        </button>
+        <button class="navigation__btn" v-if="isAuthenticated" @click.prevent="logOut">
           <router-link to="/" class="navigation__link">
           Logout
           </router-link>
-        </li>
-      </ul>
-      <button class="navigation__btn navigation__cart">
-        <router-link to="/cart" class="navigation__link">
-          <i
-            class="fas fa-shopping-cart navigation__btn-icon"
-            aria-hidden="true"
-          ></i>
-          Cart
-          <span class="navigation__cart-item-count" v-if="cartItemCount > 0">{{
-            cartItemCount
-          }}</span>
-        </router-link>
-      </button>
+        </button>
+      </div>
     </div>
+    <BaseModal
+      ref="popup"
+      title="Login"
+    >
+      <template v-slot:header>
+        <h2 class="modal__heading">Welcome back!</h2>
+      </template>
+      <template v-slot:body>
+        <UserLogin />
+      </template>
+      <template v-slot:footer>
+        <p>Don't have an account? <router-link to="/register">Register!</router-link></p>
+      </template>
+    </BaseModal>
   </nav>
 </template>
 <script>
 import { mapGetters } from "vuex";
-
+import UserLogin from "@/components/User/UserLogin"
 export default {
   name: "TheNavigation",
+  components: {
+    UserLogin
+  },
   data: () => ({
     isNavExpanded: false,
     isMiniCartVisible: false
@@ -144,6 +161,9 @@ export default {
       .then(() => {
         this.$router.push('/login');
       })
+    },
+    showLogin() {
+      this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };
@@ -176,7 +196,7 @@ export default {
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
   }
   &__logo {
     display: block;
@@ -242,10 +262,18 @@ export default {
       margin-right: 0.25rem;
     }
   }
-  &__cart {
+  &__user {
+    display: flex;
+    min-height: 3rem;
     @media (max-width: 1222px) {
       order: 1;
     }
+    @media (max-width: 525px) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  &__cart {
     & .navigation__link {
       position: relative;
     }
@@ -268,6 +296,9 @@ export default {
       display: flex;
       order: 2;
     }
+    @media (max-width: 525px) {
+      order: 0;
+    }
   }
   &--expanded {
     & .navigation__list {
@@ -285,9 +316,9 @@ export default {
     }
     & .navigation__toggle {
       order: 2;
-    }
-    & .navigation__cart {
-      order: 1;
+      @media (max-width: 525px) {
+        order: 0;
+      }
     }
   }
 }

@@ -16,7 +16,7 @@
           </span>
           <input
             v-model="form.identifier"
-            class="input login__email"
+            class="input input__email"
             id="user-login-email"
             name="user-login-email"
             type="email"
@@ -34,7 +34,7 @@
           </span>
           <input
             v-model="form.password"
-            class="input login__password"
+            class="input input__password"
             id="user-login-password"
             name="user-login-password"
             type="password"
@@ -48,7 +48,7 @@
         <input
           @click.prevent="submit"
           id="user-login-submit"
-          class="input login__submit"
+          class="input input__submit"
           name="user-login-submit"
           type="submit"
           value="Login"
@@ -109,6 +109,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .login-component {
+    min-width: 12rem;
+    max-width: 40rem;
+  }
   .is-false {
     display: block;
     margin-bottom: .5rem;
