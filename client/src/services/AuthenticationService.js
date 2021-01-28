@@ -10,14 +10,12 @@ class AuthenticationService {
     .then(response => {
       if (response.data.jwt) {
         setCookie('jwt', response.data.jwt)
-        localStorage.setItem('credentials', JSON.stringify(response.data.user));
       }
       return response.data;
     })
   }
   logout() {
     deleteCookie('jwt');
-    localStorage.removeItem('credentials');
   }
 }
 

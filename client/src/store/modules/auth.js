@@ -1,28 +1,19 @@
 import AuthenticationService from '@/services/AuthenticationService';
+import UserService from '@/services/UserService';
 import { getCookie } from '@/helpers/cookies';
 
 const jwt = getCookie('jwt');
-const credentials = JSON.parse(localStorage.getItem('credentials'));
-const initialState = credentials
-  ? { 
-      token: jwt, 
-      user: credentials,
-      isUserLoggedIn: true,
-      loginError: null,
-      registerError: null,
-      registerSuccessMessage: null
-    } 
-  : {
-      token: null,
-      user: null,
-      isUserLoggedIn: false,
-      loginError: null,
-      registerError: null,
-      registerSuccessMessage: null,
-    }
+
 export default {
   namespaced: true,
-  state: initialState,
+  state: {
+    token: jwt || null,
+    user: null,
+    isUserLoggedIn: false,
+    loginError: null,
+    registerError: null,
+    registerSuccessMessage: null,
+  },
   getters: {
     isAuthenticated(state) {
       return state.isUserLoggedIn;
@@ -85,6 +76,16 @@ export default {
         dispatch('loginAttempt', { token: data.jwt, user: data.user });
       } catch (error) {
         commit('SET_LOGIN_ERROR', error.response.data.message[0].messages[0])
+      }
+    },
+    async getUser({ dispatch, state }) {
+      try {
+        const data = await UserService.getUser()
+        if(state.jwt !== null) {
+          dispatch('loginAttempt', { token: jwt, user: data })
+        }   
+      } catch (error) {
+        console.log(error)
       }
     },
     logout({ commit }) {

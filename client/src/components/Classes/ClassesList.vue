@@ -60,7 +60,7 @@
         </div>
       </div>
     </div>
-    <BaseModal ref="popup" :title="course.name">
+    <!-- <BaseModal ref="popup" :title="course.name">
       <template v-slot:body>
         <p>
           You have successfully added
@@ -75,7 +75,7 @@
         </p>
         <p>Check our other bundles and courses!</p>
       </template>
-    </BaseModal>
+    </BaseModal> -->
   </div>
 </template>
 
@@ -116,7 +116,7 @@ export default {
           trainer: this.selectedTrainer
         });
         this.$store.commit("ADD_CART_TO_LOCAL_STORAGE");
-        this.$refs.popup.show = !this.$refs.popup.show;
+        // this.$refs.popup.show = !this.$refs.popup.show;
       }
     },
     setSelectedTrainer(value) {

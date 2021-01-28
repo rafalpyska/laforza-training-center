@@ -67,7 +67,7 @@
         >
         <input
           id="user-register-submit"
-          class="input register__submit"
+          class="input input__submit"
           name="user-register-submit"
           type="submit"
           value="Register"

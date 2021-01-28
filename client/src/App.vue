@@ -54,7 +54,11 @@ export default {
         throw err;
       });
     });
-    if(!getCookie('jwt')) {
+    const token = getCookie('jwt');
+    if(token) {
+      this.$store.dispatch('auth/getUser');
+    }
+    if(!token || this.$store.state.auth.isUserLoggedIn) {
       this.$store.dispatch('auth/logout');
     }
   },

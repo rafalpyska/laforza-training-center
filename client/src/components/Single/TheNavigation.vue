@@ -87,8 +87,10 @@
             }}</span>
           </router-link>
         </button>
-        <button class="navigation__btn" v-if="!isAuthenticated" @click="showLogin">
-         Login
+        <button class="navigation__btn" v-if="!isAuthenticated">
+          <router-link to="/login" class="navigation__link"
+            >Login</router-link
+          >
         </button>
         <button class="navigation__btn" v-if="!isAuthenticated">
           <router-link to="/register" class="navigation__link"
@@ -108,30 +110,13 @@
         </button>
       </div>
     </div>
-    <BaseModal
-      ref="popup"
-      title="Login"
-    >
-      <template v-slot:header>
-        <h2 class="modal__heading">Welcome back!</h2>
-      </template>
-      <template v-slot:body>
-        <UserLogin />
-      </template>
-      <template v-slot:footer>
-        <p>Don't have an account? <router-link to="/register">Register!</router-link></p>
-      </template>
-    </BaseModal>
   </nav>
 </template>
 <script>
 import { mapGetters } from "vuex";
-import UserLogin from "@/components/User/UserLogin"
+
 export default {
   name: "TheNavigation",
-  components: {
-    UserLogin
-  },
   data: () => ({
     isNavExpanded: false,
     isMiniCartVisible: false
@@ -161,9 +146,6 @@ export default {
       .then(() => {
         this.$router.push('/login');
       })
-    },
-    showLogin() {
-      this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };

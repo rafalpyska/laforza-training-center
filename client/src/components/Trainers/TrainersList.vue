@@ -86,7 +86,7 @@
       <BaseButton btnType="schedule" @click.native="addToCart()">
         Enroll
       </BaseButton>
-      <BaseModal
+      <!-- <BaseModal
         ref="popup"
         :title="trainer.classes[0].name"
         :subtitle="trainer.username"
@@ -105,7 +105,7 @@
           </p>
           <p>Check our other bundles and courses!</p>
         </template>
-      </BaseModal>
+      </BaseModal> -->
     </div>
   </div>
 </template>
@@ -142,7 +142,7 @@ export default {
         trainer: this.trainer.username
       });
       this.$store.commit("ADD_CART_TO_LOCAL_STORAGE");
-      this.$refs.popup.show = !this.$refs.popup.show;
+      // this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };
