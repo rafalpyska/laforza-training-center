@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted() {
-    if(!this.currentUser) {
+    if(Object.keys(this.currentUser).length === 0 && this.currentUser.constructor === Object) {
       this.$router.push('/login');
     }
   }
