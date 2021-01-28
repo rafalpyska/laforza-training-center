@@ -64,8 +64,12 @@
       "private": true
     },
     "stories": {
-      "via": "author",
-      "collection": "story"
+      "collection": "story",
+      "via": "author"
+    },
+    "orders": {
+      "via": "user",
+      "collection": "order"
     }
   }
 }

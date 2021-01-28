@@ -16,9 +16,9 @@
       "required": true
     },
     "author": {
+      "via": "stories",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "stories"
+      "model": "user"
     }
   }
 }
