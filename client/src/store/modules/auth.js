@@ -4,14 +4,16 @@ import { getCookie } from '@/helpers/cookies';
 
 const jwt = getCookie('jwt');
 
+
 export default {
   namespaced: true,
   state: {
     token: jwt || null,
-    user: null,
+    user: {},
     isUserLoggedIn: false,
     loginError: null,
     registerError: null,
+    userError: null,
     registerSuccessMessage: null,
   },
   getters: {
@@ -23,6 +25,9 @@ export default {
     },
     loginError(state) {
       return state.loginError;
+    },
+    userError(state) {
+      return state.userError;
     },
     registerSuccessMessage(state) {
       return state.registerSuccessMessage;
@@ -54,6 +59,9 @@ export default {
     SET_LOGIN_ERROR(state, error) {
       state.loginError = error
     },
+    SET_USER_ERROR(state, error) {
+      state.userError = error;
+    },
     CLEAR_LOGIN_ERRORS(state) {
       state.loginError = null;
     }
@@ -75,17 +83,23 @@ export default {
         const data = await AuthenticationService.login(credentials);
         dispatch('loginAttempt', { token: data.jwt, user: data.user });
       } catch (error) {
-        commit('SET_LOGIN_ERROR', error.response.data.message[0].messages[0])
+        commit('SET_LOGIN_ERROR', error.response.data.message[0].messages[0]);
+        AuthenticationService.logout();
+        commit('SET_TOKEN', null);
+        commit('SET_USER', {});
       }
     },
-    async getUser({ dispatch, state }) {
+    async getUser({ dispatch, state, commit }) {
       try {
         const data = await UserService.getUser()
         if(state.jwt !== null) {
           dispatch('loginAttempt', { token: jwt, user: data })
         }   
       } catch (error) {
-        console.log(error)
+        commit('SET_USER_ERROR', error.response.data.message[0].messages[0]);
+        AuthenticationService.logout();
+        commit('SET_TOKEN', null);
+        commit('SET_USER', {});
       }
     },
     logout({ commit }) {
