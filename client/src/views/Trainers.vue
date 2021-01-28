@@ -34,16 +34,6 @@ export default {
   components: {
     TrainersList
   },
-  data() {
-    return {
-      meta: {
-        start: 0,
-        limit: 3,
-        currentPage: 1,
-        pageCount: 0
-      }
-    };
-  },
   computed: {
     ...mapGetters([
       "trainersLoadingStatus",
@@ -56,9 +46,9 @@ export default {
   },
   async created() {
     await this.$store.dispatch("fetchTrainers", {
-      limit: this.pagination.limit,
+      page: Number(this.$route.params.page),
       start: (Number(this.$route.params.page) - 1) * this.pagination.limit,
-      page: Number(this.$route.params.page)
+      limit: this.pagination.limit
     });
   }
 };

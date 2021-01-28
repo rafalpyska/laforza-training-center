@@ -31,9 +31,6 @@
         color: var(--color-primary);
     }
   }
-}
-
-.contact {
   &__fieldset {
     display: flex;
     width: 100%;
@@ -43,6 +40,18 @@
       flex-direction: column;
     }
   }
+  &__login {
+    width: 100%;
+  }
+  &__email {
+    width: 100%;
+  }
+  &__password {
+    width: 100%;
+  }
+}
+
+.contact {
   &__message {
     width: 100%;
     min-height: 10rem;

@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { getCookie } from '@/helpers/cookies';
 import TransitionPage from "@/transitions/TransitionPage";
 import TheHeader from "@/components/Single/TheHeader.vue";
 import TheFooter from "@/components/Single/TheFooter.vue";
@@ -39,6 +41,26 @@ export default {
   },
   beforeCreate() {
     this.$store.commit("INITIALISE_CART");
+  },
+  created() {
+    axios.interceptors.response.use(undefined, function (err) {
+      return new Promise(function () {
+        if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
+          this.$store.dispatch('auth/logout')
+          .then(() => {
+            this.$router.push('/login');
+          })
+        }
+        throw err;
+      });
+    });
+    const token = getCookie('jwt');
+    if(token) {
+      this.$store.dispatch('auth/getUser');
+    }
+    if(!token || this.$store.state.auth.isUserLoggedIn) {
+      this.$store.dispatch('auth/logout');
+    }
   },
   methods: {
     scrollTop() {

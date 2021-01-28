@@ -5,6 +5,7 @@ import cart from "./modules/cart";
 import courses from "./modules/courses";
 import trainers from "./modules/trainers";
 import bundles from "./modules/bundles";
+import auth from "./modules/auth";
 
 Vue.use(Vuex);
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     cart,
     courses,
     trainers,
-    bundles
+    bundles,
+    auth
   }
 });

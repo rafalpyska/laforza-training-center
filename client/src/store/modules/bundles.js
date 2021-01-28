@@ -1,3 +1,5 @@
+import Api from '@/services/Api';
+
 export default {
   state: {
     bundlesLoading: true,
@@ -29,15 +31,9 @@ export default {
   actions: {
     async fetchBundles({ commit }) {
       commit("SET_BUNDLES_LOADING", true);
-      return await fetch(`${process.env.VUE_APP_API_URL}/bundles`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-        .then(response => response.json())
-        .then(data => {
-          commit("SET_BUNDLES", data);
+      return await Api().get('/bundles')
+        .then(response => {
+          commit("SET_BUNDLES", response.data);
           commit("SET_BUNDLES_LOADING", false);
         })
         .catch(error => {

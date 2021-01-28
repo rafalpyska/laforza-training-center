@@ -14,7 +14,7 @@
             </p>
           </div>
           <form class="contact__form" action="">
-            <div class="contact__fieldset">
+            <fieldset class="input__fieldset">
               <label class="visuallyhidden" for="contact-company"
                 >Full name</label
               >
@@ -37,8 +37,8 @@
                 placeholder="Your email *"
                 required
               />
-            </div>
-            <div class="contact__fieldset">
+            </fieldset>
+            <fieldset class="input__fieldset">
               <label class="visuallyhidden" for="contact-subject"
                 >Subject</label
               >
@@ -58,7 +58,7 @@
                 type="text"
                 placeholder="Phone"
               />
-            </div>
+            </fieldset>
 
             <label class="visuallyhidden" for="contact-message"
               >Type your message here</label

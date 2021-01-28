@@ -21,7 +21,7 @@
     <BaseButton btnType="sign-up" @click.native="addToCart()">
       Sign Up
     </BaseButton>
-    <BaseModal ref="popup" :title="bundle.name">
+    <!-- <BaseModal ref="popup" :title="bundle.name">
       <template v-slot:body>
         You have successfully added
         <span class="bold text-uppercase color-primary"
@@ -29,7 +29,7 @@
         >
         bundle to your cart! Check our other bundles and courses!
       </template>
-    </BaseModal>
+    </BaseModal> -->
   </div>
 </template>
 
@@ -54,7 +54,7 @@ export default {
         quantity: 1
       });
       this.$store.commit("ADD_CART_TO_LOCAL_STORAGE");
-      this.$refs.popup.show = !this.$refs.popup.show;
+      // this.$refs.popup.show = !this.$refs.popup.show;
     }
   }
 };

@@ -1,22 +1,26 @@
 <template>
-  <section class="section cart">
+  <section class="section register">
     <div class="container">
       <div class="section__info">
         <div class="section__info-titles-container">
-          <h2 class="section__title color-primary">Shopping cart</h2>
+          <h2 class="section__title color-primary">Register</h2>
           <p class="section__subtitle">Etiam rhoncus. Maecenas tempus</p>
         </div>
       </div>
-      <ShoppingCart />
+      <UserRegister />
     </div>
   </section>
 </template>
 <script>
-import ShoppingCart from '@/components/Cart/ShoppingCart.vue'
+import UserRegister from '@/components/User/UserRegister'
 export default {
-  name: "Cart",
+  name: "Register",
   components: {
-    ShoppingCart
+    UserRegister
   }
 };
 </script>
+
+<style scoped lang="scss">
+
+</style>

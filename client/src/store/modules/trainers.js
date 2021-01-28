@@ -1,3 +1,5 @@
+import Api from '@/services/Api';
+
 export default {
   state: {
     trainersLoading: true,
@@ -73,59 +75,40 @@ export default {
     }
   },
   actions: {
-    async fetchTrainers(
-      { commit, getters },
-      {
-        start = getters.start,
-        limit = getters.limit,
-        page = getters.pageNumber
-      }
-    ) {
+    async fetchTrainers({ commit, dispatch, getters }, { page = getters.pageNumber, start = getters.start, limit = getters.limit }) {
       commit("SET_TRAINERS_LOADING", true);
-      return await fetch(
-        `${process.env.VUE_APP_API_URL}/trainers?_start=${start}&_limit=${limit}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      )
-        .then(response => response.json())
-        .then(data => {
-          commit("SET_TRAINERS", data || []);
+      return await Api().get(`/trainers?_start=${start}&_limit=${limit}`)
+        .then(respone => {
+          commit("SET_TRAINERS", respone.data || []);
           commit("SET_TRAINERS_LOADING", false);
-          return fetch(`${process.env.VUE_APP_API_URL}/trainers/count`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json"
-            }
-          })
-            .then(response => response.json())
-            .then(data => {
-              commit("SET_CURRENT_PAGE", page);
-              commit("SET_PAGINATION_START", start);
-              commit("SET_PAGINATION_TOTAL_ITEMS", {
-                totalItems: data,
-                limit: limit
-              });
-            })
-            .catch(error => {
-              console.log(error);
-            });
+          dispatch('getTrainersCount', { page, start, limit });
         })
         .catch(error => {
           commit("SET_TRAINERS_ERROR", error);
         });
     },
-    paginationLoadMore({ commit, dispatch }, { start, page }) {
+    async getTrainersCount({ commit, getters }, { page = getters.pageNumber, start = getters.start, limit = getters.limit }) {
+      return await Api().get('/trainers/count')
+        .then(response => {
+          commit("SET_CURRENT_PAGE", page);
+          commit("SET_PAGINATION_START", start);
+          commit("SET_PAGINATION_TOTAL_ITEMS", {
+            totalItems: response.data,
+            limit: limit
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    paginationLoadMore({ commit, dispatch }, { start }) {
       commit("SET_PAGINATION_START_NEXT", start);
-      commit("SET_PAGINATION_PAGE_NEXT", page);
+      commit("SET_PAGINATION_PAGE_NEXT");
       dispatch("fetchTrainers");
     },
-    paginationPrevious({ commit, dispatch }, { start, page }) {
+    paginationPrevious({ commit, dispatch }, { start }) {
       commit("SET_PAGINATION_START_PREV", start);
-      commit("SET_PAGINATION_PAGE_PREV", page);
+      commit("SET_PAGINATION_PAGE_PREV");
       dispatch("fetchTrainers");
     }
   }

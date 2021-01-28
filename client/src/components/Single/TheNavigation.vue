@@ -1,6 +1,6 @@
 <template>
   <nav class="navigation" :class="{ 'navigation--expanded': isNavExpanded }">
-    <div class="navigation__wrapper container">
+    <div class="navigation__wrapper">
       <router-link to="/" id="home" class="navigation__logo-container">
         <img
           src="@/assets/images/logos/logo-black.png"
@@ -19,7 +19,7 @@
       >
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
-      <ul class="navigation__list container">
+      <ul class="navigation__list">
         <li class="navigation__item">
           <router-link to="/" id="home" class="navigation__link"
             >Home</router-link
@@ -74,18 +74,41 @@
           >
         </li>
       </ul>
-      <button class="navigation__cart">
-        <router-link to="/cart" class="navigation__link">
-          <i
-            class="fas fa-shopping-cart navigation__cart-icon"
-            aria-hidden="true"
-          ></i>
-          Cart
-          <span class="navigation__cart-item-count" v-if="cartItemCount > 0">{{
-            cartItemCount
-          }}</span>
-        </router-link>
-      </button>
+      <div class="navigation__user">
+        <button class="navigation__btn navigation__cart">
+          <router-link to="/cart" class="navigation__link">
+            <i
+              class="fas fa-shopping-cart navigation__btn-icon"
+              aria-hidden="true"
+            ></i>
+            Cart
+            <span class="navigation__cart-item-count" v-if="cartItemCount > 0">{{
+              cartItemCount
+            }}</span>
+          </router-link>
+        </button>
+        <button class="navigation__btn" v-if="!isAuthenticated">
+          <router-link to="/login" class="navigation__link"
+            >Login</router-link
+          >
+        </button>
+        <button class="navigation__btn" v-if="!isAuthenticated">
+          <router-link to="/register" class="navigation__link"
+            >Register</router-link
+          >
+        </button>
+        <button class="navigation__btn" v-if="isAuthenticated">
+          <router-link to="/profile" class="navigation__link">
+          <i class="fas fa-user navigation__btn-icon"></i>
+          Profile
+          </router-link>
+        </button>
+        <button class="navigation__btn" v-if="isAuthenticated" @click.prevent="logOut">
+          <router-link to="/" class="navigation__link">
+          Logout
+          </router-link>
+        </button>
+      </div>
     </div>
   </nav>
 </template>
@@ -104,7 +127,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["pagination", "cartItemCount"]),
+    ...mapGetters({
+      pagination: "pagination", 
+      cartItemCount: "cartItemCount",
+      isAuthenticated: "auth/isAuthenticated"
+      }),
     currentRouteName() {
       return this.$route.name;
     }
@@ -113,6 +140,12 @@ export default {
     navigationToggle() {
       this.isNavExpanded = !this.isNavExpanded;
       this.$refs.toggle.setAttribute("aria-expanded", this.isNavExpanded);
+    },
+    logOut() {
+      this.$store.dispatch('auth/logout')
+      .then(() => {
+        this.$router.push('/login');
+      })
     }
   }
 };
@@ -145,6 +178,7 @@ export default {
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
   }
   &__logo {
     display: block;
@@ -200,18 +234,30 @@ export default {
     border-top: 3px solid var(--color-primary);
     color: var(--color-primary);
   }
-  &__cart {
-    position: relative;
-    margin-left: auto;
+  &__btn {
     color: white;
     text-transform: uppercase;
     border: none;
     background: none;
+    padding: 0 1rem;
+    &-icon {
+      margin-right: 0.25rem;
+    }
+  }
+  &__user {
+    display: flex;
+    min-height: 3rem;
     @media (max-width: 1222px) {
       order: 1;
     }
-    &-icon {
-      margin-right: 0.25rem;
+    @media (max-width: 525px) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  &__cart {
+    & .navigation__link {
+      position: relative;
     }
     &-item-count {
       position: absolute;
@@ -232,6 +278,9 @@ export default {
       display: flex;
       order: 2;
     }
+    @media (max-width: 525px) {
+      order: 0;
+    }
   }
   &--expanded {
     & .navigation__list {
@@ -249,9 +298,9 @@ export default {
     }
     & .navigation__toggle {
       order: 2;
-    }
-    & .navigation__cart {
-      order: 1;
+      @media (max-width: 525px) {
+        order: 0;
+      }
     }
   }
 }

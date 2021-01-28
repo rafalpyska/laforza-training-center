@@ -1,3 +1,5 @@
+import Api from '@/services/Api';
+
 export default {
   state: {
     postsLoading: true,
@@ -50,18 +52,9 @@ export default {
   actions: {
     async fetchBlogPosts({ commit }, { start = 0, limit = 50 }) {
       commit("SET_POSTS_LOADING", true);
-      return await fetch(
-        `${process.env.VUE_APP_API_URL}/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      )
-        .then(response => response.json())
-        .then(data => {
-          commit("SET_BLOG_POSTS", data);
+      return await Api().get(`/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`)
+        .then(response => {
+          commit("SET_BLOG_POSTS", response.data);
           commit("SET_POSTS_LOADING", false);
         })
         .catch(error => {
@@ -70,18 +63,9 @@ export default {
     },
     async fetchSingleBlogPost({ commit }, postSlug) {
       commit("SET_SINGLE_POST_LOADING", true);
-      return await fetch(
-        `${process.env.VUE_APP_API_URL}/posts?slug=${postSlug}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      )
-        .then(response => response.json())
-        .then(data => {
-          commit("SET_ONE_BLOG_POST", data);
+      return await Api().get(`/posts?slug=${postSlug}`)
+        .then(response => {
+          commit("SET_ONE_BLOG_POST", response.data);
           commit("SET_SINGLE_POST_LOADING", false);
         })
         .catch(error => {
