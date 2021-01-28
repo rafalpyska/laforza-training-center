@@ -47,7 +47,7 @@ export default {
     },
     LOGOUT(state) {
       state.isUserLoggedIn = false;
-      state.user = null;
+      state.user = {};
       state.token = null;
     },
     SET_REGISTER_SUCCESS_MESSAGE(state, message) {
@@ -84,9 +84,7 @@ export default {
         dispatch('loginAttempt', { token: data.jwt, user: data.user });
       } catch (error) {
         commit('SET_LOGIN_ERROR', error.response.data.message[0].messages[0]);
-        AuthenticationService.logout();
-        commit('SET_TOKEN', null);
-        commit('SET_USER', {});
+        dispatch('logout');
       }
     },
     async getUser({ dispatch, state, commit }) {
@@ -97,9 +95,7 @@ export default {
         }   
       } catch (error) {
         commit('SET_USER_ERROR', error.response.data.message[0].messages[0]);
-        AuthenticationService.logout();
-        commit('SET_TOKEN', null);
-        commit('SET_USER', {});
+        dispatch('logout');
       }
     },
     logout({ commit }) {
