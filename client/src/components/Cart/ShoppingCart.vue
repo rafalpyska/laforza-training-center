@@ -32,7 +32,6 @@
 import { mapGetters} from 'vuex'
 export default {
   name: "ShoppingCart",
-  props: {},
   computed: {
     ...mapGetters(["cart", "cartTotalItemPrice", "cartItemCount"])
   },

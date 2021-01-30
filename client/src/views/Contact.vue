@@ -19,7 +19,7 @@
                 >Full name</label
               >
               <input
-                class="input contact__company"
+                class="input contact__input contact__company"
                 id="contact-full-name"
                 name="contact-company"
                 type="text"
@@ -30,7 +30,7 @@
                 >Your email address</label
               >
               <input
-                class="input contact__email"
+                class="input contact__input contact__email"
                 id="contact-email"
                 name="contact-email"
                 type="email"
@@ -43,7 +43,7 @@
                 >Subject</label
               >
               <input
-                class="input contact__subject"
+                class="input contact__input contact__subject"
                 id="contact-subject"
                 name="contact-subject"
                 type="text"
@@ -52,7 +52,7 @@
               />
               <label class="visuallyhidden" for="contact-company">Phone</label>
               <input
-                class="input contact__company"
+                class="input contact__input contact__company"
                 id="contact-phone"
                 name="contact-phone"
                 type="text"
@@ -213,6 +213,9 @@ export default {
   }
   &__form {
     grid-column: 1/3;
+  }
+  &__input {
+    width: 50%;
   }
   &__icon {
     width: 20px;

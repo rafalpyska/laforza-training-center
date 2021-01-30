@@ -4,57 +4,55 @@
       <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
       {{ error.message }}
     </p>
-    <ValidationObserver v-slot="{ handleSubmit, invalid }">
-      <form class="login__form" name="login-form" @submit.prevent="handleSubmit(submit)">
-        <label class="visuallyhidden" for="contact-email"
-          >Your email address</label
-        >
-        <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors, failed, valid }">
-          <span :class="`is-${valid}`">
-            <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-            {{ errors[0] }}
-          </span>
-          <input
-            v-model="form.identifier"
-            class="input input__email"
-            id="user-login-email"
-            name="user-login-email"
-            type="email"
-            placeholder="Your email *"
-            required
-          />
-        </ValidationProvider>
-        <label class="visuallyhidden" for="contact-subject"
-          >Password</label
-        >
-        <ValidationProvider name="Password" v-slot="{ errors, failed, valid }" rules="required">
-          <span :class="`is-${valid}`">
-            <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-            {{ errors[0] }}
-          </span>
-          <input
-            v-model="form.password"
-            class="input input__password"
-            id="user-login-password"
-            name="user-login-password"
-            type="password"
-            placeholder="Your password *"
-            required
-          />
-        </ValidationProvider>
-        <label class="visuallyhidden" for="contact-submit"
-          >Register</label
-        >
+    <ValidationObserver v-slot="{ handleSubmit, invalid }" name="login-form" @submit.prevent="handleSubmit(submit)" tag="form">
+      <label class="visuallyhidden" for="user-login-email"
+        >Your email address</label
+      >
+      <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors, failed, valid }" tag="div">
+        <span :class="`is-${valid}`">
+          <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          {{ errors[0] }}
+        </span>
         <input
-          @click.prevent="submit"
-          id="user-login-submit"
-          class="input input__submit"
-          name="user-login-submit"
-          type="submit"
-          value="Login"
-          :disabled="invalid"
+          v-model="form.identifier"
+          class="input input__email"
+          id="user-login-email"
+          name="user-login-email"
+          type="email"
+          placeholder="Your email *"
+          required
         />
-      </form>
+      </ValidationProvider>
+      <label class="visuallyhidden" for="user-login-password"
+        >Password</label
+      >
+      <ValidationProvider name="Password" v-slot="{ errors, failed, valid }" rules="required" tag="div">
+        <span :class="`is-${valid}`">
+          <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          {{ errors[0] }}
+        </span>
+        <input
+          v-model="form.password"
+          class="input input__password"
+          id="user-login-password"
+          name="user-login-password"
+          type="password"
+          placeholder="Your password *"
+          required
+        />
+      </ValidationProvider>
+      <label class="visuallyhidden" for="user-login-submit"
+        >Register</label
+      >
+      <input
+        @click.prevent="submit"
+        id="user-login-submit"
+        class="input input__submit"
+        name="user-login-submit"
+        type="submit"
+        value="Login"
+        :disabled="invalid"
+      />
     </ValidationObserver>
   </div>
 </template>
