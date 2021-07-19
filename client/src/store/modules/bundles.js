@@ -4,7 +4,7 @@ export default {
   state: {
     bundlesLoading: true,
     bundlesError: null,
-    bundles: []
+    bundles: [],
   },
   getters: {
     bundlesLoadingStatus(state) {
@@ -15,7 +15,7 @@ export default {
     },
     bundles(state) {
       return state.bundles;
-    }
+    },
   },
   mutations: {
     SET_BUNDLES_LOADING(state, loadingStatus) {
@@ -26,19 +26,20 @@ export default {
     },
     SET_BUNDLES(state, bundles) {
       state.bundles = bundles;
-    }
+    },
   },
   actions: {
     async fetchBundles({ commit }) {
-      commit("SET_BUNDLES_LOADING", true);
-      return await Api().get('/bundles')
+      commit('SET_BUNDLES_LOADING', true);
+      return await Api()
+        .get('/bundles')
         .then(response => {
-          commit("SET_BUNDLES", response.data);
-          commit("SET_BUNDLES_LOADING", false);
+          commit('SET_BUNDLES', response.data);
+          commit('SET_BUNDLES_LOADING', false);
         })
         .catch(error => {
-          commit("SET_BUNDLES_ERROR", error);
+          commit('SET_BUNDLES_ERROR', error);
         });
-    }
-  }
+    },
+  },
 };

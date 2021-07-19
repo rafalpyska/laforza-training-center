@@ -111,40 +111,40 @@
 </template>
 
 <script>
-import ImageItem from "../ImageItem";
+import ImageItem from '../ImageItem';
 
 export default {
-  name: "TrainersList",
+  name: 'TrainersList',
   components: {
-    ImageItem
+    ImageItem,
   },
   props: {
     trainer: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      show: false
+      show: false,
     };
   },
   methods: {
     addToCart() {
-      this.$store.dispatch("addCourseToCart", {
+      this.$store.dispatch('addCourseToCart', {
         id:
-          "_" +
+          '_' +
           Math.random()
             .toString(36)
             .substr(2, 9),
         course: this.trainer.classes[0],
         quantity: 1,
-        trainer: this.trainer.username
+        trainer: this.trainer.username,
       });
-      this.$store.commit("ADD_CART_TO_LOCAL_STORAGE");
+      this.$store.commit('ADD_CART_TO_LOCAL_STORAGE');
       // this.$refs.popup.show = !this.$refs.popup.show;
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped lang="scss">

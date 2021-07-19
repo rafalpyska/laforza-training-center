@@ -5,23 +5,23 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
 export default {
-  name: "EventsCalendarNextMonth",
+  name: 'EventsCalendarNextMonth',
   props: {
     selectedDate: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   methods: {
     selectNext() {
-      let newSelectedDate = dayjs(this.selectedDate).add(1, "month");
-      this.$emit("dateSelected", newSelectedDate);
-    }
-  }
+      let newSelectedDate = dayjs(this.selectedDate).add(1, 'month');
+      this.$emit('dateSelected', newSelectedDate);
+    },
+  },
 };
 </script>
 

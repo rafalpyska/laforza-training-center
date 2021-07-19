@@ -54,14 +54,14 @@
 </template>
 <script>
 export default {
-  name: "TrainerMiniProfile",
+  name: 'TrainerMiniProfile',
   components: {},
   props: {
     trainer: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 <style scoped lang="scss">

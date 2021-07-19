@@ -146,41 +146,41 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import ellipsify from "@/mixins/ellipsify";
-import { Hooper, Slide } from "hooper";
-import "@/assets/styles/hooper.css";
+import { mapGetters } from 'vuex';
+import ellipsify from '@/mixins/ellipsify';
+import { Hooper, Slide } from 'hooper';
+import '@/assets/styles/hooper.css';
 export default {
-  name: "Shortcut",
+  name: 'Shortcut',
   mixins: [ellipsify],
   components: {
     Hooper,
-    Slide
+    Slide,
   },
   data() {
     return {
       startPostsFrom: 0,
-      numberOfPosts: 2
+      numberOfPosts: 2,
     };
   },
   computed: {
     ...mapGetters([
-      "bundlesLoadingStatus",
-      "bundlesErrorStatus",
-      "bundles",
-      "postsLoadingStatus",
-      "postsErrorStatus",
-      "posts"
-    ])
+      'bundlesLoadingStatus',
+      'bundlesErrorStatus',
+      'bundles',
+      'postsLoadingStatus',
+      'postsErrorStatus',
+      'posts',
+    ]),
   },
   async created() {
     if (this.bundles && this.bundles.length > 0) return;
-    await this.$store.dispatch("fetchBundles");
+    await this.$store.dispatch('fetchBundles');
 
     if (this.bundles && this.posts.length > 0) return;
-    await this.$store.dispatch("fetchBlogPosts", {
+    await this.$store.dispatch('fetchBlogPosts', {
       start: this.startPostsFrom,
-      limit: this.numberOfPosts
+      limit: this.numberOfPosts,
     });
   },
   methods: {
@@ -195,8 +195,8 @@ export default {
     },
     plansSlideNext() {
       this.$refs.plans.slideNext();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -209,7 +209,7 @@ export default {
     grid-auto-rows: auto;
   }
   &__heading {
-    font-family: "Play", sans-serif;
+    font-family: 'Play', sans-serif;
     margin-bottom: 0.75rem;
     &--news {
       color: var(--shortcut-news-heading-color);

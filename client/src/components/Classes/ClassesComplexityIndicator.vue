@@ -19,17 +19,17 @@
 
 <script>
 export default {
-  name: "ClassesComplexityIndicator",
+  name: 'ClassesComplexityIndicator',
   props: {
     rating: {
       type: [Number, String],
-      default: 0
+      default: 0,
     },
     max: {
       type: [Number, String],
-      default: 5
-    }
-  }
+      default: 5,
+    },
+  },
 };
 </script>
 

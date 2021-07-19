@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "ActionStrip"
+  name: 'ActionStrip',
 };
 </script>
 

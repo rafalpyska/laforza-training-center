@@ -33,29 +33,29 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import ClassesHome from "../components/ClassesHome";
-import Shortcut from "../components/Shortcut";
+import { mapGetters } from 'vuex';
+import ClassesHome from '../components/ClassesHome';
+import Shortcut from '../components/Shortcut';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     ClassesHome,
-    Shortcut
+    Shortcut,
   },
   computed: {
     ...mapGetters([
-      "classesLoadingStatus",
-      "classesErrorStatus",
-      "classes",
-      "bundlesLoadingStatus",
-      "bundlesErrorStatus"
-    ])
+      'classesLoadingStatus',
+      'classesErrorStatus',
+      'classes',
+      'bundlesLoadingStatus',
+      'bundlesErrorStatus',
+    ]),
   },
   async created() {
     if (this.classes && this.classes.length > 0) return;
-    await this.$store.dispatch("fetchClasses");
-  }
+    await this.$store.dispatch('fetchClasses');
+  },
 };
 </script>
 

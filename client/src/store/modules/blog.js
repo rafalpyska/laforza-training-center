@@ -7,7 +7,7 @@ export default {
     posts: [],
     singlePostLoading: true,
     singlePostError: null,
-    singlePost: []
+    singlePost: [],
   },
   getters: {
     postsLoadingStatus(state) {
@@ -27,7 +27,7 @@ export default {
     },
     post(state) {
       return state.singlePost;
-    }
+    },
   },
   mutations: {
     SET_POSTS_LOADING(state, loadingStatus) {
@@ -47,30 +47,32 @@ export default {
     },
     SET_ONE_BLOG_POST(state, post) {
       state.singlePost = post;
-    }
+    },
   },
   actions: {
     async fetchBlogPosts({ commit }, { start = 0, limit = 50 }) {
-      commit("SET_POSTS_LOADING", true);
-      return await Api().get(`/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`)
+      commit('SET_POSTS_LOADING', true);
+      return await Api()
+        .get(`/posts?_sort=publishedAt:DESC&_start=${start}&_limit=${limit}`)
         .then(response => {
-          commit("SET_BLOG_POSTS", response.data);
-          commit("SET_POSTS_LOADING", false);
+          commit('SET_BLOG_POSTS', response.data);
+          commit('SET_POSTS_LOADING', false);
         })
         .catch(error => {
-          commit("SET_POSTS_ERROR", error);
+          commit('SET_POSTS_ERROR', error);
         });
     },
     async fetchSingleBlogPost({ commit }, postSlug) {
-      commit("SET_SINGLE_POST_LOADING", true);
-      return await Api().get(`/posts?slug=${postSlug}`)
+      commit('SET_SINGLE_POST_LOADING', true);
+      return await Api()
+        .get(`/posts?slug=${postSlug}`)
         .then(response => {
-          commit("SET_ONE_BLOG_POST", response.data);
-          commit("SET_SINGLE_POST_LOADING", false);
+          commit('SET_ONE_BLOG_POST', response.data);
+          commit('SET_SINGLE_POST_LOADING', false);
         })
         .catch(error => {
-          commit("SET_SINGLE_POST_ERROR", error);
+          commit('SET_SINGLE_POST_ERROR', error);
         });
-    }
-  }
+    },
+  },
 };

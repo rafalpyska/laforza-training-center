@@ -25,13 +25,13 @@
 </template>
 <script>
 export default {
-  name: "ClientStory",
+  name: 'ClientStory',
   props: {
     story: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -60,14 +60,14 @@ export default {
     font-size: 1.5rem;
   }
   &__content {
-    font-family: "Play", sans-serif;
+    font-family: 'Play', sans-serif;
     position: relative;
     // temporary width
     padding: 3rem 2rem;
     background-color: var(--client-story-bgc);
     font-size: 0.8rem;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       right: 3rem;

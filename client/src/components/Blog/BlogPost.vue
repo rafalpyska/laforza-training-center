@@ -111,28 +111,28 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import ImageItem from "../ImageItem";
-import BlogPostDate from "./BlogPostDate";
+import { mapGetters } from 'vuex';
+import ImageItem from '../ImageItem';
+import BlogPostDate from './BlogPostDate';
 
 export default {
-  name: "BlogPost",
+  name: 'BlogPost',
   components: {
     ImageItem,
-    BlogPostDate
+    BlogPostDate,
   },
   props: {
     slug: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
-    ...mapGetters(["singlePostLoadingStatus", "singlePostErrorStatus", "post"])
+    ...mapGetters(['singlePostLoadingStatus', 'singlePostErrorStatus', 'post']),
   },
   async created() {
-    await this.$store.dispatch("fetchSingleBlogPost", this.slug);
-  }
+    await this.$store.dispatch('fetchSingleBlogPost', this.slug);
+  },
 };
 </script>
 
@@ -166,7 +166,7 @@ export default {
     background-color: var(--blog-post-shortened-bgc);
   }
   &-heading {
-    font-family: "Play", sans-serif;
+    font-family: 'Play', sans-serif;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
   }

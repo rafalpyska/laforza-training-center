@@ -30,37 +30,37 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     subtitle: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
-      show: false
+      show: false,
     };
   },
   watch: {
     show: function() {
       if (this.show) {
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = 'hidden';
         return;
       }
-      document.body.style.overflow = "auto";
-    }
+      document.body.style.overflow = 'auto';
+    },
   },
   created() {
     const escapeHandler = e => {
-      if (e.key === "Escape" && this.show === true) {
+      if (e.key === 'Escape' && this.show === true) {
         this.show = false;
       }
     };
-    document.addEventListener("keydown", escapeHandler);
-    this.$once("hook:destroyed", () => {
-      document.removeEventListener("keydown", escapeHandler);
+    document.addEventListener('keydown', escapeHandler);
+    this.$once('hook:destroyed', () => {
+      document.removeEventListener('keydown', escapeHandler);
     });
-  }
+  },
 };
 </script>
 
@@ -74,7 +74,7 @@ export default {
   max-width: 22rem;
   background: #ffffff;
   border-radius: 0.25rem;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 0.85rem;
   &__header {
     display: flex;
@@ -96,7 +96,7 @@ export default {
   }
 
   &__heading {
-    font-family: "Play", sans-serif;
+    font-family: 'Play', sans-serif;
   }
   &-wrapper {
     position: fixed;

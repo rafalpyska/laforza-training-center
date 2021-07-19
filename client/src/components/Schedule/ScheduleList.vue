@@ -35,25 +35,25 @@
 
 <script>
 export default {
-  name: "ScheduleList",
+  name: 'ScheduleList',
   props: {
     trainers: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       scheduleHeader: [
-        "Trainer",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ]
+        'Trainer',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+      ],
     };
-  }
+  },
 };
 </script>
 

@@ -14,9 +14,9 @@
         <span class="bold">Start hour: </span>
         {{
           event.startHour
-            .split(":")
+            .split(':')
             .splice(0, 2)
-            .join(":")
+            .join(':')
         }}
       </p>
       <p class="">
@@ -30,13 +30,13 @@
 
 <script>
 export default {
-  name: "EventsInfo",
+  name: 'EventsInfo',
   props: {
     event: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

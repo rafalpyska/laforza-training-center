@@ -23,16 +23,16 @@
   </header>
 </template>
 <script>
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
-import TheNavigation from "./TheNavigation.vue";
+import { VueperSlides, VueperSlide } from 'vueperslides';
+import 'vueperslides/dist/vueperslides.css';
+import TheNavigation from './TheNavigation.vue';
 
 export default {
-  name: "TheHeader",
+  name: 'TheHeader',
   components: {
     VueperSlides,
     VueperSlide,
-    TheNavigation
+    TheNavigation,
   },
   data: () => ({
     pauseOnHover: true,
@@ -42,29 +42,29 @@ export default {
     parallaxFixedContent: true,
     slides: [
       {
-        title: "Little effort",
-        content: "And You will succeed with us",
-        image: require("@/assets/images/hero.jpg")
+        title: 'Little effort',
+        content: 'And You will succeed with us',
+        image: require('@/assets/images/hero.jpg'),
       },
       {
-        title: "Change your life",
-        content: "And find themselves",
-        image: require("@/assets/images/hero-2.jpg")
+        title: 'Change your life',
+        content: 'And find themselves',
+        image: require('@/assets/images/hero-2.jpg'),
       },
       {
-        title: "Little effort",
-        content: "And You will succeed with us",
-        image: require("@/assets/images/hero-3.jpg")
-      }
-    ]
+        title: 'Little effort',
+        content: 'And You will succeed with us',
+        image: require('@/assets/images/hero-3.jpg'),
+      },
+    ],
   }),
   computed: {
     media() {
       return {
-        isMobile: !this.$screen.sm
+        isMobile: !this.$screen.sm,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

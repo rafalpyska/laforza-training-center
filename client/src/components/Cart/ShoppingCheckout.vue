@@ -8,19 +8,29 @@
       <i class="fas fa-check-circle" aria-hidden="true"></i>
       {{ success }}
     </p> -->
-    <ValidationObserver ref="form" v-slot="{ handleSubmit, invalid, errors }" class="checkout__form" name="checkout-form" @submit.prevent="handleSubmit(submit)">
+    <ValidationObserver
+      ref="form"
+      v-slot="{ handleSubmit, invalid, errors }"
+      class="checkout__form"
+      name="checkout-form"
+      @submit.prevent="handleSubmit(submit)"
+    >
       <ul class="checkout__errors-list">
-        <li class="checkout__errors-item" v-for="(error, index) in errors" :key="index">
-          <i v-if="error.length" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        <li
+          class="checkout__errors-item"
+          v-for="(error, index) in errors"
+          :key="index"
+        >
+          <i
+            v-if="error.length"
+            class="fas fa-exclamation-triangle"
+            aria-hidden="true"
+          ></i>
           {{ error[0] }}
         </li>
       </ul>
       <div class="input__fieldset checkout__input-fieldset">
-        <ValidationProvider
-          name="Name"
-          rules="min:3"
-          tag="div"
-        >
+        <ValidationProvider name="Name" rules="min:3" tag="div">
           <label class="visuallyhidden" for="user-checkout-name">
             Name
           </label>
@@ -34,11 +44,7 @@
             required
           />
         </ValidationProvider>
-        <ValidationProvider
-          name="Address"
-          rules="required"
-          tag="div"
-        >
+        <ValidationProvider name="Address" rules="required" tag="div">
           <label class="visuallyhidden" for="user-checkout-address"
             >Your full address</label
           >
@@ -53,11 +59,7 @@
         </ValidationProvider>
       </div>
       <div class="input__fieldset checkout__input-fieldset">
-        <ValidationProvider
-          name="City"
-          rules="required"
-          tag="div"
-        >
+        <ValidationProvider name="City" rules="required" tag="div">
           <label class="visuallyhidden" for="user-checkout-city"
             >Your city</label
           >
@@ -88,9 +90,7 @@
           />
         </ValidationProvider>
       </div>
-      <label class="visuallyhidden" for="contact-submit"
-        >Continue</label
-      >
+      <label class="visuallyhidden" for="contact-submit">Continue</label>
       <input
         id="user-checkout-submit"
         class="input input__submit"
@@ -106,10 +106,10 @@
 import { mapGetters } from 'vuex';
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default {
-  name: "Checkout",
+  name: 'Checkout',
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   data() {
     return {
@@ -121,16 +121,16 @@ export default {
         courses: '',
         amount: '',
         user: '',
-      }
-    }
+      },
+    };
   },
   computed: {
     ...mapGetters({
       isAuthenticated: 'auth/isAuthenticated',
-    })
+    }),
   },
   created() {
-    if(!this.isAuthenticated) {
+    if (!this.isAuthenticated) {
       this.$router.push('/');
     }
   },
@@ -139,23 +139,23 @@ export default {
     //   if(this.form.name && this.form.address && this.form.city) {
     //     await this.order(this.form)
     //   }
-    // } 
-  }
+    // }
+  },
 };
 </script>
 
 <style scoped lang="scss">
-  .checkout {
-    &__errors {
-      &-item {
-        margin-bottom: .5rem;
-        color: red;
-      }
-    }
-    &__input-fieldset {
-      & > div:not(:last-child) {
-        margin-right: 1.25rem;
-      }
+.checkout {
+  &__errors {
+    &-item {
+      margin-bottom: 0.5rem;
+      color: red;
     }
   }
+  &__input-fieldset {
+    & > div:not(:last-child) {
+      margin-right: 1.25rem;
+    }
+  }
+}
 </style>

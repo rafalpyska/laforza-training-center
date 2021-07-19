@@ -10,8 +10,8 @@ export default {
       pagesTotal: null,
       start: 0,
       limit: 3,
-      totalItems: 0
-    }
+      totalItems: 0,
+    },
   },
   getters: {
     trainersLoadingStatus(state) {
@@ -37,7 +37,7 @@ export default {
     },
     limit(state) {
       return state.pagination.limit;
-    }
+    },
   },
   mutations: {
     SET_TRAINERS(state, trainers) {
@@ -72,29 +72,45 @@ export default {
     },
     SET_PAGINATION_START(state, start) {
       return (state.pagination.start = start);
-    }
+    },
   },
   actions: {
-    async fetchTrainers({ commit, dispatch, getters }, { page = getters.pageNumber, start = getters.start, limit = getters.limit }) {
-      commit("SET_TRAINERS_LOADING", true);
-      return await Api().get(`/trainers?_start=${start}&_limit=${limit}`)
+    async fetchTrainers(
+      { commit, dispatch, getters },
+      {
+        page = getters.pageNumber,
+        start = getters.start,
+        limit = getters.limit,
+      },
+    ) {
+      commit('SET_TRAINERS_LOADING', true);
+      return await Api()
+        .get(`/trainers?_start=${start}&_limit=${limit}`)
         .then(respone => {
-          commit("SET_TRAINERS", respone.data || []);
-          commit("SET_TRAINERS_LOADING", false);
+          commit('SET_TRAINERS', respone.data || []);
+          commit('SET_TRAINERS_LOADING', false);
           dispatch('getTrainersCount', { page, start, limit });
         })
         .catch(error => {
-          commit("SET_TRAINERS_ERROR", error);
+          commit('SET_TRAINERS_ERROR', error);
         });
     },
-    async getTrainersCount({ commit, getters }, { page = getters.pageNumber, start = getters.start, limit = getters.limit }) {
-      return await Api().get('/trainers/count')
+    async getTrainersCount(
+      { commit, getters },
+      {
+        page = getters.pageNumber,
+        start = getters.start,
+        limit = getters.limit,
+      },
+    ) {
+      return await Api()
+        .get('/trainers/count')
         .then(response => {
-          commit("SET_CURRENT_PAGE", page);
-          commit("SET_PAGINATION_START", start);
-          commit("SET_PAGINATION_TOTAL_ITEMS", {
+          commit('SET_CURRENT_PAGE', page);
+          commit('SET_PAGINATION_START', start);
+          commit('SET_PAGINATION_TOTAL_ITEMS', {
             totalItems: response.data,
-            limit: limit
+            limit: limit,
           });
         })
         .catch(error => {
@@ -102,14 +118,14 @@ export default {
         });
     },
     paginationLoadMore({ commit, dispatch }, { start }) {
-      commit("SET_PAGINATION_START_NEXT", start);
-      commit("SET_PAGINATION_PAGE_NEXT");
-      dispatch("fetchTrainers");
+      commit('SET_PAGINATION_START_NEXT', start);
+      commit('SET_PAGINATION_PAGE_NEXT');
+      dispatch('fetchTrainers');
     },
     paginationPrevious({ commit, dispatch }, { start }) {
-      commit("SET_PAGINATION_START_PREV", start);
-      commit("SET_PAGINATION_PAGE_PREV");
-      dispatch("fetchTrainers");
-    }
-  }
+      commit('SET_PAGINATION_START_PREV', start);
+      commit('SET_PAGINATION_PAGE_PREV');
+      dispatch('fetchTrainers');
+    },
+  },
 };

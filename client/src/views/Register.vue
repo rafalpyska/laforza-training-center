@@ -12,15 +12,13 @@
   </section>
 </template>
 <script>
-import UserRegister from '@/components/User/UserRegister'
+import UserRegister from '@/components/User/UserRegister';
 export default {
-  name: "Register",
+  name: 'Register',
   components: {
-    UserRegister
-  }
+    UserRegister,
+  },
 };
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

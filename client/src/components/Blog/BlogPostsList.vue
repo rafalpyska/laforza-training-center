@@ -34,33 +34,33 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import fetchData from "@/mixins/fetchData";
-import ImageItem from "../ImageItem";
-import BlogPostDate from "./BlogPostDate";
+import { mapGetters } from 'vuex';
+import fetchData from '@/mixins/fetchData';
+import ImageItem from '../ImageItem';
+import BlogPostDate from './BlogPostDate';
 
 export default {
-  name: "BlogPostsList",
+  name: 'BlogPostsList',
   components: {
     ImageItem,
-    BlogPostDate
+    BlogPostDate,
   },
   mixins: [fetchData],
   data() {
     return {
       startPostsFrom: 0,
-      numberOfPosts: 50
+      numberOfPosts: 50,
     };
   },
   computed: {
-    ...mapGetters(["postsLoadingStatus", "postsErrorStatus", "posts"])
+    ...mapGetters(['postsLoadingStatus', 'postsErrorStatus', 'posts']),
   },
   async created() {
-    await this.$store.dispatch("fetchBlogPosts", {
+    await this.$store.dispatch('fetchBlogPosts', {
       start: this.startPostsFrom,
-      limit: this.numberOfPosts
+      limit: this.numberOfPosts,
     });
-  }
+  },
 };
 </script>
 

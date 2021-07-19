@@ -1,11 +1,10 @@
 import Api from '@/services/Api';
 
-
 export default {
   state: {
     classesLoading: true,
     classesError: null,
-    classes: []
+    classes: [],
   },
   getters: {
     classesLoadingStatus(state) {
@@ -16,7 +15,7 @@ export default {
     },
     classes(state) {
       return state.classes;
-    }
+    },
   },
   mutations: {
     SET_CLASSES_LOADING(state, loadingStatus) {
@@ -27,19 +26,20 @@ export default {
     },
     SET_COURSES(state, classes) {
       state.classes = classes;
-    }
+    },
   },
   actions: {
     async fetchClasses({ commit }) {
-      commit("SET_CLASSES_LOADING", true);
-      return await Api().get('/classes')
+      commit('SET_CLASSES_LOADING', true);
+      return await Api()
+        .get('/classes')
         .then(response => {
-          commit("SET_COURSES", response.data);
-          commit("SET_CLASSES_LOADING", false);
+          commit('SET_COURSES', response.data);
+          commit('SET_CLASSES_LOADING', false);
         })
         .catch(error => {
-          commit("SET_CLASSES_ERROR", error);
+          commit('SET_CLASSES_ERROR', error);
         });
-    }
-  }
+    },
+  },
 };

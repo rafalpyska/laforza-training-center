@@ -49,23 +49,23 @@
 </template>
 
 <script>
-import fetchData from "../mixins/fetchData";
-import ClientStory from "../components/ClientStory";
-import { Hooper, Slide, Pagination as HooperPagination } from "hooper";
+import fetchData from '../mixins/fetchData';
+import ClientStory from '../components/ClientStory';
+import { Hooper, Slide, Pagination as HooperPagination } from 'hooper';
 
 export default {
-  name: "Stories",
+  name: 'Stories',
   components: {
     ClientStory,
     Hooper,
     Slide,
-    HooperPagination
+    HooperPagination,
   },
   mixins: [fetchData],
   data() {
     return {
       loading: false,
-      error: "",
+      error: '',
       stories: null,
       hooperSettings: {
         itemsToShow: 3,
@@ -73,17 +73,17 @@ export default {
         infiniteScroll: true,
         breakpoints: {
           300: {
-            itemsToShow: 1
+            itemsToShow: 1,
           },
           800: {
-            itemsToShow: 2
+            itemsToShow: 2,
           },
           1280: {
             itemsToShow: 3,
-            pagination: "fraction"
-          }
-        }
-      }
+            pagination: 'fraction',
+          },
+        },
+      },
     };
   },
   async mounted() {
@@ -91,7 +91,7 @@ export default {
       this.stories = data;
       this.loading = false;
     });
-  }
+  },
 };
 </script>
 

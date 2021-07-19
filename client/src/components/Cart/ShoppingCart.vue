@@ -6,9 +6,7 @@
     <article class="shopping-cart__item" v-for="item in cart" :key="item.id">
       <!-- TODO: conditional 'with' span wheter course or bundle is selected-->
       <h3 class="shopping-cart__title">
-        <span class="color-primary text-uppercase">{{
-          item.course.name
-        }}</span>
+        <span class="color-primary text-uppercase">{{ item.course.name }}</span>
         <span v-if="item.trainer !== undefined"> with </span>
         <span v-if="item.trainer === undefined"> Bundle </span>
         <span
@@ -19,7 +17,10 @@
       </h3>
       <p>Quantity: {{ item.quantity }}</p>
       <p>Price: ${{ item.course.price }}</p>
-      <button class="shopping-cart__remove-item" @click="removeCourseFromCart(item.id)">
+      <button
+        class="shopping-cart__remove-item"
+        @click="removeCourseFromCart(item.id)"
+      >
         <span class="visuallyhidden">Remove from cart"</span>
         <i class="far fa-trash-alt"></i>
       </button>
@@ -29,17 +30,17 @@
   </div>
 </template>
 <script>
-import { mapGetters} from 'vuex'
+import { mapGetters } from 'vuex';
 export default {
-  name: "ShoppingCart",
+  name: 'ShoppingCart',
   computed: {
-    ...mapGetters(["cart", "cartTotalItemPrice", "cartItemCount"])
+    ...mapGetters(['cart', 'cartTotalItemPrice', 'cartItemCount']),
   },
   methods: {
     removeCourseFromCart(id) {
-      this.$store.dispatch("removeCourseFromCart", id);
-    }
-  }
+      this.$store.dispatch('removeCourseFromCart', id);
+    },
+  },
 };
 </script>
 

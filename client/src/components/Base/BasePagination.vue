@@ -18,20 +18,20 @@
 
 <script>
 export default {
-  name: "BasePagination",
+  name: 'BasePagination',
   props: {
     pagination: {
       type: Object,
-      required: true
+      required: true,
     },
     next: {
       type: String,
-      required: true
+      required: true,
     },
     previous: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     async loadMore() {
@@ -41,12 +41,12 @@ export default {
         await this.$store
           .dispatch(this.next, {
             start: this.pagination.start,
-            pageNumber: this.pagination.pageNumber
+            pageNumber: this.pagination.pageNumber,
           })
           .then(() => {
             this.$router.push({
-              name: "Trainers",
-              params: { page: this.pagination.pageNumber }
+              name: 'Trainers',
+              params: { page: this.pagination.pageNumber },
             });
           });
       }
@@ -56,17 +56,17 @@ export default {
         await this.$store
           .dispatch(this.previous, {
             start: this.pagination.start,
-            pageNumber: this.pagination.pageNumber
+            pageNumber: this.pagination.pageNumber,
           })
           .then(() => {
             this.$router.push({
-              name: "Trainers",
-              params: { page: this.pagination.pageNumber }
+              name: 'Trainers',
+              params: { page: this.pagination.pageNumber },
             });
           });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

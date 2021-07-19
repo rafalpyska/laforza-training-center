@@ -44,7 +44,7 @@
           <router-link
             :to="{
               name: 'Trainers',
-              params: { page: pagination.pageNumber }
+              params: { page: pagination.pageNumber },
             }"
             class="navigation__link"
             >Trainers</router-link
@@ -82,15 +82,15 @@
               aria-hidden="true"
             ></i>
             Cart
-            <span class="navigation__cart-item-count" v-if="cartItemCount > 0">{{
-              cartItemCount
-            }}</span>
+            <span
+              class="navigation__cart-item-count"
+              v-if="cartItemCount > 0"
+              >{{ cartItemCount }}</span
+            >
           </router-link>
         </button>
         <button class="navigation__btn" v-if="!isAuthenticated">
-          <router-link to="/login" class="navigation__link"
-            >Login</router-link
-          >
+          <router-link to="/login" class="navigation__link">Login</router-link>
         </button>
         <button class="navigation__btn" v-if="!isAuthenticated">
           <router-link to="/register" class="navigation__link"
@@ -99,13 +99,17 @@
         </button>
         <button class="navigation__btn" v-if="isAuthenticated">
           <router-link to="/profile" class="navigation__link">
-          <i class="fas fa-user navigation__btn-icon"></i>
-          Profile
+            <i class="fas fa-user navigation__btn-icon"></i>
+            Profile
           </router-link>
         </button>
-        <button class="navigation__btn" v-if="isAuthenticated" @click.prevent="logOut">
+        <button
+          class="navigation__btn"
+          v-if="isAuthenticated"
+          @click.prevent="logOut"
+        >
           <router-link to="/" class="navigation__link">
-          Logout
+            Logout
           </router-link>
         </button>
       </div>
@@ -113,41 +117,40 @@
   </nav>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
-  name: "TheNavigation",
+  name: 'TheNavigation',
   data: () => ({
     isNavExpanded: false,
-    isMiniCartVisible: false
+    isMiniCartVisible: false,
   }),
   watch: {
     $route() {
       this.isNavExpanded = false;
-    }
+    },
   },
   computed: {
     ...mapGetters({
-      pagination: "pagination", 
-      cartItemCount: "cartItemCount",
-      isAuthenticated: "auth/isAuthenticated"
-      }),
+      pagination: 'pagination',
+      cartItemCount: 'cartItemCount',
+      isAuthenticated: 'auth/isAuthenticated',
+    }),
     currentRouteName() {
       return this.$route.name;
-    }
+    },
   },
   methods: {
     navigationToggle() {
       this.isNavExpanded = !this.isNavExpanded;
-      this.$refs.toggle.setAttribute("aria-expanded", this.isNavExpanded);
+      this.$refs.toggle.setAttribute('aria-expanded', this.isNavExpanded);
     },
     logOut() {
-      this.$store.dispatch('auth/logout')
-      .then(() => {
+      this.$store.dispatch('auth/logout').then(() => {
         this.$router.push('/login');
-      })
-    }
-  }
+      });
+    },
+  },
 };
 </script>
 
@@ -167,7 +170,7 @@ export default {
   }
 }
 .navigation {
-  font-family: "Play", sans-serif;
+  font-family: 'Play', sans-serif;
   font-size: 0.75rem;
   background-color: var(--navigation-bgc);
   padding: 0 2rem;

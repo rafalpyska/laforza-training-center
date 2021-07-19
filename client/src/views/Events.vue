@@ -50,12 +50,12 @@
 </template>
 
 <script>
-import EventsCalendar from "../components/Events/EventsCalendar";
+import EventsCalendar from '../components/Events/EventsCalendar';
 export default {
-  name: "Events",
+  name: 'Events',
   components: {
-    EventsCalendar
-  }
+    EventsCalendar,
+  },
 };
 </script>
 

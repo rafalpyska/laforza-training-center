@@ -33,27 +33,27 @@
 </template>
 
 <script>
-import fetchData from "@/mixins/fetchData";
-import dayjs from "dayjs";
-import weekday from "dayjs/plugin/weekday";
-import weekOfYear from "dayjs/plugin/weekOfYear";
-import EventsCalendarMonthDayItem from "./EventsCalendarMonthDayItem";
-import EventsCalendarDateIndicator from "./EventsCalendarDateIndicator";
-import EventsCalendarPreviousMonth from "./EventsCalendarPreviousMonth";
-import EventsCalendarNextMonth from "./EventsCalendarNextMonth";
-import EventsCalendarWeekdays from "./EventsCalendarWeekdays";
+import fetchData from '@/mixins/fetchData';
+import dayjs from 'dayjs';
+import weekday from 'dayjs/plugin/weekday';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+import EventsCalendarMonthDayItem from './EventsCalendarMonthDayItem';
+import EventsCalendarDateIndicator from './EventsCalendarDateIndicator';
+import EventsCalendarPreviousMonth from './EventsCalendarPreviousMonth';
+import EventsCalendarNextMonth from './EventsCalendarNextMonth';
+import EventsCalendarWeekdays from './EventsCalendarWeekdays';
 
 dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
 
 export default {
-  name: "EventsCalendar",
+  name: 'EventsCalendar',
   components: {
     EventsCalendarMonthDayItem,
     EventsCalendarDateIndicator,
     EventsCalendarWeekdays,
     EventsCalendarNextMonth,
-    EventsCalendarPreviousMonth
+    EventsCalendarPreviousMonth,
   },
   mixins: [fetchData],
   data() {
@@ -61,9 +61,9 @@ export default {
       // selected: null,
       selectedDay: null,
       loading: false,
-      error: "",
+      error: '',
       events: [],
-      selectedDate: dayjs()
+      selectedDate: dayjs(),
     };
   },
   computed: {
@@ -71,17 +71,17 @@ export default {
       return [
         ...this.previousMonthDays,
         ...this.currentMonthDays,
-        ...this.nextMonthDays
+        ...this.nextMonthDays,
       ];
     },
     today() {
-      return dayjs().format("YYYY-MM-DD");
+      return dayjs().format('YYYY-MM-DD');
     },
     month() {
-      return Number(this.selectedDate.format("M"));
+      return Number(this.selectedDate.format('M'));
     },
     year() {
-      return Number(this.selectedDate.format("YYYY"));
+      return Number(this.selectedDate.format('YYYY'));
     },
     numberOfDaysInMonth() {
       return dayjs(this.selectedDate).daysInMonth();
@@ -91,19 +91,19 @@ export default {
       return [...Array(this.numberOfDaysInMonth)].map((day, index) => {
         return {
           date: dayjs(`${this.year}-${this.month}-${index + 1}`).format(
-            "YYYY-MM-DD"
+            'YYYY-MM-DD',
           ),
-          isCurrentMonth: true
+          isCurrentMonth: true,
         };
       });
     },
     previousMonthDays() {
       const firstDayOfTheMonthWeekday = this.getWeekday(
-        this.currentMonthDays[0].date
+        this.currentMonthDays[0].date,
       );
       const previousMonth = dayjs(`${this.year}-${this.month}-01`).subtract(
         1,
-        "month"
+        'month',
       );
       // Cover first day of the month being sunday (firstDayOfTheMonthWeekday === 0)
       const visibleNumberOfDaysFromPreviousMonth = firstDayOfTheMonthWeekday
@@ -111,9 +111,9 @@ export default {
         : 6;
 
       const previousMonthLastMondayDayOfMonth = dayjs(
-        this.currentMonthDays[0].date
+        this.currentMonthDays[0].date,
       )
-        .subtract(visibleNumberOfDaysFromPreviousMonth, "day")
+        .subtract(visibleNumberOfDaysFromPreviousMonth, 'day')
         .date();
 
       return [...Array(visibleNumberOfDaysFromPreviousMonth)].map(
@@ -121,19 +121,19 @@ export default {
           return {
             date: dayjs(
               `${previousMonth.year()}-${previousMonth.month() +
-                1}-${previousMonthLastMondayDayOfMonth + index}`
-            ).format("YYYY-MM-DD"),
-            isCurrentMonth: false
+                1}-${previousMonthLastMondayDayOfMonth + index}`,
+            ).format('YYYY-MM-DD'),
+            isCurrentMonth: false,
           };
-        }
+        },
       );
     },
     nextMonthDays() {
       const lastDayOfTheMonthWeekday = this.getWeekday(
-        `${this.year}-${this.month}-${this.currentMonthDays.length}`
+        `${this.year}-${this.month}-${this.currentMonthDays.length}`,
       );
 
-      const nextMonth = dayjs(`${this.year}-${this.month}-01`).add(1, "month");
+      const nextMonth = dayjs(`${this.year}-${this.month}-01`).add(1, 'month');
 
       const visibleNumberOfDaysFromNextMonth = lastDayOfTheMonthWeekday
         ? 7 - lastDayOfTheMonthWeekday
@@ -142,12 +142,12 @@ export default {
       return [...Array(visibleNumberOfDaysFromNextMonth)].map((day, index) => {
         return {
           date: dayjs(
-            `${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`
-          ).format("YYYY-MM-DD"),
-          isCurrentMonth: false
+            `${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`,
+          ).format('YYYY-MM-DD'),
+          isCurrentMonth: false,
         };
       });
-    }
+    },
   },
   methods: {
     selectDate(newSelectedDate) {
@@ -160,9 +160,9 @@ export default {
       if (this.selectedDay != day) {
         this.selectedDay = day;
       } else {
-        this.selectedDay = "";
+        this.selectedDay = '';
       }
-    }
+    },
   },
   async created() {
     if (this.events && this.events.length > 0) return;
@@ -175,7 +175,7 @@ export default {
       .catch(error => {
         this.error = error;
       });
-  }
+  },
 };
 </script>
 
@@ -183,7 +183,7 @@ export default {
 .events-calendar {
   display: flex;
   flex-direction: column;
-  font-family: "Play", sans-serif;
+  font-family: 'Play', sans-serif;
   background-color: var(--grey-200);
   border-radius: 55px;
   border: solid 1px var(--grey-300);
@@ -199,7 +199,7 @@ export default {
   &-footer {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-areas: "previous . date date date . next";
+    grid-template-areas: 'previous . date date date . next';
     align-items: center;
     padding: 1rem;
     text-align: center;

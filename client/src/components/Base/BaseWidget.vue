@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "BaseWidget"
+  name: 'BaseWidget',
 };
 </script>
 

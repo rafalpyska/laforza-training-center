@@ -17,21 +17,21 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import ClassesList from "../components/Classes/ClassesList";
+import { mapGetters } from 'vuex';
+import ClassesList from '../components/Classes/ClassesList';
 
 export default {
-  name: "Classes",
+  name: 'Classes',
   components: {
-    ClassesList
+    ClassesList,
   },
   computed: {
-    ...mapGetters(["classesLoadingStatus", "classesErrorStatus", "classes"])
+    ...mapGetters(['classesLoadingStatus', 'classesErrorStatus', 'classes']),
   },
   async created() {
     if (this.classes && this.classes.length > 0) return;
-    await this.$store.dispatch("fetchClasses");
-  }
+    await this.$store.dispatch('fetchClasses');
+  },
 };
 </script>
 

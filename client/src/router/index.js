@@ -1,139 +1,140 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import store from "../store";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import store from '../store';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home,
   },
   {
-    path: "/about",
-    name: "About",
+    path: '/about',
+    name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
-    path: "/classes",
-    name: "Classes",
+    path: '/classes',
+    name: 'Classes',
     component: () =>
-      import(/* webpackChunkName: "classes" */ "../views/Classes.vue"),
+      import(/* webpackChunkName: "classes" */ '../views/Classes.vue'),
   },
   {
-    path: "/bundles",
-    name: "Bundles",
+    path: '/bundles',
+    name: 'Bundles',
     component: () =>
-      import(/* webpackChunkName: "prices" */ "../views/Bundles.vue"),
+      import(/* webpackChunkName: "prices" */ '../views/Bundles.vue'),
   },
   {
-    path: "/trainers/:page",
-    name: "Trainers",
+    path: '/trainers/:page',
+    name: 'Trainers',
     props: true,
     meta: { transitionName: `slide` },
     component: () =>
-      import(/* webpackChunkName: "trainer" */ "../views/Trainers.vue"),
+      import(/* webpackChunkName: "trainer" */ '../views/Trainers.vue'),
   },
   {
-    path: "/schedule",
-    name: "Schedule",
+    path: '/schedule',
+    name: 'Schedule',
     component: () =>
-      import(/* webpackChunkName: "schedule" */ "../views/Schedule.vue"),
+      import(/* webpackChunkName: "schedule" */ '../views/Schedule.vue'),
   },
   {
-    path: "/events",
-    name: "Events",
+    path: '/events',
+    name: 'Events',
     component: () =>
-      import(/* webpackChunkName: "events" */ "../views/Events.vue"),
+      import(/* webpackChunkName: "events" */ '../views/Events.vue'),
   },
   {
-    path: "/stories",
-    name: "Stories",
+    path: '/stories',
+    name: 'Stories',
     component: () =>
-      import(/* webpackChunkName: "stories" */ "../views/Stories.vue"),
+      import(/* webpackChunkName: "stories" */ '../views/Stories.vue'),
   },
   {
-    path: "/blog",
-    name: "Blog",
-    component: () => import(/* webpackChunkName: "blog" */ "../views/Blog.vue"),
+    path: '/blog',
+    name: 'Blog',
+    component: () => import(/* webpackChunkName: "blog" */ '../views/Blog.vue'),
     children: [
       {
-        path: "",
-        name: "BlogPostList",
+        path: '',
+        name: 'BlogPostList',
         component: () =>
           import(
-            /* webpackChunkName: "blog" */ "@/components/Blog/BlogPostsList.vue"
+            /* webpackChunkName: "blog" */ '@/components/Blog/BlogPostsList.vue'
           ),
         props: true,
       },
       {
-        path: "post/:slug",
-        name: "BlogPost",
+        path: 'post/:slug',
+        name: 'BlogPost',
         meta: { transitionName: `slide` },
         component: () =>
           import(
-            /* webpackChunkName: "blog" */ "@/components/Blog/BlogPost.vue"
+            /* webpackChunkName: "blog" */ '@/components/Blog/BlogPost.vue'
           ),
         props: true,
       },
     ],
   },
   {
-    path: "/contact",
-    name: "Contact",
+    path: '/contact',
+    name: 'Contact',
     component: () =>
-      import(/* webpackChunkName: "contact" */ "../views/Contact.vue"),
+      import(/* webpackChunkName: "contact" */ '../views/Contact.vue'),
   },
   {
-    path: "/cart",
-    name: "Cart",
-    component: () => import(/* webpackChunkName: "cart" */ "../views/Cart.vue"),
+    path: '/cart',
+    name: 'Cart',
+    component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue'),
   },
   {
-    path: "/checkout",
-    name: "Checkout",
-    component: () => import(/* webpackChunkName: "cart" */ "../views/Checkout.vue"),
-  },
-  {
-    path: "/register",
-    name: "Register",
+    path: '/checkout',
+    name: 'Checkout',
     component: () =>
-      import(/* webpackChunkName: "user" */ "../views/Register.vue"),
+      import(/* webpackChunkName: "cart" */ '../views/Checkout.vue'),
   },
   {
-    path: "/login",
-    name: "Login",
+    path: '/register',
+    name: 'Register',
     component: () =>
-      import(/* webpackChunkName: "user" */ "../views/Login.vue"),
+      import(/* webpackChunkName: "user" */ '../views/Register.vue'),
   },
   {
-    path: "/profile",
-    name: "Profile",
+    path: '/login',
+    name: 'Login',
     component: () =>
-      import(/* webpackChunkName: "user" */ "../views/Profile.vue"),
+      import(/* webpackChunkName: "user" */ '../views/Login.vue'),
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () =>
+      import(/* webpackChunkName: "user" */ '../views/Profile.vue'),
     meta: {
       requiresAuth: true,
     },
   },
   {
-    path: "/:pathMatch(.*)*",
-    name: "NotFound",
-    component: () => import(/* webpackChunkName: "404" */ "../views/404.vue"),
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "404" */ '../views/404.vue'),
   },
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes,
   scrollBehavior() {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       setTimeout(() => {
         resolve({ x: 0, y: 400 });
       }, 400);
@@ -143,7 +144,12 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if (requiresAuth && store.state.auth.isUserLoggedIn === false && store.state.auth.token === null) next('/login')
+  if (
+    requiresAuth &&
+    store.state.auth.isUserLoggedIn === false &&
+    store.state.auth.token === null
+  )
+    next('/login');
   else next();
 });
 

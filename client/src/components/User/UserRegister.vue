@@ -9,8 +9,10 @@
       {{ success }}
     </p>
     <ValidationObserver
-      ref="form" v-slot="{ handleSubmit, invalid }"
-      class="register__form" name="register-form"
+      ref="form"
+      v-slot="{ handleSubmit, invalid }"
+      class="register__form"
+      name="register-form"
       @submit.prevent="handleSubmit(submit)"
       tag="form"
     >
@@ -24,7 +26,11 @@
         tag="div"
       >
         <span :class="`is-${valid}`">
-          <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          <i
+            v-if="failed"
+            class="fas fa-exclamation-triangle"
+            aria-hidden="true"
+          ></i>
           {{ errors[0] }}
         </span>
         <input
@@ -47,7 +53,11 @@
         tag="div"
       >
         <span :class="`is-${valid}`">
-          <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          <i
+            v-if="failed"
+            class="fas fa-exclamation-triangle"
+            aria-hidden="true"
+          ></i>
           {{ errors[0] }}
         </span>
         <input
@@ -69,7 +79,11 @@
         tag="div"
       >
         <span :class="`is-${valid}`">
-          <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          <i
+            v-if="failed"
+            class="fas fa-exclamation-triangle"
+            aria-hidden="true"
+          ></i>
           {{ errors[0] }}
         </span>
         <input
@@ -81,9 +95,7 @@
           placeholder="Your password *"
         />
       </ValidationProvider>
-      <label class="visuallyhidden" for="user-register-submit"
-        >Register</label
-      >
+      <label class="visuallyhidden" for="user-register-submit">Register</label>
       <input
         id="user-register-submit"
         class="input input__submit"
@@ -99,10 +111,10 @@
 import { mapActions, mapGetters } from 'vuex';
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default {
-  name: "RegisterUser",
+  name: 'RegisterUser',
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   data() {
     return {
@@ -110,49 +122,49 @@ export default {
         username: '',
         email: '',
         password: '',
-      }
-    }
+      },
+    };
   },
   computed: {
     ...mapGetters({
       isAuthenticated: 'auth/isAuthenticated',
       error: 'auth/registerError',
-      success: 'auth/registerSuccessMessage'
-    })
+      success: 'auth/registerSuccessMessage',
+    }),
   },
   created() {
-    if(this.isAuthenticated) {
+    if (this.isAuthenticated) {
       this.$router.push('/');
     }
   },
   methods: {
     ...mapActions({
-      register: 'auth/register'
+      register: 'auth/register',
     }),
     async submit() {
-      if(this.form.username && this.form.email && this.form.password) {
-        await this.register(this.form)
+      if (this.form.username && this.form.email && this.form.password) {
+        await this.register(this.form);
         this.form.username = this.form.email = this.form.password = '';
         this.$nextTick(() => {
           this.$refs.form.reset();
-        })
+        });
       }
-    } 
-  }
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-  .is {
-    &-false {
-      display: block;
-      margin-bottom: .5rem;
-      color: red;
-    }
-    &-true {
-      display: block;
-      margin-bottom: .5rem;
-      color:white;
-    }
+.is {
+  &-false {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: red;
   }
+  &-true {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: white;
+  }
+}
 </style>

@@ -80,49 +80,49 @@
 </template>
 
 <script>
-import ImageItem from "../ImageItem";
-import SelectTrainer from "../SelectTrainer";
-import ClassesComplexityIndicator from "./ClassesComplexityIndicator";
+import ImageItem from '../ImageItem';
+import SelectTrainer from '../SelectTrainer';
+import ClassesComplexityIndicator from './ClassesComplexityIndicator';
 
 export default {
-  name: "ClassesList",
+  name: 'ClassesList',
   components: {
     ImageItem,
     SelectTrainer,
-    ClassesComplexityIndicator
+    ClassesComplexityIndicator,
   },
   props: {
     course: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      selectedTrainer: ""
+      selectedTrainer: '',
     };
   },
   methods: {
     addToCart() {
-      if (!this.selectedTrainer == "") {
-        this.$store.dispatch("addCourseToCart", {
+      if (!this.selectedTrainer == '') {
+        this.$store.dispatch('addCourseToCart', {
           id:
-            "_" +
+            '_' +
             Math.random()
               .toString(36)
               .substr(2, 9),
           course: this.course,
           quantity: 1,
-          trainer: this.selectedTrainer
+          trainer: this.selectedTrainer,
         });
-        this.$store.commit("ADD_CART_TO_LOCAL_STORAGE");
+        this.$store.commit('ADD_CART_TO_LOCAL_STORAGE');
         // this.$refs.popup.show = !this.$refs.popup.show;
       }
     },
     setSelectedTrainer(value) {
       this.selectedTrainer = value;
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -158,7 +158,7 @@ export default {
   &__description {
     margin: 1rem 0;
     &-price {
-      font-family: "Play", sans-serif;
+      font-family: 'Play', sans-serif;
       font-size: 1rem;
       margin-left: 0.75rem;
     }

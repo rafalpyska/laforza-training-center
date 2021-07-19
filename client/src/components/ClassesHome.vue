@@ -28,21 +28,21 @@
 </template>
 
 <script>
-import ImageItem from "./ImageItem";
+import ImageItem from './ImageItem';
 export default {
-  name: "ClassesHome",
+  name: 'ClassesHome',
   components: {
-    ImageItem
+    ImageItem,
   },
   props: {
     course: {
       type: Object,
-      required: true
+      required: true,
     },
     idx: {
-      type: Number
-    }
-  }
+      type: Number,
+    },
+  },
 };
 </script>
 
@@ -80,7 +80,7 @@ export default {
     }
   }
   &__heading {
-    font-family: "Play", sans-serif;
+    font-family: 'Play', sans-serif;
     font-size: 1.75em;
     text-transform: uppercase;
   }

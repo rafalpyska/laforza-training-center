@@ -12,11 +12,11 @@
   </section>
 </template>
 <script>
-import ShoppingCart from '@/components/Cart/ShoppingCart.vue'
+import ShoppingCart from '@/components/Cart/ShoppingCart.vue';
 export default {
-  name: "Cart",
+  name: 'Cart',
   components: {
-    ShoppingCart
-  }
+    ShoppingCart,
+  },
 };
 </script>

@@ -28,37 +28,36 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 import { getCookie } from '@/helpers/cookies';
-import TransitionPage from "@/transitions/TransitionPage";
-import TheHeader from "@/components/Single/TheHeader.vue";
-import TheFooter from "@/components/Single/TheFooter.vue";
+import TransitionPage from '@/transitions/TransitionPage';
+import TheHeader from '@/components/Single/TheHeader.vue';
+import TheFooter from '@/components/Single/TheFooter.vue';
 export default {
   components: {
     TheHeader,
     TheFooter,
-    TransitionPage
+    TransitionPage,
   },
   beforeCreate() {
-    this.$store.commit("INITIALISE_CART");
+    this.$store.commit('INITIALISE_CART');
   },
   created() {
-    axios.interceptors.response.use(undefined, function (err) {
-      return new Promise(function () {
+    axios.interceptors.response.use(undefined, function(err) {
+      return new Promise(function() {
         if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
-          this.$store.dispatch('auth/logout')
-          .then(() => {
+          this.$store.dispatch('auth/logout').then(() => {
             this.$router.push('/login');
-          })
+          });
         }
         throw err;
       });
     });
     const token = getCookie('jwt');
-    if(token) {
+    if (token) {
       this.$store.dispatch('auth/getUser');
     }
-    if(!token || this.$store.state.auth.isUserLoggedIn) {
+    if (!token || this.$store.state.auth.isUserLoggedIn) {
       this.$store.dispatch('auth/logout');
     }
   },
@@ -67,29 +66,29 @@ export default {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "smooth"
+        behavior: 'smooth',
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
 #app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-secondary);
 }
 .vueperslide {
   &__title {
-    font-family: "Play", sans-serif;
+    font-family: 'Play', sans-serif;
     text-transform: uppercase;
     font-size: 2rem;
     @media (max-width: 800px) {
@@ -100,7 +99,7 @@ export default {
     }
   }
   &__content {
-    font-family: "Play", sans-serif;
+    font-family: 'Play', sans-serif;
     text-transform: uppercase;
     font-size: 1.25em;
     @media (max-width: 800px) {

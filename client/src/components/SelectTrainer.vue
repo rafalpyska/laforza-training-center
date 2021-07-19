@@ -17,23 +17,23 @@
 
 <script>
 export default {
-  name: "SelectTrainer",
+  name: 'SelectTrainer',
   props: {
     course: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      selectedTrainer: ""
+      selectedTrainer: '',
     };
   },
   methods: {
     emitSelectedTrainer() {
-      this.$emit("selectedTrainer", this.selectedTrainer);
-    }
-  }
+      this.$emit('selectedTrainer', this.selectedTrainer);
+    },
+  },
 };
 </script>
 

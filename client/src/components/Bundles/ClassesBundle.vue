@@ -35,28 +35,28 @@
 
 <script>
 export default {
-  name: "ClassesBundle",
+  name: 'ClassesBundle',
   props: {
     bundle: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     addToCart() {
-      this.$store.dispatch("addCourseToCart", {
+      this.$store.dispatch('addCourseToCart', {
         id:
-          "_" +
+          '_' +
           Math.random()
             .toString(36)
             .substr(2, 9),
         course: this.bundle,
-        quantity: 1
+        quantity: 1,
       });
-      this.$store.commit("ADD_CART_TO_LOCAL_STORAGE");
+      this.$store.commit('ADD_CART_TO_LOCAL_STORAGE');
       // this.$refs.popup.show = !this.$refs.popup.show;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -84,7 +84,7 @@ export default {
     }
     &-price {
       &-container {
-        font-family: "Play", sans-serif;
+        font-family: 'Play', sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -106,7 +106,7 @@ export default {
       font-size: 0.65rem;
     }
     &-list {
-      font-family: "Play", sans-serif;
+      font-family: 'Play', sans-serif;
       flex: 1;
       text-align: center;
       margin-bottom: 2rem;

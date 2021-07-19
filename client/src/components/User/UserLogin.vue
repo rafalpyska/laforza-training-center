@@ -4,13 +4,27 @@
       <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
       {{ error.message }}
     </p>
-    <ValidationObserver v-slot="{ handleSubmit, invalid }" name="login-form" @submit.prevent="handleSubmit(submit)" tag="form">
+    <ValidationObserver
+      v-slot="{ handleSubmit, invalid }"
+      name="login-form"
+      @submit.prevent="handleSubmit(submit)"
+      tag="form"
+    >
       <label class="visuallyhidden" for="user-login-email"
         >Your email address</label
       >
-      <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors, failed, valid }" tag="div">
+      <ValidationProvider
+        name="E-mail"
+        rules="required|email"
+        v-slot="{ errors, failed, valid }"
+        tag="div"
+      >
         <span :class="`is-${valid}`">
-          <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          <i
+            v-if="failed"
+            class="fas fa-exclamation-triangle"
+            aria-hidden="true"
+          ></i>
           {{ errors[0] }}
         </span>
         <input
@@ -23,12 +37,19 @@
           required
         />
       </ValidationProvider>
-      <label class="visuallyhidden" for="user-login-password"
-        >Password</label
+      <label class="visuallyhidden" for="user-login-password">Password</label>
+      <ValidationProvider
+        name="Password"
+        v-slot="{ errors, failed, valid }"
+        rules="required"
+        tag="div"
       >
-      <ValidationProvider name="Password" v-slot="{ errors, failed, valid }" rules="required" tag="div">
         <span :class="`is-${valid}`">
-          <i v-if="failed" class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          <i
+            v-if="failed"
+            class="fas fa-exclamation-triangle"
+            aria-hidden="true"
+          ></i>
           {{ errors[0] }}
         </span>
         <input
@@ -41,9 +62,7 @@
           required
         />
       </ValidationProvider>
-      <label class="visuallyhidden" for="user-login-submit"
-        >Register</label
-      >
+      <label class="visuallyhidden" for="user-login-submit">Register</label>
       <input
         @click.prevent="submit"
         id="user-login-submit"
@@ -60,27 +79,27 @@
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default {
-  name: "UserLogin",
+  name: 'UserLogin',
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   data() {
     return {
       form: {
         identifier: '',
-        password: ''
-      }
-    }
+        password: '',
+      },
+    };
   },
   computed: {
     ...mapGetters({
       isAuthenticated: 'auth/isAuthenticated',
-      error: 'auth/loginError'
-    })
+      error: 'auth/loginError',
+    }),
   },
   created() {
-    if(this.isAuthenticated) {
+    if (this.isAuthenticated) {
       this.$router.push('/');
     }
   },
@@ -93,27 +112,26 @@ export default {
     }),
     async submit() {
       this.clearErrors();
-      if(this.form.identifier && this.form.password) {
-        await this.login(this.form)
-          .then(() => {
-            if(this.error === null) {
-              this.$router.push('/profile');
-            }
-          })
+      if (this.form.identifier && this.form.password) {
+        await this.login(this.form).then(() => {
+          if (this.error === null) {
+            this.$router.push('/profile');
+          }
+        });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-  .login-component {
-    min-width: 12rem;
-    max-width: 40rem;
-  }
-  .is-false {
-    display: block;
-    margin-bottom: .5rem;
-    color: red;
-  }
+.login-component {
+  min-width: 12rem;
+  max-width: 40rem;
+}
+.is-false {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: red;
+}
 </style>

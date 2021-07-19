@@ -12,25 +12,25 @@
 
 <script>
 export default {
-  name: "EventsCalendarWeekdays",
+  name: 'EventsCalendarWeekdays',
   data() {
     return {
       days: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ]
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
     };
   },
   computed: {
     weekdays() {
       return this.days;
-    }
-  }
+    },
+  },
 };
 </script>
 

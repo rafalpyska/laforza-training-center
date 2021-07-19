@@ -26,31 +26,31 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import TrainersList from "../components/Trainers/TrainersList";
+import { mapGetters } from 'vuex';
+import TrainersList from '../components/Trainers/TrainersList';
 
 export default {
-  name: "Trainers",
+  name: 'Trainers',
   components: {
-    TrainersList
+    TrainersList,
   },
   computed: {
     ...mapGetters([
-      "trainersLoadingStatus",
-      "trainersErrorStatus",
-      "trainers",
-      "pagination",
-      "pageNumber",
-      "pagesTotal"
-    ])
+      'trainersLoadingStatus',
+      'trainersErrorStatus',
+      'trainers',
+      'pagination',
+      'pageNumber',
+      'pagesTotal',
+    ]),
   },
   async created() {
-    await this.$store.dispatch("fetchTrainers", {
+    await this.$store.dispatch('fetchTrainers', {
       page: Number(this.$route.params.page),
       start: (Number(this.$route.params.page) - 1) * this.pagination.limit,
-      limit: this.pagination.limit
+      limit: this.pagination.limit,
     });
-  }
+  },
 };
 </script>
 

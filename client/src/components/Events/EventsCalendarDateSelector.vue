@@ -7,37 +7,37 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
 export default {
-  name: "EventsCalendarDateSelector",
+  name: 'EventsCalendarDateSelector',
   props: {
     currentDate: {
       type: String,
-      required: true
+      required: true,
     },
     selectedDate: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   methods: {
     selectPrevious() {
-      let newSelectedDate = dayjs(this.selectedDate).subtract(1, "month");
-      this.$emit("dateSelected", newSelectedDate);
+      let newSelectedDate = dayjs(this.selectedDate).subtract(1, 'month');
+      this.$emit('dateSelected', newSelectedDate);
     },
 
     selectCurrent() {
       let newSelectedDate = dayjs(this.currentDate);
-      this.$emit("dateSelected", newSelectedDate);
+      this.$emit('dateSelected', newSelectedDate);
     },
 
     selectNext() {
-      let newSelectedDate = dayjs(this.selectedDate).add(1, "month");
-      this.$emit("dateSelected", newSelectedDate);
-    }
-  }
+      let newSelectedDate = dayjs(this.selectedDate).add(1, 'month');
+      this.$emit('dateSelected', newSelectedDate);
+    },
+  },
 };
 </script>
 

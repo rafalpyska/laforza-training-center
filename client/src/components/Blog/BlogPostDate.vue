@@ -7,37 +7,37 @@
 
 <script>
 export default {
-  name: "BlogPostDate",
+  name: 'BlogPostDate',
   props: {
     post: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      day: this.post.publishedAt.split("-")[2],
-      month: this.post.publishedAt.split("-")[1]
+      day: this.post.publishedAt.split('-')[2],
+      month: this.post.publishedAt.split('-')[1],
     };
   },
   methods: {
     monthName(month) {
       return [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "June",
-        "July",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec"
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'June',
+        'July',
+        'Aug',
+        'Sept',
+        'Oct',
+        'Nov',
+        'Dec',
       ][month - 1];
-    }
-  }
+    },
+  },
 };
 </script>
 

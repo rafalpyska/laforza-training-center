@@ -17,7 +17,7 @@ export default {
     return {
       transitionName: DEFAULT_TRANSITION,
       transitionMode: DEFAULT_TRANSITION_MODE,
-      transitionEnterActiveClass: ``
+      transitionEnterActiveClass: ``,
     };
   },
   created() {
@@ -36,7 +36,7 @@ export default {
       this.transitionName = transitionName;
       next();
     });
-  }
+  },
 };
 </script>
 

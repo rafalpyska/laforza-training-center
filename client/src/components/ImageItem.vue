@@ -12,26 +12,26 @@
 </template>
 <script>
 export default {
-  name: "ImageItem",
+  name: 'ImageItem',
   props: {
     source: {
       type: String,
-      required: true
+      required: true,
     },
     alt: {
       type: String,
-      required: true
+      required: true,
     },
     width: {
       type: String,
-      default: null
+      default: null,
     },
     height: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
-  inheritAttrs: false
+  inheritAttrs: false,
 };
 </script>
 <style scoped lang="scss">

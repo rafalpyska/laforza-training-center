@@ -4,19 +4,19 @@
 
 <script>
 export default {
-  name: "EventsCalendarDateIndicator",
+  name: 'EventsCalendarDateIndicator',
   props: {
     selectedDate: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
     selectedMonth() {
-      return this.selectedDate.format("MMMM YYYY");
-    }
-  }
+      return this.selectedDate.format('MMMM YYYY');
+    },
+  },
 };
 </script>
 

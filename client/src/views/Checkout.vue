@@ -14,13 +14,11 @@
 <script>
 import ShoppingCheckout from '@/components/Cart/ShoppingCheckout.vue';
 export default {
-  name: "Login",
+  name: 'Login',
   components: {
-    ShoppingCheckout
-  }
+    ShoppingCheckout,
+  },
 };
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

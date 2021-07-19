@@ -58,16 +58,16 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import TrainersMiniProfile from "../components/Trainers/TrainersMiniProfile";
-import { Hooper, Slide, Pagination as HooperPagination } from "hooper";
+import { mapGetters } from 'vuex';
+import TrainersMiniProfile from '../components/Trainers/TrainersMiniProfile';
+import { Hooper, Slide, Pagination as HooperPagination } from 'hooper';
 export default {
-  name: "About",
+  name: 'About',
   components: {
     TrainersMiniProfile,
     Hooper,
     Slide,
-    HooperPagination
+    HooperPagination,
   },
   data() {
     return {
@@ -77,29 +77,29 @@ export default {
         infiniteScroll: true,
         breakpoints: {
           300: {
-            itemsToShow: 1
+            itemsToShow: 1,
           },
           800: {
-            itemsToShow: 3
+            itemsToShow: 3,
           },
           1280: {
             itemsToShow: 4,
-            pagination: "fraction"
-          }
-        }
-      }
+            pagination: 'fraction',
+          },
+        },
+      },
     };
   },
   computed: {
-    ...mapGetters(["trainersLoadingStatus", "trainersErrorStatus", "trainers"])
+    ...mapGetters(['trainersLoadingStatus', 'trainersErrorStatus', 'trainers']),
   },
   async mounted() {
-    await this.$store.dispatch("fetchTrainers", {
+    await this.$store.dispatch('fetchTrainers', {
       start: 0,
       limit: this.limit,
-      page: 1
+      page: 1,
     });
-  }
+  },
 };
 </script>
 

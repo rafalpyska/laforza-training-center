@@ -1,6 +1,6 @@
 export default {
   state: {
-    cart: []
+    cart: [],
   },
   getters: {
     cart(state) {
@@ -15,12 +15,12 @@ export default {
         total += item.course.price * item.quantity;
       });
       return total;
-    }
+    },
   },
   mutations: {
     INITIALISE_CART(state) {
-      if (localStorage.getItem("cart")) {
-        Object.assign(state.cart, JSON.parse(localStorage.getItem("cart")));
+      if (localStorage.getItem('cart')) {
+        Object.assign(state.cart, JSON.parse(localStorage.getItem('cart')));
       }
     },
     ADD_TO_CART(state, { course, quantity, trainer, id }) {
@@ -36,25 +36,25 @@ export default {
         id,
         course,
         quantity,
-        trainer
+        trainer,
       });
     },
     REMOVE_COURSE_FROM_CART(state, id) {
       state.cart = state.cart.filter(item => {
         return item.id !== id;
       });
-      this.commit("ADD_CART_TO_LOCAL_STORAGE");
+      this.commit('ADD_CART_TO_LOCAL_STORAGE');
     },
     ADD_CART_TO_LOCAL_STORAGE(state) {
-      localStorage.setItem("cart", JSON.stringify(state.cart));
-    }
+      localStorage.setItem('cart', JSON.stringify(state.cart));
+    },
   },
   actions: {
     addCourseToCart({ commit }, { course, quantity, trainer, id }) {
-      commit("ADD_TO_CART", { course, quantity, trainer, id });
+      commit('ADD_TO_CART', { course, quantity, trainer, id });
     },
     removeCourseFromCart({ commit }, id) {
-      commit("REMOVE_COURSE_FROM_CART", id);
-    }
-  }
+      commit('REMOVE_COURSE_FROM_CART', id);
+    },
+  },
 };

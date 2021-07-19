@@ -3,14 +3,14 @@
     class="events-calendar-day"
     :class="{
       'events-calendar-day--not-current': !day.isCurrentMonth,
-      'events-calendar-day--today': isToday
+      'events-calendar-day--today': isToday,
     }"
     ref="day"
   >
     <span
       class="events-calendar__label-day"
       :class="{
-        'events-calendar__label-day-today': isToday
+        'events-calendar__label-day-today': isToday,
       }"
     >
       {{ label }}
@@ -23,9 +23,9 @@
         >{{ event.title }}, start:
         {{
           event.startHour
-            .split(":")
+            .split(':')
             .splice(0, 2)
-            .join(":")
+            .join(':')
         }}
       </span>
       <EventsInfo
@@ -40,39 +40,39 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
-import EventsInfo from "./EventsInfo";
+import dayjs from 'dayjs';
+import EventsInfo from './EventsInfo';
 export default {
-  name: "EventsCalendarMonthDayItem",
+  name: 'EventsCalendarMonthDayItem',
   components: {
-    EventsInfo
+    EventsInfo,
   },
   props: {
     day: {
       type: Object,
-      required: true
+      required: true,
     },
 
     isCurrentMonth: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     isToday: {
       type: Boolean,
-      default: false
+      default: false,
     },
     events: {
       type: Array,
-      required: true
+      required: true,
     },
-    isSelected: {}
+    isSelected: {},
   },
   computed: {
     label() {
-      return dayjs(this.day.date).format("D");
-    }
-  }
+      return dayjs(this.day.date).format('D');
+    },
+  },
 };
 </script>
 
